@@ -7,6 +7,7 @@ from vkbottle_types.objects import OrdersAmountItem
 
 
 class OrdersAmountResponseModel(BaseModel):
+
     amounts: typing.Optional[typing.List[OrdersAmountItem]] = Field(
         default=None,
     )
@@ -22,6 +23,7 @@ class OrdersAmountResponse(BaseResponse):
 
 
 class OrdersAmountItemResponseModel(BaseModel):
+
     amount: typing.Optional[float] = Field(
         default=None,
         description="Votes amount in user's currency",
@@ -43,6 +45,7 @@ class OrdersAmountItemResponse(BaseResponse):
 
 
 class OrdersOrderResponseModel(BaseModel):
+
     amount: str = Field(
         description="Amount",
     )
@@ -93,6 +96,7 @@ class OrdersOrderResponse(BaseResponse):
 
 
 class OrdersSubscriptionResponseModel(BaseModel):
+
     create_time: int = Field(
         description="Date of creation in Unixtime",
     )

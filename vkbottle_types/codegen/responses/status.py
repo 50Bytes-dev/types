@@ -7,6 +7,7 @@ from vkbottle_types.objects import AudioAudio
 
 
 class StatusStatusResponseModel(BaseModel):
+
     text: str = Field(
         description="Status text",
     )

@@ -4,18 +4,19 @@ from vkbottle_types.responses.base_response import BaseResponse, BaseModel
 from vkbottle_types.base_model import Field
 
 from vkbottle_types.objects import (
-    PhotosPhotoSizesType,
-    BaseBoolInt,
-    DocsDocPreviewAudioMsg,
-    DocsDocPreview,
-    DocsDocPreviewVideo,
     DocsDocPreviewPhoto,
+    PhotosPhotoSizesType,
+    DocsDocPreviewVideo,
+    DocsDocPreview,
     DocsDocPreviewPhotoSizes,
+    BaseBoolInt,
     DocsDocPreviewGraffiti,
+    DocsDocPreviewAudioMsg,
 )
 
 
 class DocsDocResponseModel(BaseModel):
+
     id: int = Field(
         description="Document ID",
     )
@@ -73,6 +74,7 @@ class DocsDocResponse(BaseResponse):
 
 
 class DocsDocAttachmentTypeResponseModel(enum.Enum):
+
     DOC = "doc"
 
     GRAFFITI = "graffiti"
@@ -85,6 +87,7 @@ class DocsDocAttachmentTypeResponse(BaseResponse):
 
 
 class DocsDocPreviewResponseModel(BaseModel):
+
     audio_msg: typing.Optional["DocsDocPreviewAudioMsg"] = Field(
         default=None,
     )
@@ -107,6 +110,7 @@ class DocsDocPreviewResponse(BaseResponse):
 
 
 class DocsDocPreviewAudioMsgResponseModel(BaseModel):
+
     duration: int = Field(
         description="Audio message duration in seconds",
     )
@@ -127,6 +131,7 @@ class DocsDocPreviewAudioMsgResponse(BaseResponse):
 
 
 class DocsDocPreviewGraffitiResponseModel(BaseModel):
+
     src: str = Field(
         description="Graffiti file URL",
     )
@@ -145,6 +150,7 @@ class DocsDocPreviewGraffitiResponse(BaseResponse):
 
 
 class DocsDocPreviewPhotoResponseModel(BaseModel):
+
     sizes: typing.Optional[typing.List[DocsDocPreviewPhotoSizes]] = Field(
         default=None,
     )
@@ -155,6 +161,7 @@ class DocsDocPreviewPhotoResponse(BaseResponse):
 
 
 class DocsDocPreviewPhotoSizesResponseModel(BaseModel):
+
     src: str = Field(
         description="URL of the image",
     )
@@ -175,6 +182,7 @@ class DocsDocPreviewPhotoSizesResponse(BaseResponse):
 
 
 class DocsDocPreviewVideoResponseModel(BaseModel):
+
     src: str = Field(
         description="Video URL",
     )
@@ -197,6 +205,7 @@ class DocsDocPreviewVideoResponse(BaseResponse):
 
 
 class DocsDocTypesResponseModel(BaseModel):
+
     id: int = Field(
         description="Doc type ID",
     )

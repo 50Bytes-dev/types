@@ -7,6 +7,7 @@ from vkbottle_types.responses.base import OkResponse
 
 
 class AccountCategory(BaseCategory):
+
     async def ban(
         self,
         owner_id: typing.Optional[int] = None,
@@ -87,6 +88,7 @@ class AccountCategory(BaseCategory):
         self,
         offset: typing.Optional[int] = None,
         count: typing.Optional[int] = 20,
+        fields: typing.Optional[typing.List[BaseUserGroupFields]] = None,
         **kwargs,
     ) -> AccountGetBannedResponseModel:
         """account.getBanned method
@@ -94,6 +96,7 @@ class AccountCategory(BaseCategory):
 
         :param offset: Offset needed to return a specific subset of results.
         :param count: Number of results to return.
+        :param fields: Additional fields of [vk.com/dev/fields|profiles] and [vk.com/dev/fields_groups|communities] to return.
         """
         params = self.get_set_params(locals())
         response = await self.api.request("account.ban", params)

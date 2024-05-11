@@ -7,6 +7,7 @@ from vkbottle_types.objects import WallWallComment
 
 
 class CommentThreadResponseModel(BaseModel):
+
     count: int = Field(
         description="Comments number",
     )
@@ -28,6 +29,11 @@ class CommentThreadResponseModel(BaseModel):
     groups_can_post: typing.Optional[bool] = Field(
         default=None,
         description="Information whether groups can comment the post",
+    )
+
+    author_replied: typing.Optional[bool] = Field(
+        default=None,
+        description="Information whether author commented the thread",
     )
 
 

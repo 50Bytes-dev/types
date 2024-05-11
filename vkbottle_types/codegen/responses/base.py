@@ -4,36 +4,36 @@ from vkbottle_types.responses.base_response import BaseResponse, BaseModel
 from vkbottle_types.base_model import Field
 
 from vkbottle_types.objects import (
-    BaseLinkButtonAction,
-    BaseLinkApplicationStore,
-    BaseLinkButtonActionType,
-    BaseLinkButton,
-    MarketPrice,
-    BaseLinkProduct,
-    BaseImage,
-    BaseStickerAnimation,
-    BaseRequestParam,
-    PhotosPhoto,
-    BaseGeoCoordinates,
-    BaseLinkProductStatus,
-    BaseStickerNew,
-    BaseLinkRating,
-    BaseCropPhotoRect,
-    BaseLinkButtonStyle,
-    WallWallComment,
-    BasePlace,
-    BaseLinkProductCategory,
     BaseLinkApplication,
+    WallWallpostCommentsDonut,
+    WallWallComment,
+    BaseGeoCoordinates,
+    BaseCropPhotoCrop,
+    BaseCropPhotoRect,
+    BaseLinkApplicationStore,
+    BaseRequestParam,
+    BaseLinkProduct,
+    MarketPrice,
+    BaseLinkRating,
+    BaseLinkProductCategory,
+    BaseLinkButtonAction,
+    BaseImage,
+    BaseLinkButtonStyle,
+    BaseLinkProductStatus,
+    PhotosPhoto,
+    BasePlace,
+    VideoVideoFull,
+    BaseLinkButtonActionType,
+    BaseStickerAnimation,
+    BaseLinkButton,
     BaseBoolInt,
     LinkTargetObject,
-    VideoVideoFull,
-    WallWallpostCommentsDonut,
-    BaseCropPhotoCrop,
     BaseOwnerCoverCropParams,
 )
 
 
 class BaseBoolIntResponseModel(enum.IntEnum):
+
     NO = 0
 
     YES = 1
@@ -44,6 +44,7 @@ class BaseBoolIntResponse(BaseResponse):
 
 
 class BaseCityResponseModel(BaseModel):
+
     id: int = Field(
         description="City ID",
     )
@@ -58,6 +59,7 @@ class BaseCityResponse(BaseResponse):
 
 
 class BaseCommentsInfoResponseModel(BaseModel):
+
     can_post: typing.Optional[bool] = Field(
         default=None,
         description="Information whether current user can comment the post",
@@ -100,6 +102,7 @@ class BaseCommentsInfoResponse(BaseResponse):
 
 
 class BaseCountryResponseModel(BaseModel):
+
     id: int = Field(
         description="Country ID",
     )
@@ -114,6 +117,7 @@ class BaseCountryResponse(BaseResponse):
 
 
 class BaseCropPhotoResponseModel(BaseModel):
+
     photo: "PhotosPhoto" = Field()
 
     crop: "BaseCropPhotoCrop" = Field()
@@ -126,6 +130,7 @@ class BaseCropPhotoResponse(BaseResponse):
 
 
 class BaseCropPhotoCropResponseModel(BaseModel):
+
     x: float = Field(
         description="Coordinate X of the left upper corner",
     )
@@ -148,6 +153,7 @@ class BaseCropPhotoCropResponse(BaseResponse):
 
 
 class BaseCropPhotoRectResponseModel(BaseModel):
+
     x: float = Field(
         description="Coordinate X of the left upper corner",
     )
@@ -170,6 +176,9 @@ class BaseCropPhotoRectResponse(BaseResponse):
 
 
 class BaseErrorResponseModel(BaseModel):
+
+    inner_type: typing.Literal["base_error"] = Field()
+
     error_code: int = Field(
         description="Error code",
     )
@@ -199,6 +208,7 @@ class BaseErrorResponse(BaseResponse):
 
 
 class BaseGeoResponseModel(BaseModel):
+
     coordinates: typing.Optional["BaseGeoCoordinates"] = Field(
         default=None,
     )
@@ -223,6 +233,7 @@ class BaseGeoResponse(BaseResponse):
 
 
 class BaseGeoCoordinatesResponseModel(BaseModel):
+
     latitude: float = Field()
 
     longitude: float = Field()
@@ -233,6 +244,7 @@ class BaseGeoCoordinatesResponse(BaseResponse):
 
 
 class BaseGradientPointResponseModel(BaseModel):
+
     color: str = Field(
         description="Hex color code without #",
     )
@@ -247,6 +259,7 @@ class BaseGradientPointResponse(BaseResponse):
 
 
 class BaseImageResponseModel(BaseModel):
+
     url: str = Field(
         description="Image url",
     )
@@ -273,6 +286,7 @@ class BaseImageResponse(BaseResponse):
 
 
 class BaseLangResponseModel(enum.Enum):
+
     RU = "ru"
 
     UA = "ua"
@@ -295,6 +309,7 @@ class BaseLangResponse(BaseResponse):
 
 
 class BaseLikesResponseModel(BaseModel):
+
     count: typing.Optional[int] = Field(
         default=None,
         description="Likes number",
@@ -311,6 +326,7 @@ class BaseLikesResponse(BaseResponse):
 
 
 class BaseLikesInfoResponseModel(BaseModel):
+
     can_like: bool = Field(
         description="Information whether current user can like the post",
     )
@@ -328,6 +344,26 @@ class BaseLikesInfoResponseModel(BaseModel):
         description="Information whether current user can repost",
     )
 
+    can_like_as_author: typing.Optional[bool] = Field(
+        default=None,
+        description="Whether user can like comment as author",
+    )
+
+    can_like_by_group: typing.Optional[bool] = Field(
+        default=None,
+        description="Whether current owner of the group can like the reply",
+    )
+
+    author_liked: typing.Optional[bool] = Field(
+        default=None,
+        description="Information whether post author liked the reply",
+    )
+
+    group_liked: typing.Optional[bool] = Field(
+        default=None,
+        description="Information whether group liked the reply",
+    )
+
     repost_disabled: typing.Optional[bool] = Field(
         default=None,
         description="Remove repost feature for post",
@@ -339,6 +375,7 @@ class BaseLikesInfoResponse(BaseResponse):
 
 
 class BaseLinkResponseModel(BaseLinkNoProduct):
+
     text: typing.Optional[str] = Field(
         default=None,
     )
@@ -353,6 +390,7 @@ class BaseLinkResponse(BaseResponse):
 
 
 class BaseLinkApplicationResponseModel(BaseModel):
+
     app_id: typing.Optional[float] = Field(
         default=None,
         description="Application Id",
@@ -368,6 +406,7 @@ class BaseLinkApplicationResponse(BaseResponse):
 
 
 class BaseLinkApplicationStoreResponseModel(BaseModel):
+
     id: typing.Optional[float] = Field(
         default=None,
         description="Store Id",
@@ -384,6 +423,7 @@ class BaseLinkApplicationStoreResponse(BaseResponse):
 
 
 class BaseLinkButtonResponseModel(BaseModel):
+
     action: typing.Optional["BaseLinkButtonAction"] = Field(
         default=None,
         description="Button action",
@@ -447,6 +487,7 @@ class BaseLinkButtonResponse(BaseResponse):
 
 
 class BaseLinkButtonActionResponseModel(BaseModel):
+
     type: "BaseLinkButtonActionType" = Field()
 
     url: typing.Optional[str] = Field(
@@ -464,6 +505,7 @@ class BaseLinkButtonActionResponse(BaseResponse):
 
 
 class BaseLinkButtonActionTypeResponseModel(enum.Enum):
+
     OPEN_URL = "open_url"
 
     MARKET_CLEAR_RECENT_QUERIES = "market_clear_recent_queries"
@@ -478,12 +520,15 @@ class BaseLinkButtonActionTypeResponseModel(enum.Enum):
 
     ONBOARDING = "onboarding"
 
+    SHOW_FILTERS = "show_filters"
+
 
 class BaseLinkButtonActionTypeResponse(BaseResponse):
     response: "BaseLinkButtonActionTypeResponseModel"
 
 
 class BaseLinkButtonStyleResponseModel(enum.Enum):
+
     PRIMARY = "primary"
 
     SECONDARY = "secondary"
@@ -494,6 +539,7 @@ class BaseLinkButtonStyleResponse(BaseResponse):
 
 
 class BaseLinkNoProductResponseModel(BaseModel):
+
     url: str = Field(
         description="Link URL",
     )
@@ -568,6 +614,7 @@ class BaseLinkNoProductResponse(BaseResponse):
 
 
 class BaseLinkProductResponseModel(BaseModel):
+
     price: "MarketPrice" = Field()
 
     merchant: typing.Optional[str] = Field(
@@ -608,6 +655,7 @@ class BaseLinkProductResponse(BaseResponse):
 
 
 class BaseLinkProductCategoryResponseModel(BaseModel):
+
     pass
 
 
@@ -616,6 +664,7 @@ class BaseLinkProductCategoryResponse(BaseResponse):
 
 
 class BaseLinkProductStatusResponseModel(enum.Enum):
+
     ACTIVE = "active"
 
     BLOCKED = "blocked"
@@ -632,6 +681,7 @@ class BaseLinkProductStatusResponse(BaseResponse):
 
 
 class BaseLinkRatingResponseModel(BaseModel):
+
     reviews_count: typing.Optional[int] = Field(
         default=None,
         description="Count of reviews",
@@ -652,6 +702,7 @@ class BaseLinkRatingResponse(BaseResponse):
 
 
 class BaseMessageErrorResponseModel(BaseModel):
+
     code: typing.Optional[int] = Field(
         default=None,
         description="Error code",
@@ -668,6 +719,7 @@ class BaseMessageErrorResponse(BaseResponse):
 
 
 class BaseNameCaseResponseModel(enum.Enum):
+
     NOM = "Nom"
 
     GEN = "Gen"
@@ -686,6 +738,7 @@ class BaseNameCaseResponse(BaseResponse):
 
 
 class BaseObjectResponseModel(BaseModel):
+
     id: int = Field(
         description="Object ID",
     )
@@ -700,6 +753,7 @@ class BaseObjectResponse(BaseResponse):
 
 
 class BaseObjectCountResponseModel(BaseModel):
+
     count: typing.Optional[int] = Field(
         default=None,
         description="Items count",
@@ -711,6 +765,7 @@ class BaseObjectCountResponse(BaseResponse):
 
 
 class BaseObjectWithNameResponseModel(BaseModel):
+
     id: int = Field(
         description="Object ID",
     )
@@ -725,6 +780,7 @@ class BaseObjectWithNameResponse(BaseResponse):
 
 
 class BaseOwnerCoverResponseModel(BaseModel):
+
     enabled: bool = Field(
         description="Information whether cover is enabled",
     )
@@ -751,6 +807,7 @@ class BaseOwnerCoverResponse(BaseResponse):
 
 
 class BaseOwnerCoverCropParamsResponseModel(BaseModel):
+
     x: typing.Optional[int] = Field(
         default=None,
     )
@@ -773,6 +830,7 @@ class BaseOwnerCoverCropParamsResponse(BaseResponse):
 
 
 class BasePlaceResponseModel(BaseModel):
+
     address: typing.Optional[str] = Field(
         default=None,
         description="Place address",
@@ -781,11 +839,6 @@ class BasePlaceResponseModel(BaseModel):
     checkins: typing.Optional[int] = Field(
         default=None,
         description="Checkins number",
-    )
-
-    city: typing.Optional[str] = Field(
-        default=None,
-        description="City name",
     )
 
     country: typing.Optional[str] = Field(
@@ -834,6 +887,7 @@ class BasePlaceResponse(BaseResponse):
 
 
 class BasePropertyExistsResponseModel(enum.IntEnum):
+
     PROPERTY_EXISTS = 1
 
 
@@ -842,6 +896,7 @@ class BasePropertyExistsResponse(BaseResponse):
 
 
 class BaseRepostsInfoResponseModel(BaseModel):
+
     count: int = Field(
         description="Total reposts counter. Sum of wall and mail reposts counters",
     )
@@ -867,6 +922,7 @@ class BaseRepostsInfoResponse(BaseResponse):
 
 
 class BaseRequestParamResponseModel(BaseModel):
+
     key: str = Field(
         description="Parameter name",
     )
@@ -881,6 +937,7 @@ class BaseRequestParamResponse(BaseResponse):
 
 
 class BaseSexResponseModel(enum.IntEnum):
+
     UNKNOWN = 0
 
     FEMALE = 1
@@ -893,6 +950,7 @@ class BaseSexResponse(BaseResponse):
 
 
 class BaseStickerResponseModel(BaseModel):
+
     pass
 
 
@@ -901,6 +959,7 @@ class BaseStickerResponse(BaseResponse):
 
 
 class BaseStickerAnimationResponseModel(BaseModel):
+
     type: typing.Optional[typing.Literal["light", "dark"]] = Field(
         default=None,
         description="Type of animation script",
@@ -917,6 +976,9 @@ class BaseStickerAnimationResponse(BaseResponse):
 
 
 class BaseStickerNewResponseModel(BaseModel):
+
+    inner_type: typing.Literal["base_sticker_new"] = Field()
+
     sticker_id: typing.Optional[int] = Field(
         default=None,
         description="Sticker ID",
@@ -955,70 +1017,8 @@ class BaseStickerNewResponse(BaseResponse):
     response: "BaseStickerNewResponseModel"
 
 
-class BaseStickerOldResponseModel(BaseModel):
-    id: typing.Optional[int] = Field(
-        default=None,
-        description="Sticker ID",
-    )
-
-    product_id: typing.Optional[int] = Field(
-        default=None,
-        description="Pack ID",
-    )
-
-    width: typing.Optional[int] = Field(
-        default=None,
-        description="Width in px",
-    )
-
-    height: typing.Optional[int] = Field(
-        default=None,
-        description="Height in px",
-    )
-
-    photo_128: typing.Optional[str] = Field(
-        default=None,
-        description="URL of the preview image with 128 px in height",
-    )
-
-    photo_256: typing.Optional[str] = Field(
-        default=None,
-        description="URL of the preview image with 256 px in height",
-    )
-
-    photo_352: typing.Optional[str] = Field(
-        default=None,
-        description="URL of the preview image with 352 px in height",
-    )
-
-    photo_512: typing.Optional[str] = Field(
-        default=None,
-        description="URL of the preview image with 512 px in height",
-    )
-
-    photo_64: typing.Optional[str] = Field(
-        default=None,
-        description="URL of the preview image with 64 px in height",
-    )
-
-    is_allowed: typing.Optional[bool] = Field(
-        default=None,
-        description="Information whether the sticker is allowed",
-    )
-
-
-class BaseStickerOldResponse(BaseResponse):
-    response: "BaseStickerOldResponseModel"
-
-
-BaseStickersListResponseModel = typing.List["BaseStickerNew"]
-
-
-class BaseStickersListResponse(BaseResponse):
-    response: "BaseStickersListResponseModel"
-
-
 class BaseUploadServerResponseModel(BaseModel):
+
     upload_url: str = Field(
         description="Upload URL",
     )
@@ -1029,6 +1029,7 @@ class BaseUploadServerResponse(BaseResponse):
 
 
 class BaseUserGroupFieldsResponseModel(enum.Enum):
+
     ABOUT = "about"
 
     ACTION_BUTTON = "action_button"
@@ -1084,8 +1085,6 @@ class BaseUserGroupFieldsResponseModel(enum.Enum):
     CONTACTS = "contacts"
 
     COUNTERS = "counters"
-
-    COUNTRY = "country"
 
     COVER = "cover"
 
@@ -1265,12 +1264,15 @@ class BaseUserGroupFieldsResponseModel(enum.Enum):
 
     IS_NFT_PHOTO = "is_nft_photo"
 
+    IS_VERIFIED = "is_verified"
+
 
 class BaseUserGroupFieldsResponse(BaseResponse):
     response: "BaseUserGroupFieldsResponseModel"
 
 
 class BaseUserIdResponseModel(BaseModel):
+
     user_id: typing.Optional[int] = Field(
         default=None,
         description="User ID",

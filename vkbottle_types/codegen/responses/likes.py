@@ -5,6 +5,7 @@ from vkbottle_types.base_model import Field
 
 
 class LikesTypeResponseModel(enum.Enum):
+
     POST = "post"
 
     COMMENT = "comment"

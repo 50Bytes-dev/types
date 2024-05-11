@@ -7,6 +7,7 @@ from vkbottle_types.responses.base import OkResponse
 
 
 class DownloadedGamesCategory(BaseCategory):
+
     async def get_paid_status(
         self,
         user_id: typing.Optional[int] = None,

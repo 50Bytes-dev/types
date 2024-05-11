@@ -7,6 +7,7 @@ from vkbottle_types.responses.base import OkResponse
 
 
 class NotesCategory(BaseCategory):
+
     async def add(
         self,
         title: str,

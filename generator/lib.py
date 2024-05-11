@@ -2,10 +2,10 @@ import requests
 from tqdm import tqdm
 import json
 from .data import Category, factory
-from .types import get_complex_type
+from .generator_types import get_complex_type
 from .utility import camelcase, snake_case, makesafe, instring
 from .data import Definition, Objects
-from . import types
+from . import generator_types
 import pathlib
 import jinja2
 
@@ -219,7 +219,7 @@ def generate_methods(category: Category, path: str):
 
 def generate_responses(category: Category, path: str):
     definitions = get_definitions(category.objects)
-    types.IMPORTS_CACHE = set()
+    generator_types.IMPORTS_CACHE = set()
     with open(
         pathlib.Path(path, "responses", snake_case(category.name) + ".py"), "w"
     ) as fs:
@@ -227,9 +227,14 @@ def generate_responses(category: Category, path: str):
         generated = template.render(definitions=definitions)
         generated = generated.replace(
             "### IMPORTS",
-            ("from vkbottle_types.objects import " + ", ".join(types.IMPORTS_CACHE))
-            if types.IMPORTS_CACHE
-            else "",
+            (
+                (
+                    "from vkbottle_types.objects import "
+                    + ", ".join(generator_types.IMPORTS_CACHE)
+                )
+                if generator_types.IMPORTS_CACHE
+                else ""
+            ),
         )
         fs.write(generated)
 
@@ -241,12 +246,14 @@ def reorder_definitions(
     s = sorted(definitions, key=l_bases_f)
     s = sorted(
         definitions,
-        key=lambda d: 0
-        if not l_bases_f(d)
-        else (
-            1
-            + CATEGORIES.index(d[2].name)
-            + any(b.lower().startswith(d[2].name.lower()) for b in d[1].get_bases())
+        key=lambda d: (
+            0
+            if not l_bases_f(d)
+            else (
+                1
+                + CATEGORIES.index(d[2].name)
+                + any(b.lower().startswith(d[2].name.lower()) for b in d[1].get_bases())
+            )
         ),
     )
     return s
@@ -277,6 +284,8 @@ def get_definitions(objects: Objects) -> list[tuple[str, Definition]]:
     definitions = {}
 
     for definition_name, definition in objects.definitions.items():
+        definition["name"] = camelcase(definition_name)
+
         if "properties" in definition:
             if isinstance(definition["properties"], dict):
                 definition["properties"] = parse_properties(

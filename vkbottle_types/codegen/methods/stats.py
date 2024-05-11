@@ -7,6 +7,7 @@ from vkbottle_types.responses.base import OkResponse
 
 
 class StatsCategory(BaseCategory):
+
     async def get(
         self,
         group_id: typing.Optional[int] = None,
@@ -61,9 +62,14 @@ class StatsCategory(BaseCategory):
 
     async def track_visitor(
         self,
+        type: typing.Optional[str] = "open",
         **kwargs,
     ) -> BaseOkResponseModel:
-        """stats.trackVisitor method"""
+        """stats.trackVisitor method
+
+
+        :param type:
+        """
         params = self.get_set_params(locals())
         response = await self.api.request("account.ban", params)
 

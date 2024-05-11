@@ -1,3 +1,5 @@
+print(__package__)
+
 from .lib import get_schema_cli, apply_patches, generate_schema, process_schema
 
 

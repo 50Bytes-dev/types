@@ -7,6 +7,7 @@ from vkbottle_types.objects import BaseImage
 
 
 class StickersImageSetResponseModel(BaseModel):
+
     base_url: str = Field(
         description="Base URL for images in set",
     )

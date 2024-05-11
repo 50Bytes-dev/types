@@ -4,51 +4,52 @@ from vkbottle_types.responses.base_response import BaseResponse, BaseModel
 from vkbottle_types.base_model import Field
 
 from vkbottle_types.objects import (
-    WallGraffiti,
-    VideoVideoAlbumFull,
-    MarketMarketItem,
-    WallWallpostAttachment,
-    BaseRepostsInfo,
-    NotesNote,
-    WallPostedPhoto,
-    WallWallpostDonutPlaceholder,
-    WallPostType,
-    BaseSticker,
-    PagesWikipageFull,
-    CommentThread,
-    WallWallpostDonut,
-    PhotosPhotoAlbum,
-    BaseLikesInfo,
-    WallViews,
-    GroupsGroupAttach,
-    WallPostSource,
-    BaseCommentsInfo,
-    WallWallCommentDonut,
-    PollsPoll,
-    WallAppPost,
-    EventsEventAttach,
-    WallWallCommentDonutPlaceholder,
-    WallGeo,
-    MarketMarketAlbum,
-    WallWallpostFull,
-    PhotosPhoto,
-    WallWallpostCommentsDonutPlaceholder,
-    BaseLink,
-    WallWallpostAttachmentType,
-    VideoVideo,
-    WallAttachedNote,
-    WallPostCopyright,
-    WallPostSourceType,
-    BaseBoolInt,
     DocsDoc,
+    VideoVideo,
+    WallPostSource,
+    WallPostedPhoto,
+    WallWallpostFull,
+    WallAppPost,
+    NotesNote,
+    PagesWikipageFull,
+    WallPostSourceType,
+    BaseSticker,
+    WallWallpostAttachment,
+    CommentThread,
+    WallWallpostCommentsDonutPlaceholder,
+    MarketMarketItem,
+    WallPostType,
+    WallAttachedNote,
+    WallGeo,
+    WallWallpostAttachmentType,
+    PhotosPhotoAlbum,
+    GroupsGroupAttach,
+    PollsPoll,
+    NewsfeedItemWallpostFeedback,
+    BaseRepostsInfo,
     AudioAudio,
+    BaseCommentsInfo,
+    VideoVideoAlbumFull,
+    PhotosPhoto,
+    BaseLikesInfo,
     VideoVideoFull,
     WallCommentAttachmentType,
-    NewsfeedItemWallpostFeedback,
+    BaseLink,
+    WallPostCopyright,
+    WallViews,
+    WallGraffiti,
+    WallWallpostDonut,
+    WallWallpostDonutPlaceholder,
+    MarketMarketAlbum,
+    BaseBoolInt,
+    WallWallCommentDonutPlaceholder,
+    EventsEventAttach,
+    WallWallCommentDonut,
 )
 
 
 class WallAppPostResponseModel(BaseModel):
+
     id: typing.Optional[int] = Field(
         default=None,
         description="Application ID",
@@ -75,6 +76,7 @@ class WallAppPostResponse(BaseResponse):
 
 
 class WallAttachedNoteResponseModel(BaseModel):
+
     comments: int = Field(
         description="Comments number",
     )
@@ -131,6 +133,7 @@ class WallAttachedNoteResponse(BaseResponse):
 
 
 class WallCarouselBaseResponseModel(BaseModel):
+
     carousel_offset: typing.Optional[int] = Field(
         default=None,
         description="Index of current carousel element",
@@ -142,6 +145,7 @@ class WallCarouselBaseResponse(BaseResponse):
 
 
 class WallCommentAttachmentResponseModel(BaseModel):
+
     type: "WallCommentAttachmentType" = Field()
 
     audio: typing.Optional["AudioAudio"] = Field(
@@ -194,6 +198,7 @@ class WallCommentAttachmentResponse(BaseResponse):
 
 
 class WallCommentAttachmentTypeResponseModel(enum.Enum):
+
     PHOTO = "photo"
 
     AUDIO = "audio"
@@ -224,6 +229,7 @@ class WallCommentAttachmentTypeResponse(BaseResponse):
 
 
 class WallGeoResponseModel(BaseModel):
+
     coordinates: typing.Optional[str] = Field(
         default=None,
         description="Coordinates as string. <latitude> <longtitude>",
@@ -245,6 +251,7 @@ class WallGeoResponse(BaseResponse):
 
 
 class WallGetFilterResponseModel(enum.Enum):
+
     OWNER = "owner"
 
     OTHERS = "others"
@@ -265,6 +272,7 @@ class WallGetFilterResponse(BaseResponse):
 
 
 class WallGraffitiResponseModel(BaseModel):
+
     id: typing.Optional[int] = Field(
         default=None,
         description="Graffiti ID",
@@ -311,6 +319,7 @@ class WallGraffitiResponse(BaseResponse):
 
 
 class WallPostCopyrightResponseModel(BaseModel):
+
     link: str = Field()
 
     name: str = Field()
@@ -327,6 +336,7 @@ class WallPostCopyrightResponse(BaseResponse):
 
 
 class WallPostSourceResponseModel(BaseModel):
+
     data: typing.Optional[str] = Field(
         default=None,
         description="Additional data",
@@ -356,6 +366,7 @@ class WallPostSourceResponse(BaseResponse):
 
 
 class WallPostSourceTypeResponseModel(enum.Enum):
+
     VK = "vk"
 
     WIDGET = "widget"
@@ -374,6 +385,7 @@ class WallPostSourceTypeResponse(BaseResponse):
 
 
 class WallPostTypeResponseModel(enum.Enum):
+
     POST = "post"
 
     COPY = "copy"
@@ -390,12 +402,15 @@ class WallPostTypeResponseModel(enum.Enum):
 
     VIDEO = "video"
 
+    CLIP = "clip"
+
 
 class WallPostTypeResponse(BaseResponse):
     response: "WallPostTypeResponseModel"
 
 
 class WallPostedPhotoResponseModel(BaseModel):
+
     id: typing.Optional[int] = Field(
         default=None,
         description="Photo ID",
@@ -422,6 +437,7 @@ class WallPostedPhotoResponse(BaseResponse):
 
 
 class WallViewsResponseModel(BaseModel):
+
     count: typing.Optional[int] = Field(
         default=None,
         description="Count",
@@ -433,6 +449,7 @@ class WallViewsResponse(BaseResponse):
 
 
 class WallWallCommentResponseModel(BaseModel):
+
     id: int = Field(
         description="Comment ID",
     )
@@ -504,6 +521,11 @@ class WallWallCommentResponseModel(BaseModel):
         default=None,
     )
 
+    is_from_post_author: typing.Optional[bool] = Field(
+        default=None,
+        description="Whether post is by author of the post or not",
+    )
+
     deleted: typing.Optional[bool] = Field(
         default=None,
     )
@@ -519,6 +541,7 @@ class WallWallCommentResponse(BaseResponse):
 
 
 class WallWallCommentDonutResponseModel(BaseModel):
+
     is_don: typing.Optional[bool] = Field(
         default=None,
         description="Means commentator is donator",
@@ -534,6 +557,7 @@ class WallWallCommentDonutResponse(BaseResponse):
 
 
 class WallWallCommentDonutPlaceholderResponseModel(BaseModel):
+
     text: str = Field()
 
 
@@ -542,6 +566,7 @@ class WallWallCommentDonutPlaceholderResponse(BaseResponse):
 
 
 class WallWallItemResponseModel(BaseModel):
+
     pass
 
 
@@ -550,6 +575,9 @@ class WallWallItemResponse(BaseResponse):
 
 
 class WallWallpostResponseModel(BaseModel):
+
+    inner_type: typing.Literal["wall_wallpost"] = Field()
+
     access_key: typing.Optional[str] = Field(
         default=None,
         description="Access key to private object",
@@ -564,6 +592,10 @@ class WallWallpostResponseModel(BaseModel):
     )
 
     deleted_details: typing.Optional[str] = Field(
+        default=None,
+    )
+
+    donut_miniapp_url: typing.Optional[str] = Field(
         default=None,
     )
 
@@ -663,6 +695,7 @@ class WallWallpostResponse(BaseResponse):
 
 
 class WallWallpostAttachmentResponseModel(BaseModel):
+
     type: "WallWallpostAttachmentType" = Field()
 
     access_key: typing.Optional[str] = Field(
@@ -734,6 +767,10 @@ class WallWallpostAttachmentResponseModel(BaseModel):
         default=None,
     )
 
+    clip: typing.Optional["VideoVideoFull"] = Field(
+        default=None,
+    )
+
     video_playlist: typing.Optional["VideoVideoAlbumFull"] = Field(
         default=None,
     )
@@ -744,6 +781,7 @@ class WallWallpostAttachmentResponse(BaseResponse):
 
 
 class WallWallpostAttachmentTypeResponseModel(enum.Enum):
+
     PHOTO = "photo"
 
     PHOTOS_LIST = "photos_list"
@@ -755,6 +793,8 @@ class WallWallpostAttachmentTypeResponseModel(enum.Enum):
     AUDIO_PLAYLIST = "audio_playlist"
 
     VIDEO = "video"
+
+    CLIP = "clip"
 
     VIDEO_PLAYLIST = "video_playlist"
 
@@ -804,6 +844,7 @@ class WallWallpostAttachmentTypeResponse(BaseResponse):
 
 
 class WallWallpostCommentsDonutResponseModel(BaseModel):
+
     placeholder: typing.Optional["WallWallpostCommentsDonutPlaceholder"] = Field(
         default=None,
     )
@@ -814,6 +855,7 @@ class WallWallpostCommentsDonutResponse(BaseResponse):
 
 
 class WallWallpostCommentsDonutPlaceholderResponseModel(BaseModel):
+
     text: str = Field()
 
 
@@ -822,6 +864,7 @@ class WallWallpostCommentsDonutPlaceholderResponse(BaseResponse):
 
 
 class WallWallpostDonutResponseModel(BaseModel):
+
     is_donut: bool = Field(
         description="Post only for dons",
     )
@@ -852,6 +895,7 @@ class WallWallpostDonutResponse(BaseResponse):
 
 
 class WallWallpostDonutPlaceholderResponseModel(BaseModel):
+
     text: str = Field()
 
 
@@ -860,6 +904,7 @@ class WallWallpostDonutPlaceholderResponse(BaseResponse):
 
 
 class WallWallpostFullResponseModel(WallCarouselBase, WallWallpost):
+
     copy_history: typing.Optional[typing.List[WallWallpostFull]] = Field(
         default=None,
     )

@@ -7,6 +7,7 @@ from vkbottle_types.responses.base import OkResponse
 
 
 class WallCategory(BaseCategory):
+
     async def check_copyright_link(
         self,
         link: str,
@@ -119,7 +120,6 @@ class WallCategory(BaseCategory):
         friends_only: typing.Optional[bool] = None,
         message: typing.Optional[str] = None,
         attachments: typing.Optional[typing.List[str]] = None,
-        primary_attachments: typing.Optional[typing.List[str]] = None,
         services: typing.Optional[str] = None,
         signed: typing.Optional[bool] = None,
         publish_date: typing.Optional[int] = None,
@@ -144,7 +144,6 @@ class WallCategory(BaseCategory):
         :param friends_only:
         :param message: (Required if 'attachments' is not set.) Text of the post.
         :param attachments: (Required if 'message' is not set.) List of objects attached to the post, in the following format: "<owner_id>_<media_id>,<owner_id>_<media_id>", '' - Type of media attachment: 'photo' - photo, 'video' - video, 'audio' - audio, 'doc' - document, '<owner_id>' - ID of the media application owner. '<media_id>' - Media application ID. Example: "photo100172_166443618,photo66748_265827614", May contain a link to an external page to include in the post. Example: "photo66748_265827614,http://habrahabr.ru", "NOTE: If more than one link is being attached, an error is thrown."
-        :param primary_attachments:
         :param services:
         :param signed:
         :param publish_date:
@@ -233,20 +232,17 @@ class WallCategory(BaseCategory):
     async def get(
         self,
         extended: typing.Literal[True] = True,
-        owner_id: typing.Optional[int] = None,
-        domain: typing.Optional[str] = None,
+        domain: typing.Optional[typing.Union["int", "str"]] = None,
         offset: typing.Optional[int] = None,
         count: typing.Optional[int] = None,
         filter: typing.Optional[str] = None,
         fields: typing.Optional[typing.List[BaseUserGroupFields]] = None,
         **kwargs,
-    ) -> WallGetExtendedResponseModel:
-        ...
+    ) -> WallGetExtendedResponseModel: ...
 
     async def get(
         self,
-        owner_id: typing.Optional[int] = None,
-        domain: typing.Optional[str] = None,
+        domain: typing.Optional[typing.Union["int", "str"]] = None,
         offset: typing.Optional[int] = None,
         count: typing.Optional[int] = None,
         filter: typing.Optional[str] = None,
@@ -257,7 +253,6 @@ class WallCategory(BaseCategory):
         """wall.get method
 
 
-        :param owner_id: ID of the user or community that owns the wall. By default, current user ID. Use a negative value to designate a community ID.
         :param domain: User or community short address.
         :param offset: Offset needed to return a specific subset of posts.
         :param count: Number of posts to return (maximum 100).
@@ -284,8 +279,7 @@ class WallCategory(BaseCategory):
         copy_history_depth: typing.Optional[int] = 2,
         fields: typing.Optional[typing.List[BaseUserGroupFields]] = None,
         **kwargs,
-    ) -> WallGetByIdExtendedResponseModel:
-        ...
+    ) -> WallGetByIdExtendedResponseModel: ...
 
     async def get_by_id(
         self,
@@ -322,8 +316,7 @@ class WallCategory(BaseCategory):
         owner_id: typing.Optional[int] = None,
         fields: typing.Optional[typing.List[BaseUserGroupFields]] = None,
         **kwargs,
-    ) -> WallGetCommentExtendedResponseModel:
-        ...
+    ) -> WallGetCommentExtendedResponseModel: ...
 
     async def get_comment(
         self,
@@ -368,8 +361,7 @@ class WallCategory(BaseCategory):
         comment_id: typing.Optional[int] = None,
         thread_items_count: typing.Optional[int] = 0,
         **kwargs,
-    ) -> WallGetCommentsExtendedResponseModel:
-        ...
+    ) -> WallGetCommentsExtendedResponseModel: ...
 
     async def get_comments(
         self,
@@ -456,6 +448,29 @@ class WallCategory(BaseCategory):
 
         return model(**response).response
 
+    async def parse_attached_link(
+        self,
+        links: str,
+        extended: typing.Optional[bool] = 0,
+        fields: typing.Optional[typing.List[str]] = None,
+        name_case: typing.Optional[str] = None,
+        **kwargs,
+    ) -> WallParseAttachedLinkResponseModel:
+        """wall.parseAttachedLink method
+
+
+        :param links:
+        :param extended:
+        :param fields:
+        :param name_case:
+        """
+        params = self.get_set_params(locals())
+        response = await self.api.request("account.ban", params)
+
+        model = WallParseAttachedLinkResponse
+
+        return model(**response).response
+
     async def pin(
         self,
         post_id: int,
@@ -482,7 +497,6 @@ class WallCategory(BaseCategory):
         from_group: typing.Optional[bool] = None,
         message: typing.Optional[str] = None,
         attachments: typing.Optional[typing.List[str]] = None,
-        primary_attachments: typing.Optional[typing.List[str]] = None,
         services: typing.Optional[str] = None,
         signed: typing.Optional[bool] = None,
         publish_date: typing.Optional[int] = None,
@@ -492,11 +506,12 @@ class WallCategory(BaseCategory):
         post_id: typing.Optional[int] = None,
         guid: typing.Optional[str] = None,
         mark_as_ads: typing.Optional[bool] = 0,
+        link_title: typing.Optional[str] = None,
+        link_photo_id: typing.Optional[str] = None,
         close_comments: typing.Optional[bool] = None,
         donut_paid_duration: typing.Optional[int] = None,
         mute_notifications: typing.Optional[bool] = None,
         copyright: typing.Optional[str] = None,
-        topic_id: typing.Optional[int] = None,
         **kwargs,
     ) -> WallPostResponseModel:
         """wall.post method
@@ -507,7 +522,6 @@ class WallCategory(BaseCategory):
         :param from_group: For a community: '1' - post will be published by the community, '0' - post will be published by the user (default)
         :param message: (Required if 'attachments' is not set.) Text of the post.
         :param attachments: (Required if 'message' is not set.) List of objects attached to the post, in the following format: "<owner_id>_<media_id>,<owner_id>_<media_id>", '' - Type of media attachment: 'photo' - photo, 'video' - video, 'audio' - audio, 'doc' - document, 'page' - wiki-page, 'note' - note, 'poll' - poll, 'album' - photo album, '<owner_id>' - ID of the media application owner. '<media_id>' - Media application ID. Example: "photo100172_166443618,photo66748_265827614", May contain a link to an external page to include in the post. Example: "photo66748_265827614,http://habrahabr.ru", "NOTE: If more than one link is being attached, an error will be thrown."
-        :param primary_attachments:
         :param services: List of services or websites the update will be exported to, if the user has so requested. Sample values: 'twitter', 'facebook'.
         :param signed: Only for posts in communities with 'from_group' set to '1': '1' - post will be signed with the name of the posting user, '0' - post will not be signed (default)
         :param publish_date: Publication date (in Unix time). If used, posting will be delayed until the set time.
@@ -517,11 +531,12 @@ class WallCategory(BaseCategory):
         :param post_id: Post ID. Used for publishing of scheduled and suggested posts.
         :param guid:
         :param mark_as_ads:
+        :param link_title:
+        :param link_photo_id:
         :param close_comments:
         :param donut_paid_duration:
         :param mute_notifications:
         :param copyright:
-        :param topic_id: Topic ID. Allowed values can be obtained from newsfeed.getPostTopics method
         """
         params = self.get_set_params(locals())
         response = await self.api.request("account.ban", params)
@@ -573,7 +588,7 @@ class WallCategory(BaseCategory):
         self,
         owner_id: int,
         comment_id: int,
-        reason: typing.Optional[int] = None,
+        reason: int,
         **kwargs,
     ) -> BaseOkResponseModel:
         """wall.reportComment method
@@ -594,7 +609,7 @@ class WallCategory(BaseCategory):
         self,
         owner_id: int,
         post_id: int,
-        reason: typing.Optional[int] = None,
+        reason: int,
         **kwargs,
     ) -> BaseOkResponseModel:
         """wall.reportPost method
@@ -678,21 +693,18 @@ class WallCategory(BaseCategory):
     async def search(
         self,
         extended: typing.Literal[True] = True,
-        owner_id: typing.Optional[int] = None,
-        domain: typing.Optional[str] = None,
+        domain: typing.Optional[typing.Union["int", "str"]] = None,
         query: typing.Optional[str] = None,
         owners_only: typing.Optional[bool] = None,
         count: typing.Optional[int] = 20,
         offset: typing.Optional[int] = 0,
         fields: typing.Optional[typing.List[BaseUserGroupFields]] = None,
         **kwargs,
-    ) -> WallSearchExtendedResponseModel:
-        ...
+    ) -> WallSearchExtendedResponseModel: ...
 
     async def search(
         self,
-        owner_id: typing.Optional[int] = None,
-        domain: typing.Optional[str] = None,
+        domain: typing.Optional[typing.Union["int", "str"]] = None,
         query: typing.Optional[str] = None,
         owners_only: typing.Optional[bool] = None,
         count: typing.Optional[int] = 20,
@@ -704,7 +716,6 @@ class WallCategory(BaseCategory):
         """wall.search method
 
 
-        :param owner_id: user or community id. "Remember that for a community 'owner_id' must be negative."
         :param domain: user or community screen name.
         :param query: search query string.
         :param owners_only: '1' - returns only page owner's posts.

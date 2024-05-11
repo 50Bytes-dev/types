@@ -7,6 +7,7 @@ from vkbottle_types.objects import BaseImage, AppWidgetsPhoto
 
 
 class AppWidgetsPhotoResponseModel(BaseModel):
+
     id: str = Field(
         description="Image ID",
     )
@@ -19,6 +20,7 @@ class AppWidgetsPhotoResponse(BaseResponse):
 
 
 class AppWidgetsPhotosResponseModel(BaseModel):
+
     count: typing.Optional[int] = Field(
         default=None,
     )

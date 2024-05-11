@@ -5,6 +5,7 @@ from vkbottle_types.base_model import Field
 
 
 class AudioAudioResponseModel(BaseModel):
+
     artist: str = Field(
         description="Artist name",
     )
@@ -33,6 +34,11 @@ class AudioAudioResponseModel(BaseModel):
     url: typing.Optional[str] = Field(
         default=None,
         description="URL of mp3 file",
+    )
+
+    stream_duration: typing.Optional[int] = Field(
+        default=None,
+        description="Stream duration in seconds",
     )
 
     date: typing.Optional[int] = Field(

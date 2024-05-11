@@ -7,6 +7,7 @@ from vkbottle_types.responses.base import OkResponse
 
 
 class MessagesCategory(BaseCategory):
+
     async def add_chat_user(
         self,
         chat_id: int,
@@ -91,6 +92,7 @@ class MessagesCategory(BaseCategory):
         self,
         message_ids: typing.Optional[typing.List[int]] = None,
         spam: typing.Optional[bool] = None,
+        reason: typing.Optional[int] = None,
         group_id: typing.Optional[int] = None,
         delete_for_all: typing.Optional[bool] = 0,
         peer_id: typing.Optional[int] = None,
@@ -102,6 +104,7 @@ class MessagesCategory(BaseCategory):
 
         :param message_ids: Message IDs.
         :param spam: '1' - to mark message as spam.
+        :param reason: Reason for spam
         :param group_id: Group ID (for group messages with user access token)
         :param delete_for_all: '1' - delete message for for all.
         :param peer_id: Destination ID. "For user: 'User ID', e.g. '12345'. For chat: '2000000000' + 'chat_id', e.g. '2000000001'. For community: '- community ID', e.g. '-12345'. "
@@ -261,8 +264,7 @@ class MessagesCategory(BaseCategory):
         fields: typing.Optional[typing.List[UsersFields]] = None,
         group_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> MessagesGetByConversationMessageIdExtendedResponseModel:
-        ...
+    ) -> MessagesGetByConversationMessageIdExtendedResponseModel: ...
 
     async def get_by_conversation_message_id(
         self,
@@ -304,8 +306,7 @@ class MessagesCategory(BaseCategory):
         cmids: typing.Optional[typing.List[int]] = None,
         peer_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> MessagesGetByIdExtendedResponseModel:
-        ...
+    ) -> MessagesGetByIdExtendedResponseModel: ...
 
     async def get_by_id(
         self,
@@ -348,8 +349,7 @@ class MessagesCategory(BaseCategory):
         chat_ids: typing.Optional[typing.List[int]] = None,
         name_case: typing.Optional[str] = None,
         **kwargs,
-    ) -> MessagesGetChatFieldsResponseModel:
-        ...
+    ) -> MessagesGetChatFieldsResponseModel: ...
 
     @typing.overload
     async def get_chat(
@@ -359,8 +359,7 @@ class MessagesCategory(BaseCategory):
         fields: typing.Optional[typing.List[UsersFields]] = None,
         name_case: typing.Optional[str] = None,
         **kwargs,
-    ) -> MessagesGetChatChatIdsResponseModel:
-        ...
+    ) -> MessagesGetChatChatIdsResponseModel: ...
 
     @typing.overload
     async def get_chat(
@@ -370,8 +369,7 @@ class MessagesCategory(BaseCategory):
         chat_id: typing.Optional[int] = None,
         name_case: typing.Optional[str] = None,
         **kwargs,
-    ) -> MessagesGetChatChatIdsFieldsResponseModel:
-        ...
+    ) -> MessagesGetChatChatIdsFieldsResponseModel: ...
 
     async def get_chat(
         self,
@@ -439,6 +437,7 @@ class MessagesCategory(BaseCategory):
         extended: typing.Optional[bool] = None,
         fields: typing.Optional[typing.List[UsersFields]] = None,
         group_id: typing.Optional[int] = None,
+        member_ids: typing.Optional[typing.List[int]] = None,
         **kwargs,
     ) -> MessagesGetConversationMembersResponseModel:
         """messages.getConversationMembers method
@@ -450,6 +449,7 @@ class MessagesCategory(BaseCategory):
         :param extended: Extended flag
         :param fields: Profile fields to return.
         :param group_id: Group ID (for group messages with group access token)
+        :param member_ids:
         """
         params = self.get_set_params(locals())
         response = await self.api.request("account.ban", params)
@@ -495,8 +495,7 @@ class MessagesCategory(BaseCategory):
         fields: typing.Optional[typing.List[BaseUserGroupFields]] = None,
         group_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> MessagesGetConversationsByIdExtendedResponseModel:
-        ...
+    ) -> MessagesGetConversationsByIdExtendedResponseModel: ...
 
     async def get_conversations_by_id(
         self,
@@ -538,8 +537,7 @@ class MessagesCategory(BaseCategory):
         fields: typing.Optional[typing.List[UsersFields]] = None,
         group_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> MessagesGetHistoryExtendedResponseModel:
-        ...
+    ) -> MessagesGetHistoryExtendedResponseModel: ...
 
     async def get_history(
         self,
@@ -590,6 +588,7 @@ class MessagesCategory(BaseCategory):
         extended: typing.Optional[bool] = 0,
         fields: typing.Optional[typing.List[UsersFields]] = None,
         max_forwards_level: typing.Optional[int] = 45,
+        message_video: typing.Optional[bool] = 0,
         media_type: typing.Optional[str] = "photo",
         start_from: typing.Optional[str] = None,
         preserve_order: typing.Optional[bool] = None,
@@ -609,6 +608,7 @@ class MessagesCategory(BaseCategory):
         :param extended:
         :param fields: Additional profile [vk.com/dev/fields|fields] to return.
         :param max_forwards_level:
+        :param message_video:
         :param media_type: Type of media files to return: *'photo',, *'video',, *'audio',, *'doc',, *'link'.,*'market'.,*'wall'.,*'share'
         :param start_from: Message ID to start return results from.
         :param preserve_order:
@@ -632,8 +632,7 @@ class MessagesCategory(BaseCategory):
         fields: typing.Optional[typing.List[BaseUserGroupFields]] = None,
         group_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> MessagesGetImportantMessagesExtendedResponseModel:
-        ...
+    ) -> MessagesGetImportantMessagesExtendedResponseModel: ...
 
     async def get_important_messages(
         self,
@@ -675,7 +674,7 @@ class MessagesCategory(BaseCategory):
         offset: typing.Optional[int] = 0,
         count: typing.Optional[int] = 20,
         extended: typing.Optional[bool] = None,
-        name_case: typing.Optional[typing.List[str]] = None,
+        name_case: typing.Optional[str] = None,
         fields: typing.Optional[typing.List[str]] = None,
         **kwargs,
     ) -> MessagesGetIntentUsersResponseModel:
@@ -697,6 +696,15 @@ class MessagesCategory(BaseCategory):
 
         return model(**response).response
 
+    @typing.overload
+    async def get_invite_link(
+        self,
+        peer_id: int,
+        reset: typing.Optional[bool] = 0,
+        group_id: typing.Optional[int] = None,
+        **kwargs,
+    ) -> MessagesGetInviteLinkByOwnerResponseModel: ...
+
     async def get_invite_link(
         self,
         peer_id: int,
@@ -714,7 +722,11 @@ class MessagesCategory(BaseCategory):
         params = self.get_set_params(locals())
         response = await self.api.request("account.ban", params)
 
-        model = MessagesGetInviteLinkResponse
+        model = self.get_model(
+            ((("response_by_owner",), MessagesGetInviteLinkByOwnerResponse),),
+            default=MessagesGetInviteLinkResponse,
+            params=params,
+        )
 
         return model(**response).response
 
@@ -1077,8 +1089,7 @@ class MessagesCategory(BaseCategory):
         fields: typing.Optional[typing.List[str]] = None,
         group_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> MessagesSearchExtendedResponseModel:
-        ...
+    ) -> MessagesSearchExtendedResponseModel: ...
 
     async def search(
         self,
@@ -1126,8 +1137,7 @@ class MessagesCategory(BaseCategory):
         fields: typing.Optional[typing.List[UsersFields]] = None,
         group_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> MessagesSearchConversationsExtendedResponseModel:
-        ...
+    ) -> MessagesSearchConversationsExtendedResponseModel: ...
 
     async def search_conversations(
         self,
@@ -1185,8 +1195,7 @@ class MessagesCategory(BaseCategory):
         intent: typing.Optional[str] = "default",
         subscribe_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> MessagesSendDeprecatedResponseModel:
-        ...
+    ) -> MessagesSendDeprecatedResponseModel: ...
 
     @typing.overload
     async def send(
@@ -1215,8 +1224,7 @@ class MessagesCategory(BaseCategory):
         intent: typing.Optional[str] = "default",
         subscribe_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> MessagesSendUserIdsResponseModel:
-        ...
+    ) -> MessagesSendUserIdsResponseModel: ...
 
     async def send(
         self,

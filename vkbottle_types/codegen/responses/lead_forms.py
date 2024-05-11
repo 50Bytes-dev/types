@@ -4,15 +4,16 @@ from vkbottle_types.responses.base_response import BaseResponse, BaseModel
 from vkbottle_types.base_model import Field
 
 from vkbottle_types.objects import (
-    LeadFormsAnswer,
+    LeadFormsAnswerOneOf,
     LeadFormsQuestionItem,
     BaseBoolInt,
+    LeadFormsAnswer,
     LeadFormsQuestionItemOption,
-    LeadFormsAnswerOneOf,
 )
 
 
 class LeadFormsAnswerResponseModel(BaseModel):
+
     key: str = Field()
 
     answer: "LeadFormsAnswerOneOf" = Field()
@@ -23,6 +24,7 @@ class LeadFormsAnswerResponse(BaseResponse):
 
 
 class LeadFormsAnswerItemResponseModel(BaseModel):
+
     value: str = Field()
 
     key: typing.Optional[str] = Field(
@@ -35,6 +37,7 @@ class LeadFormsAnswerItemResponse(BaseResponse):
 
 
 class LeadFormsAnswerOneOfResponseModel(BaseModel):
+
     pass
 
 
@@ -43,6 +46,7 @@ class LeadFormsAnswerOneOfResponse(BaseResponse):
 
 
 class LeadFormsFormResponseModel(BaseModel):
+
     form_id: int = Field()
 
     group_id: int = Field()
@@ -109,6 +113,7 @@ class LeadFormsFormResponse(BaseResponse):
 
 
 class LeadFormsLeadResponseModel(BaseModel):
+
     lead_id: int = Field()
 
     user_id: int = Field()
@@ -127,6 +132,7 @@ class LeadFormsLeadResponse(BaseResponse):
 
 
 class LeadFormsQuestionItemResponseModel(BaseModel):
+
     key: str = Field()
 
     type: typing.Literal["input", "textarea", "radio", "checkbox", "select"] = Field()
@@ -146,6 +152,7 @@ class LeadFormsQuestionItemResponse(BaseResponse):
 
 
 class LeadFormsQuestionItemOptionResponseModel(BaseModel):
+
     label: str = Field()
 
     key: typing.Optional[str] = Field(

@@ -7,6 +7,7 @@ from vkbottle_types.responses.base import OkResponse
 
 
 class AdsCategory(BaseCategory):
+
     async def add_office_users(
         self,
         account_id: int,
@@ -295,11 +296,11 @@ class AdsCategory(BaseCategory):
     async def get_ads(
         self,
         account_id: int,
-        ad_ids: typing.Optional[str] = None,
-        campaign_ids: typing.Optional[str] = None,
         client_id: typing.Optional[int] = None,
         include_deleted: typing.Optional[bool] = None,
         only_deleted: typing.Optional[bool] = None,
+        campaign_ids: typing.Optional[str] = None,
+        ad_ids: typing.Optional[str] = None,
         limit: typing.Optional[int] = None,
         offset: typing.Optional[int] = None,
         **kwargs,
@@ -308,11 +309,11 @@ class AdsCategory(BaseCategory):
 
 
         :param account_id: Advertising account ID.
-        :param ad_ids: Filter by ads. Serialized JSON array with ad IDs. If the parameter is null, all ads will be shown.
-        :param campaign_ids: Filter by advertising campaigns. Serialized JSON array with campaign IDs. If the parameter is null, ads of all campaigns will be shown.
         :param client_id: 'Available and required for advertising agencies.' ID of the client ads are retrieved from.
         :param include_deleted: Flag that specifies whether archived ads shall be shown: *0 - show only active ads,, *1 - show all ads.
         :param only_deleted: Flag that specifies whether to show only archived ads: *0 - show all ads,, *1 - show only archived ads. Available when include_deleted flag is *1
+        :param campaign_ids: Filter by advertising campaigns. Serialized JSON array with campaign IDs. If the parameter is null, ads of all campaigns will be shown.
+        :param ad_ids: Filter by ads. Serialized JSON array with ad IDs. If the parameter is null, all ads will be shown.
         :param limit: Limit of number of returned ads. Used only if ad_ids parameter is null, and 'campaign_ids' parameter contains ID of only one campaign.
         :param offset: Offset. Used in the same cases as 'limit' parameter.
         """
@@ -357,10 +358,11 @@ class AdsCategory(BaseCategory):
     async def get_ads_targeting(
         self,
         account_id: int,
-        ad_ids: typing.Optional[str] = None,
-        campaign_ids: typing.Optional[str] = None,
         client_id: typing.Optional[int] = None,
         include_deleted: typing.Optional[bool] = None,
+        only_deleted: typing.Optional[bool] = None,
+        campaign_ids: typing.Optional[str] = None,
+        ad_ids: typing.Optional[str] = None,
         limit: typing.Optional[int] = None,
         offset: typing.Optional[int] = None,
         **kwargs,
@@ -369,10 +371,11 @@ class AdsCategory(BaseCategory):
 
 
         :param account_id: Advertising account ID.
-        :param ad_ids: Filter by ads. Serialized JSON array with ad IDs. If the parameter is null, all ads will be shown.
-        :param campaign_ids: Filter by advertising campaigns. Serialized JSON array with campaign IDs. If the parameter is null, ads of all campaigns will be shown.
         :param client_id: 'For advertising agencies.' ID of the client ads are retrieved from.
         :param include_deleted: flag that specifies whether archived ads shall be shown: *0 - show only active ads,, *1 - show all ads.
+        :param only_deleted:
+        :param campaign_ids: Filter by advertising campaigns. Serialized JSON array with campaign IDs. If the parameter is null, ads of all campaigns will be shown.
+        :param ad_ids: Filter by ads. Serialized JSON array with ad IDs. If the parameter is null, all ads will be shown.
         :param limit: Limit of number of returned ads. Used only if 'ad_ids' parameter is null, and 'campaign_ids' parameter contains ID of only one campaign.
         :param offset: Offset needed to return a specific subset of results.
         """
@@ -660,8 +663,7 @@ class AdsCategory(BaseCategory):
         cities: typing.Optional[str] = None,
         lang: typing.Optional[str] = None,
         **kwargs,
-    ) -> AdsGetSuggestionsRegionsResponseModel:
-        ...
+    ) -> AdsGetSuggestionsRegionsResponseModel: ...
 
     @typing.overload
     async def get_suggestions(
@@ -673,8 +675,7 @@ class AdsCategory(BaseCategory):
         country: typing.Optional[int] = None,
         lang: typing.Optional[str] = None,
         **kwargs,
-    ) -> AdsGetSuggestionsCitiesResponseModel:
-        ...
+    ) -> AdsGetSuggestionsCitiesResponseModel: ...
 
     @typing.overload
     async def get_suggestions(
@@ -686,8 +687,7 @@ class AdsCategory(BaseCategory):
         cities: typing.Optional[str] = None,
         lang: typing.Optional[str] = None,
         **kwargs,
-    ) -> AdsGetSuggestionsSchoolsResponseModel:
-        ...
+    ) -> AdsGetSuggestionsSchoolsResponseModel: ...
 
     async def get_suggestions(
         self,

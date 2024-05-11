@@ -5,6 +5,7 @@ from vkbottle_types.base_model import Field
 
 
 class OauthErrorResponseModel(BaseModel):
+
     error: str = Field(
         description="Error type",
     )

@@ -7,6 +7,7 @@ from vkbottle_types.responses.base import OkResponse
 
 
 class GiftsCategory(BaseCategory):
+
     async def get(
         self,
         user_id: typing.Optional[int] = None,

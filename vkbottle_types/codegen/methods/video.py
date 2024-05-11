@@ -7,6 +7,7 @@ from vkbottle_types.responses.base import OkResponse
 
 
 class VideoCategory(BaseCategory):
+
     async def add(
         self,
         video_id: int,
@@ -58,8 +59,7 @@ class VideoCategory(BaseCategory):
         album_id: typing.Optional[int] = None,
         album_ids: typing.Optional[typing.List[int]] = None,
         **kwargs,
-    ) -> VideoChangeVideoAlbumsResponseModel:
-        ...
+    ) -> VideoChangeVideoAlbumsResponseModel: ...
 
     async def add_to_album(
         self,
@@ -148,6 +148,7 @@ class VideoCategory(BaseCategory):
         self,
         album_id: int,
         group_id: typing.Optional[int] = None,
+        owner_id: typing.Optional[int] = None,
         **kwargs,
     ) -> BaseOkResponseModel:
         """video.deleteAlbum method
@@ -155,6 +156,7 @@ class VideoCategory(BaseCategory):
 
         :param album_id: Album ID.
         :param group_id: Community ID (if the album is owned by a community).
+        :param owner_id:
         """
         params = self.get_set_params(locals())
         response = await self.api.request("account.ban", params)
@@ -192,6 +194,7 @@ class VideoCategory(BaseCategory):
         privacy_comment: typing.Optional[typing.List[str]] = None,
         no_comments: typing.Optional[bool] = None,
         repeat: typing.Optional[bool] = None,
+        ord_info: typing.Optional[str] = None,
         **kwargs,
     ) -> VideoEditResponseModel:
         """video.edit method
@@ -205,6 +208,7 @@ class VideoCategory(BaseCategory):
         :param privacy_comment: Privacy settings for comments in a [vk.com/dev/privacy_setting|special format].
         :param no_comments: Disable comments for the group video.
         :param repeat: '1' - to repeat the playback of the video, '0' - to play the video once,
+        :param ord_info:
         """
         params = self.get_set_params(locals())
         response = await self.api.request("account.ban", params)
@@ -219,6 +223,7 @@ class VideoCategory(BaseCategory):
         group_id: typing.Optional[int] = None,
         title: typing.Optional[str] = None,
         privacy: typing.Optional[typing.List[str]] = None,
+        owner_id: typing.Optional[int] = None,
         **kwargs,
     ) -> BaseOkResponseModel:
         """video.editAlbum method
@@ -228,6 +233,7 @@ class VideoCategory(BaseCategory):
         :param group_id: Community ID (if the album edited is owned by a community).
         :param title: New album title.
         :param privacy: new access permissions for the album. Possible values: , *'0' - all users,, *'1' - friends only,, *'2' - friends and friends of friends,, *'3' - "only me".
+        :param owner_id:
         """
         params = self.get_set_params(locals())
         response = await self.api.request("account.ban", params)
@@ -318,8 +324,7 @@ class VideoCategory(BaseCategory):
         count: typing.Optional[int] = 50,
         need_system: typing.Optional[bool] = 0,
         **kwargs,
-    ) -> VideoGetAlbumsExtendedResponseModel:
-        ...
+    ) -> VideoGetAlbumsExtendedResponseModel: ...
 
     async def get_albums(
         self,
@@ -358,8 +363,7 @@ class VideoCategory(BaseCategory):
         extended: typing.Literal[True] = True,
         target_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> VideoGetAlbumsByVideoExtendedResponseModel:
-        ...
+    ) -> VideoGetAlbumsByVideoExtendedResponseModel: ...
 
     async def get_albums_by_video(
         self,
@@ -400,9 +404,10 @@ class VideoCategory(BaseCategory):
         count: typing.Optional[int] = 20,
         sort: typing.Optional[str] = "asc",
         fields: typing.Optional[typing.List[str]] = None,
+        comment_id: typing.Optional[int] = None,
+        thread_items_count: typing.Optional[int] = 0,
         **kwargs,
-    ) -> VideoGetCommentsExtendedResponseModel:
-        ...
+    ) -> VideoGetCommentsExtendedResponseModel: ...
 
     async def get_comments(
         self,
@@ -415,6 +420,8 @@ class VideoCategory(BaseCategory):
         sort: typing.Optional[str] = "asc",
         extended: typing.Optional[bool] = None,
         fields: typing.Optional[typing.List[str]] = None,
+        comment_id: typing.Optional[int] = None,
+        thread_items_count: typing.Optional[int] = 0,
         **kwargs,
     ) -> VideoGetCommentsResponseModel:
         """video.getComments method
@@ -429,6 +436,8 @@ class VideoCategory(BaseCategory):
         :param sort: Sort order: 'asc' - oldest comment first, 'desc' - newest comment first
         :param extended:
         :param fields:
+        :param comment_id:
+        :param thread_items_count:
         """
         params = self.get_set_params(locals())
         response = await self.api.request("account.ban", params)
@@ -481,8 +490,7 @@ class VideoCategory(BaseCategory):
         album_id: typing.Optional[int] = None,
         album_ids: typing.Optional[typing.List[int]] = None,
         **kwargs,
-    ) -> VideoChangeVideoAlbumsResponseModel:
-        ...
+    ) -> VideoChangeVideoAlbumsResponseModel: ...
 
     async def remove_from_album(
         self,
@@ -665,6 +673,7 @@ class VideoCategory(BaseCategory):
         no_comments: typing.Optional[bool] = None,
         repeat: typing.Optional[bool] = None,
         compression: typing.Optional[bool] = None,
+        ord_info: typing.Optional[str] = None,
         **kwargs,
     ) -> VideoSaveResponseModel:
         """video.save method
@@ -682,6 +691,7 @@ class VideoCategory(BaseCategory):
         :param no_comments:
         :param repeat: '1' - to repeat the playback of the video, '0' - to play the video once,
         :param compression:
+        :param ord_info:
         """
         params = self.get_set_params(locals())
         response = await self.api.request("account.ban", params)
@@ -708,8 +718,7 @@ class VideoCategory(BaseCategory):
         owner_id: typing.Optional[int] = None,
         fields: typing.Optional[typing.List[str]] = None,
         **kwargs,
-    ) -> VideoSearchExtendedResponseModel:
-        ...
+    ) -> VideoSearchExtendedResponseModel: ...
 
     async def search(
         self,
@@ -737,7 +746,7 @@ class VideoCategory(BaseCategory):
         :param hd: If not null, only searches for high-definition videos.
         :param adult: '1' - to disable the Safe Search filter, '0' - to enable the Safe Search filter
         :param live:
-        :param filters: Filters to apply: 'youtube' - return YouTube videos only, 'vimeo' - return Vimeo videos only, 'short' - return short videos only, 'long' - return long videos only
+        :param filters: Filters to apply: 'youtube' - return YouTube videos only, 'vimeo' - return Vimeo videos only, 'vk' - return VK videos only, 'short' - return short videos only, 'long' - return long videos only
         :param search_own:
         :param offset: Offset needed to return a specific subset of videos.
         :param longer:

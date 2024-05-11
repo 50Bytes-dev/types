@@ -7,10 +7,11 @@ from vkbottle_types.objects import MessagesTemplateActionTypeNames
 
 
 class ClientInfoForBotsResponseModel(BaseModel):
-    button_actions: typing.Optional[
-        typing.List[MessagesTemplateActionTypeNames]
-    ] = Field(
-        default=None,
+
+    button_actions: typing.Optional[typing.List[MessagesTemplateActionTypeNames]] = (
+        Field(
+            default=None,
+        )
     )
 
     keyboard: typing.Optional[bool] = Field(

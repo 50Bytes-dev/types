@@ -2,7 +2,9 @@ import dataclasses
 import dataclass_factory
 import typing
 from .utility import snake_case, camelcase
-from .types import get_type, Ready, get_any, get_complex_type, transform_ref
+from .generator_types import get_type, Ready, get_any, get_complex_type, transform_ref
+
+defination_refs = {}
 
 
 @dataclasses.dataclass
@@ -84,9 +86,11 @@ class Method:
                         self.name,
                         self.access_token_type,
                         [
-                            param
-                            if param.name not in param_names
-                            else param.new_dependant(param)
+                            (
+                                param
+                                if param.name not in param_names
+                                else param.new_dependant(param)
+                            )
                             for param in self.parameters
                         ],
                         {"response": response},
@@ -211,12 +215,25 @@ class Definition:
         assert self.type != "object"
         return get_complex_type(dataclasses.asdict(self), hint=True)
 
+    def _filter_refs(self, refs: list[str]):
+        result = [*refs]
+
+        for ref in refs:
+            base_refs = defination_refs.get(ref, list())
+            for base_ref in base_refs:
+                if base_ref in result:
+                    result.remove(base_ref)
+
+        return result
+
     def get_bases(self) -> list[str]:
         if self._bases is not None:
             return self._bases
 
         if self.allOf:
             refs = [transform_ref(base.ref) for base in self.allOf if base.ref]
+            defination_refs[self.name] = refs
+
             for base in self.allOf:
                 if base.properties:
                     for propname, prop in base.properties.items():
@@ -224,7 +241,8 @@ class Definition:
                             self.properties = []
                         self.properties.append({**prop, "name": propname})
                     pass
-            self._bases = refs
+
+            self._bases = self._filter_refs(refs)
             return self._bases
 
         self._bases = [self._default_base]

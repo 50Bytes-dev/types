@@ -7,6 +7,7 @@ from vkbottle_types.responses.base import OkResponse
 
 
 class PodcastsCategory(BaseCategory):
+
     async def search_podcast(
         self,
         search_string: str,

@@ -7,6 +7,7 @@ from vkbottle_types.objects import BaseBoolInt
 
 
 class NotesNoteResponseModel(BaseModel):
+
     comments: int = Field(
         description="Comments number",
     )
@@ -64,6 +65,7 @@ class NotesNoteResponse(BaseResponse):
 
 
 class NotesNoteCommentResponseModel(BaseModel):
+
     date: int = Field(
         description="Date when the comment has beed added in Unixtime",
     )

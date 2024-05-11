@@ -3,10 +3,11 @@ import enum
 from vkbottle_types.responses.base_response import BaseResponse, BaseModel
 from vkbottle_types.base_model import Field
 
-from vkbottle_types.objects import PodcastCover, PhotosPhotoSizes
+from vkbottle_types.objects import PhotosPhotoSizes, PodcastCover
 
 
 class PodcastCoverResponseModel(BaseModel):
+
     sizes: typing.Optional[typing.List[PhotosPhotoSizes]] = Field(
         default=None,
     )
@@ -17,6 +18,7 @@ class PodcastCoverResponse(BaseResponse):
 
 
 class PodcastExternalDataResponseModel(BaseModel):
+
     url: typing.Optional[str] = Field(
         default=None,
         description="Url of the podcast page",

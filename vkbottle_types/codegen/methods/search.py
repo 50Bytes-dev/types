@@ -7,6 +7,7 @@ from vkbottle_types.responses.base import OkResponse
 
 
 class SearchCategory(BaseCategory):
+
     async def get_hints(
         self,
         q: typing.Optional[str] = None,

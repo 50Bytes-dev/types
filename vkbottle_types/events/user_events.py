@@ -1,10 +1,6 @@
 import inspect
 from typing import TYPE_CHECKING, Any, List, Optional, Union
-
-try:
-    from pydantic.v1 import BaseModel
-except ImportError:
-    from pydantic import BaseModel  # type: ignore[assignment]
+from pydantic import BaseModel
 
 from .objects import BaseEventObject, user_event_objects
 
@@ -125,7 +121,7 @@ _locals = locals().copy()
 _locals_values = _locals.values()
 for item in _locals_values:
     if inspect.isclass(item) and issubclass(item, BaseUserEvent):
-        item.update_forward_refs(**_locals)
+        item.model_rebuild()
 
 __all__ = (
     "BaseUserEvent",

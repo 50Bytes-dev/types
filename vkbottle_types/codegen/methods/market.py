@@ -7,6 +7,7 @@ from vkbottle_types.responses.base import OkResponse
 
 
 class MarketCategory(BaseCategory):
+
     async def add(
         self,
         owner_id: int,
@@ -20,11 +21,14 @@ class MarketCategory(BaseCategory):
         photo_ids: typing.Optional[typing.List[int]] = None,
         video_ids: typing.Optional[typing.List[int]] = None,
         url: typing.Optional[str] = None,
+        variant_ids: typing.Optional[typing.List[int]] = None,
+        is_main_variant: typing.Optional[bool] = None,
         dimension_width: typing.Optional[int] = None,
         dimension_height: typing.Optional[int] = None,
         dimension_length: typing.Optional[int] = None,
         weight: typing.Optional[int] = None,
         sku: typing.Optional[str] = None,
+        stock_amount: typing.Optional[int] = None,
         **kwargs,
     ) -> MarketAddResponseModel:
         """market.add method
@@ -41,11 +45,14 @@ class MarketCategory(BaseCategory):
         :param photo_ids: IDs of additional photos.
         :param video_ids: IDs of additional videos.
         :param url: Url for button in market item.
+        :param variant_ids: IDs of properties variants.
+        :param is_main_variant: Is main in their group.
         :param dimension_width:
         :param dimension_height:
         :param dimension_length:
         :param weight:
         :param sku:
+        :param stock_amount:
         """
         params = self.get_set_params(locals())
         response = await self.api.request("account.ban", params)
@@ -76,6 +83,46 @@ class MarketCategory(BaseCategory):
         response = await self.api.request("account.ban", params)
 
         model = MarketAddAlbumResponse
+
+        return model(**response).response
+
+    async def add_property(
+        self,
+        group_id: int,
+        title: str,
+        **kwargs,
+    ) -> MarketAddPropertyResponseModel:
+        """market.addProperty method
+
+
+        :param group_id: Group id.
+        :param title: Property name.
+        """
+        params = self.get_set_params(locals())
+        response = await self.api.request("account.ban", params)
+
+        model = MarketAddPropertyResponse
+
+        return model(**response).response
+
+    async def add_property_variant(
+        self,
+        group_id: int,
+        property_id: int,
+        title: str,
+        **kwargs,
+    ) -> MarketAddPropertyVariantResponseModel:
+        """market.addPropertyVariant method
+
+
+        :param group_id: Group id.
+        :param property_id: Property id.
+        :param title: Variant name.
+        """
+        params = self.get_set_params(locals())
+        response = await self.api.request("account.ban", params)
+
+        model = MarketAddPropertyVariantResponse
 
         return model(**response).response
 
@@ -188,6 +235,44 @@ class MarketCategory(BaseCategory):
 
         return model(**response).response
 
+    async def delete_property(
+        self,
+        group_id: int,
+        property_id: int,
+        **kwargs,
+    ) -> BaseOkResponseModel:
+        """market.deleteProperty method
+
+
+        :param group_id: Group id.
+        :param property_id: Property id.
+        """
+        params = self.get_set_params(locals())
+        response = await self.api.request("account.ban", params)
+
+        model = BaseOkResponse
+
+        return model(**response).response
+
+    async def delete_property_variant(
+        self,
+        group_id: int,
+        variant_id: int,
+        **kwargs,
+    ) -> BaseOkResponseModel:
+        """market.deletePropertyVariant method
+
+
+        :param group_id: Group id.
+        :param variant_id: Variant id.
+        """
+        params = self.get_set_params(locals())
+        response = await self.api.request("account.ban", params)
+
+        model = BaseOkResponse
+
+        return model(**response).response
+
     async def edit(
         self,
         owner_id: int,
@@ -202,11 +287,14 @@ class MarketCategory(BaseCategory):
         photo_ids: typing.Optional[typing.List[int]] = None,
         video_ids: typing.Optional[typing.List[int]] = None,
         url: typing.Optional[str] = None,
+        variant_ids: typing.Optional[typing.List[int]] = None,
+        is_main_variant: typing.Optional[bool] = None,
         dimension_width: typing.Optional[int] = None,
         dimension_height: typing.Optional[int] = None,
         dimension_length: typing.Optional[int] = None,
         weight: typing.Optional[int] = None,
         sku: typing.Optional[str] = None,
+        stock_amount: typing.Optional[int] = None,
         **kwargs,
     ) -> BaseOkResponseModel:
         """market.edit method
@@ -224,11 +312,14 @@ class MarketCategory(BaseCategory):
         :param photo_ids: IDs of additional photos.
         :param video_ids: IDs of additional videos.
         :param url: Url for button in market item.
+        :param variant_ids: IDs of properties variants.
+        :param is_main_variant: Is main in their group.
         :param dimension_width:
         :param dimension_height:
         :param dimension_length:
         :param weight:
         :param sku:
+        :param stock_amount:
         """
         params = self.get_set_params(locals())
         response = await self.api.request("account.ban", params)
@@ -328,6 +419,48 @@ class MarketCategory(BaseCategory):
 
         return model(**response).response
 
+    async def edit_property(
+        self,
+        group_id: int,
+        property_id: int,
+        title: str,
+        **kwargs,
+    ) -> BaseOkResponseModel:
+        """market.editProperty method
+
+
+        :param group_id: Group id.
+        :param property_id: Property id.
+        :param title: Property name
+        """
+        params = self.get_set_params(locals())
+        response = await self.api.request("account.ban", params)
+
+        model = BaseOkResponse
+
+        return model(**response).response
+
+    async def edit_property_variant(
+        self,
+        group_id: int,
+        variant_id: int,
+        title: str,
+        **kwargs,
+    ) -> BaseOkResponseModel:
+        """market.editPropertyVariant method
+
+
+        :param group_id: Group id.
+        :param variant_id: Variant id.
+        :param title: Variant name.
+        """
+        params = self.get_set_params(locals())
+        response = await self.api.request("account.ban", params)
+
+        model = BaseOkResponse
+
+        return model(**response).response
+
     async def filter_categories(
         self,
         category_id: typing.Optional[int] = None,
@@ -361,9 +494,9 @@ class MarketCategory(BaseCategory):
         date_to: typing.Optional[str] = None,
         need_variants: typing.Optional[bool] = None,
         with_disabled: typing.Optional[bool] = None,
+        fields: typing.Optional[typing.List[str]] = None,
         **kwargs,
-    ) -> MarketGetExtendedResponseModel:
-        ...
+    ) -> MarketGetExtendedResponseModel: ...
 
     async def get(
         self,
@@ -376,6 +509,7 @@ class MarketCategory(BaseCategory):
         date_to: typing.Optional[str] = None,
         need_variants: typing.Optional[bool] = None,
         with_disabled: typing.Optional[bool] = None,
+        fields: typing.Optional[typing.List[str]] = None,
         **kwargs,
     ) -> MarketGetResponseModel:
         """market.get method
@@ -390,6 +524,7 @@ class MarketCategory(BaseCategory):
         :param date_to: Items update date to (format: yyyy-mm-dd)
         :param need_variants: Add variants to response if exist
         :param with_disabled: Add disabled items to response
+        :param fields:
         """
         params = self.get_set_params(locals())
         response = await self.api.request("account.ban", params)
@@ -448,8 +583,7 @@ class MarketCategory(BaseCategory):
         item_ids: typing.List[str],
         extended: typing.Literal[True] = True,
         **kwargs,
-    ) -> MarketGetByIdExtendedResponseModel:
-        ...
+    ) -> MarketGetByIdExtendedResponseModel: ...
 
     async def get_by_id(
         self,
@@ -600,8 +734,7 @@ class MarketCategory(BaseCategory):
         date_from: typing.Optional[str] = None,
         date_to: typing.Optional[str] = None,
         **kwargs,
-    ) -> MarketGetOrdersExtendedResponseModel:
-        ...
+    ) -> MarketGetOrdersExtendedResponseModel: ...
 
     async def get_orders(
         self,
@@ -629,6 +762,61 @@ class MarketCategory(BaseCategory):
             default=MarketGetOrdersResponse,
             params=params,
         )
+
+        return model(**response).response
+
+    async def get_product_photo_upload_server(
+        self,
+        group_id: int,
+        **kwargs,
+    ) -> BaseGetUploadServerResponseModel:
+        """market.getProductPhotoUploadServer method
+
+
+        :param group_id: Community ID.
+        """
+        params = self.get_set_params(locals())
+        response = await self.api.request("account.ban", params)
+
+        model = BaseGetUploadServerResponse
+
+        return model(**response).response
+
+    async def get_properties(
+        self,
+        group_id: int,
+        **kwargs,
+    ) -> MarketGetPropertiesResponseModel:
+        """market.getProperties method
+
+
+        :param group_id:
+        """
+        params = self.get_set_params(locals())
+        response = await self.api.request("account.ban", params)
+
+        model = MarketGetPropertiesResponse
+
+        return model(**response).response
+
+    async def group_items(
+        self,
+        group_id: int,
+        item_ids: typing.List[int],
+        item_group_id: typing.Optional[int] = None,
+        **kwargs,
+    ) -> MarketGroupItemsResponseModel:
+        """market.groupItems method
+
+
+        :param group_id: Group id.
+        :param item_ids: Item ids.
+        :param item_group_id: Items group id.
+        """
+        params = self.get_set_params(locals())
+        response = await self.api.request("account.ban", params)
+
+        model = MarketGroupItemsResponse
 
         return model(**response).response
 
@@ -781,6 +969,23 @@ class MarketCategory(BaseCategory):
 
         return model(**response).response
 
+    async def save_product_photo(
+        self,
+        upload_response: str,
+        **kwargs,
+    ) -> MarketPhotoIdResponseModel:
+        """market.saveProductPhoto method
+
+
+        :param upload_response: Upload response
+        """
+        params = self.get_set_params(locals())
+        response = await self.api.request("account.ban", params)
+
+        model = MarketPhotoIdResponse
+
+        return model(**response).response
+
     @typing.overload
     async def search(
         self,
@@ -797,8 +1002,7 @@ class MarketCategory(BaseCategory):
         status: typing.Optional[typing.List[int]] = None,
         need_variants: typing.Optional[bool] = None,
         **kwargs,
-    ) -> MarketSearchExtendedResponseModel:
-        ...
+    ) -> MarketSearchExtendedResponseModel: ...
 
     async def search(
         self,
@@ -912,6 +1116,25 @@ class MarketCategory(BaseCategory):
         response = await self.api.request("account.ban", params)
 
         model = MarketSearchBasicResponse
+
+        return model(**response).response
+
+    async def ungroup_items(
+        self,
+        group_id: int,
+        item_group_id: int,
+        **kwargs,
+    ) -> BaseOkResponseModel:
+        """market.ungroupItems method
+
+
+        :param group_id: Group id.
+        :param item_group_id: Items group id.
+        """
+        params = self.get_set_params(locals())
+        response = await self.api.request("account.ban", params)
+
+        model = BaseOkResponse
 
         return model(**response).response
 

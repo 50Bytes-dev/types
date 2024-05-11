@@ -7,6 +7,7 @@ from vkbottle_types.responses.base import OkResponse
 
 
 class DocsCategory(BaseCategory):
+
     async def add(
         self,
         owner_id: int,
@@ -181,6 +182,25 @@ class DocsCategory(BaseCategory):
         response = await self.api.request("account.ban", params)
 
         model = BaseGetUploadServerResponse
+
+        return model(**response).response
+
+    async def restore(
+        self,
+        owner_id: int,
+        doc_id: int,
+        **kwargs,
+    ) -> BaseOkResponseModel:
+        """docs.restore method
+
+
+        :param owner_id:
+        :param doc_id:
+        """
+        params = self.get_set_params(locals())
+        response = await self.api.request("account.ban", params)
+
+        model = BaseOkResponse
 
         return model(**response).response
 

@@ -4,19 +4,20 @@ from vkbottle_types.responses.base_response import BaseResponse, BaseModel
 from vkbottle_types.base_model import Field
 
 from vkbottle_types.objects import (
-    AccountPushParamsOnoff,
     AccountUserSettingsInterest,
-    BaseBoolInt,
+    AccountPushConversationsItem,
+    AccountPushParamsSettings,
+    AccountPushParams,
     AccountPushParamsMode,
     AccountPushConversations,
-    AccountPushParams,
-    AccountPushConversationsItem,
+    BaseBoolInt,
     AccountNameRequestStatus,
-    AccountPushParamsSettings,
+    AccountPushParamsOnoff,
 )
 
 
 class AccountAccountCountersResponseModel(BaseModel):
+
     app_requests: typing.Optional[int] = Field(
         default=None,
         description="New app requests number",
@@ -54,7 +55,7 @@ class AccountAccountCountersResponseModel(BaseModel):
 
     messages: typing.Optional[int] = Field(
         default=None,
-        description="New messages number",
+        description="New messages number. Will be removed when messages.getCounters is released.",
     )
 
     memories: typing.Optional[int] = Field(
@@ -83,6 +84,7 @@ class AccountAccountCountersResponse(BaseResponse):
 
 
 class AccountCountersFilterResponseModel(enum.Enum):
+
     APP_REQUESTS = "app_requests"
 
     EVENTS = "events"
@@ -90,6 +92,8 @@ class AccountCountersFilterResponseModel(enum.Enum):
     FRIENDS = "friends"
 
     FRIENDS_RECOMMENDATIONS = "friends_recommendations"
+
+    GAMES = "games"
 
     GIFTS = "gifts"
 
@@ -113,15 +117,11 @@ class AccountCountersFilterResponse(BaseResponse):
 
 
 class AccountInfoResponseModel(BaseModel):
-    _2fa_required: typing.Optional[bool] = Field(
+
+    value_2fa_required: typing.Optional[bool] = Field(
         default=None,
         description="Two factor authentication is enabled",
         alias="2fa_required",
-    )
-
-    country: typing.Optional[str] = Field(
-        default=None,
-        description="Country code",
     )
 
     https_required: typing.Optional[bool] = Field(
@@ -129,7 +129,7 @@ class AccountInfoResponseModel(BaseModel):
         description="Information whether HTTPS-only is enabled",
     )
 
-    intro: typing.Optional[bool] = Field(
+    intro: typing.Optional[int] = Field(
         default=None,
         description="Information whether user has been processed intro",
     )
@@ -155,6 +155,7 @@ class AccountInfoResponse(BaseResponse):
 
 
 class AccountNameRequestResponseModel(BaseModel):
+
     first_name: typing.Optional[str] = Field(
         default=None,
         description="First name in request",
@@ -195,6 +196,7 @@ class AccountNameRequestResponse(BaseResponse):
 
 
 class AccountNameRequestStatusResponseModel(enum.Enum):
+
     SUCCESS = "success"
 
     PROCESSING = "processing"
@@ -217,6 +219,7 @@ class AccountNameRequestStatusResponse(BaseResponse):
 
 
 class AccountOfferResponseModel(BaseModel):
+
     description: typing.Optional[str] = Field(
         default=None,
         description="Offer description",
@@ -283,6 +286,7 @@ class AccountOfferResponse(BaseResponse):
 
 
 class AccountPushConversationsResponseModel(BaseModel):
+
     count: typing.Optional[int] = Field(
         default=None,
         description="Items count",
@@ -298,6 +302,7 @@ class AccountPushConversationsResponse(BaseResponse):
 
 
 class AccountPushConversationsItemResponseModel(BaseModel):
+
     disabled_until: int = Field(
         description="Time until that notifications are disabled in seconds",
     )
@@ -326,6 +331,7 @@ class AccountPushConversationsItemResponse(BaseResponse):
 
 
 class AccountPushParamsResponseModel(BaseModel):
+
     msg: typing.Optional[typing.List[AccountPushParamsMode]] = Field(
         default=None,
     )
@@ -408,6 +414,7 @@ class AccountPushParamsResponse(BaseResponse):
 
 
 class AccountPushParamsModeResponseModel(enum.Enum):
+
     ON = "on"
 
     OFF = "off"
@@ -422,6 +429,7 @@ class AccountPushParamsModeResponse(BaseResponse):
 
 
 class AccountPushParamsOnoffResponseModel(enum.Enum):
+
     ON = "on"
 
     OFF = "off"
@@ -432,6 +440,7 @@ class AccountPushParamsOnoffResponse(BaseResponse):
 
 
 class AccountPushParamsSettingsResponseModel(enum.Enum):
+
     ON = "on"
 
     OFF = "off"
@@ -444,6 +453,7 @@ class AccountPushParamsSettingsResponse(BaseResponse):
 
 
 class AccountPushSettingsResponseModel(BaseModel):
+
     disabled: typing.Optional[bool] = Field(
         default=None,
         description="Information whether notifications are disabled",
@@ -468,6 +478,7 @@ class AccountPushSettingsResponse(BaseResponse):
 
 
 class AccountUserSettingsResponseModel(UsersUserMin, UsersUserSettingsXtr):
+
     photo_200: typing.Optional[str] = Field(
         default=None,
         description="URL of square photo of the user with 200 pixels in width",
@@ -484,6 +495,7 @@ class AccountUserSettingsResponse(BaseResponse):
 
 
 class AccountUserSettingsInterestResponseModel(BaseModel):
+
     title: str = Field()
 
     value: str = Field()
@@ -494,6 +506,7 @@ class AccountUserSettingsInterestResponse(BaseResponse):
 
 
 class AccountUserSettingsInterestsResponseModel(BaseModel):
+
     activities: typing.Optional["AccountUserSettingsInterest"] = Field(
         default=None,
     )

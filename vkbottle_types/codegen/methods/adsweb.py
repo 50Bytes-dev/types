@@ -7,6 +7,7 @@ from vkbottle_types.responses.base import OkResponse
 
 
 class AdswebCategory(BaseCategory):
+
     async def get_ad_categories(
         self,
         office_id: int,

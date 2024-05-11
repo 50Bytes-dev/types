@@ -4,41 +4,40 @@ from vkbottle_types.responses.base_response import BaseResponse, BaseModel
 from vkbottle_types.base_model import Field
 
 from vkbottle_types.objects import (
-    UsersExports,
-    BaseCropPhoto,
-    FriendsRequestsMutual,
-    UsersMilitary,
-    UsersUserType,
     UsersUserRelation,
     UsersUserMin,
-    PhotosPhotoFalseable,
-    VideoLiveInfo,
-    BaseCountry,
-    UsersUserConnections,
-    AppsAppMin,
-    FriendsFriendStatusStatus,
-    UsersPersonal,
-    BaseCity,
-    PhotosPhoto,
-    UsersOnlineInfo,
-    UsersOccupation,
-    AccountUserSettingsInterests,
-    DatabaseLanguageFull,
-    UsersUserCounters,
     UsersUniversity,
-    UsersRelative,
-    UsersSchool,
     OwnerState,
-    BaseSex,
-    UsersCareer,
-    UsersLastSeen,
-    BaseBoolInt,
+    UsersUserType,
+    FriendsRequestsMutual,
     AccountNameRequest,
+    AppsAppMin,
+    VideoLiveInfo,
+    UsersMilitary,
+    UsersLastSeen,
+    AccountUserSettingsInterests,
+    FriendsFriendStatusStatus,
+    BaseSex,
+    BaseCity,
+    UsersExports,
     AudioAudio,
+    UsersSchool,
+    UsersRelative,
+    UsersOccupation,
+    PhotosPhoto,
+    UsersCareer,
+    BaseCropPhoto,
+    UsersPersonal,
+    UsersUserCounters,
+    UsersUserConnections,
+    BaseBoolInt,
+    DatabaseLanguageFull,
+    UsersOnlineInfo,
 )
 
 
 class UsersCareerResponseModel(BaseModel):
+
     city_id: typing.Optional[int] = Field(
         default=None,
         description="City ID",
@@ -54,12 +53,7 @@ class UsersCareerResponseModel(BaseModel):
         description="Company name",
     )
 
-    country_id: typing.Optional[int] = Field(
-        default=None,
-        description="Country ID",
-    )
-
-    _from: typing.Optional[int] = Field(
+    value_from: typing.Optional[int] = Field(
         default=None,
         description="From year",
         alias="from",
@@ -91,6 +85,7 @@ class UsersCareerResponse(BaseResponse):
 
 
 class UsersExportsResponseModel(BaseModel):
+
     facebook: typing.Optional[int] = Field(
         default=None,
     )
@@ -109,6 +104,7 @@ class UsersExportsResponse(BaseResponse):
 
 
 class UsersFieldsResponseModel(enum.Enum):
+
     FIRST_NAME_NOM = "first_name_nom"
 
     FIRST_NAME_GEN = "first_name_gen"
@@ -144,8 +140,6 @@ class UsersFieldsResponseModel(enum.Enum):
     BDATE_VISIBILITY = "bdate_visibility"
 
     CITY = "city"
-
-    COUNTRY = "country"
 
     HOME_TOWN = "home_town"
 
@@ -347,6 +341,8 @@ class UsersFieldsResponseModel(enum.Enum):
 
     IS_SBER_VERIFIED = "is_sber_verified"
 
+    IS_VERIFIED = "is_verified"
+
     OAUTH_LINKED = "oauth_linked"
 
     OAUTH_VERIFICATION = "oauth_verification"
@@ -359,6 +355,7 @@ class UsersFieldsResponse(BaseResponse):
 
 
 class UsersLastSeenResponseModel(BaseModel):
+
     platform: typing.Optional[int] = Field(
         default=None,
         description="Type of the platform that used for the last authorization",
@@ -375,9 +372,6 @@ class UsersLastSeenResponse(BaseResponse):
 
 
 class UsersMilitaryResponseModel(BaseModel):
-    country_id: int = Field(
-        description="Country ID",
-    )
 
     unit: str = Field(
         description="Unit name",
@@ -387,7 +381,7 @@ class UsersMilitaryResponseModel(BaseModel):
         description="Unit ID",
     )
 
-    _from: typing.Optional[int] = Field(
+    value_from: typing.Optional[int] = Field(
         default=None,
         description="From year",
         alias="from",
@@ -409,6 +403,7 @@ class UsersMilitaryResponse(BaseResponse):
 
 
 class UsersOccupationResponseModel(BaseModel):
+
     id: typing.Optional[int] = Field(
         default=None,
         description="ID of school, university, company group",
@@ -428,10 +423,6 @@ class UsersOccupationResponseModel(BaseModel):
         default=None,
     )
 
-    country_id: typing.Optional[int] = Field(
-        default=None,
-    )
-
     city_id: typing.Optional[int] = Field(
         default=None,
     )
@@ -442,6 +433,7 @@ class UsersOccupationResponse(BaseResponse):
 
 
 class UsersOnlineInfoResponseModel(BaseModel):
+
     visible: bool = Field(
         description="Whether you can see real online status of user or not",
     )
@@ -479,6 +471,7 @@ class UsersOnlineInfoResponse(BaseResponse):
 
 
 class UsersPersonalResponseModel(BaseModel):
+
     alcohol: typing.Optional[int] = Field(
         default=None,
         description="User's views on alcohol",
@@ -534,10 +527,11 @@ class UsersPersonalResponse(BaseResponse):
 
 
 class UsersRelativeResponseModel(BaseModel):
-    type: typing.Literal[
-        "parent", "child", "grandparent", "grandchild", "sibling"
-    ] = Field(
-        description="Relative type",
+
+    type: typing.Literal["parent", "child", "grandparent", "grandchild", "sibling"] = (
+        Field(
+            description="Relative type",
+        )
     )
 
     birth_date: typing.Optional[str] = Field(
@@ -561,12 +555,13 @@ class UsersRelativeResponse(BaseResponse):
 
 
 class UsersSchoolResponseModel(BaseModel):
+
     city: typing.Optional[int] = Field(
         default=None,
         description="City ID",
     )
 
-    _class: typing.Optional[str] = Field(
+    value_class: typing.Optional[str] = Field(
         default=None,
         description="School class letter",
         alias="class",
@@ -575,11 +570,6 @@ class UsersSchoolResponseModel(BaseModel):
     class_id: typing.Optional[int] = Field(
         default=None,
         description="School class id",
-    )
-
-    country: typing.Optional[int] = Field(
-        default=None,
-        description="Country ID",
     )
 
     id: typing.Optional[str] = Field(
@@ -627,6 +617,7 @@ class UsersSchoolResponse(BaseResponse):
 
 
 class UsersSubscriptionsItemResponseModel(BaseModel):
+
     pass
 
 
@@ -635,6 +626,7 @@ class UsersSubscriptionsItemResponse(BaseResponse):
 
 
 class UsersUniversityResponseModel(BaseModel):
+
     chair: typing.Optional[int] = Field(
         default=None,
         description="Chair ID",
@@ -648,11 +640,6 @@ class UsersUniversityResponseModel(BaseModel):
     city: typing.Optional[int] = Field(
         default=None,
         description="City ID",
-    )
-
-    country: typing.Optional[int] = Field(
-        default=None,
-        description="Country ID",
     )
 
     education_form: typing.Optional[str] = Field(
@@ -710,6 +697,7 @@ class UsersUniversityResponse(BaseResponse):
 
 
 class UsersUserResponseModel(UsersUserMin):
+
     sex: typing.Optional["BaseSex"] = Field(
         default=None,
         description="User sex",
@@ -773,6 +761,7 @@ class UsersUserResponse(BaseResponse):
 
 
 class UsersUserConnectionsResponseModel(BaseModel):
+
     skype: str = Field(
         description="User's Skype nickname",
     )
@@ -805,6 +794,7 @@ class UsersUserConnectionsResponse(BaseResponse):
 
 
 class UsersUserCountersResponseModel(BaseModel):
+
     albums: typing.Optional[int] = Field(
         default=None,
         description="Albums number",
@@ -944,6 +934,7 @@ class UsersUserCountersResponse(BaseResponse):
 
 
 class UsersUserFullResponseModel(UsersUser):
+
     first_name_nom: typing.Optional[str] = Field(
         default=None,
         description="User's first name in nominative case",
@@ -1030,10 +1021,6 @@ class UsersUserFullResponseModel(UsersUser):
     )
 
     city: typing.Optional["BaseCity"] = Field(
-        default=None,
-    )
-
-    country: typing.Optional["BaseCountry"] = Field(
         default=None,
     )
 
@@ -1168,15 +1155,15 @@ class UsersUserFullResponseModel(UsersUser):
         default=None,
     )
 
-    photo_rec: typing.Optional["PhotosPhotoFalseable"] = Field(
+    photo_rec: typing.Optional[typing.Union["str", "bool"]] = Field(
         default=None,
     )
 
-    photo_medium: typing.Optional["PhotosPhotoFalseable"] = Field(
+    photo_medium: typing.Optional[typing.Union["str", "bool"]] = Field(
         default=None,
     )
 
-    photo_medium_rec: typing.Optional["PhotosPhotoFalseable"] = Field(
+    photo_medium_rec: typing.Optional[typing.Union["str", "bool"]] = Field(
         default=None,
     )
 
@@ -1220,6 +1207,11 @@ class UsersUserFullResponseModel(UsersUser):
     can_call_from_group: typing.Optional[bool] = Field(
         default=None,
         description="Information whether group can call user",
+    )
+
+    can_invite_as_voicerooms_speaker: typing.Optional[bool] = Field(
+        default=None,
+        description="Information whether user/group can invite user as voicerooms speakr",
     )
 
     can_see_wishes: typing.Optional[bool] = Field(
@@ -1330,7 +1322,7 @@ class UsersUserFullResponseModel(UsersUser):
 
     followers_count: typing.Optional[int] = Field(
         default=None,
-        description="Number of user's followers",
+        description="Number of user's followers and friends",
     )
 
     video_live_level: typing.Optional[int] = Field(
@@ -1518,6 +1510,7 @@ class UsersUserFullResponse(BaseResponse):
 
 
 class UsersUserMinResponseModel(BaseModel):
+
     id: int = Field(
         description="User ID",
     )
@@ -1556,6 +1549,7 @@ class UsersUserMinResponse(BaseResponse):
 
 
 class UsersUserRelationResponseModel(enum.IntEnum):
+
     NOT_SPECIFIED = 0
 
     SINGLE = 1
@@ -1580,6 +1574,7 @@ class UsersUserRelationResponse(BaseResponse):
 
 
 class UsersUserSettingsXtrResponseModel(BaseModel):
+
     home_town: str = Field(
         description="User's hometown",
     )
@@ -1603,10 +1598,6 @@ class UsersUserSettingsXtrResponseModel(BaseModel):
     )
 
     city: typing.Optional["BaseCity"] = Field(
-        default=None,
-    )
-
-    country: typing.Optional["BaseCountry"] = Field(
         default=None,
     )
 
@@ -1684,6 +1675,7 @@ class UsersUserSettingsXtrResponse(BaseResponse):
 
 
 class UsersUserTypeResponseModel(enum.Enum):
+
     PROFILE = "profile"
 
 
@@ -1692,6 +1684,7 @@ class UsersUserTypeResponse(BaseResponse):
 
 
 class UsersUserXtrTypeResponseModel(UsersUserFull):
+
     type: typing.Optional["UsersUserType"] = Field(
         default=None,
     )
@@ -1702,6 +1695,7 @@ class UsersUserXtrTypeResponse(BaseResponse):
 
 
 class UsersUsersArrayResponseModel(BaseModel):
+
     count: int = Field(
         description="Users number",
     )

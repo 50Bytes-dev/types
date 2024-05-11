@@ -7,6 +7,7 @@ from vkbottle_types.responses.base import OkResponse
 
 
 class DonutCategory(BaseCategory):
+
     async def get_friends(
         self,
         owner_id: int,

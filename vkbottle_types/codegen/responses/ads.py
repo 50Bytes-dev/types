@@ -4,61 +4,62 @@ from vkbottle_types.responses.base_response import BaseResponse, BaseModel
 from vkbottle_types.base_model import Field
 
 from vkbottle_types.objects import (
-    AdsClipItem,
-    AdsCriteriaSex,
-    AdsPost,
-    AdsStoryItemStatsUrlView,
-    WallWallpostAttachment,
-    AdsCategory,
-    AdsPostComments,
-    AdsObjectType,
-    AdsRules,
-    AdsFloodStatsByUserItem,
-    AdsStoriesOwner,
-    AdsAccesses,
     AdsOrdData,
-    AdsCampaignType,
-    AdsTargetGroupTargetPixelRule,
-    AdsStatsFormat,
-    AdsAdCostType,
-    AdsPostReposts,
+    AdsPostComments,
+    AdsEventsRetargetingGroup,
     AdsAccountType,
     AdsStatsSexAge,
     AdsLookalikeRequestSaveAudienceLevel,
-    AdsOrdSubagent,
-    AdsClipItemLink,
-    AdsPostOwner,
-    AdsStories,
-    AdsAccessRole,
-    AdsStoryItemLink,
-    AdsPostLikes,
-    AdsEventsRetargetingGroup,
-    AdsRulesHelpUrl,
-    BaseError,
-    AdsTargSuggestionsSchoolsType,
-    AdsOrdClientType,
-    AdsAdApproved,
-    AdsPostDonut,
     AdsMobileStatItem,
-    AdsAdStatus,
-    AdsStatsSexValue,
-    AdsStoryItem,
+    AdsAdApproved,
+    AdsRules,
+    AdsCampaignType,
     AdsStoryItemStats,
-    BaseBoolInt,
-    AdsPostEasyPromote,
-    AdsStatsViewsTimes,
-    AdsStoryItemStatsFollow,
-    AdsPostViews,
     AdsDemostatsFormat,
-    AdsStatsCities,
-    AdsStatsAge,
+    AdsPost,
+    AdsCategory,
     AdsCampaignStatus,
-    AdsAccessRolePublic,
+    AdsPostReposts,
+    AdsOrdClientType,
+    AdsCriteriaSex,
+    WallWallpostAttachment,
+    AdsPostOwner,
+    AdsObjectType,
+    AdsFloodStatsByUserItem,
     AdsStatsSex,
+    AdsPostLikes,
+    AdsStatsFormat,
+    AdsAccessRole,
+    AdsOrdSubagent,
+    AdsPostEasyPromote,
+    AdsPostDonut,
+    AdsStatsViewsTimes,
+    AdsTargSuggestionsSchoolsType,
+    AdsStoryItemStatsUrlView,
+    AdsClipItem,
+    AdsStatsCities,
+    AdsAccesses,
+    AdsStoriesOwner,
+    AdsClipItemLink,
+    AdsStoryItemLink,
+    AdsTargetGroupTargetPixelRule,
+    AdsPostViews,
+    AdsAdCostType,
+    BaseError,
+    WallPostCopyright,
+    AdsStories,
+    AdsAdStatus,
+    BaseBoolInt,
+    AdsStoryItemStatsFollow,
+    AdsAccessRolePublic,
+    AdsStoryItem,
+    AdsStatsSexValue,
+    AdsStatsAge,
 )
 
 
 class AdsAccessRoleResponseModel(enum.Enum):
+
     ADMIN = "admin"
 
     MANAGER = "manager"
@@ -71,6 +72,7 @@ class AdsAccessRoleResponse(BaseResponse):
 
 
 class AdsAccessRolePublicResponseModel(enum.Enum):
+
     MANAGER = "manager"
 
     REPORTS = "reports"
@@ -81,6 +83,7 @@ class AdsAccessRolePublicResponse(BaseResponse):
 
 
 class AdsAccessesResponseModel(BaseModel):
+
     client_id: typing.Optional[str] = Field(
         default=None,
         description="Client ID",
@@ -96,6 +99,7 @@ class AdsAccessesResponse(BaseResponse):
 
 
 class AdsAccountResponseModel(BaseModel):
+
     access_role: "AdsAccessRole" = Field()
 
     account_id: int = Field(
@@ -122,6 +126,7 @@ class AdsAccountResponse(BaseResponse):
 
 
 class AdsAccountTypeResponseModel(enum.Enum):
+
     GENERAL = "general"
 
     AGENCY = "agency"
@@ -132,6 +137,7 @@ class AdsAccountTypeResponse(BaseResponse):
 
 
 class AdsAdResponseModel(BaseModel):
+
     ad_format: int = Field(
         description="Ad format",
     )
@@ -369,12 +375,18 @@ class AdsAdResponseModel(BaseModel):
         description="Suggested criteria",
     )
 
+    link_type: typing.Optional[int] = Field(
+        default=None,
+        description="Link type",
+    )
+
 
 class AdsAdResponse(BaseResponse):
     response: "AdsAdResponseModel"
 
 
 class AdsAdApprovedResponseModel(enum.IntEnum):
+
     NOT_MODERATED = 0
 
     PENDING_MODERATION = 1
@@ -389,6 +401,7 @@ class AdsAdApprovedResponse(BaseResponse):
 
 
 class AdsAdCostTypeResponseModel(enum.IntEnum):
+
     PER_CLICKS = 0
 
     PER_IMPRESSIONS = 1
@@ -403,6 +416,7 @@ class AdsAdCostTypeResponse(BaseResponse):
 
 
 class AdsAdLayoutResponseModel(BaseModel):
+
     ad_format: int = Field(
         description="Ad format",
     )
@@ -517,6 +531,16 @@ class AdsAdLayoutResponseModel(BaseModel):
         description="Video source 1080p",
     )
 
+    video_src_1440: typing.Optional[str] = Field(
+        default=None,
+        description="Video source 1440p",
+    )
+
+    video_src_2160: typing.Optional[str] = Field(
+        default=None,
+        description="Video source 2160p",
+    )
+
     video_image_src: typing.Optional[str] = Field(
         default=None,
         description="Video image source",
@@ -560,6 +584,7 @@ class AdsAdLayoutResponse(BaseResponse):
 
 
 class AdsAdStatusResponseModel(enum.IntEnum):
+
     STOPPED = 0
 
     STARTED = 1
@@ -572,6 +597,7 @@ class AdsAdStatusResponse(BaseResponse):
 
 
 class AdsCampaignResponseModel(BaseModel):
+
     all_limit: str = Field(
         description="Campaign's total limit, rubles",
     )
@@ -641,6 +667,7 @@ class AdsCampaignResponse(BaseResponse):
 
 
 class AdsCampaignStatusResponseModel(enum.IntEnum):
+
     STOPPED = 0
 
     STARTED = 1
@@ -653,6 +680,7 @@ class AdsCampaignStatusResponse(BaseResponse):
 
 
 class AdsCampaignTypeResponseModel(enum.Enum):
+
     NORMAL = "normal"
 
     VK_APPS_MANAGED = "vk_apps_managed"
@@ -671,6 +699,7 @@ class AdsCampaignTypeResponse(BaseResponse):
 
 
 class AdsCategoryResponseModel(BaseModel):
+
     id: int = Field(
         description="Category ID",
     )
@@ -689,6 +718,7 @@ class AdsCategoryResponse(BaseResponse):
 
 
 class AdsClientResponseModel(BaseModel):
+
     all_limit: str = Field(
         description="Client's total limit, rubles",
     )
@@ -716,6 +746,7 @@ class AdsClientResponse(BaseResponse):
 
 
 class AdsClipItemResponseModel(BaseModel):
+
     video_id: typing.Optional[int] = Field(
         default=None,
         description="Video id",
@@ -736,6 +767,7 @@ class AdsClipItemResponse(BaseResponse):
 
 
 class AdsClipItemLinkResponseModel(BaseModel):
+
     text: typing.Optional[str] = Field(
         default=None,
         description="Text",
@@ -757,6 +789,7 @@ class AdsClipItemLinkResponse(BaseResponse):
 
 
 class AdsCreateAdStatusResponseModel(BaseModel):
+
     id: int = Field(
         description="Ad ID",
     )
@@ -782,6 +815,7 @@ class AdsCreateAdStatusResponse(BaseResponse):
 
 
 class AdsCreateCampaignStatusResponseModel(BaseModel):
+
     id: int = Field(
         description="Campaign ID",
     )
@@ -802,6 +836,7 @@ class AdsCreateCampaignStatusResponse(BaseResponse):
 
 
 class AdsCreateClientsStatusResponseModel(BaseModel):
+
     id: int = Field(
         description="Client ID",
     )
@@ -822,6 +857,7 @@ class AdsCreateClientsStatusResponse(BaseResponse):
 
 
 class AdsCriteriaResponseModel(BaseModel):
+
     age_from: typing.Optional[str] = Field(
         default=None,
         description="Age from",
@@ -855,11 +891,6 @@ class AdsCriteriaResponseModel(BaseModel):
     cities_not: typing.Optional[str] = Field(
         default=None,
         description="Cities IDs to except",
-    )
-
-    country: typing.Optional[str] = Field(
-        default=None,
-        description="Country ID",
     )
 
     districts: typing.Optional[str] = Field(
@@ -1112,11 +1143,12 @@ class AdsCriteriaResponse(BaseResponse):
 
 
 class AdsCriteriaSexResponseModel(enum.Enum):
-    _0 = "0"
 
-    _1 = "1"
+    value_0 = "0"
 
-    _2 = "2"
+    value_1 = "1"
+
+    value_2 = "2"
 
 
 class AdsCriteriaSexResponse(BaseResponse):
@@ -1124,6 +1156,7 @@ class AdsCriteriaSexResponse(BaseResponse):
 
 
 class AdsDemoStatsResponseModel(BaseModel):
+
     id: typing.Optional[int] = Field(
         default=None,
         description="Object ID",
@@ -1143,6 +1176,7 @@ class AdsDemoStatsResponse(BaseResponse):
 
 
 class AdsDemographicStatsPeriodItemBaseResponseModel(BaseModel):
+
     clicks_rate: typing.Optional[float] = Field(
         default=None,
         description="Clicks rate",
@@ -1159,6 +1193,7 @@ class AdsDemographicStatsPeriodItemBaseResponse(BaseResponse):
 
 
 class AdsDemostatsFormatResponseModel(BaseModel):
+
     age: typing.Optional[typing.List[AdsStatsAge]] = Field(
         default=None,
     )
@@ -1204,6 +1239,7 @@ class AdsDemostatsFormatResponse(BaseResponse):
 
 
 class AdsEventsRetargetingGroupResponseModel(BaseModel):
+
     id: typing.Optional[int] = Field(
         default=None,
     )
@@ -1218,6 +1254,7 @@ class AdsEventsRetargetingGroupResponse(BaseResponse):
 
 
 class AdsFloodStatsResponseModel(BaseModel):
+
     left: int = Field(
         description="Requests left",
     )
@@ -1237,6 +1274,7 @@ class AdsFloodStatsResponse(BaseResponse):
 
 
 class AdsFloodStatsByUserItemResponseModel(BaseModel):
+
     user_id: int = Field(
         description="User ID",
     )
@@ -1251,6 +1289,7 @@ class AdsFloodStatsByUserItemResponse(BaseResponse):
 
 
 class AdsLinkStatusResponseModel(BaseModel):
+
     status: str = Field(
         description="Link status",
     )
@@ -1271,6 +1310,7 @@ class AdsLinkStatusResponse(BaseResponse):
 
 
 class AdsLookalikeRequestResponseModel(BaseModel):
+
     id: int = Field(
         description="Lookalike request ID",
     )
@@ -1330,6 +1370,7 @@ class AdsLookalikeRequestResponse(BaseResponse):
 
 
 class AdsLookalikeRequestSaveAudienceLevelResponseModel(BaseModel):
+
     level: typing.Optional[int] = Field(
         default=None,
         description="Save audience level id, which is used in save audience queries",
@@ -1346,6 +1387,7 @@ class AdsLookalikeRequestSaveAudienceLevelResponse(BaseResponse):
 
 
 class AdsMobileStatItemResponseModel(BaseModel):
+
     key: typing.Optional[str] = Field(
         default=None,
     )
@@ -1360,8 +1402,13 @@ class AdsMobileStatItemResponse(BaseResponse):
 
 
 class AdsMusicianResponseModel(BaseModel):
+
     id: int = Field(
         description="Targeting music artist ID",
+    )
+
+    original_id: str = Field(
+        description="Music artist ID as in VKMusic",
     )
 
     name: str = Field(
@@ -1379,6 +1426,7 @@ class AdsMusicianResponse(BaseResponse):
 
 
 class AdsObjectTypeResponseModel(enum.Enum):
+
     AD = "ad"
 
     CAMPAIGN = "campaign"
@@ -1393,6 +1441,7 @@ class AdsObjectTypeResponse(BaseResponse):
 
 
 class AdsOrdClientTypeResponseModel(enum.Enum):
+
     PERSON = "person"
 
     INDIVIDUAL = "individual"
@@ -1409,6 +1458,7 @@ class AdsOrdClientTypeResponse(BaseResponse):
 
 
 class AdsOrdDataResponseModel(BaseModel):
+
     client_type: "AdsOrdClientType" = Field()
 
     client_name: str = Field()
@@ -1439,6 +1489,7 @@ class AdsOrdDataResponse(BaseResponse):
 
 
 class AdsOrdSubagentResponseModel(BaseModel):
+
     type: "AdsOrdClientType" = Field()
 
     name: str = Field()
@@ -1455,6 +1506,7 @@ class AdsOrdSubagentResponse(BaseResponse):
 
 
 class AdsPostResponseModel(BaseModel):
+
     id: typing.Optional[int] = Field(
         default=None,
         description="Post id",
@@ -1499,6 +1551,10 @@ class AdsPostResponseModel(BaseModel):
     )
 
     comments: typing.Optional["AdsPostComments"] = Field(
+        default=None,
+    )
+
+    copyright: typing.Optional["WallPostCopyright"] = Field(
         default=None,
     )
 
@@ -1588,6 +1644,7 @@ class AdsPostResponse(BaseResponse):
 
 
 class AdsPostCommentsResponseModel(BaseModel):
+
     count: typing.Optional[int] = Field(
         default=None,
         description="Count",
@@ -1599,6 +1656,7 @@ class AdsPostCommentsResponse(BaseResponse):
 
 
 class AdsPostDonutResponseModel(BaseModel):
+
     is_donut: typing.Optional[bool] = Field(
         default=None,
         description="Is donut",
@@ -1610,6 +1668,7 @@ class AdsPostDonutResponse(BaseResponse):
 
 
 class AdsPostEasyPromoteResponseModel(BaseModel):
+
     type: typing.Optional[int] = Field(
         default=None,
         description="Type",
@@ -1651,6 +1710,7 @@ class AdsPostEasyPromoteResponse(BaseResponse):
 
 
 class AdsPostLikesResponseModel(BaseModel):
+
     can_like: typing.Optional[int] = Field(
         default=None,
         description="Can like",
@@ -1672,6 +1732,7 @@ class AdsPostLikesResponse(BaseResponse):
 
 
 class AdsPostOwnerResponseModel(BaseModel):
+
     id: typing.Optional[int] = Field(
         default=None,
         description="Owner id",
@@ -1698,6 +1759,7 @@ class AdsPostOwnerResponse(BaseResponse):
 
 
 class AdsPostRepostsResponseModel(BaseModel):
+
     count: typing.Optional[int] = Field(
         default=None,
         description="Count",
@@ -1719,6 +1781,7 @@ class AdsPostRepostsResponse(BaseResponse):
 
 
 class AdsPostViewsResponseModel(BaseModel):
+
     count: typing.Optional[int] = Field(
         default=None,
         description="Count",
@@ -1730,6 +1793,7 @@ class AdsPostViewsResponse(BaseResponse):
 
 
 class AdsPromotedPostReachResponseModel(BaseModel):
+
     hide: int = Field(
         description="Hides amount",
     )
@@ -1812,6 +1876,7 @@ class AdsPromotedPostReachResponse(BaseResponse):
 
 
 class AdsRejectReasonResponseModel(BaseModel):
+
     comment: typing.Optional[str] = Field(
         default=None,
         description="Comment text",
@@ -1827,7 +1892,8 @@ class AdsRejectReasonResponse(BaseResponse):
 
 
 class AdsRulesResponseModel(BaseModel):
-    help_url: typing.Optional["AdsRulesHelpUrl"] = Field(
+
+    help_url: typing.Optional[typing.Union["str", "bool"]] = Field(
         default=None,
         description="Help url",
     )
@@ -1852,15 +1918,8 @@ class AdsRulesResponse(BaseResponse):
     response: "AdsRulesResponseModel"
 
 
-class AdsRulesHelpUrlResponseModel(BaseModel):
-    pass
-
-
-class AdsRulesHelpUrlResponse(BaseResponse):
-    response: "AdsRulesHelpUrlResponseModel"
-
-
 class AdsStatisticClickActionResponseModel(BaseModel):
+
     type: typing.Optional[
         typing.Literal[
             "load",
@@ -1902,6 +1961,7 @@ class AdsStatisticClickActionResponse(BaseResponse):
 
 
 class AdsStatsResponseModel(BaseModel):
+
     id: typing.Optional[int] = Field(
         default=None,
         description="Object ID",
@@ -1925,6 +1985,7 @@ class AdsStatsResponse(BaseResponse):
 
 
 class AdsStatsAgeResponseModel(AdsDemographicStatsPeriodItemBase):
+
     value: typing.Optional[str] = Field(
         default=None,
         description="Age interval",
@@ -1936,6 +1997,7 @@ class AdsStatsAgeResponse(BaseResponse):
 
 
 class AdsStatsCitiesResponseModel(AdsDemographicStatsPeriodItemBase):
+
     name: typing.Optional[str] = Field(
         default=None,
         description="City name",
@@ -1952,6 +2014,7 @@ class AdsStatsCitiesResponse(BaseResponse):
 
 
 class AdsStatsFormatResponseModel(BaseModel):
+
     clicks: typing.Optional[int] = Field(
         default=None,
         description="Clicks number",
@@ -2113,6 +2176,7 @@ class AdsStatsFormatResponse(BaseResponse):
 
 
 class AdsStatsSexResponseModel(AdsDemographicStatsPeriodItemBase):
+
     value: typing.Optional["AdsStatsSexValue"] = Field(
         default=None,
     )
@@ -2123,6 +2187,7 @@ class AdsStatsSexResponse(BaseResponse):
 
 
 class AdsStatsSexAgeResponseModel(AdsDemographicStatsPeriodItemBase):
+
     value: typing.Optional[str] = Field(
         default=None,
         description="Sex and age interval",
@@ -2134,6 +2199,7 @@ class AdsStatsSexAgeResponse(BaseResponse):
 
 
 class AdsStatsSexValueResponseModel(enum.Enum):
+
     F = "f"
 
     M = "m"
@@ -2144,6 +2210,7 @@ class AdsStatsSexValueResponse(BaseResponse):
 
 
 class AdsStatsViewsTimesResponseModel(BaseModel):
+
     views_ads_times_1: typing.Optional[int] = Field(
         default=None,
     )
@@ -2194,6 +2261,7 @@ class AdsStatsViewsTimesResponse(BaseResponse):
 
 
 class AdsStoriesResponseModel(BaseModel):
+
     stories: typing.Optional[typing.List[AdsStoryItem]] = Field(
         default=None,
     )
@@ -2213,7 +2281,8 @@ class AdsStoriesResponse(BaseResponse):
 
 
 class AdsStoriesOwnerResponseModel(BaseModel):
-    id: typing.Optional[int] = Field(
+
+    id: typing.Optional[typing.Union["int", "bool"]] = Field(
         default=None,
         description="Owner id",
     )
@@ -2274,6 +2343,7 @@ class AdsStoriesOwnerResponse(BaseResponse):
 
 
 class AdsStoryItemResponseModel(BaseModel):
+
     id: typing.Optional[int] = Field(
         default=None,
         description="Story id",
@@ -2408,6 +2478,7 @@ class AdsStoryItemResponse(BaseResponse):
 
 
 class AdsStoryItemLinkResponseModel(BaseModel):
+
     key: typing.Optional[str] = Field(
         default=None,
         description="Key",
@@ -2434,6 +2505,7 @@ class AdsStoryItemLinkResponse(BaseResponse):
 
 
 class AdsStoryItemStatsResponseModel(BaseModel):
+
     follow: typing.Optional["AdsStoryItemStatsFollow"] = Field(
         default=None,
     )
@@ -2448,6 +2520,7 @@ class AdsStoryItemStatsResponse(BaseResponse):
 
 
 class AdsStoryItemStatsFollowResponseModel(BaseModel):
+
     event_type: typing.Optional[str] = Field(
         default=None,
         description="Event type",
@@ -2464,6 +2537,7 @@ class AdsStoryItemStatsFollowResponse(BaseResponse):
 
 
 class AdsStoryItemStatsUrlViewResponseModel(BaseModel):
+
     event_type: typing.Optional[str] = Field(
         default=None,
         description="Event type",
@@ -2480,6 +2554,7 @@ class AdsStoryItemStatsUrlViewResponse(BaseResponse):
 
 
 class AdsTargSettingsResponseModel(AdsCriteria):
+
     id: typing.Optional[str] = Field(
         default=None,
         description="Ad ID",
@@ -2496,6 +2571,7 @@ class AdsTargSettingsResponse(BaseResponse):
 
 
 class AdsTargStatsResponseModel(BaseModel):
+
     audience_count: int = Field(
         description="Audience",
     )
@@ -2551,6 +2627,7 @@ class AdsTargStatsResponse(BaseResponse):
 
 
 class AdsTargSuggestionsResponseModel(BaseModel):
+
     id: typing.Optional[int] = Field(
         default=None,
         description="Object ID",
@@ -2577,6 +2654,7 @@ class AdsTargSuggestionsResponse(BaseResponse):
 
 
 class AdsTargSuggestionsCitiesResponseModel(BaseModel):
+
     id: typing.Optional[int] = Field(
         default=None,
         description="Object ID",
@@ -2598,6 +2676,7 @@ class AdsTargSuggestionsCitiesResponse(BaseResponse):
 
 
 class AdsTargSuggestionsRegionsResponseModel(BaseModel):
+
     id: typing.Optional[int] = Field(
         default=None,
         description="Object ID",
@@ -2619,6 +2698,7 @@ class AdsTargSuggestionsRegionsResponse(BaseResponse):
 
 
 class AdsTargSuggestionsSchoolsResponseModel(BaseModel):
+
     desc: typing.Optional[str] = Field(
         default=None,
         description="Full school title",
@@ -2649,6 +2729,7 @@ class AdsTargSuggestionsSchoolsResponse(BaseResponse):
 
 
 class AdsTargSuggestionsSchoolsTypeResponseModel(enum.Enum):
+
     SCHOOL = "school"
 
     UNIVERSITY = "university"
@@ -2663,6 +2744,7 @@ class AdsTargSuggestionsSchoolsTypeResponse(BaseResponse):
 
 
 class AdsTargetGroupResponseModel(BaseModel):
+
     id: typing.Optional[int] = Field(
         default=None,
         description="Group ID",
@@ -2723,11 +2805,11 @@ class AdsTargetGroupResponseModel(BaseModel):
         description="Target Pixel id",
     )
 
-    target_pixel_rules: typing.Optional[
-        typing.List[AdsTargetGroupTargetPixelRule]
-    ] = Field(
-        default=None,
-        description="Target Pixel rules",
+    target_pixel_rules: typing.Optional[typing.List[AdsTargetGroupTargetPixelRule]] = (
+        Field(
+            default=None,
+            description="Target Pixel rules",
+        )
     )
 
     last_updated: typing.Optional[int] = Field(
@@ -2741,6 +2823,7 @@ class AdsTargetGroupResponse(BaseResponse):
 
 
 class AdsTargetGroupTargetPixelRuleResponseModel(BaseModel):
+
     url_full_match: typing.Optional[str] = Field(
         default=None,
     )
@@ -2771,6 +2854,7 @@ class AdsTargetGroupTargetPixelRuleResponse(BaseResponse):
 
 
 class AdsTargetPixelInfoResponseModel(BaseModel):
+
     target_pixel_id: int = Field()
 
     name: str = Field()
@@ -2789,6 +2873,7 @@ class AdsTargetPixelInfoResponse(BaseResponse):
 
 
 class AdsUpdateOfficeUsersResultResponseModel(BaseModel):
+
     user_id: int = Field()
 
     is_success: bool = Field()
@@ -2803,6 +2888,7 @@ class AdsUpdateOfficeUsersResultResponse(BaseResponse):
 
 
 class AdsUpdateAdsStatusResponseModel(BaseModel):
+
     id: int = Field(
         description="Ad ID",
     )
@@ -2823,6 +2909,7 @@ class AdsUpdateAdsStatusResponse(BaseResponse):
 
 
 class AdsUpdateClientsStatusResponseModel(BaseModel):
+
     id: int = Field(
         description="Client ID",
     )
@@ -2843,6 +2930,7 @@ class AdsUpdateClientsStatusResponse(BaseResponse):
 
 
 class AdsUserSpecificationResponseModel(BaseModel):
+
     user_id: int = Field()
 
     role: "AdsAccessRolePublic" = Field()
@@ -2865,6 +2953,7 @@ class AdsUserSpecificationResponse(BaseResponse):
 
 
 class AdsUserSpecificationCuttedResponseModel(BaseModel):
+
     user_id: int = Field()
 
     role: "AdsAccessRolePublic" = Field()
@@ -2883,6 +2972,7 @@ class AdsUserSpecificationCuttedResponse(BaseResponse):
 
 
 class AdsUsersResponseModel(BaseModel):
+
     accesses: typing.List[AdsAccesses] = Field()
 
     user_id: int = Field(

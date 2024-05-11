@@ -7,6 +7,40 @@ from vkbottle_types.responses.base import OkResponse
 
 
 class AppsCategory(BaseCategory):
+
+    async def add_snippet(
+        self,
+        vk_ref: typing.Optional[typing.List[str]] = None,
+        group_id: typing.Optional[typing.List[int]] = None,
+        hash: typing.Optional[typing.List[str]] = None,
+        snippet_id: typing.Optional[int] = None,
+        title: typing.Optional[str] = None,
+        description: typing.Optional[str] = None,
+        image_url: typing.Optional[str] = None,
+        small_image_url: typing.Optional[str] = None,
+        button: typing.Optional[str] = None,
+        **kwargs,
+    ) -> AppsAddSnippetResponseModel:
+        """apps.addSnippet method
+
+
+        :param vk_ref:
+        :param group_id:
+        :param hash:
+        :param snippet_id:
+        :param title:
+        :param description:
+        :param image_url:
+        :param small_image_url:
+        :param button:
+        """
+        params = self.get_set_params(locals())
+        response = await self.api.request("account.ban", params)
+
+        model = AppsAddSnippetResponse
+
+        return model(**response).response
+
     async def add_users_to_testing_group(
         self,
         user_ids: typing.List[int],
@@ -31,6 +65,23 @@ class AppsCategory(BaseCategory):
         **kwargs,
     ) -> BaseOkResponseModel:
         """apps.deleteAppRequests method"""
+        params = self.get_set_params(locals())
+        response = await self.api.request("account.ban", params)
+
+        model = BaseOkResponse
+
+        return model(**response).response
+
+    async def delete_snippet(
+        self,
+        id: typing.Optional[int] = None,
+        **kwargs,
+    ) -> BaseOkResponseModel:
+        """apps.deleteSnippet method
+
+
+        :param id:
+        """
         params = self.get_set_params(locals())
         response = await self.api.request("account.ban", params)
 
@@ -116,8 +167,7 @@ class AppsCategory(BaseCategory):
         fields: typing.Optional[typing.List[UsersFields]] = 1,
         query: typing.Optional[str] = None,
         **kwargs,
-    ) -> AppsGetFriendsListExtendedResponseModel:
-        ...
+    ) -> AppsGetFriendsListExtendedResponseModel: ...
 
     async def get_friends_list(
         self,
@@ -150,32 +200,19 @@ class AppsCategory(BaseCategory):
 
         return model(**response).response
 
-    async def get_last_uploaded_version(
-        self,
-        **kwargs,
-    ) -> AppsGetLastUploadedVersionResponseModel:
-        """apps.getLastUploadedVersion method"""
-        params = self.get_set_params(locals())
-        response = await self.api.request("account.ban", params)
-
-        model = AppsGetLastUploadedVersionResponse
-
-        return model(**response).response
-
     @typing.overload
     async def get_leaderboard(
         self,
         type: str,
         extended: typing.Literal[True] = True,
-        _global: typing.Optional[bool] = 1,
+        value_global: typing.Optional[bool] = 1,
         **kwargs,
-    ) -> AppsGetLeaderboardExtendedResponseModel:
-        ...
+    ) -> AppsGetLeaderboardExtendedResponseModel: ...
 
     async def get_leaderboard(
         self,
         type: str,
-        _global: typing.Optional[bool] = 1,
+        value_global: typing.Optional[bool] = 1,
         extended: typing.Optional[bool] = 0,
         **kwargs,
     ) -> AppsGetLeaderboardResponseModel:
@@ -245,6 +282,18 @@ class AppsCategory(BaseCategory):
         response = await self.api.request("account.ban", params)
 
         model = AppsGetScoreResponse
+
+        return model(**response).response
+
+    async def get_snippets(
+        self,
+        **kwargs,
+    ) -> AppsGetSnippetsResponseModel:
+        """apps.getSnippets method"""
+        params = self.get_set_params(locals())
+        response = await self.api.request("account.ban", params)
+
+        model = AppsGetSnippetsResponse
 
         return model(**response).response
 

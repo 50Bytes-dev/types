@@ -4,17 +4,18 @@ from vkbottle_types.responses.base_response import BaseResponse, BaseModel
 from vkbottle_types.base_model import Field
 
 from vkbottle_types.objects import (
-    UtilsDomainResolvedType,
-    UtilsLinkCheckedStatus,
-    UtilsStatsSexAge,
-    UtilsStats,
     UtilsStatsExtended,
     UtilsStatsCountry,
+    UtilsStats,
+    UtilsDomainResolvedType,
+    UtilsStatsSexAge,
     UtilsStatsCity,
+    UtilsLinkCheckedStatus,
 )
 
 
 class UtilsDomainResolvedResponseModel(BaseModel):
+
     object_id: typing.Optional[int] = Field(
         default=None,
         description="Object ID",
@@ -35,6 +36,7 @@ class UtilsDomainResolvedResponse(BaseResponse):
 
 
 class UtilsDomainResolvedTypeResponseModel(enum.Enum):
+
     USER = "user"
 
     GROUP = "group"
@@ -53,6 +55,7 @@ class UtilsDomainResolvedTypeResponse(BaseResponse):
 
 
 class UtilsLastShortenedLinkResponseModel(BaseModel):
+
     access_key: typing.Optional[str] = Field(
         default=None,
         description="Access key for private stats",
@@ -89,6 +92,7 @@ class UtilsLastShortenedLinkResponse(BaseResponse):
 
 
 class UtilsLinkCheckedResponseModel(BaseModel):
+
     link: typing.Optional[str] = Field(
         default=None,
         description="Link URL",
@@ -104,6 +108,7 @@ class UtilsLinkCheckedResponse(BaseResponse):
 
 
 class UtilsLinkCheckedStatusResponseModel(enum.Enum):
+
     NOT_BANNED = "not_banned"
 
     BANNED = "banned"
@@ -116,6 +121,7 @@ class UtilsLinkCheckedStatusResponse(BaseResponse):
 
 
 class UtilsLinkStatsResponseModel(BaseModel):
+
     key: typing.Optional[str] = Field(
         default=None,
         description="Link key (characters after vk.cc/)",
@@ -131,6 +137,7 @@ class UtilsLinkStatsResponse(BaseResponse):
 
 
 class UtilsLinkStatsExtendedResponseModel(BaseModel):
+
     key: typing.Optional[str] = Field(
         default=None,
         description="Link key (characters after vk.cc/)",
@@ -146,6 +153,7 @@ class UtilsLinkStatsExtendedResponse(BaseResponse):
 
 
 class UtilsShortLinkResponseModel(BaseModel):
+
     access_key: typing.Optional[str] = Field(
         default=None,
         description="Access key for private stats",
@@ -172,6 +180,7 @@ class UtilsShortLinkResponse(BaseResponse):
 
 
 class UtilsStatsResponseModel(BaseModel):
+
     timestamp: typing.Optional[int] = Field(
         default=None,
         description="Start time",
@@ -188,6 +197,7 @@ class UtilsStatsResponse(BaseResponse):
 
 
 class UtilsStatsCityResponseModel(BaseModel):
+
     city_id: typing.Optional[int] = Field(
         default=None,
         description="City ID",
@@ -204,6 +214,7 @@ class UtilsStatsCityResponse(BaseResponse):
 
 
 class UtilsStatsCountryResponseModel(BaseModel):
+
     country_id: typing.Optional[int] = Field(
         default=None,
         description="Country ID",
@@ -220,6 +231,7 @@ class UtilsStatsCountryResponse(BaseResponse):
 
 
 class UtilsStatsExtendedResponseModel(BaseModel):
+
     cities: typing.Optional[typing.List[UtilsStatsCity]] = Field(
         default=None,
     )
@@ -248,6 +260,7 @@ class UtilsStatsExtendedResponse(BaseResponse):
 
 
 class UtilsStatsSexAgeResponseModel(BaseModel):
+
     age_range: typing.Optional[str] = Field(
         default=None,
         description="Age denotation",

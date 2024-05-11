@@ -7,11 +7,13 @@ from vkbottle_types.responses.base import OkResponse
 
 
 class UsersCategory(BaseCategory):
+
     async def get(
         self,
         user_ids: typing.Optional[typing.List[typing.Union["int", "str"]]] = None,
         fields: typing.Optional[typing.List[UsersFields]] = None,
         name_case: typing.Optional[str] = None,
+        from_group_id: typing.Optional[int] = 0,
         **kwargs,
     ) -> UsersGetResponseModel:
         """users.get method
@@ -20,6 +22,7 @@ class UsersCategory(BaseCategory):
         :param user_ids: User IDs or screen names ('screen_name'). By default, current user ID.
         :param fields: Profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate' (birthdate), 'city', 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'has_mobile', 'contacts', 'education', 'online', 'counters', 'relation', 'last_seen', 'activity', 'can_write_private_message', 'can_see_all_posts', 'can_post', 'universities', 'can_invite_to_chats'
         :param name_case: Case for declension of user name and surname: 'nom' - nominative (default), 'gen' - genitive , 'dat' - dative, 'acc' - accusative , 'ins' - instrumental , 'abl' - prepositional
+        :param from_group_id:
         """
         params = self.get_set_params(locals())
         response = await self.api.request("account.ban", params)
@@ -37,8 +40,7 @@ class UsersCategory(BaseCategory):
         count: typing.Optional[int] = 100,
         name_case: typing.Optional[str] = None,
         **kwargs,
-    ) -> UsersGetFollowersFieldsResponseModel:
-        ...
+    ) -> UsersGetFollowersFieldsResponseModel: ...
 
     async def get_followers(
         self,
@@ -78,8 +80,7 @@ class UsersCategory(BaseCategory):
         count: typing.Optional[int] = 20,
         fields: typing.Optional[typing.List[UsersFields]] = None,
         **kwargs,
-    ) -> UsersGetSubscriptionsExtendedResponseModel:
-        ...
+    ) -> UsersGetSubscriptionsExtendedResponseModel: ...
 
     async def get_subscriptions(
         self,
@@ -168,6 +169,7 @@ class UsersCategory(BaseCategory):
         group_id: typing.Optional[int] = None,
         from_list: typing.Optional[typing.List[str]] = None,
         screen_ref: typing.Optional[str] = None,
+        from_group_id: typing.Optional[int] = 0,
         **kwargs,
     ) -> UsersSearchResponseModel:
         """users.search method
@@ -208,6 +210,7 @@ class UsersCategory(BaseCategory):
         :param group_id: ID of a community to search in communities.
         :param from_list:
         :param screen_ref:
+        :param from_group_id:
         """
         params = self.get_set_params(locals())
         response = await self.api.request("account.ban", params)

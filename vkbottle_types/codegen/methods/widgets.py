@@ -7,6 +7,7 @@ from vkbottle_types.responses.base import OkResponse
 
 
 class WidgetsCategory(BaseCategory):
+
     async def get_comments(
         self,
         widget_api_id: typing.Optional[int] = None,

@@ -7,6 +7,7 @@ from vkbottle_types.responses.base import OkResponse
 
 
 class UtilsCategory(BaseCategory):
+
     async def check_link(
         self,
         url: str,
@@ -70,8 +71,7 @@ class UtilsCategory(BaseCategory):
         interval: typing.Optional[str] = "day",
         intervals_count: typing.Optional[int] = 1,
         **kwargs,
-    ) -> UtilsGetLinkStatsExtendedResponseModel:
-        ...
+    ) -> UtilsGetLinkStatsExtendedResponseModel: ...
 
     async def get_link_stats(
         self,

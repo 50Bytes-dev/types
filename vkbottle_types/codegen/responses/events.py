@@ -7,6 +7,7 @@ from vkbottle_types.objects import GroupsGroupFullMemberStatus
 
 
 class EventsEventAttachResponseModel(BaseModel):
+
     button_text: str = Field(
         description="text of attach",
     )

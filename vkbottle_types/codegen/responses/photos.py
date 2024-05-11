@@ -4,22 +4,23 @@ from vkbottle_types.responses.base_response import BaseResponse, BaseModel
 from vkbottle_types.base_model import Field
 
 from vkbottle_types.objects import (
-    BasePropertyExists,
-    PhotosImageType,
-    PhotosTagsSuggestionItemButton,
-    BaseLikes,
-    BaseRepostsInfo,
-    BaseBoolInt,
-    PhotosPhoto,
-    PhotosPhotoSizesType,
+    PhotosPhotoSizes,
     PhotosPhotoTag,
     PhotosImage,
+    BaseRepostsInfo,
+    BasePropertyExists,
+    PhotosPhotoSizesType,
+    PhotosImageType,
+    BaseLikes,
+    BaseBoolInt,
     BaseObjectCount,
-    PhotosPhotoSizes,
+    PhotosTagsSuggestionItemButton,
+    PhotosPhoto,
 )
 
 
 class PhotosImageResponseModel(BaseModel):
+
     height: typing.Optional[int] = Field(
         default=None,
         description="Height of the photo in px.",
@@ -45,6 +46,7 @@ class PhotosImageResponse(BaseResponse):
 
 
 class PhotosImageTypeResponseModel(enum.Enum):
+
     S = "s"
 
     M = "m"
@@ -75,6 +77,7 @@ class PhotosImageTypeResponse(BaseResponse):
 
 
 class PhotosPhotoResponseModel(BaseModel):
+
     album_id: int = Field(
         description="Album ID",
     )
@@ -122,6 +125,11 @@ class PhotosPhotoResponseModel(BaseModel):
     photo_256: typing.Optional[str] = Field(
         default=None,
         description="URL of image with 2560 px width",
+    )
+
+    thumb_hash: typing.Optional[str] = Field(
+        default=None,
+        description="Thumb Hash",
     )
 
     can_comment: typing.Optional[bool] = Field(
@@ -198,6 +206,7 @@ class PhotosPhotoResponse(BaseResponse):
 
 
 class PhotosPhotoAlbumResponseModel(BaseModel):
+
     created: int = Field(
         description="Date when the album has been created in Unixtime",
     )
@@ -237,6 +246,7 @@ class PhotosPhotoAlbumResponse(BaseResponse):
 
 
 class PhotosPhotoAlbumFullResponseModel(BaseModel):
+
     id: int = Field(
         description="Photo album ID",
     )
@@ -283,6 +293,11 @@ class PhotosPhotoAlbumFullResponseModel(BaseModel):
         description="album can be selected to feed",
     )
 
+    is_locked: typing.Optional[bool] = Field(
+        default=None,
+        description="Need show privacy lock at album",
+    )
+
     sizes: typing.Optional[typing.List[PhotosPhotoSizes]] = Field(
         default=None,
     )
@@ -317,15 +332,8 @@ class PhotosPhotoAlbumFullResponse(BaseResponse):
     response: "PhotosPhotoAlbumFullResponseModel"
 
 
-class PhotosPhotoFalseableResponseModel(BaseModel):
-    pass
-
-
-class PhotosPhotoFalseableResponse(BaseResponse):
-    response: "PhotosPhotoFalseableResponseModel"
-
-
 class PhotosPhotoSizesResponseModel(BaseModel):
+
     height: int = Field(
         description="Height in px",
     )
@@ -352,6 +360,7 @@ class PhotosPhotoSizesResponse(BaseResponse):
 
 
 class PhotosPhotoSizesTypeResponseModel(enum.Enum):
+
     T = "t"
 
     S = "s"
@@ -410,12 +419,15 @@ class PhotosPhotoSizesTypeResponseModel(enum.Enum):
 
     V = "v"
 
+    ORIG = "orig"
+
 
 class PhotosPhotoSizesTypeResponse(BaseResponse):
     response: "PhotosPhotoSizesTypeResponseModel"
 
 
 class PhotosPhotoTagResponseModel(BaseModel):
+
     date: int = Field(
         description="Date when tag has been added in Unixtime",
     )
@@ -467,6 +479,7 @@ class PhotosPhotoTagResponse(BaseResponse):
 
 
 class PhotosPhotoUploadResponseModel(BaseModel):
+
     album_id: int = Field(
         description="Album ID",
     )
@@ -495,6 +508,7 @@ class PhotosPhotoUploadResponse(BaseResponse):
 
 
 class PhotosPhotoXtrTagInfoResponseModel(BaseModel):
+
     album_id: int = Field(
         description="Album ID",
     )
@@ -611,6 +625,7 @@ class PhotosPhotoXtrTagInfoResponse(BaseResponse):
 
 
 class PhotosTagsSuggestionItemResponseModel(BaseModel):
+
     title: typing.Optional[str] = Field(
         default=None,
     )
@@ -645,6 +660,7 @@ class PhotosTagsSuggestionItemResponse(BaseResponse):
 
 
 class PhotosTagsSuggestionItemButtonResponseModel(BaseModel):
+
     title: typing.Optional[str] = Field(
         default=None,
     )

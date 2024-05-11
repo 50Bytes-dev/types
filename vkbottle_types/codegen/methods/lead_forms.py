@@ -7,6 +7,7 @@ from vkbottle_types.responses.base import OkResponse
 
 
 class LeadFormsCategory(BaseCategory):
+
     async def create(
         self,
         group_id: int,

@@ -24,12 +24,7 @@ class UsersCareer(BaseModel):
         description="Company name",
     )
 
-    country_id: typing.Optional[int] = Field(
-        default=None,
-        description="Country ID",
-    )
-
-    _from: typing.Optional[int] = Field(
+    value_from: typing.Optional[int] = Field(
         default=None,
         description="From year",
         alias="from",
@@ -75,6 +70,7 @@ class UsersExports(BaseModel):
 
 
 class UsersFields(enum.Enum):
+
     FIRST_NAME_NOM = "first_name_nom"
 
     FIRST_NAME_GEN = "first_name_gen"
@@ -110,8 +106,6 @@ class UsersFields(enum.Enum):
     BDATE_VISIBILITY = "bdate_visibility"
 
     CITY = "city"
-
-    COUNTRY = "country"
 
     HOME_TOWN = "home_town"
 
@@ -313,6 +307,8 @@ class UsersFields(enum.Enum):
 
     IS_SBER_VERIFIED = "is_sber_verified"
 
+    IS_VERIFIED = "is_verified"
+
     OAUTH_LINKED = "oauth_linked"
 
     OAUTH_VERIFICATION = "oauth_verification"
@@ -341,10 +337,6 @@ class UsersMilitary(BaseModel):
     Schema: users_military
     """
 
-    country_id: int = Field(
-        description="Country ID",
-    )
-
     unit: str = Field(
         description="Unit name",
     )
@@ -353,7 +345,7 @@ class UsersMilitary(BaseModel):
         description="Unit ID",
     )
 
-    _from: typing.Optional[int] = Field(
+    value_from: typing.Optional[int] = Field(
         default=None,
         description="From year",
         alias="from",
@@ -397,10 +389,6 @@ class UsersOccupation(BaseModel):
     )
 
     graduate_year: typing.Optional[int] = Field(
-        default=None,
-    )
-
-    country_id: typing.Optional[int] = Field(
         default=None,
     )
 
@@ -550,7 +538,7 @@ class UsersSchool(BaseModel):
         description="City ID",
     )
 
-    _class: typing.Optional[str] = Field(
+    value_class: typing.Optional[str] = Field(
         default=None,
         description="School class letter",
         alias="class",
@@ -559,11 +547,6 @@ class UsersSchool(BaseModel):
     class_id: typing.Optional[int] = Field(
         default=None,
         description="School class id",
-    )
-
-    country: typing.Optional[int] = Field(
-        default=None,
-        description="Country ID",
     )
 
     id: typing.Optional[str] = Field(
@@ -630,11 +613,6 @@ class UsersUniversity(BaseModel):
     city: typing.Optional[int] = Field(
         default=None,
         description="City ID",
-    )
-
-    country: typing.Optional[int] = Field(
-        default=None,
-        description="Country ID",
     )
 
     education_form: typing.Optional[str] = Field(
@@ -897,6 +875,7 @@ class UsersUserMin(BaseModel):
 
 
 class UsersUserRelation(enum.IntEnum):
+
     NOT_SPECIFIED = 0
 
     SINGLE = 1
@@ -944,10 +923,6 @@ class UsersUserSettingsXtr(BaseModel):
     )
 
     city: typing.Optional["BaseCity"] = Field(
-        default=None,
-    )
-
-    country: typing.Optional["BaseCountry"] = Field(
         default=None,
     )
 
@@ -1021,6 +996,7 @@ class UsersUserSettingsXtr(BaseModel):
 
 
 class UsersUserType(enum.Enum):
+
     PROFILE = "profile"
 
 
@@ -1078,7 +1054,7 @@ class AccountAccountCounters(BaseModel):
 
     messages: typing.Optional[int] = Field(
         default=None,
-        description="New messages number",
+        description="New messages number. Will be removed when messages.getCounters is released.",
     )
 
     memories: typing.Optional[int] = Field(
@@ -1103,6 +1079,7 @@ class AccountAccountCounters(BaseModel):
 
 
 class AccountCountersFilter(enum.Enum):
+
     APP_REQUESTS = "app_requests"
 
     EVENTS = "events"
@@ -1110,6 +1087,8 @@ class AccountCountersFilter(enum.Enum):
     FRIENDS = "friends"
 
     FRIENDS_RECOMMENDATIONS = "friends_recommendations"
+
+    GAMES = "games"
 
     GIFTS = "gifts"
 
@@ -1133,15 +1112,10 @@ class AccountInfo(BaseModel):
     Schema: account_info
     """
 
-    _2fa_required: typing.Optional[bool] = Field(
+    value_2fa_required: typing.Optional[bool] = Field(
         default=None,
         description="Two factor authentication is enabled",
         alias="2fa_required",
-    )
-
-    country: typing.Optional[str] = Field(
-        default=None,
-        description="Country code",
     )
 
     https_required: typing.Optional[bool] = Field(
@@ -1149,7 +1123,7 @@ class AccountInfo(BaseModel):
         description="Information whether HTTPS-only is enabled",
     )
 
-    intro: typing.Optional[bool] = Field(
+    intro: typing.Optional[int] = Field(
         default=None,
         description="Information whether user has been processed intro",
     )
@@ -1211,6 +1185,7 @@ class AccountNameRequest(BaseModel):
 
 
 class AccountNameRequestStatus(enum.Enum):
+
     SUCCESS = "success"
 
     PROCESSING = "processing"
@@ -1426,6 +1401,7 @@ class AccountPushParams(BaseModel):
 
 
 class AccountPushParamsMode(enum.Enum):
+
     ON = "on"
 
     OFF = "off"
@@ -1436,12 +1412,14 @@ class AccountPushParamsMode(enum.Enum):
 
 
 class AccountPushParamsOnoff(enum.Enum):
+
     ON = "on"
 
     OFF = "off"
 
 
 class AccountPushParamsSettings(enum.Enum):
+
     ON = "on"
 
     OFF = "off"
@@ -1526,6 +1504,7 @@ class AccountUserSettingsInterests(BaseModel):
 
 
 class AddressesFields(enum.Enum):
+
     ID = "id"
 
     TITLE = "title"
@@ -1556,6 +1535,7 @@ class AddressesFields(enum.Enum):
 
 
 class AdsAccessRole(enum.Enum):
+
     ADMIN = "admin"
 
     MANAGER = "manager"
@@ -1564,6 +1544,7 @@ class AdsAccessRole(enum.Enum):
 
 
 class AdsAccessRolePublic(enum.Enum):
+
     MANAGER = "manager"
 
     REPORTS = "reports"
@@ -1611,6 +1592,7 @@ class AdsAccount(BaseModel):
 
 
 class AdsAccountType(enum.Enum):
+
     GENERAL = "general"
 
     AGENCY = "agency"
@@ -1858,8 +1840,14 @@ class AdsAd(BaseModel):
         description="Suggested criteria",
     )
 
+    link_type: typing.Optional[int] = Field(
+        default=None,
+        description="Link type",
+    )
+
 
 class AdsAdApproved(enum.IntEnum):
+
     NOT_MODERATED = 0
 
     PENDING_MODERATION = 1
@@ -1870,6 +1858,7 @@ class AdsAdApproved(enum.IntEnum):
 
 
 class AdsAdCostType(enum.IntEnum):
+
     PER_CLICKS = 0
 
     PER_IMPRESSIONS = 1
@@ -1998,6 +1987,16 @@ class AdsAdLayout(BaseModel):
         description="Video source 1080p",
     )
 
+    video_src_1440: typing.Optional[str] = Field(
+        default=None,
+        description="Video source 1440p",
+    )
+
+    video_src_2160: typing.Optional[str] = Field(
+        default=None,
+        description="Video source 2160p",
+    )
+
     video_image_src: typing.Optional[str] = Field(
         default=None,
         description="Video image source",
@@ -2037,6 +2036,7 @@ class AdsAdLayout(BaseModel):
 
 
 class AdsAdStatus(enum.IntEnum):
+
     STOPPED = 0
 
     STARTED = 1
@@ -2114,6 +2114,7 @@ class AdsCampaign(BaseModel):
 
 
 class AdsCampaignStatus(enum.IntEnum):
+
     STOPPED = 0
 
     STARTED = 1
@@ -2122,6 +2123,7 @@ class AdsCampaignStatus(enum.IntEnum):
 
 
 class AdsCampaignType(enum.Enum):
+
     NORMAL = "normal"
 
     VK_APPS_MANAGED = "vk_apps_managed"
@@ -2324,11 +2326,6 @@ class AdsCriteria(BaseModel):
     cities_not: typing.Optional[str] = Field(
         default=None,
         description="Cities IDs to except",
-    )
-
-    country: typing.Optional[str] = Field(
-        default=None,
-        description="Country ID",
     )
 
     districts: typing.Optional[str] = Field(
@@ -2577,11 +2574,12 @@ class AdsCriteria(BaseModel):
 
 
 class AdsCriteriaSex(enum.Enum):
-    _0 = "0"
 
-    _1 = "1"
+    value_0 = "0"
 
-    _2 = "2"
+    value_1 = "1"
+
+    value_2 = "2"
 
 
 class AdsDemoStats(BaseModel):
@@ -2835,6 +2833,10 @@ class AdsMusician(BaseModel):
         description="Targeting music artist ID",
     )
 
+    original_id: str = Field(
+        description="Music artist ID as in VKMusic",
+    )
+
     name: str = Field(
         description="Music artist name",
     )
@@ -2846,6 +2848,7 @@ class AdsMusician(BaseModel):
 
 
 class AdsObjectType(enum.Enum):
+
     AD = "ad"
 
     CAMPAIGN = "campaign"
@@ -2856,6 +2859,7 @@ class AdsObjectType(enum.Enum):
 
 
 class AdsOrdClientType(enum.Enum):
+
     PERSON = "person"
 
     INDIVIDUAL = "individual"
@@ -2962,6 +2966,10 @@ class AdsPost(BaseModel):
     )
 
     comments: typing.Optional["AdsPostComments"] = Field(
+        default=None,
+    )
+
+    copyright: typing.Optional["WallPostCopyright"] = Field(
         default=None,
     )
 
@@ -3290,7 +3298,7 @@ class AdsRules(BaseModel):
     Schema: ads_rules
     """
 
-    help_url: typing.Optional["AdsRulesHelpUrl"] = Field(
+    help_url: typing.Optional[typing.Union["str", "bool"]] = Field(
         default=None,
         description="Help url",
     )
@@ -3309,12 +3317,6 @@ class AdsRules(BaseModel):
         default=None,
         description="Help chat",
     )
-
-
-class AdsRulesHelpUrl(BaseModel):
-    """
-    Schema: ads_rules_help_url
-    """
 
 
 class AdsStatisticClickActionType(enum.Enum):
@@ -3543,6 +3545,7 @@ class AdsStatsFormat(BaseModel):
 
 
 class AdsStatsSexValue(enum.Enum):
+
     F = "f"
 
     M = "m"
@@ -3622,7 +3625,7 @@ class AdsStoriesOwner(BaseModel):
     Schema: ads_stories_owner
     """
 
-    id: typing.Optional[int] = Field(
+    id: typing.Optional[typing.Union["int", "bool"]] = Field(
         default=None,
         description="Owner id",
     )
@@ -4038,6 +4041,7 @@ class AdsTargSuggestionsSchools(BaseModel):
 
 
 class AdsTargSuggestionsSchoolsType(enum.Enum):
+
     SCHOOL = "school"
 
     UNIVERSITY = "university"
@@ -4414,6 +4418,7 @@ class AppWidgetsPhotos(BaseModel):
 
 
 class AppsAppFields(enum.Enum):
+
     AUTHOR_GROUP = "author_group"
 
     AUTHOR_ID = "author_id"
@@ -4512,6 +4517,7 @@ class AppsAppFields(enum.Enum):
 
 
 class AppsAppLeaderboardType(enum.IntEnum):
+
     NOT_SUPPORTED = 0
 
     LEVELS = 1
@@ -4586,6 +4592,7 @@ class AppsAppMin(BaseModel):
 
 
 class AppsAppType(enum.Enum):
+
     APP = "app"
 
     GAME = "game"
@@ -4615,6 +4622,64 @@ class AppsCatalogList(BaseModel):
     items: typing.List["AppsApp"] = Field()
 
     profiles: typing.Optional[typing.List["UsersUserMin"]] = Field(
+        default=None,
+    )
+
+
+class AppsCustomSnippetButton(enum.Enum):
+    BUY = "buy"
+    BUY_TICKET = "buy_ticket"
+    CONTACT = "contact"
+    CREATE = "create"
+    ENROLL = "enroll"
+    FILL = "fill"
+    GO = "go"
+    OPEN = "open"
+    PLAY = "play"
+
+
+class AppsCustomSnippet(BaseModel):
+    """
+    Schema: apps_custom_snippet
+    """
+
+    vk_ref: typing.Optional[typing.List[str]] = Field(
+        default=None,
+    )
+
+    group_id: typing.Optional[typing.List[int]] = Field(
+        default=None,
+    )
+
+    hash: typing.Optional[typing.List[str]] = Field(
+        default=None,
+    )
+
+    snippet_id: typing.Optional[int] = Field(
+        default=None,
+    )
+
+    title: typing.Optional[str] = Field(
+        default=None,
+    )
+
+    description: typing.Optional[str] = Field(
+        default=None,
+    )
+
+    expired_at: typing.Optional[int] = Field(
+        default=None,
+    )
+
+    image_url: typing.Optional[str] = Field(
+        default=None,
+    )
+
+    small_image_url: typing.Optional[str] = Field(
+        default=None,
+    )
+
+    button: typing.Optional["AppsCustomSnippetButton"] = Field(
         default=None,
     )
 
@@ -4748,6 +4813,11 @@ class AudioAudio(BaseModel):
         description="URL of mp3 file",
     )
 
+    stream_duration: typing.Optional[int] = Field(
+        default=None,
+        description="Stream duration in seconds",
+    )
+
     date: typing.Optional[int] = Field(
         default=None,
         description="Date when uploaded",
@@ -4765,6 +4835,7 @@ class AudioAudio(BaseModel):
 
 
 class BaseBoolInt(enum.IntEnum):
+
     NO = 0
 
     YES = 1
@@ -4896,10 +4967,16 @@ class BaseCropPhotoRect(BaseModel):
     )
 
 
+class BaseErrorInnerType(enum.Enum):
+    BASE_ERROR = "base_error"
+
+
 class BaseError(BaseModel):
     """
     Schema: base_error
     """
+
+    inner_type: "BaseErrorInnerType" = Field()
 
     error_code: int = Field(
         description="Error code",
@@ -5005,6 +5082,7 @@ class BaseImage(BaseModel):
 
 
 class BaseLang(enum.Enum):
+
     RU = "ru"
 
     UA = "ua"
@@ -5058,6 +5136,26 @@ class BaseLikesInfo(BaseModel):
     can_publish: typing.Optional[bool] = Field(
         default=None,
         description="Information whether current user can repost",
+    )
+
+    can_like_as_author: typing.Optional[bool] = Field(
+        default=None,
+        description="Whether user can like comment as author",
+    )
+
+    can_like_by_group: typing.Optional[bool] = Field(
+        default=None,
+        description="Whether current owner of the group can like the reply",
+    )
+
+    author_liked: typing.Optional[bool] = Field(
+        default=None,
+        description="Information whether post author liked the reply",
+    )
+
+    group_liked: typing.Optional[bool] = Field(
+        default=None,
+        description="Information whether group liked the reply",
     )
 
     repost_disabled: typing.Optional[bool] = Field(
@@ -5178,6 +5276,7 @@ class BaseLinkButtonAction(BaseModel):
 
 
 class BaseLinkButtonActionType(enum.Enum):
+
     OPEN_URL = "open_url"
 
     MARKET_CLEAR_RECENT_QUERIES = "market_clear_recent_queries"
@@ -5192,8 +5291,11 @@ class BaseLinkButtonActionType(enum.Enum):
 
     ONBOARDING = "onboarding"
 
+    SHOW_FILTERS = "show_filters"
+
 
 class BaseLinkButtonStyle(enum.Enum):
+
     PRIMARY = "primary"
 
     SECONDARY = "secondary"
@@ -5324,6 +5426,7 @@ class BaseLinkProductCategory(BaseModel):
 
 
 class BaseLinkProductStatus(enum.Enum):
+
     ACTIVE = "active"
 
     BLOCKED = "blocked"
@@ -5376,6 +5479,7 @@ class BaseMessageError(BaseModel):
 
 
 class BaseNameCase(enum.Enum):
+
     NOM = "Nom"
 
     GEN = "Gen"
@@ -5491,11 +5595,6 @@ class BasePlace(BaseModel):
         description="Checkins number",
     )
 
-    city: typing.Optional[str] = Field(
-        default=None,
-        description="City name",
-    )
-
     country: typing.Optional[str] = Field(
         default=None,
         description="Country name",
@@ -5538,6 +5637,7 @@ class BasePlace(BaseModel):
 
 
 class BasePropertyExists(enum.IntEnum):
+
     PROPERTY_EXISTS = 1
 
 
@@ -5581,6 +5681,7 @@ class BaseRequestParam(BaseModel):
 
 
 class BaseSex(enum.IntEnum):
+
     UNKNOWN = 0
 
     FEMALE = 1
@@ -5615,10 +5716,16 @@ class BaseStickerAnimation(BaseModel):
     )
 
 
+class BaseStickerNewInnerType(enum.Enum):
+    BASE_STICKER_NEW = "base_sticker_new"
+
+
 class BaseStickerNew(BaseModel):
     """
     Schema: base_sticker_new
     """
+
+    inner_type: "BaseStickerNewInnerType" = Field()
 
     sticker_id: typing.Optional[int] = Field(
         default=None,
@@ -5654,68 +5761,6 @@ class BaseStickerNew(BaseModel):
     )
 
 
-class BaseStickerOld(BaseModel):
-    """
-    Schema: base_sticker_old
-    """
-
-    id: typing.Optional[int] = Field(
-        default=None,
-        description="Sticker ID",
-    )
-
-    product_id: typing.Optional[int] = Field(
-        default=None,
-        description="Pack ID",
-    )
-
-    width: typing.Optional[int] = Field(
-        default=None,
-        description="Width in px",
-    )
-
-    height: typing.Optional[int] = Field(
-        default=None,
-        description="Height in px",
-    )
-
-    photo_128: typing.Optional[str] = Field(
-        default=None,
-        description="URL of the preview image with 128 px in height",
-    )
-
-    photo_256: typing.Optional[str] = Field(
-        default=None,
-        description="URL of the preview image with 256 px in height",
-    )
-
-    photo_352: typing.Optional[str] = Field(
-        default=None,
-        description="URL of the preview image with 352 px in height",
-    )
-
-    photo_512: typing.Optional[str] = Field(
-        default=None,
-        description="URL of the preview image with 512 px in height",
-    )
-
-    photo_64: typing.Optional[str] = Field(
-        default=None,
-        description="URL of the preview image with 64 px in height",
-    )
-
-    is_allowed: typing.Optional[bool] = Field(
-        default=None,
-        description="Information whether the sticker is allowed",
-    )
-
-
-class BaseStickersList(BaseModel):
-    """
-    Schema: base_stickers_list
-    """
-
-
 class BaseUploadServer(BaseModel):
     """
     Schema: base_upload_server
@@ -5727,6 +5772,7 @@ class BaseUploadServer(BaseModel):
 
 
 class BaseUserGroupFields(enum.Enum):
+
     ABOUT = "about"
 
     ACTION_BUTTON = "action_button"
@@ -5782,8 +5828,6 @@ class BaseUserGroupFields(enum.Enum):
     CONTACTS = "contacts"
 
     COUNTERS = "counters"
-
-    COUNTRY = "country"
 
     COVER = "cover"
 
@@ -5963,6 +6007,8 @@ class BaseUserGroupFields(enum.Enum):
 
     IS_NFT_PHOTO = "is_nft_photo"
 
+    IS_VERIFIED = "is_verified"
+
 
 class BaseUserId(BaseModel):
     """
@@ -5976,6 +6022,7 @@ class BaseUserId(BaseModel):
 
 
 class BoardDefaultOrder(enum.IntEnum):
+
     DESC_UPDATED = 1
 
     DESC_CREATED = 2
@@ -6086,6 +6133,24 @@ class BoardTopicComment(BaseModel):
     )
 
 
+class CallbackAppPayload(BaseModel):
+    """
+    Schema: callback_app_payload
+    """
+
+    user_id: int = Field()
+
+    app_id: int = Field()
+
+    payload: str = Field()
+
+
+class CallbackAudioNew(BaseModel):
+    """
+    Schema: callback_audio_new
+    """
+
+
 class CallbackBase(BaseModel):
     """
     Schema: callback_base
@@ -6118,6 +6183,28 @@ class CallbackBoardPostDelete(BaseModel):
     topic_id: int = Field()
 
     id: int = Field()
+
+    deleter_id: typing.Optional[int] = Field(
+        default=None,
+    )
+
+
+class CallbackBoardPostEdit(BaseModel):
+    """
+    Schema: callback_board_post_edit
+    """
+
+
+class CallbackBoardPostNew(BaseModel):
+    """
+    Schema: callback_board_post_new
+    """
+
+
+class CallbackBoardPostRestore(BaseModel):
+    """
+    Schema: callback_board_post_restore
+    """
 
 
 class CallbackDonutMoneyWithdraw(BaseModel):
@@ -6225,7 +6312,9 @@ class CallbackGroupChangeSettings(BaseModel):
 
     user_id: int = Field()
 
-    self: bool = Field()
+    changes: typing.Optional["CallbackGroupSettingsChanges"] = Field(
+        default=None,
+    )
 
 
 class CallbackGroupJoin(BaseModel):
@@ -6239,6 +6328,7 @@ class CallbackGroupJoin(BaseModel):
 
 
 class CallbackGroupJoinType(enum.Enum):
+
     JOIN = "join"
 
     UNSURE = "unsure"
@@ -6265,12 +6355,14 @@ class CallbackGroupLeave(BaseModel):
 
 
 class CallbackGroupMarket(enum.IntEnum):
+
     DISABLED = 0
 
     OPEN = 1
 
 
 class CallbackGroupOfficerRole(enum.IntEnum):
+
     NONE = 0
 
     MODERATOR = 1
@@ -6299,56 +6391,224 @@ class CallbackGroupSettingsChanges(BaseModel):
     Schema: callback_group_settings_changes
     """
 
-    title: typing.Optional[str] = Field(
+    title: typing.Optional["CallbackGroupSettingsChangesStringValues"] = Field(
         default=None,
     )
 
-    description: typing.Optional[str] = Field(
+    screen_name: typing.Optional["CallbackGroupSettingsChangesStringValues"] = Field(
         default=None,
     )
 
-    access: typing.Optional["GroupsGroupIsClosed"] = Field(
+    event_start_date: typing.Optional["CallbackGroupSettingsChangesIntegerValues"] = (
+        Field(
+            default=None,
+        )
+    )
+
+    event_finish_date: typing.Optional["CallbackGroupSettingsChangesIntegerValues"] = (
+        Field(
+            default=None,
+        )
+    )
+
+    event_group_id: typing.Optional["CallbackGroupSettingsChangesIntegerValues"] = (
+        Field(
+            default=None,
+        )
+    )
+
+    donations: typing.Optional["CallbackGroupSettingsChangesIntegerValues"] = Field(
         default=None,
     )
 
-    screen_name: typing.Optional[str] = Field(
+    wall: typing.Optional["CallbackGroupSettingsChangesIntegerValues"] = Field(
         default=None,
     )
 
-    public_category: typing.Optional[int] = Field(
+    replies: typing.Optional["CallbackGroupSettingsChangesIntegerValues"] = Field(
         default=None,
     )
 
-    public_subcategory: typing.Optional[int] = Field(
+    topics: typing.Optional["CallbackGroupSettingsChangesIntegerValues"] = Field(
         default=None,
     )
 
-    age_limits: typing.Optional["GroupsGroupFullAgeLimits"] = Field(
+    photos: typing.Optional["CallbackGroupSettingsChangesIntegerValues"] = Field(
         default=None,
     )
 
-    website: typing.Optional[str] = Field(
+    docs: typing.Optional["CallbackGroupSettingsChangesIntegerValues"] = Field(
         default=None,
     )
 
-    enable_status_default: typing.Optional["GroupsGroupWall"] = Field(
+    messages: typing.Optional["CallbackGroupSettingsChangesIntegerValues"] = Field(
         default=None,
     )
 
-    enable_audio: typing.Optional["GroupsGroupAudio"] = Field(
+    market: typing.Optional["CallbackGroupSettingsChangesIntegerValues"] = Field(
         default=None,
     )
 
-    enable_video: typing.Optional["GroupsGroupVideo"] = Field(
+    market_wiki: typing.Optional["CallbackGroupSettingsChangesIntegerValues"] = Field(
         default=None,
     )
 
-    enable_photo: typing.Optional["GroupsGroupPhotos"] = Field(
+    board: typing.Optional["CallbackGroupSettingsChangesIntegerValues"] = Field(
         default=None,
     )
 
-    enable_market: typing.Optional["CallbackGroupMarket"] = Field(
+    links: typing.Optional["CallbackGroupSettingsChangesIntegerValues"] = Field(
         default=None,
+    )
+
+    audio: typing.Optional["CallbackGroupSettingsChangesIntegerValues"] = Field(
+        default=None,
+    )
+
+    video: typing.Optional["CallbackGroupSettingsChangesIntegerValues"] = Field(
+        default=None,
+    )
+
+    can_post_topics: typing.Optional["CallbackGroupSettingsChangesIntegerValues"] = (
+        Field(
+            default=None,
+        )
+    )
+
+    can_post_albums: typing.Optional["CallbackGroupSettingsChangesIntegerValues"] = (
+        Field(
+            default=None,
+        )
+    )
+
+    can_post_video: typing.Optional["CallbackGroupSettingsChangesIntegerValues"] = (
+        Field(
+            default=None,
+        )
+    )
+
+    disable_market_comments: typing.Optional[
+        "CallbackGroupSettingsChangesIntegerValues"
+    ] = Field(
+        default=None,
+    )
+
+    status_default: typing.Optional["CallbackGroupSettingsChangesIntegerValues"] = (
+        Field(
+            default=None,
+        )
+    )
+
+    access: typing.Optional["CallbackGroupSettingsChangesIntegerValues"] = Field(
+        default=None,
+    )
+
+    email: typing.Optional["CallbackGroupSettingsChangesStringValues"] = Field(
+        default=None,
+    )
+
+    country_id: typing.Optional["CallbackGroupSettingsChangesIntegerValues"] = Field(
+        default=None,
+    )
+
+    city_id: typing.Optional["CallbackGroupSettingsChangesIntegerValues"] = Field(
+        default=None,
+    )
+
+    address: typing.Optional["CallbackGroupSettingsChangesStringValues"] = Field(
+        default=None,
+    )
+
+    description: typing.Optional["CallbackGroupSettingsChangesStringValues"] = Field(
+        default=None,
+    )
+
+    website: typing.Optional["CallbackGroupSettingsChangesStringValues"] = Field(
+        default=None,
+    )
+
+    phone: typing.Optional["CallbackGroupSettingsChangesStringValues"] = Field(
+        default=None,
+    )
+
+    age_limits: typing.Optional["CallbackGroupSettingsChangesIntegerValues"] = Field(
+        default=None,
+    )
+
+    category_v2: typing.Optional["CallbackGroupSettingsChangesIntegerValues"] = Field(
+        default=None,
+    )
+
+    public_category: typing.Optional["CallbackGroupSettingsChangesIntegerValues"] = (
+        Field(
+            default=None,
+        )
+    )
+
+    public_subcategory: typing.Optional["CallbackGroupSettingsChangesIntegerValues"] = (
+        Field(
+            default=None,
+        )
+    )
+
+
+class CallbackGroupSettingsChangesIntegerValues(BaseModel):
+    """
+    Schema: callback_group_settings_changes_integer_values
+    """
+
+    old_value: typing.Optional[int] = Field(
+        default=None,
+    )
+
+    new_value: typing.Optional[int] = Field(
+        default=None,
+    )
+
+
+class CallbackGroupSettingsChangesStringValues(BaseModel):
+    """
+    Schema: callback_group_settings_changes_string_values
+    """
+
+    old_value: typing.Optional[str] = Field(
+        default=None,
+    )
+
+    new_value: typing.Optional[str] = Field(
+        default=None,
+    )
+
+
+class CallbackInfoForBots(BaseModel):
+    """
+    Schema: callback_info_for_bots
+    """
+
+    button_actions: typing.Optional[typing.List["MessagesTemplateActionTypeNames"]] = (
+        Field(
+            default=None,
+        )
+    )
+
+    keyboard: typing.Optional[bool] = Field(
+        default=None,
+        description="client has support keyboard",
+    )
+
+    inline_keyboard: typing.Optional[bool] = Field(
+        default=None,
+        description="client has support inline keyboard",
+    )
+
+    carousel: typing.Optional[bool] = Field(
+        default=None,
+        description="client has support carousel",
+    )
+
+    lang_id: typing.Optional[int] = Field(
+        default=None,
+        description="client or user language id",
     )
 
 
@@ -6446,29 +6706,13 @@ class CallbackMessageObject(BaseModel):
     Schema: callback_message_object
     """
 
-    client_info: typing.Optional["ClientInfoForBots"] = Field(
+    client_info: typing.Optional["CallbackInfoForBots"] = Field(
         default=None,
     )
 
     message: typing.Optional["MessagesMessage"] = Field(
         default=None,
     )
-
-
-class CallbackPhotoComment(BaseModel):
-    """
-    Schema: callback_photo_comment
-    """
-
-    id: int = Field()
-
-    from_id: int = Field()
-
-    date: int = Field()
-
-    text: str = Field()
-
-    photo_owner_id: int = Field()
 
 
 class CallbackPhotoCommentDelete(BaseModel):
@@ -6483,6 +6727,14 @@ class CallbackPhotoCommentDelete(BaseModel):
     user_id: int = Field()
 
     photo_id: int = Field()
+
+    deleter_id: int = Field()
+
+
+class CallbackPhotoNew(BaseModel):
+    """
+    Schema: callback_photo_new
+    """
 
 
 class CallbackPollVoteNew(BaseModel):
@@ -6500,6 +6752,7 @@ class CallbackPollVoteNew(BaseModel):
 
 
 class CallbackType(enum.Enum):
+
     AUDIO_NEW = "audio_new"
 
     BOARD_POST_NEW = "board_post_new"
@@ -6592,6 +6845,10 @@ class CallbackType(enum.Enum):
 
     WALL_REPOST = "wall_repost"
 
+    WALL_SCHEDULE_POST_NEW = "wall_schedule_post_new"
+
+    WALL_SCHEDULE_POST_DELETE = "wall_schedule_post_delete"
+
 
 class CallbackUserBlock(BaseModel):
     """
@@ -6623,22 +6880,6 @@ class CallbackUserUnblock(BaseModel):
     by_end_date: int = Field()
 
 
-class CallbackVideoComment(BaseModel):
-    """
-    Schema: callback_video_comment
-    """
-
-    id: int = Field()
-
-    from_id: int = Field()
-
-    date: int = Field()
-
-    text: str = Field()
-
-    video_owner_id: int = Field()
-
-
 class CallbackVideoCommentDelete(BaseModel):
     """
     Schema: callback_video_comment_delete
@@ -6648,9 +6889,33 @@ class CallbackVideoCommentDelete(BaseModel):
 
     owner_id: int = Field()
 
-    user_id: int = Field()
+    deleter_id: int = Field()
 
     video_id: int = Field()
+
+
+class CallbackVideoNew(BaseModel):
+    """
+    Schema: callback_video_new
+    """
+
+
+class CallbackVkpayTransaction(BaseModel):
+    """
+    Schema: callback_vkpay_transaction
+    """
+
+    amount: int = Field()
+
+    from_id: int = Field()
+
+    description: str = Field()
+
+    date: int = Field()
+
+    payload: typing.Optional[str] = Field(
+        default=None,
+    )
 
 
 class CallbackWallCommentDelete(BaseModel):
@@ -6665,6 +6930,36 @@ class CallbackWallCommentDelete(BaseModel):
     user_id: int = Field()
 
     post_id: int = Field()
+
+
+class CallbackWallPostNew(BaseModel):
+    """
+    Schema: callback_wall_post_new
+    """
+
+
+class CallbackWallReplyEdit(BaseModel):
+    """
+    Schema: callback_wall_reply_edit
+    """
+
+
+class CallbackWallReplyNew(BaseModel):
+    """
+    Schema: callback_wall_reply_new
+    """
+
+
+class CallbackWallReplyRestore(BaseModel):
+    """
+    Schema: callback_wall_reply_restore
+    """
+
+
+class CallbackWallRepost(BaseModel):
+    """
+    Schema: callback_wall_repost
+    """
 
 
 class CallsCall(BaseModel):
@@ -6702,6 +6997,7 @@ class CallsCall(BaseModel):
 
 
 class CallsEndState(enum.Enum):
+
     CANCELED_BY_INITIATOR = "canceled_by_initiator"
 
     CANCELED_BY_RECEIVER = "canceled_by_receiver"
@@ -6729,10 +7025,10 @@ class ClientInfoForBots(BaseModel):
     Schema: client_info_for_bots
     """
 
-    button_actions: typing.Optional[
-        typing.List["MessagesTemplateActionTypeNames"]
-    ] = Field(
-        default=None,
+    button_actions: typing.Optional[typing.List["MessagesTemplateActionTypeNames"]] = (
+        Field(
+            default=None,
+        )
     )
 
     keyboard: typing.Optional[bool] = Field(
@@ -6782,6 +7078,11 @@ class CommentThread(BaseModel):
     groups_can_post: typing.Optional[bool] = Field(
         default=None,
         description="Information whether groups can comment the post",
+    )
+
+    author_replied: typing.Optional[bool] = Field(
+        default=None,
+        description="Information whether author commented the thread",
     )
 
 
@@ -6957,6 +7258,7 @@ class DocsDoc(BaseModel):
 
 
 class DocsDocAttachmentType(enum.Enum):
+
     DOC = "doc"
 
     GRAFFITI = "graffiti"
@@ -7191,6 +7493,7 @@ class FaveBookmark(BaseModel):
 
 
 class FaveBookmarkType(enum.Enum):
+
     POST = "post"
 
     VIDEO = "video"
@@ -7234,6 +7537,7 @@ class FavePage(BaseModel):
 
 
 class FavePageType(enum.Enum):
+
     USER = "user"
 
     GROUP = "group"
@@ -7297,6 +7601,7 @@ class GiftsGift(BaseModel):
 
 
 class GiftsGiftPrivacy(enum.IntEnum):
+
     NAME_AND_MESSAGE_FOR_ALL = 0
 
     NAME_FOR_ALL = 1
@@ -7377,11 +7682,6 @@ class GroupsAddress(BaseModel):
     city_id: typing.Optional[int] = Field(
         default=None,
         description="City id of address",
-    )
-
-    country_id: typing.Optional[int] = Field(
-        default=None,
-        description="Country id of address",
     )
 
     city: typing.Optional["DatabaseCityById"] = Field(
@@ -7515,6 +7815,7 @@ class GroupsAddressTimetableDay(BaseModel):
 
 
 class GroupsAddressWorkInfoStatus(enum.Enum):
+
     NO_INFORMATION = "no_information"
 
     TEMPORARILY_CLOSED = "temporarily_closed"
@@ -7591,6 +7892,7 @@ class GroupsBanInfo(BaseModel):
 
 
 class GroupsBanInfoReason(enum.IntEnum):
+
     OTHER = 0
 
     SPAM = 1
@@ -7600,12 +7902,6 @@ class GroupsBanInfoReason(enum.IntEnum):
     STRONG_LANGUAGE = 3
 
     FLOOD = 4
-
-
-class GroupsBannedItem(BaseModel):
-    """
-    Schema: groups_banned_item
-    """
 
 
 class GroupsCallbackServerStatus(enum.Enum):
@@ -7646,12 +7942,6 @@ class GroupsCallbackSettings(BaseModel):
     events: typing.Optional["GroupsLongPollEvents"] = Field(
         default=None,
     )
-
-
-class GroupsClassifiedsProperties(BaseModel):
-    """
-    Schema: groups_classifieds_properties
-    """
 
 
 class GroupsContactsItem(BaseModel):
@@ -7782,6 +8072,7 @@ class GroupsCountersGroup(BaseModel):
 
 
 class GroupsFields(enum.Enum):
+
     ID = "id"
 
     NAME = "name"
@@ -7845,8 +8136,6 @@ class GroupsFields(enum.Enum):
     IS_SUBSCRIBED = "is_subscribed"
 
     CITY = "city"
-
-    COUNTRY = "country"
 
     VERIFIED = "verified"
 
@@ -7954,6 +8243,7 @@ class GroupsFields(enum.Enum):
 
 
 class GroupsFilter(enum.Enum):
+
     ADMIN = "admin"
 
     EDITOR = "editor"
@@ -8101,6 +8391,7 @@ class GroupsGroup(BaseModel):
 
 
 class GroupsGroupAccess(enum.IntEnum):
+
     OPEN = 0
 
     CLOSED = 1
@@ -8109,6 +8400,7 @@ class GroupsGroupAccess(enum.IntEnum):
 
 
 class GroupsGroupAdminLevel(enum.IntEnum):
+
     MODERATOR = 1
 
     EDITOR = 2
@@ -8117,11 +8409,12 @@ class GroupsGroupAdminLevel(enum.IntEnum):
 
 
 class GroupsGroupAgeLimits(enum.IntEnum):
+
     UNLIMITED = 1
 
-    _16_PLUS = 2
+    VALUE_16_PLUS = 2
 
-    _18_PLUS = 3
+    VALUE_18_PLUS = 3
 
 
 class GroupsGroupAttach(BaseModel):
@@ -8151,6 +8444,7 @@ class GroupsGroupAttach(BaseModel):
 
 
 class GroupsGroupAudio(enum.IntEnum):
+
     DISABLED = 0
 
     OPEN = 1
@@ -8231,6 +8525,7 @@ class GroupsGroupCategoryType(BaseModel):
 
 
 class GroupsGroupDocs(enum.IntEnum):
+
     DISABLED = 0
 
     OPEN = 1
@@ -8239,6 +8534,7 @@ class GroupsGroupDocs(enum.IntEnum):
 
 
 class GroupsGroupFullAgeLimits(enum.IntEnum):
+
     NO = 1
 
     OVER_16 = 2
@@ -8247,6 +8543,7 @@ class GroupsGroupFullAgeLimits(enum.IntEnum):
 
 
 class GroupsGroupFullMemberStatus(enum.IntEnum):
+
     NOT_A_MEMBER = 0
 
     MEMBER = 1
@@ -8261,6 +8558,7 @@ class GroupsGroupFullMemberStatus(enum.IntEnum):
 
 
 class GroupsGroupFullSection(enum.IntEnum):
+
     NONE = 0
 
     PHOTOS = 1
@@ -8361,6 +8659,7 @@ class GroupsGroupFullSection(enum.IntEnum):
 
 
 class GroupsGroupIsClosed(enum.IntEnum):
+
     OPEN = 0
 
     CLOSED = 1
@@ -8369,6 +8668,7 @@ class GroupsGroupIsClosed(enum.IntEnum):
 
 
 class GroupsGroupMarketCurrency(enum.IntEnum):
+
     RUSSIAN_RUBLES = 643
 
     UKRAINIAN_HRYVNIA = 980
@@ -8381,6 +8681,7 @@ class GroupsGroupMarketCurrency(enum.IntEnum):
 
 
 class GroupsGroupPhotos(enum.IntEnum):
+
     DISABLED = 0
 
     OPEN = 1
@@ -8407,6 +8708,7 @@ class GroupsGroupPublicCategoryList(BaseModel):
 
 
 class GroupsGroupRole(enum.Enum):
+
     MODERATOR = "moderator"
 
     EDITOR = "editor"
@@ -8435,6 +8737,7 @@ class GroupsGroupSubcategory(BaseModel):
 
 
 class GroupsGroupSubject(enum.IntEnum):
+
     AUTO = 1
 
     ACTIVITY_HOLIDAYS = 2
@@ -8521,6 +8824,7 @@ class GroupsGroupSubject(enum.IntEnum):
 
 
 class GroupsGroupSuggestedPrivacy(enum.IntEnum):
+
     NONE = 0
 
     ALL = 1
@@ -8529,19 +8833,19 @@ class GroupsGroupSuggestedPrivacy(enum.IntEnum):
 
 
 class GroupsGroupTagColor(enum.Enum):
-    _454647 = "454647"
-    _45678F = "45678f"
-    _4BB34B = "4bb34b"
-    _5181B8 = "5181b8"
-    _539B9C = "539b9c"
-    _5C9CE6 = "5c9ce6"
-    _63B9BA = "63b9ba"
-    _6BC76B = "6bc76b"
-    _76787A = "76787a"
-    _792EC0 = "792ec0"
-    _7A6C4F = "7a6c4f"
-    _7ECECF = "7ececf"
-    _9E8D6B = "9e8d6b"
+    value_454647 = "454647"
+    value_45678F = "45678f"
+    value_4BB34B = "4bb34b"
+    value_5181B8 = "5181b8"
+    value_539B9C = "539b9c"
+    value_5C9CE6 = "5c9ce6"
+    value_63B9BA = "63b9ba"
+    value_6BC76B = "6bc76b"
+    value_76787A = "76787a"
+    value_792EC0 = "792ec0"
+    value_7A6C4F = "7a6c4f"
+    value_7ECECF = "7ececf"
+    value_9E8D6B = "9e8d6b"
     A162DE = "a162de"
     AAAEB3 = "aaaeb3"
     BBAA84 = "bbaa84"
@@ -8568,6 +8872,7 @@ class GroupsGroupTag(BaseModel):
 
 
 class GroupsGroupTopics(enum.IntEnum):
+
     DISABLED = 0
 
     OPEN = 1
@@ -8576,6 +8881,7 @@ class GroupsGroupTopics(enum.IntEnum):
 
 
 class GroupsGroupType(enum.Enum):
+
     GROUP = "group"
 
     PAGE = "page"
@@ -8584,6 +8890,7 @@ class GroupsGroupType(enum.Enum):
 
 
 class GroupsGroupVideo(enum.IntEnum):
+
     DISABLED = 0
 
     OPEN = 1
@@ -8592,6 +8899,7 @@ class GroupsGroupVideo(enum.IntEnum):
 
 
 class GroupsGroupWall(enum.IntEnum):
+
     DISABLED = 0
 
     OPEN = 1
@@ -8602,6 +8910,7 @@ class GroupsGroupWall(enum.IntEnum):
 
 
 class GroupsGroupWiki(enum.IntEnum):
+
     DISABLED = 0
 
     OPEN = 1
@@ -8773,6 +9082,10 @@ class GroupsLongPollEvents(BaseModel):
 
     wall_repost: bool = Field()
 
+    wall_schedule_post_new: bool = Field()
+
+    wall_schedule_post_delete: bool = Field()
+
     donut_subscription_create: bool = Field()
 
     donut_subscription_prolonged: bool = Field()
@@ -8909,6 +9222,7 @@ class GroupsMarketProperties(BaseModel):
 
 
 class GroupsMarketState(enum.Enum):
+
     NONE = "none"
 
     BASIC = "basic"
@@ -8940,10 +9254,12 @@ class GroupsMemberRole(BaseModel):
 
 
 class GroupsMemberRolePermission(enum.Enum):
+
     ADS = "ads"
 
 
 class GroupsMemberRoleStatus(enum.Enum):
+
     MODERATOR = "moderator"
 
     EDITOR = "editor"
@@ -9017,11 +9333,17 @@ class GroupsOnlineStatus(BaseModel):
 
 
 class GroupsOnlineStatusType(enum.Enum):
+
     NONE = "none"
 
     ONLINE = "online"
 
     ANSWER_MARK = "answer_mark"
+
+
+class GroupsOwnerXtrBanInfoType(enum.Enum):
+    GROUP = "group"
+    PROFILE = "profile"
 
 
 class GroupsOwnerXtrBanInfo(BaseModel):
@@ -9046,12 +9368,6 @@ class GroupsOwnerXtrBanInfo(BaseModel):
     type: typing.Optional["GroupsOwnerXtrBanInfoType"] = Field(
         default=None,
     )
-
-
-class GroupsOwnerXtrBanInfoType(enum.Enum):
-    GROUP = "group"
-
-    PROFILE = "profile"
 
 
 class GroupsPhotoSize(BaseModel):
@@ -9091,6 +9407,7 @@ class GroupsProfileItem(BaseModel):
 
 
 class GroupsRoleOptions(enum.Enum):
+
     MODERATOR = "moderator"
 
     EDITOR = "editor"
@@ -9299,6 +9616,7 @@ class LeadFormsQuestionItemOption(BaseModel):
 
 
 class LikesType(enum.Enum):
+
     POST = "post"
 
     COMMENT = "comment"
@@ -9488,10 +9806,16 @@ class MarketMarketCategory(BaseModel):
     """
 
 
+class MarketMarketCategoryNestedInnerType(enum.Enum):
+    MARKET_MARKET_CATEGORY_NESTED = "market_market_category_nested"
+
+
 class MarketMarketCategoryNested(BaseModel):
     """
     Schema: market_market_category_nested
     """
+
+    inner_type: "MarketMarketCategoryNestedInnerType" = Field()
 
     id: int = Field(
         description="Category ID",
@@ -9540,6 +9864,21 @@ class MarketMarketCategoryTree(BaseModel):
     url: typing.Optional[str] = Field(
         default=None,
         description="SEO-friendly URL to page with category's items",
+    )
+
+    seo_name: typing.Optional[str] = Field(
+        default=None,
+        description="SEO-friendly variant of category's name",
+    )
+
+    page_title: typing.Optional[str] = Field(
+        default=None,
+        description="Title for category's page. Used for SEO",
+    )
+
+    page_description: typing.Optional[str] = Field(
+        default=None,
+        description="Description for category's page. Used for SEO",
     )
 
 
@@ -9666,6 +10005,7 @@ class MarketMarketItem(BaseModel):
 
 
 class MarketMarketItemAvailability(enum.IntEnum):
+
     AVAILABLE = 0
 
     REMOVED = 1
@@ -9816,6 +10156,7 @@ class MarketOrderItem(BaseModel):
 
 
 class MarketOwnerType(enum.Enum):
+
     BASE = "base"
 
     PRO = "pro"
@@ -9865,7 +10206,49 @@ class MarketPrice(BaseModel):
     )
 
 
+class MarketPropertyType(enum.Enum):
+    TEXT = "text"
+    COLOR = "color"
+
+
+class MarketProperty(BaseModel):
+    """
+    Schema: market_property
+    """
+
+    id: int = Field()
+
+    title: str = Field(
+        description="Property name",
+    )
+
+    variants: typing.List["MarketPropertyVariant"] = Field()
+
+    type: typing.Optional["MarketPropertyType"] = Field(
+        default=None,
+        description="Property type",
+    )
+
+
+class MarketPropertyVariant(BaseModel):
+    """
+    Schema: market_property_variant
+    """
+
+    id: int = Field()
+
+    title: str = Field(
+        description="Property name",
+    )
+
+    value: typing.Optional[str] = Field(
+        default=None,
+        description="Property value corresponding to property type",
+    )
+
+
 class MarketServicesViewType(enum.IntEnum):
+
     CARDS = 1
 
     ROWS = 2
@@ -10174,6 +10557,10 @@ class MessagesChatSettings(BaseModel):
         default=None,
     )
 
+    pinned_messages_count: typing.Optional[int] = Field(
+        default=None,
+    )
+
     pinned_message: typing.Optional["MessagesPinnedMessage"] = Field(
         default=None,
     )
@@ -10335,11 +10722,11 @@ class MessagesChatSettingsPermissions(BaseModel):
         description="Who can use mass mentions",
     )
 
-    see_invite_link: typing.Optional[
-        "MessagesChatSettingsPermissionsSeeInviteLink"
-    ] = Field(
-        default=None,
-        description="Who can see invite link",
+    see_invite_link: typing.Optional["MessagesChatSettingsPermissionsSeeInviteLink"] = (
+        Field(
+            default=None,
+            description="Who can see invite link",
+        )
     )
 
     call: typing.Optional["MessagesChatSettingsPermissionsCall"] = Field(
@@ -10347,11 +10734,11 @@ class MessagesChatSettingsPermissions(BaseModel):
         description="Who can make calls",
     )
 
-    change_admins: typing.Optional[
-        "MessagesChatSettingsPermissionsChangeAdmins"
-    ] = Field(
-        default=None,
-        description="Who can change admins",
+    change_admins: typing.Optional["MessagesChatSettingsPermissionsChangeAdmins"] = (
+        Field(
+            default=None,
+            description="Who can change admins",
+        )
     )
 
 
@@ -10387,6 +10774,7 @@ class MessagesChatSettingsPhoto(BaseModel):
 
 
 class MessagesChatSettingsState(enum.Enum):
+
     IN = "in"
 
     KICKED = "kicked"
@@ -10411,6 +10799,10 @@ class MessagesConversation(BaseModel):
         description="ID of the last message in conversation",
     )
 
+    last_conversation_message_id: int = Field(
+        description="Conversation message ID of the last message in conversation",
+    )
+
     in_read: int = Field(
         description="Last message user have read",
     )
@@ -10419,13 +10811,10 @@ class MessagesConversation(BaseModel):
         description="Last outcoming message have been read by the opponent",
     )
 
+    version: int = Field()
+
     sort_id: typing.Optional["MessagesConversationSortId"] = Field(
         default=None,
-    )
-
-    last_conversation_message_id: typing.Optional[int] = Field(
-        default=None,
-        description="Conversation message ID of the last message in conversation",
     )
 
     unread_count: typing.Optional[int] = Field(
@@ -10435,7 +10824,7 @@ class MessagesConversation(BaseModel):
 
     is_marked_unread: typing.Optional[bool] = Field(
         default=None,
-        description="Is this conversation uread",
+        description="Is this conversation unread",
     )
 
     out_read_by: typing.Optional["MessagesOutReadBy"] = Field(
@@ -10450,10 +10839,10 @@ class MessagesConversation(BaseModel):
         default=None,
     )
 
-    special_service_type: typing.Optional[
-        "MessagesConversationSpecialServiceType"
-    ] = Field(
-        default=None,
+    special_service_type: typing.Optional["MessagesConversationSpecialServiceType"] = (
+        Field(
+            default=None,
+        )
     )
 
     message_request_data: typing.Optional["MessagesMessageRequestData"] = Field(
@@ -10493,6 +10882,10 @@ class MessagesConversationCanWrite(BaseModel):
         default=None,
     )
 
+    until: typing.Optional[int] = Field(
+        default=None,
+    )
+
 
 class MessagesConversationMember(BaseModel):
     """
@@ -10504,6 +10897,11 @@ class MessagesConversationMember(BaseModel):
     can_kick: typing.Optional[bool] = Field(
         default=None,
         description="Is it possible for user to kick this member",
+    )
+
+    is_restricted_to_write: typing.Optional[bool] = Field(
+        default=None,
+        description="Does this member have write permission",
     )
 
     invited_by: typing.Optional[int] = Field(
@@ -10547,6 +10945,7 @@ class MessagesConversationPeer(BaseModel):
 
 
 class MessagesConversationPeerType(enum.Enum):
+
     CHAT = "chat"
 
     EMAIL = "email"
@@ -10613,6 +11012,10 @@ class MessagesForeignMessage(BaseModel):
     Schema: messages_foreign_message
     """
 
+    conversation_message_id: int = Field(
+        description="Conversation message ID",
+    )
+
     date: int = Field(
         description="Date when the message was created",
     )
@@ -10627,11 +11030,6 @@ class MessagesForeignMessage(BaseModel):
 
     attachments: typing.Optional[typing.List["MessagesMessageAttachment"]] = Field(
         default=None,
-    )
-
-    conversation_message_id: typing.Optional[int] = Field(
-        default=None,
-        description="Conversation message ID",
     )
 
     fwd_messages: typing.Optional[typing.List["MessagesForeignMessage"]] = Field(
@@ -10691,6 +11089,10 @@ class MessagesForward(BaseModel):
         default=None,
     )
 
+    cmids: typing.Optional[typing.List[int]] = Field(
+        default=None,
+    )
+
     message_ids: typing.Optional[typing.List[int]] = Field(
         default=None,
     )
@@ -10743,6 +11145,22 @@ class MessagesGetConversationMembers(BaseModel):
     )
 
 
+class MessagesGetInviteLinkByOwnerResponseItem(BaseModel):
+    """
+    Schema: messages_getInviteLink_by_owner_response_item
+    """
+
+    owner_id: int = Field()
+
+    link: typing.Optional[str] = Field(
+        default=None,
+    )
+
+    error: typing.Optional["BaseMessageError"] = Field(
+        default=None,
+    )
+
+
 class MessagesGraffiti(BaseModel):
     """
     Schema: messages_graffiti
@@ -10789,6 +11207,10 @@ class MessagesHistoryAttachment(BaseModel):
         description="Message ID",
     )
 
+    cmid: int = Field(
+        description="Conversation Message ID",
+    )
+
     from_id: int = Field(
         description="Message author's ID",
     )
@@ -10796,11 +11218,6 @@ class MessagesHistoryAttachment(BaseModel):
     message_expire_ttl: typing.Optional[int] = Field(
         default=None,
         description="Message Exipire ttl",
-    )
-
-    cmid: typing.Optional[int] = Field(
-        default=None,
-        description="Conversation Message ID",
     )
 
     forward_level: typing.Optional[int] = Field(
@@ -10851,9 +11268,8 @@ class MessagesHistoryMessageAttachment(BaseModel):
 
 
 class MessagesHistoryMessageAttachmentType(enum.Enum):
-    PHOTO = "photo"
 
-    VIDEO = "video"
+    APP_ACTION = "app_action"
 
     AUDIO = "audio"
 
@@ -10863,11 +11279,11 @@ class MessagesHistoryMessageAttachmentType(enum.Enum):
 
     MARKET = "market"
 
+    PHOTO = "photo"
+
+    VIDEO = "video"
+
     WALL = "wall"
-
-    SHARE = "share"
-
-    APP_ACTION = "app_action"
 
     GRAFFITI = "graffiti"
 
@@ -11129,6 +11545,10 @@ class MessagesMessage(BaseModel):
     Schema: messages_message
     """
 
+    conversation_message_id: int = Field(
+        description="Unique auto-incremented number for all messages with this peer",
+    )
+
     date: int = Field(
         description="Date when the message has been sent in Unixtime",
     )
@@ -11153,6 +11573,8 @@ class MessagesMessage(BaseModel):
         description="Message text",
     )
 
+    version: int = Field()
+
     action: typing.Optional["MessagesActionOneOf"] = Field(
         default=None,
     )
@@ -11164,11 +11586,6 @@ class MessagesMessage(BaseModel):
 
     attachments: typing.Optional[typing.List["MessagesMessageAttachment"]] = Field(
         default=None,
-    )
-
-    conversation_message_id: typing.Optional[int] = Field(
-        default=None,
-        description="Unique auto-incremented number for all messages with this peer",
     )
 
     deleted: typing.Optional[bool] = Field(
@@ -11233,16 +11650,21 @@ class MessagesMessage(BaseModel):
         description="Reaction id set on message",
     )
 
-    reactions: typing.Optional[
-        typing.List["MessagesReactionCounterResponseItem"]
-    ] = Field(
-        default=None,
-        description="Actual reactions counters on this message",
+    reactions: typing.Optional[typing.List["MessagesReactionCounterResponseItem"]] = (
+        Field(
+            default=None,
+            description="Actual reactions counters on this message",
+        )
     )
 
     last_reaction_id: typing.Optional[int] = Field(
         default=None,
         description="Last reaction id set on this message",
+    )
+
+    is_pinned: typing.Optional[bool] = Field(
+        default=None,
+        description="Is message pinned in its conversation",
     )
 
     update_time: typing.Optional[int] = Field(
@@ -11263,6 +11685,11 @@ class MessagesMessage(BaseModel):
     is_silent: typing.Optional[bool] = Field(
         default=None,
         description="Is silent message, push without sound",
+    )
+
+    is_unavailable: typing.Optional[bool] = Field(
+        default=None,
+        description="Is message unavailable for some reason, including its id equals 0",
     )
 
 
@@ -11322,6 +11749,7 @@ class MessagesMessageActionPhoto(BaseModel):
 
 
 class MessagesMessageActionStatus(enum.Enum):
+
     CHAT_PHOTO_UPDATE = "chat_photo_update"
 
     CHAT_PHOTO_REMOVE = "chat_photo_remove"
@@ -11406,6 +11834,7 @@ class MessagesMessageAttachment(BaseModel):
 
 
 class MessagesMessageAttachmentType(enum.Enum):
+
     PHOTO = "photo"
 
     AUDIO = "audio"
@@ -11419,8 +11848,6 @@ class MessagesMessageAttachmentType(enum.Enum):
     LINK = "link"
 
     MARKET = "market"
-
-    MARKET_ALBUM = "market_album"
 
     GIFT = "gift"
 
@@ -11495,6 +11922,10 @@ class MessagesPinnedMessage(BaseModel):
     Schema: messages_pinned_message
     """
 
+    conversation_message_id: int = Field(
+        description="Unique auto-incremented number for all messages with this peer",
+    )
+
     id: int = Field(
         description="Message ID",
     )
@@ -11519,11 +11950,6 @@ class MessagesPinnedMessage(BaseModel):
         default=None,
     )
 
-    conversation_message_id: typing.Optional[int] = Field(
-        default=None,
-        description="Unique auto-incremented number for all messages with this peer",
-    )
-
     fwd_messages: typing.Optional[typing.List["MessagesForeignMessage"]] = Field(
         default=None,
         description="Forwarded messages",
@@ -11539,6 +11965,16 @@ class MessagesPinnedMessage(BaseModel):
 
     keyboard: typing.Optional["MessagesKeyboard"] = Field(
         default=None,
+    )
+
+    out: typing.Optional[bool] = Field(
+        default=None,
+        description="Information whether the message is outcoming",
+    )
+
+    important: typing.Optional[bool] = Field(
+        default=None,
+        description="Is it an important message",
     )
 
 
@@ -11642,9 +12078,7 @@ class MessagesSendUserIdsResponseItem(BaseModel):
 
     message_id: int = Field()
 
-    conversation_message_id: typing.Optional[int] = Field(
-        default=None,
-    )
+    conversation_message_id: int = Field()
 
     error: typing.Optional["BaseMessageError"] = Field(
         default=None,
@@ -11652,6 +12086,7 @@ class MessagesSendUserIdsResponseItem(BaseModel):
 
 
 class MessagesTemplateActionTypeNames(enum.Enum):
+
     TEXT = "text"
 
     START = "start"
@@ -11676,6 +12111,7 @@ class MessagesTemplateActionTypeNames(enum.Enum):
 
 
 class MessagesUserTypeForXtrInvitedBy(enum.Enum):
+
     PROFILE = "profile"
 
     GROUP = "group"
@@ -11811,10 +12247,16 @@ class NotificationsFeedback(BaseModel):
     )
 
 
+class NotificationsNotificationInnerType(enum.Enum):
+    NOTIFICATIONS_NOTIFICATION = "notifications_notification"
+
+
 class NotificationsNotification(BaseModel):
     """
     Schema: notifications_notification
     """
+
+    inner_type: "NotificationsNotificationInnerType" = Field()
 
     date: typing.Optional[int] = Field(
         default=None,
@@ -12123,6 +12565,7 @@ class OwnerState(BaseModel):
 
 
 class PagesPrivacySettings(enum.IntEnum):
+
     COMMUNITY_MANAGERS_ONLY = 0
 
     COMMUNITY_MEMBERS_ONLY = 1
@@ -12324,6 +12767,7 @@ class PhotosImage(BaseModel):
 
 
 class PhotosImageType(enum.Enum):
+
     S = "s"
 
     M = "m"
@@ -12407,6 +12851,11 @@ class PhotosPhoto(BaseModel):
     photo_256: typing.Optional[str] = Field(
         default=None,
         description="URL of image with 2560 px width",
+    )
+
+    thumb_hash: typing.Optional[str] = Field(
+        default=None,
+        description="Thumb Hash",
     )
 
     can_comment: typing.Optional[bool] = Field(
@@ -12568,6 +13017,11 @@ class PhotosPhotoAlbumFull(BaseModel):
         description="album can be selected to feed",
     )
 
+    is_locked: typing.Optional[bool] = Field(
+        default=None,
+        description="Need show privacy lock at album",
+    )
+
     sizes: typing.Optional[typing.List["PhotosPhotoSizes"]] = Field(
         default=None,
     )
@@ -12598,12 +13052,6 @@ class PhotosPhotoAlbumFull(BaseModel):
     )
 
 
-class PhotosPhotoFalseable(BaseModel):
-    """
-    Schema: photos_photo_falseable
-    """
-
-
 class PhotosPhotoSizes(BaseModel):
     """
     Schema: photos_photo_sizes
@@ -12631,6 +13079,7 @@ class PhotosPhotoSizes(BaseModel):
 
 
 class PhotosPhotoSizesType(enum.Enum):
+
     T = "t"
 
     S = "s"
@@ -12688,6 +13137,8 @@ class PhotosPhotoSizesType(enum.Enum):
     U = "u"
 
     V = "v"
+
+    ORIG = "orig"
 
 
 class PhotosPhotoTag(BaseModel):
@@ -13237,10 +13688,16 @@ class PrettyCardsButtonOneOf(BaseModel):
     """
 
 
+class PrettyCardsPrettyCardInnerType(enum.Enum):
+    PRETTYCARDS_PRETTYCARD = "prettyCards_prettyCard"
+
+
 class PrettyCardsPrettyCard(BaseModel):
     """
     Schema: prettyCards_prettyCard
     """
+
+    inner_type: "PrettyCardsPrettyCardInnerType" = Field()
 
     card_id: str = Field(
         description="Card ID (long int returned as string)",
@@ -13304,7 +13761,7 @@ class SearchHint(BaseModel):
         default=None,
     )
 
-    _global: typing.Optional[bool] = Field(
+    value_global: typing.Optional[bool] = Field(
         default=None,
         description="Information whether the object has been found globally",
         alias="global",
@@ -13328,6 +13785,7 @@ class SearchHint(BaseModel):
 
 
 class SearchHintSection(enum.Enum):
+
     GROUPS = "groups"
 
     EVENTS = "events"
@@ -13346,6 +13804,7 @@ class SearchHintSection(enum.Enum):
 
 
 class SearchHintType(enum.Enum):
+
     GROUP = "group"
 
     PROFILE = "profile"
@@ -13589,11 +14048,11 @@ class StatsPeriod(BaseModel):
         default=None,
     )
 
-    reach: typing.Optional["StatsReachOneOf"] = Field(
+    reach: typing.Optional["StatsReach"] = Field(
         default=None,
     )
 
-    visitors: typing.Optional["StatsVisitorsOneOf"] = Field(
+    visitors: typing.Optional["StatsViews"] = Field(
         default=None,
     )
 
@@ -13649,12 +14108,6 @@ class StatsReach(BaseModel):
     sex_age: typing.Optional[typing.List["StatsSexAge"]] = Field(
         default=None,
     )
-
-
-class StatsReachOneOf(BaseModel):
-    """
-    Schema: stats_reach_one_of
-    """
 
 
 class StatsSexAge(BaseModel):
@@ -13723,12 +14176,6 @@ class StatsViews(BaseModel):
         default=None,
         description="Visitors number",
     )
-
-
-class StatsVisitorsOneOf(BaseModel):
-    """
-    Schema: stats_visitors_one_of
-    """
 
 
 class StatsWallpostStat(BaseModel):
@@ -13906,7 +14353,7 @@ class StoreProduct(BaseModel):
         description="Title of the product",
     )
 
-    stickers: typing.Optional["BaseStickersList"] = Field(
+    stickers: typing.Optional[typing.List["BaseStickerNew"]] = Field(
         default=None,
     )
 
@@ -13956,6 +14403,11 @@ class StoreProduct(BaseModel):
         default=None,
     )
 
+    is_popup: typing.Optional[bool] = Field(
+        default=None,
+        description="Information whether the product is a sticker pack with popup stickers (for stickers product type)",
+    )
+
 
 class StoreProductIcon(BaseModel):
     """
@@ -13970,11 +14422,11 @@ class StoreStickersKeyword(BaseModel):
 
     words: typing.List[str] = Field()
 
-    user_stickers: typing.Optional["StoreStickersKeywordStickers"] = Field(
+    user_stickers: typing.Optional[typing.List["BaseStickerNew"]] = Field(
         default=None,
     )
 
-    promoted_stickers: typing.Optional["StoreStickersKeywordStickers"] = Field(
+    promoted_stickers: typing.Optional[typing.List["BaseStickerNew"]] = Field(
         default=None,
     )
 
@@ -13995,12 +14447,6 @@ class StoreStickersKeywordSticker(BaseModel):
     sticker_id: int = Field(
         description="Sticker id",
     )
-
-
-class StoreStickersKeywordStickers(BaseModel):
-    """
-    Schema: store_stickers_keyword_stickers
-    """
 
 
 class StoriesClickableArea(BaseModel):
@@ -14030,6 +14476,7 @@ class StoriesClickableStickerType(enum.Enum):
     SITUATIONAL_THEME = "situational_theme"
     PLAYLIST = "playlist"
     CLIP = "clip"
+    SITUATIONAL_TEMPLATE = "situational_template"
 
 
 class StoriesClickableStickerStyle(enum.Enum):
@@ -14043,6 +14490,21 @@ class StoriesClickableStickerStyle(enum.Enum):
     QUESTION_REPLY = "question_reply"
     LIGHT = "light"
     IMPRESSIVE = "impressive"
+    DARK = "dark"
+    ACCENT_BACKGROUND = "accent_background"
+    ACCENT_TEXT = "accent_text"
+    DARK_UNIQUE = "dark_unique"
+    LIGHT_UNIQUE = "light_unique"
+    LIGHT_TEXT = "light_text"
+    DARK_TEXT = "dark_text"
+    BLACK = "black"
+    DARK_WITHOUT_BG = "dark_without_bg"
+    LIGHT_WITHOUT_BG = "light_without_bg"
+    RECTANGLE = "rectangle"
+    CIRCLE = "circle"
+    POOP = "poop"
+    HEART = "heart"
+    STAR = "star"
 
 
 class StoriesClickableStickerSubtype(enum.Enum):
@@ -14516,6 +14978,7 @@ class StoriesStoryStatsStat(BaseModel):
 
 
 class StoriesStoryStatsState(enum.Enum):
+
     ON = "on"
 
     OFF = "off"
@@ -14524,6 +14987,7 @@ class StoriesStoryStatsState(enum.Enum):
 
 
 class StoriesStoryType(enum.Enum):
+
     PHOTO = "photo"
 
     VIDEO = "video"
@@ -14534,6 +14998,7 @@ class StoriesStoryType(enum.Enum):
 
 
 class StoriesUploadLinkText(enum.Enum):
+
     TO_STORE = "to_store"
 
     VOTE = "vote"
@@ -14653,6 +15118,7 @@ class FriendsFriendStatus(BaseModel):
 
 
 class FriendsFriendStatusStatus(enum.IntEnum):
+
     NOT_A_FRIEND = 0
 
     OUTCOMING_REQUEST = 1
@@ -14696,6 +15162,34 @@ class FriendsMutualFriend(BaseModel):
     )
 
 
+class FriendsOnlineUsers(BaseModel):
+    """
+    Schema: friends_online_users
+    """
+
+    online: typing.List[int] = Field()
+
+    total_count: typing.Optional[int] = Field(
+        default=None,
+        description="Total online friends number",
+    )
+
+
+class FriendsOnlineUsersWithMobile(BaseModel):
+    """
+    Schema: friends_online_users_with_mobile
+    """
+
+    online: typing.List[int] = Field()
+
+    online_mobile: typing.List[int] = Field()
+
+    total_count: typing.Optional[int] = Field(
+        default=None,
+        description="Total online friends number",
+    )
+
+
 class FriendsRequestsMutual(BaseModel):
     """
     Schema: friends_requests_mutual
@@ -14732,6 +15226,7 @@ class UtilsDomainResolved(BaseModel):
 
 
 class UtilsDomainResolvedType(enum.Enum):
+
     USER = "user"
 
     GROUP = "group"
@@ -14797,6 +15292,7 @@ class UtilsLinkChecked(BaseModel):
 
 
 class UtilsLinkCheckedStatus(enum.Enum):
+
     NOT_BANNED = "not_banned"
 
     BANNED = "banned"
@@ -15569,6 +16065,7 @@ class WallCommentAttachment(BaseModel):
 
 
 class WallCommentAttachmentType(enum.Enum):
+
     PHOTO = "photo"
 
     AUDIO = "audio"
@@ -15621,6 +16118,7 @@ class WallGeo(BaseModel):
 
 
 class WallGetFilter(enum.Enum):
+
     OWNER = "owner"
 
     OTHERS = "others"
@@ -15728,6 +16226,7 @@ class WallPostSource(BaseModel):
 
 
 class WallPostSourceType(enum.Enum):
+
     VK = "vk"
 
     WIDGET = "widget"
@@ -15742,6 +16241,7 @@ class WallPostSourceType(enum.Enum):
 
 
 class WallPostType(enum.Enum):
+
     POST = "post"
 
     COPY = "copy"
@@ -15757,6 +16257,8 @@ class WallPostType(enum.Enum):
     PHOTO = "photo"
 
     VIDEO = "video"
+
+    CLIP = "clip"
 
 
 class WallPostedPhoto(BaseModel):
@@ -15872,6 +16374,11 @@ class WallWallComment(BaseModel):
         default=None,
     )
 
+    is_from_post_author: typing.Optional[bool] = Field(
+        default=None,
+        description="Whether post is by author of the post or not",
+    )
+
     deleted: typing.Optional[bool] = Field(
         default=None,
     )
@@ -15911,10 +16418,16 @@ class WallWallItem(BaseModel):
     """
 
 
+class WallWallpostInnerType(enum.Enum):
+    WALL_WALLPOST = "wall_wallpost"
+
+
 class WallWallpost(BaseModel):
     """
     Schema: wall_wallpost
     """
+
+    inner_type: "WallWallpostInnerType" = Field()
 
     access_key: typing.Optional[str] = Field(
         default=None,
@@ -15930,6 +16443,10 @@ class WallWallpost(BaseModel):
     )
 
     deleted_details: typing.Optional[str] = Field(
+        default=None,
+    )
+
+    donut_miniapp_url: typing.Optional[str] = Field(
         default=None,
     )
 
@@ -16100,12 +16617,17 @@ class WallWallpostAttachment(BaseModel):
         default=None,
     )
 
+    clip: typing.Optional["VideoVideoFull"] = Field(
+        default=None,
+    )
+
     video_playlist: typing.Optional["VideoVideoAlbumFull"] = Field(
         default=None,
     )
 
 
 class WallWallpostAttachmentType(enum.Enum):
+
     PHOTO = "photo"
 
     PHOTOS_LIST = "photos_list"
@@ -16117,6 +16639,8 @@ class WallWallpostAttachmentType(enum.Enum):
     AUDIO_PLAYLIST = "audio_playlist"
 
     VIDEO = "video"
+
+    CLIP = "clip"
 
     VIDEO_PLAYLIST = "video_playlist"
 
@@ -16223,6 +16747,7 @@ class WallWallpostDonutPlaceholder(BaseModel):
 
 
 class NewsfeedCommentsFilters(enum.Enum):
+
     POST = "post"
 
     PHOTO = "photo"
@@ -16261,6 +16786,7 @@ class NewsfeedCommentsItemBase(BaseModel):
 
 
 class NewsfeedIgnoreItemType(enum.Enum):
+
     WALL = "wall"
 
     TAG = "tag"
@@ -16347,6 +16873,10 @@ class NewsfeedItemDigestFooter(BaseModel):
     )
 
     button: typing.Optional["NewsfeedItemDigestButton"] = Field(
+        default=None,
+    )
+
+    feed_id: typing.Optional[str] = Field(
         default=None,
     )
 
@@ -16549,6 +17079,7 @@ class NewsfeedItemWallpostFeedbackAnswer(BaseModel):
 
 
 class NewsfeedItemWallpostFeedbackType(enum.Enum):
+
     BUTTONS = "buttons"
 
     STARS = "stars"
@@ -16575,6 +17106,7 @@ class NewsfeedNewsfeedItem(BaseModel):
 
 
 class NewsfeedNewsfeedItemType(enum.Enum):
+
     POST = "post"
 
     PHOTO = "photo"
@@ -16600,6 +17132,8 @@ class NewsfeedNewsfeedItemType(enum.Enum):
     AUDIO_PLAYLIST = "audio_playlist"
 
     CLIP = "clip"
+
+    CLIPS_RETENTION = "clips_retention"
 
 
 class WidgetsCommentMedia(BaseModel):
@@ -16628,6 +17162,7 @@ class WidgetsCommentMedia(BaseModel):
 
 
 class WidgetsCommentMediaType(enum.Enum):
+
     AUDIO = "audio"
 
     PHOTO = "photo"
@@ -16994,10 +17529,6 @@ class UsersUserFull(UsersUser):
         default=None,
     )
 
-    country: typing.Optional["BaseCountry"] = Field(
-        default=None,
-    )
-
     timezone: typing.Optional[float] = Field(
         default=None,
         description="User's timezone",
@@ -17129,15 +17660,15 @@ class UsersUserFull(UsersUser):
         default=None,
     )
 
-    photo_rec: typing.Optional["PhotosPhotoFalseable"] = Field(
+    photo_rec: typing.Optional[typing.Union["str", "bool"]] = Field(
         default=None,
     )
 
-    photo_medium: typing.Optional["PhotosPhotoFalseable"] = Field(
+    photo_medium: typing.Optional[typing.Union["str", "bool"]] = Field(
         default=None,
     )
 
-    photo_medium_rec: typing.Optional["PhotosPhotoFalseable"] = Field(
+    photo_medium_rec: typing.Optional[typing.Union["str", "bool"]] = Field(
         default=None,
     )
 
@@ -17181,6 +17712,11 @@ class UsersUserFull(UsersUser):
     can_call_from_group: typing.Optional[bool] = Field(
         default=None,
         description="Information whether group can call user",
+    )
+
+    can_invite_as_voicerooms_speaker: typing.Optional[bool] = Field(
+        default=None,
+        description="Information whether user/group can invite user as voicerooms speakr",
     )
 
     can_see_wishes: typing.Optional[bool] = Field(
@@ -17291,7 +17827,7 @@ class UsersUserFull(UsersUser):
 
     followers_count: typing.Optional[int] = Field(
         default=None,
-        description="Number of user's followers",
+        description="Number of user's followers and friends",
     )
 
     video_live_level: typing.Optional[int] = Field(
@@ -17677,6 +18213,24 @@ class BaseLink(BaseLinkNoProduct):
     )
 
 
+class CallbackPhotoComment(WallWallComment):
+    """
+    Schema: callback_photo_comment
+    """
+
+    photo_owner_id: int = Field()
+
+
+class CallbackVideoComment(WallWallComment):
+    """
+    Schema: callback_video_comment
+    """
+
+    video_owner_id: typing.Optional[int] = Field(
+        default=None,
+    )
+
+
 class CallbackConfirmation(CallbackBase):
     """
     Schema: callback_confirmation
@@ -17750,11 +18304,6 @@ class DatabaseCity(BaseObject):
         description="Region title",
     )
 
-    country: typing.Optional[str] = Field(
-        default=None,
-        description="Country title",
-    )
-
     important: typing.Optional[bool] = Field(
         default=None,
         description="Information whether the city is included in important cities list",
@@ -17775,7 +18324,7 @@ class GroupsUserXtrRole(UsersUserFull):
     )
 
 
-class GroupsGroupFull(GroupsGroup, GroupsMarketProperties, GroupsClassifiedsProperties):
+class GroupsGroupFull(GroupsGroup, GroupsMarketProperties):
     """
     Schema: groups_group_full
     """
@@ -17806,10 +18355,6 @@ class GroupsGroupFull(GroupsGroup, GroupsMarketProperties, GroupsClassifiedsProp
     )
 
     city: typing.Optional["BaseObject"] = Field(
-        default=None,
-    )
-
-    country: typing.Optional["BaseCountry"] = Field(
         default=None,
     )
 
@@ -17863,6 +18408,10 @@ class GroupsGroupFull(GroupsGroup, GroupsMarketProperties, GroupsClassifiedsProp
     )
 
     cover: typing.Optional["BaseOwnerCover"] = Field(
+        default=None,
+    )
+
+    video_cover: typing.Optional["BaseOwnerCover"] = Field(
         default=None,
     )
 
@@ -18047,6 +18596,11 @@ class GroupsGroupFull(GroupsGroup, GroupsMarketProperties, GroupsClassifiedsProp
         default=None,
     )
 
+    video_notifications_status: typing.Optional[str] = Field(
+        default=None,
+        description="Information about the status of video notifications for the current user.",
+    )
+
 
 class MarketMarketItemBasicWithGroup(MarketMarketItemBasic):
     """
@@ -18155,6 +18709,11 @@ class MarketMarketItemFull(MarketMarketItem):
         description="Can item be deleted by current user?",
     )
 
+    can_recover: typing.Optional[bool] = Field(
+        default=None,
+        description="Can item be restored by current user?",
+    )
+
     can_show_convert_to_service: typing.Optional[bool] = Field(
         default=None,
         description="Can the item be converted from a product into a service?",
@@ -18205,6 +18764,16 @@ class MessagesGetConversationByIdExtended(MessagesGetConversationById):
     )
 
 
+class PollsPollExtended(PollsPoll):
+    """
+    Schema: polls_poll_extended
+    """
+
+    profiles: typing.Optional[typing.List["UsersUserFull"]] = Field(
+        default=None,
+    )
+
+
 class FriendsRequestsXtrMutual(UsersUserFull):
     """
     Schema: friends_requests_xtr_mutual
@@ -18219,7 +18788,7 @@ class FriendsRequestsXtrMutual(UsersUserFull):
         description="User ID",
     )
 
-    _from: typing.Optional[str] = Field(
+    value_from: typing.Optional[str] = Field(
         default=None,
         description="ID of the user by whom friend has been suggested",
         alias="from",
@@ -18245,17 +18814,6 @@ class FriendsRequestsXtrMutual(UsersUserFull):
 
     descriptions: typing.Optional[typing.List[str]] = Field(
         default=None,
-    )
-
-
-class FriendsUserXtrPhone(UsersUserFull):
-    """
-    Schema: friends_user_xtr_phone
-    """
-
-    phone: typing.Optional[str] = Field(
-        default=None,
-        description="User phone",
     )
 
 
@@ -18287,6 +18845,10 @@ class VideoVideoImage(BaseImage):
     """
 
     with_padding: typing.Optional["BasePropertyExists"] = Field(
+        default=None,
+    )
+
+    size: typing.Optional[str] = Field(
         default=None,
     )
 
@@ -18596,6 +19158,8 @@ class NewsfeedItemDigestFullItem(NewsfeedItemBase):
     Schema: newsfeed_item_digest_full_item
     """
 
+    inner_type: str = Field()
+
     post: "NewsfeedItemWallpost" = Field()
 
     text: typing.Optional[str] = Field(
@@ -18723,7 +19287,7 @@ class NewsfeedItemVideo(WallCarouselBase, NewsfeedItemBase):
     )
 
 
-class NewsfeedItemWallpost(BaseModel):
+class NewsfeedItemWallpost(NewsfeedItemBase, WallWallpostFull):
     """
     Schema: newsfeed_item_wallpost
     """
@@ -18834,7 +19398,6 @@ __all__ = (
     "AdsPromotedPostReach",
     "AdsRejectReason",
     "AdsRules",
-    "AdsRulesHelpUrl",
     "AdsStatisticClickAction",
     "AdsStatisticClickActionType",
     "AdsStats",
@@ -18875,6 +19438,8 @@ __all__ = (
     "AppsAppMin",
     "AppsAppType",
     "AppsCatalogList",
+    "AppsCustomSnippet",
+    "AppsCustomSnippetButton",
     "AppsLeaderboard",
     "AppsScope",
     "AppsScopeName",
@@ -18888,6 +19453,7 @@ __all__ = (
     "BaseCropPhotoCrop",
     "BaseCropPhotoRect",
     "BaseError",
+    "BaseErrorInnerType",
     "BaseGeo",
     "BaseGeoCoordinates",
     "BaseGradientPoint",
@@ -18925,16 +19491,20 @@ __all__ = (
     "BaseStickerAnimation",
     "BaseStickerAnimationType",
     "BaseStickerNew",
-    "BaseStickerOld",
-    "BaseStickersList",
+    "BaseStickerNewInnerType",
     "BaseUploadServer",
     "BaseUserGroupFields",
     "BaseUserId",
     "BoardDefaultOrder",
     "BoardTopic",
     "BoardTopicComment",
+    "CallbackAppPayload",
+    "CallbackAudioNew",
     "CallbackBase",
     "CallbackBoardPostDelete",
+    "CallbackBoardPostEdit",
+    "CallbackBoardPostNew",
+    "CallbackBoardPostRestore",
     "CallbackDonutMoneyWithdraw",
     "CallbackDonutMoneyWithdrawError",
     "CallbackDonutSubscriptionCancelled",
@@ -18951,6 +19521,9 @@ __all__ = (
     "CallbackGroupOfficerRole",
     "CallbackGroupOfficersEdit",
     "CallbackGroupSettingsChanges",
+    "CallbackGroupSettingsChangesIntegerValues",
+    "CallbackGroupSettingsChangesStringValues",
+    "CallbackInfoForBots",
     "CallbackLikeAddRemove",
     "CallbackLikeAddRemoveObjectType",
     "CallbackMarketComment",
@@ -18958,15 +19531,21 @@ __all__ = (
     "CallbackMessageAllowObject",
     "CallbackMessageDeny",
     "CallbackMessageObject",
-    "CallbackPhotoComment",
     "CallbackPhotoCommentDelete",
+    "CallbackPhotoNew",
     "CallbackPollVoteNew",
     "CallbackType",
     "CallbackUserBlock",
     "CallbackUserUnblock",
-    "CallbackVideoComment",
     "CallbackVideoCommentDelete",
+    "CallbackVideoNew",
+    "CallbackVkpayTransaction",
     "CallbackWallCommentDelete",
+    "CallbackWallPostNew",
+    "CallbackWallReplyEdit",
+    "CallbackWallReplyNew",
+    "CallbackWallReplyRestore",
+    "CallbackWallRepost",
     "CallsCall",
     "CallsEndState",
     "CallsParticipants",
@@ -19007,11 +19586,9 @@ __all__ = (
     "GroupsAddressesInfo",
     "GroupsBanInfo",
     "GroupsBanInfoReason",
-    "GroupsBannedItem",
     "GroupsCallbackServer",
     "GroupsCallbackServerStatus",
     "GroupsCallbackSettings",
-    "GroupsClassifiedsProperties",
     "GroupsContactsItem",
     "GroupsCountersGroup",
     "GroupsFields",
@@ -19088,6 +19665,7 @@ __all__ = (
     "MarketMarketAlbum",
     "MarketMarketCategory",
     "MarketMarketCategoryNested",
+    "MarketMarketCategoryNestedInnerType",
     "MarketMarketCategoryTree",
     "MarketMarketCategoryTreeView",
     "MarketMarketCategoryTreeViewType",
@@ -19098,6 +19676,9 @@ __all__ = (
     "MarketOrderItem",
     "MarketOwnerType",
     "MarketPrice",
+    "MarketProperty",
+    "MarketPropertyType",
+    "MarketPropertyVariant",
     "MarketServicesViewType",
     "MessagesActionOneOf",
     "MessagesAudioMessage",
@@ -19132,6 +19713,7 @@ __all__ = (
     "MessagesFwdMessages",
     "MessagesGetConversationById",
     "MessagesGetConversationMembers",
+    "MessagesGetInviteLinkByOwnerResponseItem",
     "MessagesGraffiti",
     "MessagesHistoryAttachment",
     "MessagesHistoryMessageAttachment",
@@ -19180,6 +19762,7 @@ __all__ = (
     "NotesNoteComment",
     "NotificationsFeedback",
     "NotificationsNotification",
+    "NotificationsNotificationInnerType",
     "NotificationsNotificationItem",
     "NotificationsReply",
     "NotificationsSendMessageError",
@@ -19201,7 +19784,6 @@ __all__ = (
     "PhotosPhotoVerticalAlign",
     "PhotosPhotoAlbum",
     "PhotosPhotoAlbumFull",
-    "PhotosPhotoFalseable",
     "PhotosPhotoSizes",
     "PhotosPhotoSizesType",
     "PhotosPhotoTag",
@@ -19225,6 +19807,7 @@ __all__ = (
     "PollsVotersUsers",
     "PrettyCardsButtonOneOf",
     "PrettyCardsPrettyCard",
+    "PrettyCardsPrettyCardInnerType",
     "PrettyCardsPrettyCardOrError",
     "SearchHint",
     "SearchHintSection",
@@ -19242,10 +19825,8 @@ __all__ = (
     "StatsPeriodFromOneOf",
     "StatsPeriodToOneOf",
     "StatsReach",
-    "StatsReachOneOf",
     "StatsSexAge",
     "StatsViews",
-    "StatsVisitorsOneOf",
     "StatsWallpostStat",
     "StatusStatus",
     "StickersImageSet",
@@ -19255,7 +19836,6 @@ __all__ = (
     "StoreProductIcon",
     "StoreStickersKeyword",
     "StoreStickersKeywordSticker",
-    "StoreStickersKeywordStickers",
     "StoriesClickableArea",
     "StoriesClickableSticker",
     "StoriesClickableStickerType",
@@ -19284,6 +19864,8 @@ __all__ = (
     "FriendsFriendStatusStatus",
     "FriendsFriendsList",
     "FriendsMutualFriend",
+    "FriendsOnlineUsers",
+    "FriendsOnlineUsersWithMobile",
     "FriendsRequestsMutual",
     "UtilsDomainResolved",
     "UtilsDomainResolvedType",
@@ -19330,6 +19912,7 @@ __all__ = (
     "WallWallCommentDonutPlaceholder",
     "WallWallItem",
     "WallWallpost",
+    "WallWallpostInnerType",
     "WallWallpostAttachment",
     "WallWallpostAttachmentType",
     "WallWallpostCommentsDonut",
@@ -19381,6 +19964,8 @@ __all__ = (
     "AdsTargSettings",
     "AppsApp",
     "BaseLink",
+    "CallbackPhotoComment",
+    "CallbackVideoComment",
     "CallbackConfirmation",
     "CallbackMessageAllow",
     "CallbackMessageEdit",
@@ -19393,8 +19978,8 @@ __all__ = (
     "MarketMarketItemFull",
     "MessagesUserXtrInvitedBy",
     "MessagesGetConversationByIdExtended",
+    "PollsPollExtended",
     "FriendsRequestsXtrMutual",
-    "FriendsUserXtrPhone",
     "FriendsFriendExtendedStatus",
     "FriendsRequestsXtrMessage",
     "VideoVideoImage",

@@ -13,7 +13,7 @@ def snake_case(s: str) -> str:
 def makesafe(s: str) -> str:
     """Transforms arbitrary string into python-declarable name"""
     if keyword.iskeyword(s) or s[0].isdigit():
-        s = "_" + s
+        s = "value_" + s
     return s.replace(" ", "_")
 
 

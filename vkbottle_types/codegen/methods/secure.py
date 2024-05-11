@@ -7,6 +7,7 @@ from vkbottle_types.responses.base import OkResponse
 
 
 class SecureCategory(BaseCategory):
+
     async def add_app_event(
         self,
         activity_id: int,
@@ -197,8 +198,7 @@ class SecureCategory(BaseCategory):
         counter: typing.Optional[int] = None,
         increment: typing.Optional[bool] = None,
         **kwargs,
-    ) -> BaseBoolResponseModel:
-        ...
+    ) -> BaseBoolResponseModel: ...
 
     @typing.overload
     async def set_counter(
@@ -208,8 +208,7 @@ class SecureCategory(BaseCategory):
         counter: typing.Optional[int] = None,
         increment: typing.Optional[bool] = None,
         **kwargs,
-    ) -> SecureSetCounterArrayResponseModel:
-        ...
+    ) -> SecureSetCounterArrayResponseModel: ...
 
     async def set_counter(
         self,

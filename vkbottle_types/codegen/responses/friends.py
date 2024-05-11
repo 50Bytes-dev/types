@@ -7,6 +7,7 @@ from vkbottle_types.objects import FriendsRequestsMutual, FriendsFriendStatusSta
 
 
 class FriendsFriendExtendedStatusResponseModel(FriendsFriendStatus):
+
     is_request_unread: typing.Optional[bool] = Field(
         default=None,
         description="Is friend request from other user unread",
@@ -18,6 +19,7 @@ class FriendsFriendExtendedStatusResponse(BaseResponse):
 
 
 class FriendsFriendStatusResponseModel(BaseModel):
+
     friend_status: "FriendsFriendStatusStatus" = Field()
 
     user_id: int = Field(
@@ -35,6 +37,7 @@ class FriendsFriendStatusResponse(BaseResponse):
 
 
 class FriendsFriendStatusStatusResponseModel(enum.IntEnum):
+
     NOT_A_FRIEND = 0
 
     OUTCOMING_REQUEST = 1
@@ -49,6 +52,7 @@ class FriendsFriendStatusStatusResponse(BaseResponse):
 
 
 class FriendsFriendsListResponseModel(BaseModel):
+
     id: int = Field(
         description="List ID",
     )
@@ -63,6 +67,7 @@ class FriendsFriendsListResponse(BaseResponse):
 
 
 class FriendsMutualFriendResponseModel(BaseModel):
+
     common_count: typing.Optional[int] = Field(
         default=None,
         description="Total mutual friends number",
@@ -82,7 +87,38 @@ class FriendsMutualFriendResponse(BaseResponse):
     response: "FriendsMutualFriendResponseModel"
 
 
+class FriendsOnlineUsersResponseModel(BaseModel):
+
+    online: typing.List[int] = Field()
+
+    total_count: typing.Optional[int] = Field(
+        default=None,
+        description="Total online friends number",
+    )
+
+
+class FriendsOnlineUsersResponse(BaseResponse):
+    response: "FriendsOnlineUsersResponseModel"
+
+
+class FriendsOnlineUsersWithMobileResponseModel(BaseModel):
+
+    online: typing.List[int] = Field()
+
+    online_mobile: typing.List[int] = Field()
+
+    total_count: typing.Optional[int] = Field(
+        default=None,
+        description="Total online friends number",
+    )
+
+
+class FriendsOnlineUsersWithMobileResponse(BaseResponse):
+    response: "FriendsOnlineUsersWithMobileResponseModel"
+
+
 class FriendsRequestsMutualResponseModel(BaseModel):
+
     count: typing.Optional[int] = Field(
         default=None,
         description="Total mutual friends number",
@@ -98,6 +134,7 @@ class FriendsRequestsMutualResponse(BaseResponse):
 
 
 class FriendsRequestsXtrMessageResponseModel(FriendsRequestsXtrMutual):
+
     message: typing.Optional[str] = Field(
         default=None,
         description="Message sent with a request",
@@ -109,6 +146,7 @@ class FriendsRequestsXtrMessageResponse(BaseResponse):
 
 
 class FriendsRequestsXtrMutualResponseModel(UsersUserFull):
+
     user_id: int = Field(
         description="User ID",
     )
@@ -118,7 +156,7 @@ class FriendsRequestsXtrMutualResponseModel(UsersUserFull):
         description="User ID",
     )
 
-    _from: typing.Optional[str] = Field(
+    value_from: typing.Optional[str] = Field(
         default=None,
         description="ID of the user by whom friend has been suggested",
         alias="from",
@@ -149,14 +187,3 @@ class FriendsRequestsXtrMutualResponseModel(UsersUserFull):
 
 class FriendsRequestsXtrMutualResponse(BaseResponse):
     response: "FriendsRequestsXtrMutualResponseModel"
-
-
-class FriendsUserXtrPhoneResponseModel(UsersUserFull):
-    phone: typing.Optional[str] = Field(
-        default=None,
-        description="User phone",
-    )
-
-
-class FriendsUserXtrPhoneResponse(BaseResponse):
-    response: "FriendsUserXtrPhoneResponseModel"

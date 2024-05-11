@@ -5,21 +5,22 @@ from vkbottle_types.base_model import Field
 
 from vkbottle_types.objects import (
     BaseLikesInfo,
-    WidgetsWidgetLikes,
-    WidgetsCommentReplies,
     WidgetsCommentMedia,
     WallPostSource,
     BaseRepostsInfo,
-    BaseBoolInt,
-    BaseObjectCount,
     WidgetsCommentMediaType,
+    BaseBoolInt,
     WidgetsCommentRepliesItem,
+    BaseObjectCount,
+    WidgetsWidgetLikes,
     WallCommentAttachment,
     UsersUserFull,
+    WidgetsCommentReplies,
 )
 
 
 class WidgetsCommentMediaResponseModel(BaseModel):
+
     item_id: typing.Optional[int] = Field(
         default=None,
         description="Media item ID",
@@ -45,6 +46,7 @@ class WidgetsCommentMediaResponse(BaseResponse):
 
 
 class WidgetsCommentMediaTypeResponseModel(enum.Enum):
+
     AUDIO = "audio"
 
     PHOTO = "photo"
@@ -57,6 +59,7 @@ class WidgetsCommentMediaTypeResponse(BaseResponse):
 
 
 class WidgetsCommentRepliesResponseModel(BaseModel):
+
     can_post: typing.Optional[bool] = Field(
         default=None,
         description="Information whether current user can comment the post",
@@ -87,6 +90,7 @@ class WidgetsCommentRepliesResponse(BaseResponse):
 
 
 class WidgetsCommentRepliesItemResponseModel(BaseModel):
+
     cid: typing.Optional[int] = Field(
         default=None,
         description="Comment ID",
@@ -121,6 +125,7 @@ class WidgetsCommentRepliesItemResponse(BaseResponse):
 
 
 class WidgetsWidgetCommentResponseModel(BaseModel):
+
     date: int = Field(
         description="Date when the comment has been added in Unixtime",
     )
@@ -199,6 +204,7 @@ class WidgetsWidgetCommentResponse(BaseResponse):
 
 
 class WidgetsWidgetLikesResponseModel(BaseModel):
+
     count: typing.Optional[int] = Field(
         default=None,
         description="Likes number",
@@ -210,6 +216,7 @@ class WidgetsWidgetLikesResponse(BaseResponse):
 
 
 class WidgetsWidgetPageResponseModel(BaseModel):
+
     comments: typing.Optional["BaseObjectCount"] = Field(
         default=None,
     )

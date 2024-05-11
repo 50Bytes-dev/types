@@ -5,6 +5,7 @@ from vkbottle_types.base_model import Field
 
 
 class AddressesFieldsResponseModel(enum.Enum):
+
     ID = "id"
 
     TITLE = "title"

@@ -4,63 +4,64 @@ from vkbottle_types.responses.base_response import BaseResponse, BaseModel
 from vkbottle_types.base_model import Field
 
 from vkbottle_types.objects import (
-    MarketMarketItem,
-    StoriesStory,
-    MessagesConversation,
-    BaseGeo,
-    MessagesChatSettingsState,
-    BaseSticker,
-    BaseLinkButton,
-    MessagesAudioMessage,
-    MessagesMessageActionStatus,
-    GiftsLayout,
-    MessagesConversationCanWrite,
-    UsersUserFull,
-    MessagesMessageActionPhoto,
-    MessagesHistoryMessageAttachment,
-    MessagesKeyboardButton,
-    MessagesUserXtrInvitedBy,
-    MessagesOutReadBy,
-    MessagesForeignMessage,
-    PollsPoll,
-    MessagesMessageAttachment,
-    MessagesReactionCounterResponseItem,
-    MessagesActionOneOf,
-    MessagesMessageRequestData,
-    MessagesChatPushSettings,
-    MessagesConversationPeer,
-    MessagesHistoryMessageAttachmentType,
-    PhotosPhoto,
-    MarketMarketAlbum,
-    MessagesPushSettings,
-    MessagesChatSettingsPhoto,
-    MessagesChatSettingsPermissions,
-    MessagesMessageAttachmentType,
-    MessagesPinnedMessage,
-    MessagesKeyboard,
-    MessagesGraffiti,
-    WallWallComment,
-    BaseMessageError,
-    CallsCall,
-    BaseBoolInt,
-    MessagesChatSettings,
-    MessagesKeyboardButtonPropertyAction,
-    MessagesUserTypeForXtrInvitedBy,
-    MessagesFwdMessages,
-    MessagesMessage,
     DocsDoc,
-    MessagesConversationPeerType,
-    AudioAudio,
+    MessagesConversationPeer,
+    MessagesConversationCanWrite,
+    MessagesForeignMessage,
     MessagesReactionAssetItemLinks,
-    GroupsGroupFull,
+    CallsCall,
+    MessagesHistoryMessageAttachmentType,
     MessagesConversationMember,
-    MessagesChatSettingsAcl,
-    MessagesChatRestrictions,
+    MessagesPinnedMessage,
+    GroupsGroupFull,
+    MessagesMessageAttachment,
+    WallWallComment,
+    BaseGeo,
+    MessagesPushSettings,
+    MessagesHistoryMessageAttachment,
+    MessagesUserXtrInvitedBy,
+    MessagesKeyboardButton,
+    BaseSticker,
+    MessagesAudioMessage,
+    MessagesKeyboardButtonPropertyAction,
+    MessagesMessageActionStatus,
+    MessagesChatSettingsPermissions,
+    MessagesMessageRequestData,
+    MarketMarketItem,
     MessagesConversationSortId,
+    MessagesReactionCounterResponseItem,
+    MessagesConversation,
+    PollsPoll,
+    MessagesChatSettingsPhoto,
+    MessagesUserTypeForXtrInvitedBy,
+    MessagesChatSettingsAcl,
+    MessagesChatPushSettings,
+    AudioAudio,
+    BaseMessageError,
+    MessagesGraffiti,
+    MessagesMessage,
+    MessagesKeyboard,
+    MessagesConversationPeerType,
+    MessagesChatSettings,
+    MessagesMessageAttachmentType,
+    GiftsLayout,
+    StoriesStory,
+    PhotosPhoto,
+    MessagesChatSettingsState,
+    MessagesMessageActionPhoto,
+    BaseLinkButton,
+    MessagesChatRestrictions,
+    MessagesOutReadBy,
+    MarketMarketAlbum,
+    BaseBoolInt,
+    MessagesFwdMessages,
+    UsersUserFull,
+    MessagesActionOneOf,
 )
 
 
 class MessagesActionOneOfResponseModel(BaseModel):
+
     pass
 
 
@@ -69,6 +70,7 @@ class MessagesActionOneOfResponse(BaseResponse):
 
 
 class MessagesAudioMessageResponseModel(BaseModel):
+
     duration: int = Field(
         description="Audio message duration in seconds",
     )
@@ -106,6 +108,7 @@ class MessagesAudioMessageResponse(BaseResponse):
 
 
 class MessagesChatResponseModel(BaseModel):
+
     admin_id: int = Field(
         description="Chat creator ID",
     )
@@ -174,6 +177,7 @@ class MessagesChatResponse(BaseResponse):
 
 
 class MessagesChatFullResponseModel(BaseModel):
+
     admin_id: int = Field(
         description="Chat creator ID",
     )
@@ -242,6 +246,7 @@ class MessagesChatFullResponse(BaseResponse):
 
 
 class MessagesChatPreviewResponseModel(BaseModel):
+
     admin_id: typing.Optional[int] = Field(
         default=None,
     )
@@ -296,6 +301,7 @@ class MessagesChatPreviewResponse(BaseResponse):
 
 
 class MessagesChatPushSettingsResponseModel(BaseModel):
+
     disabled_until: typing.Optional[int] = Field(
         default=None,
         description="Time until that notifications are disabled",
@@ -312,6 +318,7 @@ class MessagesChatPushSettingsResponse(BaseResponse):
 
 
 class MessagesChatRestrictionsResponseModel(BaseModel):
+
     admins_promote_users: typing.Optional[bool] = Field(
         default=None,
         description="Only admins can promote users to admins",
@@ -343,6 +350,7 @@ class MessagesChatRestrictionsResponse(BaseResponse):
 
 
 class MessagesChatSettingsResponseModel(BaseModel):
+
     owner_id: int = Field()
 
     title: str = Field(
@@ -358,6 +366,10 @@ class MessagesChatSettingsResponseModel(BaseModel):
     )
 
     friends_count: typing.Optional[int] = Field(
+        default=None,
+    )
+
+    pinned_messages_count: typing.Optional[int] = Field(
         default=None,
     )
 
@@ -408,6 +420,7 @@ class MessagesChatSettingsResponse(BaseResponse):
 
 
 class MessagesChatSettingsAclResponseModel(BaseModel):
+
     can_change_info: bool = Field(
         description="Can you change photo, description and name",
     )
@@ -459,23 +472,24 @@ class MessagesChatSettingsAclResponse(BaseResponse):
 
 
 class MessagesChatSettingsPermissionsResponseModel(BaseModel):
+
     invite: typing.Optional[typing.Literal["owner", "owner_and_admins", "all"]] = Field(
         default=None,
         description="Who can invite users to chat",
     )
 
-    change_info: typing.Optional[
-        typing.Literal["owner", "owner_and_admins", "all"]
-    ] = Field(
-        default=None,
-        description="Who can change chat info",
+    change_info: typing.Optional[typing.Literal["owner", "owner_and_admins", "all"]] = (
+        Field(
+            default=None,
+            description="Who can change chat info",
+        )
     )
 
-    change_pin: typing.Optional[
-        typing.Literal["owner", "owner_and_admins", "all"]
-    ] = Field(
-        default=None,
-        description="Who can change pinned message",
+    change_pin: typing.Optional[typing.Literal["owner", "owner_and_admins", "all"]] = (
+        Field(
+            default=None,
+            description="Who can change pinned message",
+        )
     )
 
     use_mass_mentions: typing.Optional[
@@ -508,6 +522,7 @@ class MessagesChatSettingsPermissionsResponse(BaseResponse):
 
 
 class MessagesChatSettingsPhotoResponseModel(BaseModel):
+
     photo_50: typing.Optional[str] = Field(
         default=None,
         description="URL of the preview image with 50px in width",
@@ -539,6 +554,7 @@ class MessagesChatSettingsPhotoResponse(BaseResponse):
 
 
 class MessagesChatSettingsStateResponseModel(enum.Enum):
+
     IN = "in"
 
     KICKED = "kicked"
@@ -553,10 +569,15 @@ class MessagesChatSettingsStateResponse(BaseResponse):
 
 
 class MessagesConversationResponseModel(BaseModel):
+
     peer: "MessagesConversationPeer" = Field()
 
     last_message_id: int = Field(
         description="ID of the last message in conversation",
+    )
+
+    last_conversation_message_id: int = Field(
+        description="Conversation message ID of the last message in conversation",
     )
 
     in_read: int = Field(
@@ -567,13 +588,10 @@ class MessagesConversationResponseModel(BaseModel):
         description="Last outcoming message have been read by the opponent",
     )
 
+    version: int = Field()
+
     sort_id: typing.Optional["MessagesConversationSortId"] = Field(
         default=None,
-    )
-
-    last_conversation_message_id: typing.Optional[int] = Field(
-        default=None,
-        description="Conversation message ID of the last message in conversation",
     )
 
     unread_count: typing.Optional[int] = Field(
@@ -583,7 +601,7 @@ class MessagesConversationResponseModel(BaseModel):
 
     is_marked_unread: typing.Optional[bool] = Field(
         default=None,
-        description="Is this conversation uread",
+        description="Is this conversation unread",
     )
 
     out_read_by: typing.Optional["MessagesOutReadBy"] = Field(
@@ -633,9 +651,14 @@ class MessagesConversationResponse(BaseResponse):
 
 
 class MessagesConversationCanWriteResponseModel(BaseModel):
+
     allowed: bool = Field()
 
     reason: typing.Optional[int] = Field(
+        default=None,
+    )
+
+    until: typing.Optional[int] = Field(
         default=None,
     )
 
@@ -645,11 +668,17 @@ class MessagesConversationCanWriteResponse(BaseResponse):
 
 
 class MessagesConversationMemberResponseModel(BaseModel):
+
     member_id: int = Field()
 
     can_kick: typing.Optional[bool] = Field(
         default=None,
         description="Is it possible for user to kick this member",
+    )
+
+    is_restricted_to_write: typing.Optional[bool] = Field(
+        default=None,
+        description="Does this member have write permission",
     )
 
     invited_by: typing.Optional[int] = Field(
@@ -683,6 +712,7 @@ class MessagesConversationMemberResponse(BaseResponse):
 
 
 class MessagesConversationPeerResponseModel(BaseModel):
+
     id: int = Field()
 
     type: "MessagesConversationPeerType" = Field()
@@ -697,6 +727,7 @@ class MessagesConversationPeerResponse(BaseResponse):
 
 
 class MessagesConversationPeerTypeResponseModel(enum.Enum):
+
     CHAT = "chat"
 
     EMAIL = "email"
@@ -711,6 +742,7 @@ class MessagesConversationPeerTypeResponse(BaseResponse):
 
 
 class MessagesConversationSortIdResponseModel(BaseModel):
+
     major_id: int = Field(
         description="Major id for sorting conversations",
     )
@@ -725,6 +757,7 @@ class MessagesConversationSortIdResponse(BaseResponse):
 
 
 class MessagesConversationWithMessageResponseModel(BaseModel):
+
     conversation: "MessagesConversation" = Field()
 
     last_message: typing.Optional["MessagesMessage"] = Field(
@@ -737,6 +770,7 @@ class MessagesConversationWithMessageResponse(BaseResponse):
 
 
 class MessagesDeleteFullResponseItemResponseModel(BaseModel):
+
     peer_id: typing.Optional[int] = Field(
         default=None,
     )
@@ -763,6 +797,11 @@ class MessagesDeleteFullResponseItemResponse(BaseResponse):
 
 
 class MessagesForeignMessageResponseModel(BaseModel):
+
+    conversation_message_id: int = Field(
+        description="Conversation message ID",
+    )
+
     date: int = Field(
         description="Date when the message was created",
     )
@@ -777,11 +816,6 @@ class MessagesForeignMessageResponseModel(BaseModel):
 
     attachments: typing.Optional[typing.List[MessagesMessageAttachment]] = Field(
         default=None,
-    )
-
-    conversation_message_id: typing.Optional[int] = Field(
-        default=None,
-        description="Conversation message ID",
     )
 
     fwd_messages: typing.Optional[typing.List[MessagesForeignMessage]] = Field(
@@ -827,6 +861,7 @@ class MessagesForeignMessageResponse(BaseResponse):
 
 
 class MessagesForwardResponseModel(BaseModel):
+
     owner_id: typing.Optional[int] = Field(
         default=None,
         description="Messages owner_id",
@@ -838,6 +873,10 @@ class MessagesForwardResponseModel(BaseModel):
     )
 
     conversation_message_ids: typing.Optional[typing.List[int]] = Field(
+        default=None,
+    )
+
+    cmids: typing.Optional[typing.List[int]] = Field(
         default=None,
     )
 
@@ -863,6 +902,7 @@ class MessagesFwdMessagesResponse(BaseResponse):
 
 
 class MessagesGetConversationByIdResponseModel(BaseModel):
+
     count: int = Field(
         description="Total number",
     )
@@ -875,6 +915,7 @@ class MessagesGetConversationByIdResponse(BaseResponse):
 
 
 class MessagesGetConversationByIdExtendedResponseModel(MessagesGetConversationById):
+
     profiles: typing.Optional[typing.List[UsersUserFull]] = Field(
         default=None,
     )
@@ -889,6 +930,7 @@ class MessagesGetConversationByIdExtendedResponse(BaseResponse):
 
 
 class MessagesGetConversationMembersResponseModel(BaseModel):
+
     items: typing.List[MessagesConversationMember] = Field()
 
     count: int = Field(
@@ -912,7 +954,25 @@ class MessagesGetConversationMembersResponse(BaseResponse):
     response: "MessagesGetConversationMembersResponseModel"
 
 
+class MessagesGetInviteLinkByOwnerResponseItemResponseModel(BaseModel):
+
+    owner_id: int = Field()
+
+    link: typing.Optional[str] = Field(
+        default=None,
+    )
+
+    error: typing.Optional["BaseMessageError"] = Field(
+        default=None,
+    )
+
+
+class MessagesGetInviteLinkByOwnerResponseItemResponse(BaseResponse):
+    response: "MessagesGetInviteLinkByOwnerResponseItemResponseModel"
+
+
 class MessagesGraffitiResponseModel(BaseModel):
+
     id: int = Field(
         description="Graffiti ID",
     )
@@ -944,6 +1004,7 @@ class MessagesGraffitiResponse(BaseResponse):
 
 
 class MessagesHistoryAttachmentResponseModel(BaseModel):
+
     attachment: "MessagesHistoryMessageAttachment" = Field()
 
     date: int = Field(
@@ -954,6 +1015,10 @@ class MessagesHistoryAttachmentResponseModel(BaseModel):
         description="Message ID",
     )
 
+    cmid: int = Field(
+        description="Conversation Message ID",
+    )
+
     from_id: int = Field(
         description="Message author's ID",
     )
@@ -961,11 +1026,6 @@ class MessagesHistoryAttachmentResponseModel(BaseModel):
     message_expire_ttl: typing.Optional[int] = Field(
         default=None,
         description="Message Exipire ttl",
-    )
-
-    cmid: typing.Optional[int] = Field(
-        default=None,
-        description="Conversation Message ID",
     )
 
     forward_level: typing.Optional[int] = Field(
@@ -988,6 +1048,7 @@ class MessagesHistoryAttachmentResponse(BaseResponse):
 
 
 class MessagesHistoryMessageAttachmentResponseModel(BaseModel):
+
     type: "MessagesHistoryMessageAttachmentType" = Field()
 
     audio: typing.Optional["AudioAudio"] = Field(
@@ -1020,9 +1081,8 @@ class MessagesHistoryMessageAttachmentResponse(BaseResponse):
 
 
 class MessagesHistoryMessageAttachmentTypeResponseModel(enum.Enum):
-    PHOTO = "photo"
 
-    VIDEO = "video"
+    APP_ACTION = "app_action"
 
     AUDIO = "audio"
 
@@ -1032,11 +1092,11 @@ class MessagesHistoryMessageAttachmentTypeResponseModel(enum.Enum):
 
     MARKET = "market"
 
+    PHOTO = "photo"
+
+    VIDEO = "video"
+
     WALL = "wall"
-
-    SHARE = "share"
-
-    APP_ACTION = "app_action"
 
     GRAFFITI = "graffiti"
 
@@ -1048,6 +1108,7 @@ class MessagesHistoryMessageAttachmentTypeResponse(BaseResponse):
 
 
 class MessagesKeyboardResponseModel(BaseModel):
+
     one_time: bool = Field(
         description="Should this keyboard disappear on first use",
     )
@@ -1069,6 +1130,7 @@ class MessagesKeyboardResponse(BaseResponse):
 
 
 class MessagesKeyboardButtonResponseModel(BaseModel):
+
     action: "MessagesKeyboardButtonPropertyAction" = Field()
 
     color: typing.Optional[
@@ -1084,6 +1146,7 @@ class MessagesKeyboardButtonResponse(BaseResponse):
 
 
 class MessagesKeyboardButtonActionCallbackResponseModel(BaseModel):
+
     label: str = Field(
         description="Label for button",
     )
@@ -1101,6 +1164,7 @@ class MessagesKeyboardButtonActionCallbackResponse(BaseResponse):
 
 
 class MessagesKeyboardButtonActionLocationResponseModel(BaseModel):
+
     type: typing.Literal["location"] = Field()
 
     payload: typing.Optional[str] = Field(
@@ -1114,6 +1178,7 @@ class MessagesKeyboardButtonActionLocationResponse(BaseResponse):
 
 
 class MessagesKeyboardButtonActionOpenAppResponseModel(BaseModel):
+
     app_id: int = Field(
         description="Fragment value in app link like vk.com/app{app_id}_-654321#hash",
     )
@@ -1144,6 +1209,7 @@ class MessagesKeyboardButtonActionOpenAppResponse(BaseResponse):
 
 
 class MessagesKeyboardButtonActionOpenLinkResponseModel(BaseModel):
+
     label: str = Field(
         description="Label for button",
     )
@@ -1165,6 +1231,7 @@ class MessagesKeyboardButtonActionOpenLinkResponse(BaseResponse):
 
 
 class MessagesKeyboardButtonActionOpenPhotoResponseModel(BaseModel):
+
     type: typing.Literal["open_photo"] = Field()
 
 
@@ -1173,6 +1240,7 @@ class MessagesKeyboardButtonActionOpenPhotoResponse(BaseResponse):
 
 
 class MessagesKeyboardButtonActionTextResponseModel(BaseModel):
+
     label: str = Field(
         description="Label for button",
     )
@@ -1190,6 +1258,7 @@ class MessagesKeyboardButtonActionTextResponse(BaseResponse):
 
 
 class MessagesKeyboardButtonActionVkpayResponseModel(BaseModel):
+
     hash: str = Field(
         description="Fragment value in app link like vk.com/app123456_-654321#{hash}",
     )
@@ -1207,6 +1276,7 @@ class MessagesKeyboardButtonActionVkpayResponse(BaseResponse):
 
 
 class MessagesKeyboardButtonPropertyActionResponseModel(BaseModel):
+
     pass
 
 
@@ -1215,6 +1285,7 @@ class MessagesKeyboardButtonPropertyActionResponse(BaseResponse):
 
 
 class MessagesLastActivityResponseModel(BaseModel):
+
     online: bool = Field(
         description="Information whether user is online",
     )
@@ -1229,6 +1300,7 @@ class MessagesLastActivityResponse(BaseResponse):
 
 
 class MessagesLongpollMessagesResponseModel(BaseModel):
+
     count: typing.Optional[int] = Field(
         default=None,
         description="Total number",
@@ -1244,6 +1316,7 @@ class MessagesLongpollMessagesResponse(BaseResponse):
 
 
 class MessagesLongpollParamsResponseModel(BaseModel):
+
     server: str = Field(
         description="Server URL",
     )
@@ -1267,6 +1340,11 @@ class MessagesLongpollParamsResponse(BaseResponse):
 
 
 class MessagesMessageResponseModel(BaseModel):
+
+    conversation_message_id: int = Field(
+        description="Unique auto-incremented number for all messages with this peer",
+    )
+
     date: int = Field(
         description="Date when the message has been sent in Unixtime",
     )
@@ -1291,6 +1369,8 @@ class MessagesMessageResponseModel(BaseModel):
         description="Message text",
     )
 
+    version: int = Field()
+
     action: typing.Optional["MessagesActionOneOf"] = Field(
         default=None,
     )
@@ -1302,11 +1382,6 @@ class MessagesMessageResponseModel(BaseModel):
 
     attachments: typing.Optional[typing.List[MessagesMessageAttachment]] = Field(
         default=None,
-    )
-
-    conversation_message_id: typing.Optional[int] = Field(
-        default=None,
-        description="Unique auto-incremented number for all messages with this peer",
     )
 
     deleted: typing.Optional[bool] = Field(
@@ -1371,16 +1446,21 @@ class MessagesMessageResponseModel(BaseModel):
         description="Reaction id set on message",
     )
 
-    reactions: typing.Optional[
-        typing.List[MessagesReactionCounterResponseItem]
-    ] = Field(
-        default=None,
-        description="Actual reactions counters on this message",
+    reactions: typing.Optional[typing.List[MessagesReactionCounterResponseItem]] = (
+        Field(
+            default=None,
+            description="Actual reactions counters on this message",
+        )
     )
 
     last_reaction_id: typing.Optional[int] = Field(
         default=None,
         description="Last reaction id set on this message",
+    )
+
+    is_pinned: typing.Optional[bool] = Field(
+        default=None,
+        description="Is message pinned in its conversation",
     )
 
     update_time: typing.Optional[int] = Field(
@@ -1403,12 +1483,18 @@ class MessagesMessageResponseModel(BaseModel):
         description="Is silent message, push without sound",
     )
 
+    is_unavailable: typing.Optional[bool] = Field(
+        default=None,
+        description="Is message unavailable for some reason, including its id equals 0",
+    )
+
 
 class MessagesMessageResponse(BaseResponse):
     response: "MessagesMessageResponseModel"
 
 
 class MessagesMessageActionResponseModel(BaseModel):
+
     type: "MessagesMessageActionStatus" = Field()
 
     conversation_message_id: typing.Optional[int] = Field(
@@ -1446,6 +1532,7 @@ class MessagesMessageActionResponse(BaseResponse):
 
 
 class MessagesMessageActionPhotoResponseModel(BaseModel):
+
     photo_50: str = Field(
         description="URL of the preview image with 50px in width",
     )
@@ -1464,6 +1551,7 @@ class MessagesMessageActionPhotoResponse(BaseResponse):
 
 
 class MessagesMessageActionStatusResponseModel(enum.Enum):
+
     CHAT_PHOTO_UPDATE = "chat_photo_update"
 
     CHAT_PHOTO_REMOVE = "chat_photo_remove"
@@ -1492,6 +1580,7 @@ class MessagesMessageActionStatusResponse(BaseResponse):
 
 
 class MessagesMessageAttachmentResponseModel(BaseModel):
+
     type: "MessagesMessageAttachmentType" = Field()
 
     audio: typing.Optional["AudioAudio"] = Field(
@@ -1552,6 +1641,7 @@ class MessagesMessageAttachmentResponse(BaseResponse):
 
 
 class MessagesMessageAttachmentTypeResponseModel(enum.Enum):
+
     PHOTO = "photo"
 
     AUDIO = "audio"
@@ -1565,8 +1655,6 @@ class MessagesMessageAttachmentTypeResponseModel(enum.Enum):
     LINK = "link"
 
     MARKET = "market"
-
-    MARKET_ALBUM = "market_album"
 
     GIFT = "gift"
 
@@ -1592,6 +1680,7 @@ class MessagesMessageAttachmentTypeResponse(BaseResponse):
 
 
 class MessagesMessageRequestDataResponseModel(BaseModel):
+
     status: typing.Optional[str] = Field(
         default=None,
         description="Status of message request",
@@ -1613,6 +1702,7 @@ class MessagesMessageRequestDataResponse(BaseResponse):
 
 
 class MessagesMessagesArrayResponseModel(BaseModel):
+
     count: typing.Optional[int] = Field(
         default=None,
     )
@@ -1627,6 +1717,7 @@ class MessagesMessagesArrayResponse(BaseResponse):
 
 
 class MessagesOutReadByResponseModel(BaseModel):
+
     count: typing.Optional[int] = Field(
         default=None,
     )
@@ -1641,6 +1732,11 @@ class MessagesOutReadByResponse(BaseResponse):
 
 
 class MessagesPinnedMessageResponseModel(BaseModel):
+
+    conversation_message_id: int = Field(
+        description="Unique auto-incremented number for all messages with this peer",
+    )
+
     id: int = Field(
         description="Message ID",
     )
@@ -1665,11 +1761,6 @@ class MessagesPinnedMessageResponseModel(BaseModel):
         default=None,
     )
 
-    conversation_message_id: typing.Optional[int] = Field(
-        default=None,
-        description="Unique auto-incremented number for all messages with this peer",
-    )
-
     fwd_messages: typing.Optional[typing.List[MessagesForeignMessage]] = Field(
         default=None,
         description="Forwarded messages",
@@ -1687,12 +1778,23 @@ class MessagesPinnedMessageResponseModel(BaseModel):
         default=None,
     )
 
+    out: typing.Optional[bool] = Field(
+        default=None,
+        description="Information whether the message is outcoming",
+    )
+
+    important: typing.Optional[bool] = Field(
+        default=None,
+        description="Is it an important message",
+    )
+
 
 class MessagesPinnedMessageResponse(BaseResponse):
     response: "MessagesPinnedMessageResponseModel"
 
 
 class MessagesPushSettingsResponseModel(BaseModel):
+
     disabled_forever: bool = Field(
         description="Information whether push notifications are disabled forever",
     )
@@ -1722,6 +1824,7 @@ class MessagesPushSettingsResponse(BaseResponse):
 
 
 class MessagesReactionAssetItemResponseModel(BaseModel):
+
     reaction_id: int = Field()
 
     links: "MessagesReactionAssetItemLinks" = Field(
@@ -1734,6 +1837,7 @@ class MessagesReactionAssetItemResponse(BaseResponse):
 
 
 class MessagesReactionAssetItemLinksResponseModel(BaseModel):
+
     big_animation: str = Field(
         description="Big reaction animation json file",
     )
@@ -1752,6 +1856,7 @@ class MessagesReactionAssetItemLinksResponse(BaseResponse):
 
 
 class MessagesReactionCounterResponseItemResponseModel(BaseModel):
+
     reaction_id: int = Field()
 
     count: int = Field()
@@ -1764,6 +1869,7 @@ class MessagesReactionCounterResponseItemResponse(BaseResponse):
 
 
 class MessagesReactionCountersResponseItemResponseModel(BaseModel):
+
     cmid: int = Field()
 
     counters: typing.List[MessagesReactionCounterResponseItem] = Field()
@@ -1774,6 +1880,7 @@ class MessagesReactionCountersResponseItemResponse(BaseResponse):
 
 
 class MessagesReactionResponseItemResponseModel(BaseModel):
+
     user_id: int = Field()
 
     reaction_id: int = Field()
@@ -1784,13 +1891,12 @@ class MessagesReactionResponseItemResponse(BaseResponse):
 
 
 class MessagesSendUserIdsResponseItemResponseModel(BaseModel):
+
     peer_id: int = Field()
 
     message_id: int = Field()
 
-    conversation_message_id: typing.Optional[int] = Field(
-        default=None,
-    )
+    conversation_message_id: int = Field()
 
     error: typing.Optional["BaseMessageError"] = Field(
         default=None,
@@ -1802,6 +1908,7 @@ class MessagesSendUserIdsResponseItemResponse(BaseResponse):
 
 
 class MessagesTemplateActionTypeNamesResponseModel(enum.Enum):
+
     TEXT = "text"
 
     START = "start"
@@ -1830,6 +1937,7 @@ class MessagesTemplateActionTypeNamesResponse(BaseResponse):
 
 
 class MessagesUserTypeForXtrInvitedByResponseModel(enum.Enum):
+
     PROFILE = "profile"
 
     GROUP = "group"
@@ -1840,6 +1948,7 @@ class MessagesUserTypeForXtrInvitedByResponse(BaseResponse):
 
 
 class MessagesUserXtrInvitedByResponseModel(UsersUserXtrType):
+
     invited_by: typing.Optional[int] = Field(
         default=None,
         description="ID of the inviter",

@@ -5,18 +5,19 @@ from vkbottle_types.base_model import Field
 
 from vkbottle_types.objects import (
     BasePropertyExists,
-    BaseLikes,
     BaseRepostsInfo,
-    BaseBoolInt,
     VideoLiveSettings,
-    VideoVideoImage,
     VideoLiveCategory,
+    BaseLikes,
+    BaseBoolInt,
+    VideoVideoImage,
     VideoVideoFiles,
     VideoEpisode,
 )
 
 
 class VideoEpisodeResponseModel(BaseModel):
+
     time: typing.Optional[int] = Field(
         default=None,
         description="Seconds from start of the video",
@@ -33,6 +34,7 @@ class VideoEpisodeResponse(BaseResponse):
 
 
 class VideoLiveCategoryResponseModel(BaseModel):
+
     id: int = Field()
 
     label: str = Field()
@@ -47,6 +49,7 @@ class VideoLiveCategoryResponse(BaseResponse):
 
 
 class VideoLiveInfoResponseModel(BaseModel):
+
     enabled: bool = Field()
 
     is_notifications_blocked: typing.Optional[bool] = Field(
@@ -59,6 +62,7 @@ class VideoLiveInfoResponse(BaseResponse):
 
 
 class VideoLiveSettingsResponseModel(BaseModel):
+
     can_rewind: typing.Optional[bool] = Field(
         default=None,
         description="If user car rewind live or not",
@@ -85,6 +89,7 @@ class VideoLiveSettingsResponse(BaseResponse):
 
 
 class VideoSaveResultResponseModel(BaseModel):
+
     access_key: typing.Optional[str] = Field(
         default=None,
         description="Video access key",
@@ -121,6 +126,7 @@ class VideoSaveResultResponse(BaseResponse):
 
 
 class VideoStreamInputParamsResponseModel(BaseModel):
+
     url: typing.Optional[str] = Field(
         default=None,
     )
@@ -143,6 +149,7 @@ class VideoStreamInputParamsResponse(BaseResponse):
 
 
 class VideoVideoResponseModel(BaseModel):
+
     response_type: typing.Optional[typing.Literal["min", "full"]] = Field(
         default=None,
     )
@@ -384,6 +391,7 @@ class VideoVideoResponse(BaseResponse):
 
 
 class VideoVideoAlbumResponseModel(BaseModel):
+
     id: int = Field(
         description="Album ID",
     )
@@ -411,6 +419,7 @@ class VideoVideoAlbumResponse(BaseResponse):
 
 
 class VideoVideoAlbumFullResponseModel(VideoVideoAlbum):
+
     count: int = Field(
         description="Total number of videos in album",
     )
@@ -455,6 +464,7 @@ class VideoVideoAlbumFullResponse(BaseResponse):
 
 
 class VideoVideoFilesResponseModel(BaseModel):
+
     external: typing.Optional[str] = Field(
         default=None,
         description="URL of the external player",
@@ -511,6 +521,7 @@ class VideoVideoFilesResponse(BaseResponse):
 
 
 class VideoVideoFullResponseModel(VideoVideo):
+
     files: typing.Optional["VideoVideoFiles"] = Field(
         default=None,
     )
@@ -535,7 +546,12 @@ class VideoVideoFullResponse(BaseResponse):
 
 
 class VideoVideoImageResponseModel(BaseImage):
+
     with_padding: typing.Optional["BasePropertyExists"] = Field(
+        default=None,
+    )
+
+    size: typing.Optional[str] = Field(
         default=None,
     )
 

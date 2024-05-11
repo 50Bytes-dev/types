@@ -5,6 +5,7 @@ from vkbottle_types.base_model import Field
 
 
 class AdswebGetAdCategoriesResponseCategoriesCategoryResponseModel(BaseModel):
+
     id: int = Field()
 
     name: str = Field()
@@ -15,6 +16,7 @@ class AdswebGetAdCategoriesResponseCategoriesCategoryResponse(BaseResponse):
 
 
 class AdswebGetAdUnitsResponseAdUnitsAdUnitResponseModel(BaseModel):
+
     id: int = Field()
 
     site_id: int = Field()
@@ -29,6 +31,7 @@ class AdswebGetAdUnitsResponseAdUnitsAdUnitResponse(BaseResponse):
 
 
 class AdswebGetFraudHistoryResponseEntriesEntryResponseModel(BaseModel):
+
     site_id: int = Field()
 
     day: str = Field()
@@ -39,6 +42,7 @@ class AdswebGetFraudHistoryResponseEntriesEntryResponse(BaseResponse):
 
 
 class AdswebGetSitesResponseSitesSiteResponseModel(BaseModel):
+
     id: int = Field()
 
     status_user: typing.Optional[str] = Field(
@@ -59,6 +63,7 @@ class AdswebGetSitesResponseSitesSiteResponse(BaseResponse):
 
 
 class AdswebGetStatisticsResponseItemsItemResponseModel(BaseModel):
+
     site_id: typing.Optional[int] = Field(
         default=None,
     )

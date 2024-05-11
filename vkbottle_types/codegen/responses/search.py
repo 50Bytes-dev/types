@@ -4,17 +4,18 @@ from vkbottle_types.responses.base_response import BaseResponse, BaseModel
 from vkbottle_types.base_model import Field
 
 from vkbottle_types.objects import (
-    SearchHintType,
-    BaseBoolInt,
+    GroupsGroup,
+    UsersUserMin,
     BaseLink,
     AppsApp,
-    UsersUserMin,
-    GroupsGroup,
     SearchHintSection,
+    BaseBoolInt,
+    SearchHintType,
 )
 
 
 class SearchHintResponseModel(BaseModel):
+
     description: str = Field(
         description="Object description",
     )
@@ -25,7 +26,7 @@ class SearchHintResponseModel(BaseModel):
         default=None,
     )
 
-    _global: typing.Optional[bool] = Field(
+    value_global: typing.Optional[bool] = Field(
         default=None,
         description="Information whether the object has been found globally",
         alias="global",
@@ -53,6 +54,7 @@ class SearchHintResponse(BaseResponse):
 
 
 class SearchHintSectionResponseModel(enum.Enum):
+
     GROUPS = "groups"
 
     EVENTS = "events"
@@ -75,6 +77,7 @@ class SearchHintSectionResponse(BaseResponse):
 
 
 class SearchHintTypeResponseModel(enum.Enum):
+
     GROUP = "group"
 
     PROFILE = "profile"

@@ -4,15 +4,16 @@ from vkbottle_types.responses.base_response import BaseResponse, BaseModel
 from vkbottle_types.base_model import Field
 
 from vkbottle_types.objects import (
-    AppsAppType,
-    AppsAppLeaderboardType,
-    BaseBoolInt,
-    AppsApp,
     UsersUserMin,
+    AppsAppLeaderboardType,
+    AppsAppType,
+    AppsApp,
+    BaseBoolInt,
 )
 
 
 class AppsAppResponseModel(AppsAppMin):
+
     author_url: typing.Optional[str] = Field(
         default=None,
         description="Application author's URL",
@@ -112,6 +113,7 @@ class AppsAppResponse(BaseResponse):
 
 
 class AppsAppFieldsResponseModel(enum.Enum):
+
     AUTHOR_GROUP = "author_group"
 
     AUTHOR_ID = "author_id"
@@ -214,6 +216,7 @@ class AppsAppFieldsResponse(BaseResponse):
 
 
 class AppsAppLeaderboardTypeResponseModel(enum.IntEnum):
+
     NOT_SUPPORTED = 0
 
     LEVELS = 1
@@ -226,6 +229,7 @@ class AppsAppLeaderboardTypeResponse(BaseResponse):
 
 
 class AppsAppMinResponseModel(BaseModel):
+
     type: "AppsAppType" = Field()
 
     id: int = Field(
@@ -292,6 +296,7 @@ class AppsAppMinResponse(BaseResponse):
 
 
 class AppsAppTypeResponseModel(enum.Enum):
+
     APP = "app"
 
     GAME = "game"
@@ -314,6 +319,7 @@ class AppsAppTypeResponse(BaseResponse):
 
 
 class AppsCatalogListResponseModel(BaseModel):
+
     count: int = Field(
         description="Total number",
     )
@@ -329,7 +335,67 @@ class AppsCatalogListResponse(BaseResponse):
     response: "AppsCatalogListResponseModel"
 
 
+class AppsCustomSnippetResponseModel(BaseModel):
+
+    vk_ref: typing.Optional[typing.List[str]] = Field(
+        default=None,
+    )
+
+    group_id: typing.Optional[typing.List[int]] = Field(
+        default=None,
+    )
+
+    hash: typing.Optional[typing.List[str]] = Field(
+        default=None,
+    )
+
+    snippet_id: typing.Optional[int] = Field(
+        default=None,
+    )
+
+    title: typing.Optional[str] = Field(
+        default=None,
+    )
+
+    description: typing.Optional[str] = Field(
+        default=None,
+    )
+
+    expired_at: typing.Optional[int] = Field(
+        default=None,
+    )
+
+    image_url: typing.Optional[str] = Field(
+        default=None,
+    )
+
+    small_image_url: typing.Optional[str] = Field(
+        default=None,
+    )
+
+    button: typing.Optional[
+        typing.Literal[
+            "buy",
+            "buy_ticket",
+            "contact",
+            "create",
+            "enroll",
+            "fill",
+            "go",
+            "open",
+            "play",
+        ]
+    ] = Field(
+        default=None,
+    )
+
+
+class AppsCustomSnippetResponse(BaseResponse):
+    response: "AppsCustomSnippetResponseModel"
+
+
 class AppsLeaderboardResponseModel(BaseModel):
+
     user_id: int = Field(
         description="User ID",
     )
@@ -355,6 +421,7 @@ class AppsLeaderboardResponse(BaseResponse):
 
 
 class AppsScopeResponseModel(BaseModel):
+
     name: typing.Literal[
         "friends",
         "photos",
@@ -400,6 +467,7 @@ class AppsScopeResponse(BaseResponse):
 
 
 class AppsTestingGroupResponseModel(BaseModel):
+
     user_ids: typing.List[int] = Field()
 
     group_id: int = Field()

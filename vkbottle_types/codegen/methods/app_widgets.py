@@ -7,6 +7,7 @@ from vkbottle_types.responses.base import OkResponse
 
 
 class AppWidgetsCategory(BaseCategory):
+
     async def get_app_image_upload_server(
         self,
         image_type: str,

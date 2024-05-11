@@ -7,6 +7,7 @@ from vkbottle_types.responses.base import OkResponse
 
 
 class NewsfeedCategory(BaseCategory):
+
     async def add_ban(
         self,
         user_ids: typing.Optional[typing.List[int]] = None,
@@ -104,8 +105,7 @@ class NewsfeedCategory(BaseCategory):
         fields: typing.Optional[typing.List[UsersFields]] = None,
         name_case: typing.Optional[str] = None,
         **kwargs,
-    ) -> NewsfeedGetBannedExtendedResponseModel:
-        ...
+    ) -> NewsfeedGetBannedExtendedResponseModel: ...
 
     async def get_banned(
         self,
@@ -169,8 +169,7 @@ class NewsfeedCategory(BaseCategory):
         extended: typing.Literal[True] = True,
         list_ids: typing.Optional[typing.List[int]] = None,
         **kwargs,
-    ) -> NewsfeedGetListsExtendedResponseModel:
-        ...
+    ) -> NewsfeedGetListsExtendedResponseModel: ...
 
     async def get_lists(
         self,
@@ -294,8 +293,8 @@ class NewsfeedCategory(BaseCategory):
     async def save_list(
         self,
         title: str,
+        source_ids: typing.List[int],
         list_id: typing.Optional[int] = None,
-        source_ids: typing.Optional[typing.List[int]] = None,
         no_reposts: typing.Optional[bool] = None,
         **kwargs,
     ) -> NewsfeedSaveListResponseModel:
@@ -303,8 +302,8 @@ class NewsfeedCategory(BaseCategory):
 
 
         :param title: list name.
-        :param list_id: numeric list identifier (if not sent, will be set automatically).
         :param source_ids: users and communities identifiers to be added to the list. Community identifiers must be negative numbers.
+        :param list_id: numeric list identifier (if not sent, will be set automatically).
         :param no_reposts: reposts display on and off ('1' is for off).
         """
         params = self.get_set_params(locals())
@@ -327,8 +326,7 @@ class NewsfeedCategory(BaseCategory):
         start_from: typing.Optional[str] = None,
         fields: typing.Optional[typing.List[BaseUserGroupFields]] = None,
         **kwargs,
-    ) -> NewsfeedSearchStrictResponseModel:
-        ...
+    ) -> NewsfeedSearchStrictResponseModel: ...
 
     @typing.overload
     async def search(
@@ -343,8 +341,7 @@ class NewsfeedCategory(BaseCategory):
         start_from: typing.Optional[str] = None,
         fields: typing.Optional[typing.List[BaseUserGroupFields]] = None,
         **kwargs,
-    ) -> NewsfeedSearchExtendedResponseModel:
-        ...
+    ) -> NewsfeedSearchExtendedResponseModel: ...
 
     @typing.overload
     async def search(
@@ -359,8 +356,7 @@ class NewsfeedCategory(BaseCategory):
         start_from: typing.Optional[str] = None,
         fields: typing.Optional[typing.List[BaseUserGroupFields]] = None,
         **kwargs,
-    ) -> NewsfeedSearchExtendedStrictResponseModel:
-        ...
+    ) -> NewsfeedSearchExtendedStrictResponseModel: ...
 
     async def search(
         self,
@@ -406,8 +402,8 @@ class NewsfeedCategory(BaseCategory):
     async def unignore_item(
         self,
         type: str,
-        owner_id: int,
-        item_id: int,
+        owner_id: typing.Optional[int] = 0,
+        item_id: typing.Optional[int] = 0,
         track_code: typing.Optional[str] = None,
         **kwargs,
     ) -> BaseOkResponseModel:

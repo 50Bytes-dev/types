@@ -7,6 +7,7 @@ from vkbottle_types.objects import PagesPrivacySettings, BaseBoolInt
 
 
 class PagesPrivacySettingsResponseModel(enum.IntEnum):
+
     COMMUNITY_MANAGERS_ONLY = 0
 
     COMMUNITY_MEMBERS_ONLY = 1
@@ -19,6 +20,7 @@ class PagesPrivacySettingsResponse(BaseResponse):
 
 
 class PagesWikipageResponseModel(BaseModel):
+
     group_id: int = Field(
         description="Community ID",
     )
@@ -69,6 +71,7 @@ class PagesWikipageResponse(BaseResponse):
 
 
 class PagesWikipageFullResponseModel(BaseModel):
+
     created: int = Field(
         description="Date when the page has been created in Unixtime",
     )
@@ -161,6 +164,7 @@ class PagesWikipageFullResponse(BaseResponse):
 
 
 class PagesWikipageHistoryResponseModel(BaseModel):
+
     id: int = Field(
         description="Version ID",
     )

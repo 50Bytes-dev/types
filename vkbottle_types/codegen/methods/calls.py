@@ -7,6 +7,7 @@ from vkbottle_types.responses.base import OkResponse
 
 
 class CallsCategory(BaseCategory):
+
     async def force_finish(
         self,
         call_id: str,
@@ -26,7 +27,7 @@ class CallsCategory(BaseCategory):
 
     async def start(
         self,
-        group_id: typing.Optional[int] = 0,
+        group_id: typing.Optional[int] = None,
         **kwargs,
     ) -> CallsStartResponseModel:
         """calls.start method

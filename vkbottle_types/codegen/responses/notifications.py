@@ -4,17 +4,18 @@ from vkbottle_types.responses.base_response import BaseResponse, BaseModel
 from vkbottle_types.base_model import Field
 
 from vkbottle_types.objects import (
-    BaseLikesInfo,
     NotificationsNotification,
-    NotificationsSendMessageError,
-    WallWallpostAttachment,
-    BaseGeo,
+    BaseLikesInfo,
     NotificationsFeedback,
     NotificationsReply,
+    WallWallpostAttachment,
+    NotificationsSendMessageError,
+    BaseGeo,
 )
 
 
 class NotificationsFeedbackResponseModel(BaseModel):
+
     attachments: typing.Optional[typing.List[WallWallpostAttachment]] = Field(
         default=None,
     )
@@ -53,6 +54,9 @@ class NotificationsFeedbackResponse(BaseResponse):
 
 
 class NotificationsNotificationResponseModel(BaseModel):
+
+    inner_type: typing.Literal["notifications_notification"] = Field()
+
     date: typing.Optional[int] = Field(
         default=None,
         description="Date when the event has been occurred",
@@ -81,6 +85,7 @@ class NotificationsNotificationResponse(BaseResponse):
 
 
 class NotificationsNotificationItemResponseModel(BaseModel):
+
     pass
 
 
@@ -89,6 +94,7 @@ class NotificationsNotificationItemResponse(BaseResponse):
 
 
 class NotificationsReplyResponseModel(BaseModel):
+
     date: typing.Optional[int] = Field(
         default=None,
         description="Date when the reply has been created in Unixtime",
@@ -110,6 +116,7 @@ class NotificationsReplyResponse(BaseResponse):
 
 
 class NotificationsSendMessageErrorResponseModel(BaseModel):
+
     code: typing.Optional[int] = Field(
         default=None,
         description="Error code",
@@ -126,6 +133,7 @@ class NotificationsSendMessageErrorResponse(BaseResponse):
 
 
 class NotificationsSendMessageItemResponseModel(BaseModel):
+
     user_id: typing.Optional[int] = Field(
         default=None,
         description="User ID",

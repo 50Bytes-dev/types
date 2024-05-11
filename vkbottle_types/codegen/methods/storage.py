@@ -7,6 +7,7 @@ from vkbottle_types.responses.base import OkResponse
 
 
 class StorageCategory(BaseCategory):
+
     async def get(
         self,
         key: typing.Optional[str] = None,

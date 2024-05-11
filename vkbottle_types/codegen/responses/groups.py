@@ -4,54 +4,54 @@ from vkbottle_types.responses.base_response import BaseResponse, BaseModel
 from vkbottle_types.base_model import Field
 
 from vkbottle_types.objects import (
-    GroupsMemberRolePermission,
-    GroupsGroupSubcategory,
-    GroupsGroupAdminLevel,
-    GroupsGroupCategory,
-    DatabaseStation,
-    BaseObject,
-    BaseCropPhoto,
+    GroupsOnlineStatus,
+    GroupsBanInfo,
+    GroupsLinksItem,
+    GroupsGroupFullSection,
     BaseObjectWithName,
-    GroupsAddressWorkInfoStatus,
-    GroupsGroupIsClosed,
+    GroupsMemberRolePermission,
+    GroupsMemberRoleStatus,
+    GroupsLongPollEvents,
+    BaseObject,
     GroupsRoleOptions,
+    GroupsGroupSubcategory,
+    GroupsContactsItem,
+    GroupsGroupFullAgeLimits,
+    GroupsMarketInfo,
     VideoLiveInfo,
+    GroupsLiveCovers,
+    DatabaseStation,
+    GroupsGroup,
+    GroupsAddressTimetable,
+    MarketCurrency,
+    GroupsGroupCategory,
     BaseCountry,
     MarketPrice,
-    GroupsMemberRoleStatus,
-    GroupsAddressesInfo,
-    GroupsAddressTimetable,
-    GroupsGroupFullAgeLimits,
-    GroupsOnlineStatus,
-    GroupsContactsItem,
-    GroupsAddressTimetableDay,
-    GroupsGroup,
-    GroupsGroupBanInfo,
-    GroupsGroupFullSection,
-    GroupsOwnerXtrBanInfoType,
-    GroupsBanInfo,
-    UsersUser,
-    DatabaseCityById,
-    GroupsPhotoSize,
     GroupsBanInfoReason,
-    GroupsOnlineStatusType,
-    GroupsCountersGroup,
-    GroupsLinksItem,
-    GroupsLongPollEvents,
-    GroupsLiveCovers,
-    GroupsGroupCategoryType,
-    GroupsMarketInfo,
-    GroupsGroupFullMemberStatus,
-    BaseBoolInt,
-    MarketCurrency,
+    GroupsAddressTimetableDay,
+    BaseOwnerCover,
+    AudioAudio,
+    GroupsAddressesInfo,
     GroupsGroupType,
     GroupsAddress,
-    AudioAudio,
-    BaseOwnerCover,
+    GroupsGroupAdminLevel,
+    GroupsOnlineStatusType,
+    DatabaseCityById,
+    GroupsGroupCategoryType,
+    GroupsPhotoSize,
+    GroupsGroupBanInfo,
+    GroupsCountersGroup,
+    GroupsAddressWorkInfoStatus,
+    BaseCropPhoto,
+    UsersUser,
+    GroupsGroupIsClosed,
+    BaseBoolInt,
+    GroupsGroupFullMemberStatus,
 )
 
 
 class GroupsAddressResponseModel(BaseModel):
+
     id: int = Field(
         description="Address id",
     )
@@ -69,11 +69,6 @@ class GroupsAddressResponseModel(BaseModel):
     city_id: typing.Optional[int] = Field(
         default=None,
         description="City id of address",
-    )
-
-    country_id: typing.Optional[int] = Field(
-        default=None,
-        description="Country id of address",
     )
 
     city: typing.Optional["DatabaseCityById"] = Field(
@@ -146,6 +141,7 @@ class GroupsAddressResponse(BaseResponse):
 
 
 class GroupsAddressTimetableResponseModel(BaseModel):
+
     fri: typing.Optional["GroupsAddressTimetableDay"] = Field(
         default=None,
         description="Timetable for friday",
@@ -187,6 +183,7 @@ class GroupsAddressTimetableResponse(BaseResponse):
 
 
 class GroupsAddressTimetableDayResponseModel(BaseModel):
+
     close_time: int = Field(
         description="Close time in minutes",
     )
@@ -211,6 +208,7 @@ class GroupsAddressTimetableDayResponse(BaseResponse):
 
 
 class GroupsAddressWorkInfoStatusResponseModel(enum.Enum):
+
     NO_INFORMATION = "no_information"
 
     TEMPORARILY_CLOSED = "temporarily_closed"
@@ -227,6 +225,7 @@ class GroupsAddressWorkInfoStatusResponse(BaseResponse):
 
 
 class GroupsAddressesInfoResponseModel(BaseModel):
+
     is_enabled: bool = Field(
         description="Information whether addresses is enabled",
     )
@@ -252,6 +251,7 @@ class GroupsAddressesInfoResponse(BaseResponse):
 
 
 class GroupsBanInfoResponseModel(BaseModel):
+
     admin_id: typing.Optional[int] = Field(
         default=None,
         description="Administrator ID",
@@ -291,6 +291,7 @@ class GroupsBanInfoResponse(BaseResponse):
 
 
 class GroupsBanInfoReasonResponseModel(enum.IntEnum):
+
     OTHER = 0
 
     SPAM = 1
@@ -306,15 +307,8 @@ class GroupsBanInfoReasonResponse(BaseResponse):
     response: "GroupsBanInfoReasonResponseModel"
 
 
-class GroupsBannedItemResponseModel(BaseModel):
-    pass
-
-
-class GroupsBannedItemResponse(BaseResponse):
-    response: "GroupsBannedItemResponseModel"
-
-
 class GroupsCallbackServerResponseModel(BaseModel):
+
     id: int = Field()
 
     title: str = Field()
@@ -333,6 +327,7 @@ class GroupsCallbackServerResponse(BaseResponse):
 
 
 class GroupsCallbackSettingsResponseModel(BaseModel):
+
     api_version: typing.Optional[str] = Field(
         default=None,
         description="API version used for the events",
@@ -347,15 +342,8 @@ class GroupsCallbackSettingsResponse(BaseResponse):
     response: "GroupsCallbackSettingsResponseModel"
 
 
-class GroupsClassifiedsPropertiesResponseModel(BaseModel):
-    pass
-
-
-class GroupsClassifiedsPropertiesResponse(BaseResponse):
-    response: "GroupsClassifiedsPropertiesResponseModel"
-
-
 class GroupsContactsItemResponseModel(BaseModel):
+
     user_id: typing.Optional[int] = Field(
         default=None,
         description="User ID",
@@ -382,6 +370,7 @@ class GroupsContactsItemResponse(BaseResponse):
 
 
 class GroupsCountersGroupResponseModel(BaseModel):
+
     addresses: typing.Optional[int] = Field(
         default=None,
         description="Addresses number",
@@ -483,6 +472,7 @@ class GroupsCountersGroupResponse(BaseResponse):
 
 
 class GroupsFieldsResponseModel(enum.Enum):
+
     ID = "id"
 
     NAME = "name"
@@ -546,8 +536,6 @@ class GroupsFieldsResponseModel(enum.Enum):
     IS_SUBSCRIBED = "is_subscribed"
 
     CITY = "city"
-
-    COUNTRY = "country"
 
     VERIFIED = "verified"
 
@@ -659,6 +647,7 @@ class GroupsFieldsResponse(BaseResponse):
 
 
 class GroupsFilterResponseModel(enum.Enum):
+
     ADMIN = "admin"
 
     EDITOR = "editor"
@@ -681,6 +670,7 @@ class GroupsFilterResponse(BaseResponse):
 
 
 class GroupsGroupResponseModel(BaseModel):
+
     id: int = Field(
         description="Community ID",
     )
@@ -810,6 +800,7 @@ class GroupsGroupResponse(BaseResponse):
 
 
 class GroupsGroupAccessResponseModel(enum.IntEnum):
+
     OPEN = 0
 
     CLOSED = 1
@@ -822,6 +813,7 @@ class GroupsGroupAccessResponse(BaseResponse):
 
 
 class GroupsGroupAdminLevelResponseModel(enum.IntEnum):
+
     MODERATOR = 1
 
     EDITOR = 2
@@ -834,11 +826,12 @@ class GroupsGroupAdminLevelResponse(BaseResponse):
 
 
 class GroupsGroupAgeLimitsResponseModel(enum.IntEnum):
+
     UNLIMITED = 1
 
-    _16_PLUS = 2
+    VALUE_16_PLUS = 2
 
-    _18_PLUS = 3
+    VALUE_18_PLUS = 3
 
 
 class GroupsGroupAgeLimitsResponse(BaseResponse):
@@ -846,6 +839,7 @@ class GroupsGroupAgeLimitsResponse(BaseResponse):
 
 
 class GroupsGroupAttachResponseModel(BaseModel):
+
     id: int = Field(
         description="group ID",
     )
@@ -872,6 +866,7 @@ class GroupsGroupAttachResponse(BaseResponse):
 
 
 class GroupsGroupAudioResponseModel(enum.IntEnum):
+
     DISABLED = 0
 
     OPEN = 1
@@ -884,6 +879,7 @@ class GroupsGroupAudioResponse(BaseResponse):
 
 
 class GroupsGroupBanInfoResponseModel(BaseModel):
+
     comment: typing.Optional[str] = Field(
         default=None,
         description="Ban comment",
@@ -904,6 +900,7 @@ class GroupsGroupBanInfoResponse(BaseResponse):
 
 
 class GroupsGroupCategoryResponseModel(BaseModel):
+
     id: int = Field(
         description="Category ID",
     )
@@ -922,6 +919,7 @@ class GroupsGroupCategoryResponse(BaseResponse):
 
 
 class GroupsGroupCategoryFullResponseModel(BaseModel):
+
     id: int = Field(
         description="Category ID",
     )
@@ -946,6 +944,7 @@ class GroupsGroupCategoryFullResponse(BaseResponse):
 
 
 class GroupsGroupCategoryTypeResponseModel(BaseModel):
+
     id: int = Field()
 
     name: str = Field()
@@ -956,6 +955,7 @@ class GroupsGroupCategoryTypeResponse(BaseResponse):
 
 
 class GroupsGroupDocsResponseModel(enum.IntEnum):
+
     DISABLED = 0
 
     OPEN = 1
@@ -967,9 +967,8 @@ class GroupsGroupDocsResponse(BaseResponse):
     response: "GroupsGroupDocsResponseModel"
 
 
-class GroupsGroupFullResponseModel(
-    GroupsGroup, GroupsMarketProperties, GroupsClassifiedsProperties
-):
+class GroupsGroupFullResponseModel(GroupsGroup, GroupsMarketProperties):
+
     member_status: typing.Optional["GroupsGroupFullMemberStatus"] = Field(
         default=None,
         description="Current user's member status",
@@ -996,10 +995,6 @@ class GroupsGroupFullResponseModel(
     )
 
     city: typing.Optional["BaseObject"] = Field(
-        default=None,
-    )
-
-    country: typing.Optional["BaseCountry"] = Field(
         default=None,
     )
 
@@ -1053,6 +1048,10 @@ class GroupsGroupFullResponseModel(
     )
 
     cover: typing.Optional["BaseOwnerCover"] = Field(
+        default=None,
+    )
+
+    video_cover: typing.Optional["BaseOwnerCover"] = Field(
         default=None,
     )
 
@@ -1237,12 +1236,18 @@ class GroupsGroupFullResponseModel(
         default=None,
     )
 
+    video_notifications_status: typing.Optional[str] = Field(
+        default=None,
+        description="Information about the status of video notifications for the current user.",
+    )
+
 
 class GroupsGroupFullResponse(BaseResponse):
     response: "GroupsGroupFullResponseModel"
 
 
 class GroupsGroupFullAgeLimitsResponseModel(enum.IntEnum):
+
     NO = 1
 
     OVER_16 = 2
@@ -1255,6 +1260,7 @@ class GroupsGroupFullAgeLimitsResponse(BaseResponse):
 
 
 class GroupsGroupFullMemberStatusResponseModel(enum.IntEnum):
+
     NOT_A_MEMBER = 0
 
     MEMBER = 1
@@ -1273,6 +1279,7 @@ class GroupsGroupFullMemberStatusResponse(BaseResponse):
 
 
 class GroupsGroupFullSectionResponseModel(enum.IntEnum):
+
     NONE = 0
 
     PHOTOS = 1
@@ -1377,6 +1384,7 @@ class GroupsGroupFullSectionResponse(BaseResponse):
 
 
 class GroupsGroupIsClosedResponseModel(enum.IntEnum):
+
     OPEN = 0
 
     CLOSED = 1
@@ -1389,6 +1397,7 @@ class GroupsGroupIsClosedResponse(BaseResponse):
 
 
 class GroupsGroupMarketCurrencyResponseModel(enum.IntEnum):
+
     RUSSIAN_RUBLES = 643
 
     UKRAINIAN_HRYVNIA = 980
@@ -1405,6 +1414,7 @@ class GroupsGroupMarketCurrencyResponse(BaseResponse):
 
 
 class GroupsGroupPhotosResponseModel(enum.IntEnum):
+
     DISABLED = 0
 
     OPEN = 1
@@ -1417,6 +1427,7 @@ class GroupsGroupPhotosResponse(BaseResponse):
 
 
 class GroupsGroupPublicCategoryListResponseModel(BaseModel):
+
     id: typing.Optional[int] = Field(
         default=None,
     )
@@ -1435,6 +1446,7 @@ class GroupsGroupPublicCategoryListResponse(BaseResponse):
 
 
 class GroupsGroupRoleResponseModel(enum.Enum):
+
     MODERATOR = "moderator"
 
     EDITOR = "editor"
@@ -1449,6 +1461,7 @@ class GroupsGroupRoleResponse(BaseResponse):
 
 
 class GroupsGroupSubcategoryResponseModel(BaseModel):
+
     id: int = Field(
         description="Object ID",
     )
@@ -1467,6 +1480,7 @@ class GroupsGroupSubcategoryResponse(BaseResponse):
 
 
 class GroupsGroupSubjectResponseModel(enum.IntEnum):
+
     AUTO = 1
 
     ACTIVITY_HOLIDAYS = 2
@@ -1557,6 +1571,7 @@ class GroupsGroupSubjectResponse(BaseResponse):
 
 
 class GroupsGroupSuggestedPrivacyResponseModel(enum.IntEnum):
+
     NONE = 0
 
     ALL = 1
@@ -1569,6 +1584,7 @@ class GroupsGroupSuggestedPrivacyResponse(BaseResponse):
 
 
 class GroupsGroupTagResponseModel(BaseModel):
+
     id: int = Field()
 
     name: str = Field()
@@ -1606,6 +1622,7 @@ class GroupsGroupTagResponse(BaseResponse):
 
 
 class GroupsGroupTopicsResponseModel(enum.IntEnum):
+
     DISABLED = 0
 
     OPEN = 1
@@ -1618,6 +1635,7 @@ class GroupsGroupTopicsResponse(BaseResponse):
 
 
 class GroupsGroupTypeResponseModel(enum.Enum):
+
     GROUP = "group"
 
     PAGE = "page"
@@ -1630,6 +1648,7 @@ class GroupsGroupTypeResponse(BaseResponse):
 
 
 class GroupsGroupVideoResponseModel(enum.IntEnum):
+
     DISABLED = 0
 
     OPEN = 1
@@ -1642,6 +1661,7 @@ class GroupsGroupVideoResponse(BaseResponse):
 
 
 class GroupsGroupWallResponseModel(enum.IntEnum):
+
     DISABLED = 0
 
     OPEN = 1
@@ -1656,6 +1676,7 @@ class GroupsGroupWallResponse(BaseResponse):
 
 
 class GroupsGroupWikiResponseModel(enum.IntEnum):
+
     DISABLED = 0
 
     OPEN = 1
@@ -1668,6 +1689,7 @@ class GroupsGroupWikiResponse(BaseResponse):
 
 
 class GroupsGroupsArrayResponseModel(BaseModel):
+
     count: int = Field(
         description="Communities number",
     )
@@ -1680,6 +1702,7 @@ class GroupsGroupsArrayResponse(BaseResponse):
 
 
 class GroupsLinksItemResponseModel(BaseModel):
+
     name: typing.Optional[str] = Field(
         default=None,
         description="Link title",
@@ -1726,6 +1749,7 @@ class GroupsLinksItemResponse(BaseResponse):
 
 
 class GroupsLiveCoversResponseModel(BaseModel):
+
     is_enabled: bool = Field(
         description="Information whether live covers is enabled",
     )
@@ -1745,6 +1769,7 @@ class GroupsLiveCoversResponse(BaseResponse):
 
 
 class GroupsLongPollEventsResponseModel(BaseModel):
+
     audio_new: bool = Field()
 
     board_post_delete: bool = Field()
@@ -1827,6 +1852,10 @@ class GroupsLongPollEventsResponseModel(BaseModel):
 
     wall_repost: bool = Field()
 
+    wall_schedule_post_new: bool = Field()
+
+    wall_schedule_post_delete: bool = Field()
+
     donut_subscription_create: bool = Field()
 
     donut_subscription_prolonged: bool = Field()
@@ -1859,6 +1888,7 @@ class GroupsLongPollEventsResponse(BaseResponse):
 
 
 class GroupsLongPollServerResponseModel(BaseModel):
+
     key: str = Field(
         description="Long Poll key",
     )
@@ -1877,6 +1907,7 @@ class GroupsLongPollServerResponse(BaseResponse):
 
 
 class GroupsLongPollSettingsResponseModel(BaseModel):
+
     events: "GroupsLongPollEvents" = Field()
 
     is_enabled: bool = Field(
@@ -1894,6 +1925,7 @@ class GroupsLongPollSettingsResponse(BaseResponse):
 
 
 class GroupsMarketInfoResponseModel(BaseModel):
+
     type: typing.Optional[str] = Field(
         default=None,
         description="Market type",
@@ -1948,6 +1980,7 @@ class GroupsMarketInfoResponse(BaseResponse):
 
 
 class GroupsMarketPropertiesResponseModel(BaseModel):
+
     market: typing.Optional["GroupsMarketInfo"] = Field(
         default=None,
     )
@@ -1967,6 +2000,7 @@ class GroupsMarketPropertiesResponse(BaseResponse):
 
 
 class GroupsMarketStateResponseModel(enum.Enum):
+
     NONE = "none"
 
     BASIC = "basic"
@@ -1979,6 +2013,7 @@ class GroupsMarketStateResponse(BaseResponse):
 
 
 class GroupsMemberRoleResponseModel(BaseModel):
+
     id: int = Field(
         description="User ID",
     )
@@ -2002,6 +2037,7 @@ class GroupsMemberRoleResponse(BaseResponse):
 
 
 class GroupsMemberRolePermissionResponseModel(enum.Enum):
+
     ADS = "ads"
 
 
@@ -2010,6 +2046,7 @@ class GroupsMemberRolePermissionResponse(BaseResponse):
 
 
 class GroupsMemberRoleStatusResponseModel(enum.Enum):
+
     MODERATOR = "moderator"
 
     EDITOR = "editor"
@@ -2026,6 +2063,7 @@ class GroupsMemberRoleStatusResponse(BaseResponse):
 
 
 class GroupsMemberStatusResponseModel(BaseModel):
+
     member: bool = Field(
         description="Information whether user is a member of the group",
     )
@@ -2040,6 +2078,7 @@ class GroupsMemberStatusResponse(BaseResponse):
 
 
 class GroupsMemberStatusFullResponseModel(BaseModel):
+
     member: bool = Field(
         description="Information whether user is a member of the group",
     )
@@ -2074,6 +2113,7 @@ class GroupsMemberStatusFullResponse(BaseResponse):
 
 
 class GroupsOnlineStatusResponseModel(BaseModel):
+
     status: "GroupsOnlineStatusType" = Field()
 
     minutes: typing.Optional[int] = Field(
@@ -2087,6 +2127,7 @@ class GroupsOnlineStatusResponse(BaseResponse):
 
 
 class GroupsOnlineStatusTypeResponseModel(enum.Enum):
+
     NONE = "none"
 
     ONLINE = "online"
@@ -2099,6 +2140,7 @@ class GroupsOnlineStatusTypeResponse(BaseResponse):
 
 
 class GroupsOwnerXtrBanInfoResponseModel(BaseModel):
+
     ban_info: typing.Optional["GroupsBanInfo"] = Field(
         default=None,
     )
@@ -2113,7 +2155,7 @@ class GroupsOwnerXtrBanInfoResponseModel(BaseModel):
         description="Information about group if type = profile",
     )
 
-    type: typing.Optional["GroupsOwnerXtrBanInfoType"] = Field(
+    type: typing.Optional[typing.Literal["group", "profile"]] = Field(
         default=None,
     )
 
@@ -2122,17 +2164,8 @@ class GroupsOwnerXtrBanInfoResponse(BaseResponse):
     response: "GroupsOwnerXtrBanInfoResponseModel"
 
 
-class GroupsOwnerXtrBanInfoTypeResponseModel(enum.Enum):
-    GROUP = "group"
-
-    PROFILE = "profile"
-
-
-class GroupsOwnerXtrBanInfoTypeResponse(BaseResponse):
-    response: "GroupsOwnerXtrBanInfoTypeResponseModel"
-
-
 class GroupsPhotoSizeResponseModel(BaseModel):
+
     height: int = Field(
         description="Image height",
     )
@@ -2147,6 +2180,7 @@ class GroupsPhotoSizeResponse(BaseResponse):
 
 
 class GroupsProfileItemResponseModel(BaseModel):
+
     id: int = Field(
         description="User id",
     )
@@ -2169,6 +2203,7 @@ class GroupsProfileItemResponse(BaseResponse):
 
 
 class GroupsRoleOptionsResponseModel(enum.Enum):
+
     MODERATOR = "moderator"
 
     EDITOR = "editor"
@@ -2183,6 +2218,7 @@ class GroupsRoleOptionsResponse(BaseResponse):
 
 
 class GroupsSectionsListItemResponseModel(BaseModel):
+
     pass
 
 
@@ -2191,6 +2227,7 @@ class GroupsSectionsListItemResponse(BaseResponse):
 
 
 class GroupsSettingsTwitterResponseModel(BaseModel):
+
     status: typing.Literal["loading", "sync"] = Field()
 
     name: typing.Optional[str] = Field(
@@ -2203,6 +2240,7 @@ class GroupsSettingsTwitterResponse(BaseResponse):
 
 
 class GroupsSubjectItemResponseModel(BaseModel):
+
     id: int = Field(
         description="Subject ID",
     )
@@ -2217,6 +2255,7 @@ class GroupsSubjectItemResponse(BaseResponse):
 
 
 class GroupsTokenPermissionSettingResponseModel(BaseModel):
+
     name: str = Field()
 
     setting: int = Field()
@@ -2227,6 +2266,7 @@ class GroupsTokenPermissionSettingResponse(BaseResponse):
 
 
 class GroupsUserXtrRoleResponseModel(UsersUserFull):
+
     permissions: typing.Optional[typing.List[GroupsMemberRolePermission]] = Field(
         default=None,
     )

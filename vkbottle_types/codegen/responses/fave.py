@@ -4,19 +4,20 @@ from vkbottle_types.responses.base_response import BaseResponse, BaseModel
 from vkbottle_types.base_model import Field
 
 from vkbottle_types.objects import (
-    FaveBookmarkType,
-    FavePageType,
-    FaveTag,
-    MarketMarketItem,
-    BaseLink,
-    WallWallpostFull,
     VideoVideoFull,
+    BaseLink,
+    FaveTag,
+    FavePageType,
+    FaveBookmarkType,
+    MarketMarketItem,
     GroupsGroupFull,
+    WallWallpostFull,
     UsersUserFull,
 )
 
 
 class FaveBookmarkResponseModel(BaseModel):
+
     added_date: int = Field(
         description="Timestamp, when this item was bookmarked",
     )
@@ -53,6 +54,7 @@ class FaveBookmarkResponse(BaseResponse):
 
 
 class FaveBookmarkTypeResponseModel(enum.Enum):
+
     POST = "post"
 
     VIDEO = "video"
@@ -71,6 +73,7 @@ class FaveBookmarkTypeResponse(BaseResponse):
 
 
 class FavePageResponseModel(BaseModel):
+
     description: str = Field(
         description="Some info about user or group",
     )
@@ -100,6 +103,7 @@ class FavePageResponse(BaseResponse):
 
 
 class FavePageTypeResponseModel(enum.Enum):
+
     USER = "user"
 
     GROUP = "group"
@@ -112,6 +116,7 @@ class FavePageTypeResponse(BaseResponse):
 
 
 class FaveTagResponseModel(BaseModel):
+
     id: typing.Optional[int] = Field(
         default=None,
         description="Tag id",

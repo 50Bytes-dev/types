@@ -7,6 +7,7 @@ from vkbottle_types.responses.base import OkResponse
 
 
 class PagesCategory(BaseCategory):
+
     async def clear_cache(
         self,
         url: str,
@@ -28,7 +29,7 @@ class PagesCategory(BaseCategory):
         self,
         owner_id: typing.Optional[int] = None,
         page_id: typing.Optional[int] = None,
-        _global: typing.Optional[bool] = None,
+        value_global: typing.Optional[bool] = None,
         site_preview: typing.Optional[bool] = None,
         title: typing.Optional[str] = None,
         need_source: typing.Optional[bool] = None,

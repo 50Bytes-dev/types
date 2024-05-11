@@ -7,6 +7,7 @@ from vkbottle_types.objects import CallsParticipants, CallsEndState
 
 
 class CallsCallResponseModel(BaseModel):
+
     initiator_id: int = Field(
         description="Caller initiator",
     )
@@ -41,6 +42,7 @@ class CallsCallResponse(BaseResponse):
 
 
 class CallsEndStateResponseModel(enum.Enum):
+
     CANCELED_BY_INITIATOR = "canceled_by_initiator"
 
     CANCELED_BY_RECEIVER = "canceled_by_receiver"
@@ -53,6 +55,7 @@ class CallsEndStateResponse(BaseResponse):
 
 
 class CallsParticipantsResponseModel(BaseModel):
+
     list: typing.Optional[typing.List[int]] = Field(
         default=None,
     )

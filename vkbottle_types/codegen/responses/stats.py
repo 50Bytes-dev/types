@@ -4,18 +4,19 @@ from vkbottle_types.responses.base_response import BaseResponse, BaseModel
 from vkbottle_types.base_model import Field
 
 from vkbottle_types.objects import (
-    StatsSexAge,
-    StatsPeriodFromOneOf,
-    StatsReachOneOf,
-    StatsActivity,
-    StatsVisitorsOneOf,
-    StatsPeriodToOneOf,
-    StatsCountry,
     StatsCity,
+    StatsPeriodToOneOf,
+    StatsSexAge,
+    StatsCountry,
+    StatsViews,
+    StatsActivity,
+    StatsReach,
+    StatsPeriodFromOneOf,
 )
 
 
 class StatsActivityResponseModel(BaseModel):
+
     comments: typing.Optional[int] = Field(
         default=None,
         description="Comments number",
@@ -52,6 +53,7 @@ class StatsActivityResponse(BaseResponse):
 
 
 class StatsCityResponseModel(BaseModel):
+
     count: typing.Optional[int] = Field(
         default=None,
         description="Visitors number",
@@ -73,6 +75,7 @@ class StatsCityResponse(BaseResponse):
 
 
 class StatsCountryResponseModel(BaseModel):
+
     code: typing.Optional[str] = Field(
         default=None,
         description="Country code",
@@ -99,6 +102,7 @@ class StatsCountryResponse(BaseResponse):
 
 
 class StatsPeriodResponseModel(BaseModel):
+
     activity: typing.Optional["StatsActivity"] = Field(
         default=None,
     )
@@ -111,11 +115,11 @@ class StatsPeriodResponseModel(BaseModel):
         default=None,
     )
 
-    reach: typing.Optional["StatsReachOneOf"] = Field(
+    reach: typing.Optional["StatsReach"] = Field(
         default=None,
     )
 
-    visitors: typing.Optional["StatsVisitorsOneOf"] = Field(
+    visitors: typing.Optional["StatsViews"] = Field(
         default=None,
     )
 
@@ -139,6 +143,7 @@ class StatsPeriodToOneOfResponse(BaseResponse):
 
 
 class StatsReachResponseModel(BaseModel):
+
     age: typing.Optional[typing.List[StatsSexAge]] = Field(
         default=None,
     )
@@ -179,15 +184,8 @@ class StatsReachResponse(BaseResponse):
     response: "StatsReachResponseModel"
 
 
-class StatsReachOneOfResponseModel(BaseModel):
-    pass
-
-
-class StatsReachOneOfResponse(BaseResponse):
-    response: "StatsReachOneOfResponseModel"
-
-
 class StatsSexAgeResponseModel(BaseModel):
+
     value: str = Field(
         description="Sex/age value",
     )
@@ -215,6 +213,7 @@ class StatsSexAgeResponse(BaseResponse):
 
 
 class StatsViewsResponseModel(BaseModel):
+
     age: typing.Optional[typing.List[StatsSexAge]] = Field(
         default=None,
     )
@@ -255,15 +254,8 @@ class StatsViewsResponse(BaseResponse):
     response: "StatsViewsResponseModel"
 
 
-class StatsVisitorsOneOfResponseModel(BaseModel):
-    pass
-
-
-class StatsVisitorsOneOfResponse(BaseResponse):
-    response: "StatsVisitorsOneOfResponseModel"
-
-
 class StatsWallpostStatResponseModel(BaseModel):
+
     post_id: typing.Optional[int] = Field(
         default=None,
     )

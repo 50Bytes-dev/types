@@ -3,10 +3,11 @@ import enum
 from vkbottle_types.responses.base_response import BaseResponse, BaseModel
 from vkbottle_types.base_model import Field
 
-from vkbottle_types.objects import BaseImage, PrettyCardsButtonOneOf
+from vkbottle_types.objects import PrettyCardsButtonOneOf, BaseImage
 
 
 class PrettyCardsButtonOneOfResponseModel(BaseModel):
+
     pass
 
 
@@ -15,6 +16,9 @@ class PrettyCardsButtonOneOfResponse(BaseResponse):
 
 
 class PrettyCardsPrettyCardResponseModel(BaseModel):
+
+    inner_type: typing.Literal["prettyCards_prettyCard"] = Field()
+
     card_id: str = Field(
         description="Card ID (long int returned as string)",
     )
@@ -61,6 +65,7 @@ class PrettyCardsPrettyCardResponse(BaseResponse):
 
 
 class PrettyCardsPrettyCardOrErrorResponseModel(BaseModel):
+
     pass
 
 

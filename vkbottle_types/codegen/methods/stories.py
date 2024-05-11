@@ -7,6 +7,7 @@ from vkbottle_types.responses.base import OkResponse
 
 
 class StoriesCategory(BaseCategory):
+
     async def ban_owner(
         self,
         owners_ids: typing.List[int],
@@ -72,8 +73,7 @@ class StoriesCategory(BaseCategory):
         extended: typing.Literal[True] = True,
         fields: typing.Optional[typing.List[BaseUserGroupFields]] = None,
         **kwargs,
-    ) -> StoriesGetBannedExtendedResponseModel:
-        ...
+    ) -> StoriesGetBannedExtendedResponseModel: ...
 
     async def get_banned(
         self,
@@ -250,8 +250,7 @@ class StoriesCategory(BaseCategory):
         offset: typing.Optional[int] = 0,
         fields: typing.Optional[typing.List[BaseUserGroupFields]] = None,
         **kwargs,
-    ) -> StoriesGetViewersExtendedV5115ResponseModel:
-        ...
+    ) -> StoriesGetViewersExtendedV5115ResponseModel: ...
 
     async def get_viewers(
         self,

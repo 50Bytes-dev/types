@@ -4,39 +4,40 @@ from vkbottle_types.responses.base_response import BaseResponse, BaseModel
 from vkbottle_types.base_model import Field
 
 from vkbottle_types.objects import (
-    BaseLinkButtonAction,
-    NewsfeedItemFriendFriends,
-    WallWallpostAttachment,
-    BaseLikesInfo,
-    NewsfeedItemWallpostFeedbackAnswer,
-    NewsfeedItemDigestItem,
-    NewsfeedItemVideoVideo,
-    NewsfeedItemDigestHeader,
-    BaseCommentsInfo,
-    BaseImage,
-    NewsfeedItemAudioAudio,
-    NewsfeedNewsfeedItemType,
-    PhotosPhoto,
-    NewsfeedCommentsBase,
-    NewsfeedItemPhotoTagPhotoTags,
     NewsfeedItemDigestButton,
+    NewsfeedItemDigestHeader,
+    NewsfeedItemPromoButtonAction,
+    NewsfeedItemDigestItem,
+    BaseLikes,
+    NewsfeedItemVideoVideo,
+    WallWallComment,
+    NewsfeedCommentsBase,
+    WallWallpostAttachment,
+    NewsfeedItemFriendFriends,
+    NewsfeedItemDigestFooter,
+    NewsfeedItemWallpostFeedback,
     NewsfeedItemWallpostFeedbackType,
     BaseUserId,
-    NewsfeedItemPhotoPhotos,
-    NewsfeedItemWallpost,
-    WallWallComment,
-    NewsfeedItemPromoButtonAction,
-    BaseLikes,
-    BaseBoolInt,
     AudioAudio,
-    VideoVideoFull,
-    NewsfeedItemWallpostFeedback,
+    BaseLinkButtonAction,
+    NewsfeedItemPhotoPhotos,
+    BaseImage,
+    NewsfeedItemWallpost,
+    BaseCommentsInfo,
     NewsfeedItemPromoButtonImage,
-    NewsfeedItemDigestFooter,
+    NewsfeedNewsfeedItemType,
+    PhotosPhoto,
+    BaseLikesInfo,
+    VideoVideoFull,
+    NewsfeedItemPhotoTagPhotoTags,
+    NewsfeedItemAudioAudio,
+    BaseBoolInt,
+    NewsfeedItemWallpostFeedbackAnswer,
 )
 
 
 class NewsfeedCommentsBaseResponseModel(BaseCommentsInfo):
+
     list: typing.Optional[typing.List[WallWallComment]] = Field(
         default=None,
     )
@@ -47,6 +48,7 @@ class NewsfeedCommentsBaseResponse(BaseResponse):
 
 
 class NewsfeedCommentsFiltersResponseModel(enum.Enum):
+
     POST = "post"
 
     PHOTO = "photo"
@@ -63,6 +65,7 @@ class NewsfeedCommentsFiltersResponse(BaseResponse):
 
 
 class NewsfeedCommentsItemResponseModel(BaseModel):
+
     pass
 
 
@@ -71,6 +74,7 @@ class NewsfeedCommentsItemResponse(BaseResponse):
 
 
 class NewsfeedCommentsItemBaseResponseModel(BaseModel):
+
     type: "NewsfeedNewsfeedItemType" = Field()
 
     source_id: typing.Optional[int] = Field(
@@ -93,6 +97,7 @@ class NewsfeedCommentsItemBaseResponse(BaseResponse):
 class NewsfeedCommentsItemTypeMarketResponseModel(
     MarketMarketItem, NewsfeedCommentsItemBase
 ):
+
     comments: typing.Optional["NewsfeedCommentsBase"] = Field(
         default=None,
     )
@@ -107,6 +112,7 @@ class NewsfeedCommentsItemTypeMarketResponse(BaseResponse):
 
 
 class NewsfeedCommentsItemTypeNotesResponseModel(NewsfeedCommentsItemBase):
+
     text: typing.Optional[str] = Field(
         default=None,
     )
@@ -125,6 +131,7 @@ class NewsfeedCommentsItemTypeNotesResponse(BaseResponse):
 
 
 class NewsfeedCommentsItemTypePhotoResponseModel(PhotosPhoto, NewsfeedCommentsItemBase):
+
     comments: typing.Optional["NewsfeedCommentsBase"] = Field(
         default=None,
     )
@@ -141,6 +148,7 @@ class NewsfeedCommentsItemTypePhotoResponse(BaseResponse):
 class NewsfeedCommentsItemTypePostResponseModel(
     WallWallpostFull, NewsfeedCommentsItemBase
 ):
+
     from_id: typing.Optional[int] = Field(
         default=None,
     )
@@ -155,6 +163,7 @@ class NewsfeedCommentsItemTypePostResponse(BaseResponse):
 
 
 class NewsfeedCommentsItemTypeTopicResponseModel(NewsfeedCommentsItemBase):
+
     text: typing.Optional[str] = Field(
         default=None,
     )
@@ -173,6 +182,7 @@ class NewsfeedCommentsItemTypeTopicResponse(BaseResponse):
 
 
 class NewsfeedCommentsItemTypeVideoResponseModel(VideoVideo, NewsfeedCommentsItemBase):
+
     text: typing.Optional[str] = Field(
         default=None,
     )
@@ -195,6 +205,7 @@ class NewsfeedCommentsItemTypeVideoResponse(BaseResponse):
 
 
 class NewsfeedIgnoreItemTypeResponseModel(enum.Enum):
+
     WALL = "wall"
 
     TAG = "tag"
@@ -213,6 +224,7 @@ class NewsfeedIgnoreItemTypeResponse(BaseResponse):
 
 
 class NewsfeedItemAudioResponseModel(NewsfeedItemBase):
+
     audio: typing.Optional["NewsfeedItemAudioAudio"] = Field(
         default=None,
     )
@@ -228,6 +240,7 @@ class NewsfeedItemAudioResponse(BaseResponse):
 
 
 class NewsfeedItemAudioAudioResponseModel(BaseModel):
+
     count: typing.Optional[int] = Field(
         default=None,
         description="Audios number",
@@ -243,6 +256,7 @@ class NewsfeedItemAudioAudioResponse(BaseResponse):
 
 
 class NewsfeedItemBaseResponseModel(BaseModel):
+
     type: "NewsfeedNewsfeedItemType" = Field()
 
     source_id: int = Field(
@@ -268,6 +282,7 @@ class NewsfeedItemBaseResponse(BaseResponse):
 
 
 class NewsfeedItemDigestResponseModel(NewsfeedItemBase):
+
     feed_id: typing.Optional[str] = Field(
         default=None,
         description="id of feed in digest",
@@ -300,6 +315,7 @@ class NewsfeedItemDigestResponse(BaseResponse):
 
 
 class NewsfeedItemDigestButtonResponseModel(BaseModel):
+
     title: str = Field()
 
     style: typing.Optional[typing.Literal["primary"]] = Field(
@@ -312,6 +328,7 @@ class NewsfeedItemDigestButtonResponse(BaseResponse):
 
 
 class NewsfeedItemDigestFooterResponseModel(BaseModel):
+
     style: typing.Literal["text", "button"] = Field()
 
     text: str = Field(
@@ -322,12 +339,19 @@ class NewsfeedItemDigestFooterResponseModel(BaseModel):
         default=None,
     )
 
+    feed_id: typing.Optional[str] = Field(
+        default=None,
+    )
+
 
 class NewsfeedItemDigestFooterResponse(BaseResponse):
     response: "NewsfeedItemDigestFooterResponseModel"
 
 
 class NewsfeedItemDigestFullItemResponseModel(NewsfeedItemBase):
+
+    inner_type: str = Field()
+
     post: "NewsfeedItemWallpost" = Field()
 
     text: typing.Optional[str] = Field(
@@ -361,6 +385,7 @@ class NewsfeedItemDigestFullItemResponse(BaseResponse):
 
 
 class NewsfeedItemDigestHeaderResponseModel(BaseModel):
+
     title: str = Field(
         description="Title of the header",
     )
@@ -387,6 +412,7 @@ class NewsfeedItemDigestHeaderResponse(BaseResponse):
 
 
 class NewsfeedItemDigestItemResponseModel(BaseModel):
+
     pass
 
 
@@ -395,6 +421,7 @@ class NewsfeedItemDigestItemResponse(BaseResponse):
 
 
 class NewsfeedItemFriendResponseModel(NewsfeedItemBase):
+
     friends: typing.Optional["NewsfeedItemFriendFriends"] = Field(
         default=None,
     )
@@ -405,6 +432,7 @@ class NewsfeedItemFriendResponse(BaseResponse):
 
 
 class NewsfeedItemFriendFriendsResponseModel(BaseModel):
+
     count: typing.Optional[int] = Field(
         default=None,
         description="Number of friends has been added",
@@ -420,6 +448,7 @@ class NewsfeedItemFriendFriendsResponse(BaseResponse):
 
 
 class NewsfeedItemHolidayRecommendationsBlockHeaderResponseModel(BaseModel):
+
     title: typing.Optional[str] = Field(
         default=None,
         description="Title of the header",
@@ -444,6 +473,7 @@ class NewsfeedItemHolidayRecommendationsBlockHeaderResponse(BaseResponse):
 
 
 class NewsfeedItemPhotoResponseModel(WallCarouselBase, NewsfeedItemBase):
+
     photos: typing.Optional["NewsfeedItemPhotoPhotos"] = Field(
         default=None,
     )
@@ -459,6 +489,7 @@ class NewsfeedItemPhotoResponse(BaseResponse):
 
 
 class NewsfeedItemPhotoPhotosResponseModel(BaseModel):
+
     count: typing.Optional[int] = Field(
         default=None,
         description="Photos number",
@@ -474,6 +505,7 @@ class NewsfeedItemPhotoPhotosResponse(BaseResponse):
 
 
 class NewsfeedItemPhotoTagResponseModel(WallCarouselBase, NewsfeedItemBase):
+
     photo_tags: typing.Optional["NewsfeedItemPhotoTagPhotoTags"] = Field(
         default=None,
     )
@@ -489,6 +521,7 @@ class NewsfeedItemPhotoTagResponse(BaseResponse):
 
 
 class NewsfeedItemPhotoTagPhotoTagsResponseModel(BaseModel):
+
     count: typing.Optional[int] = Field(
         default=None,
         description="Tags number",
@@ -504,6 +537,7 @@ class NewsfeedItemPhotoTagPhotoTagsResponse(BaseResponse):
 
 
 class NewsfeedItemPromoButtonResponseModel(NewsfeedItemBase):
+
     text: typing.Optional[str] = Field(
         default=None,
     )
@@ -526,6 +560,7 @@ class NewsfeedItemPromoButtonResponse(BaseResponse):
 
 
 class NewsfeedItemPromoButtonActionResponseModel(BaseModel):
+
     url: typing.Optional[str] = Field(
         default=None,
     )
@@ -544,6 +579,7 @@ class NewsfeedItemPromoButtonActionResponse(BaseResponse):
 
 
 class NewsfeedItemPromoButtonImageResponseModel(BaseModel):
+
     width: typing.Optional[int] = Field(
         default=None,
     )
@@ -562,6 +598,7 @@ class NewsfeedItemPromoButtonImageResponse(BaseResponse):
 
 
 class NewsfeedItemTopicResponseModel(NewsfeedItemBase):
+
     post_id: int = Field(
         description="Topic post ID",
     )
@@ -584,6 +621,7 @@ class NewsfeedItemTopicResponse(BaseResponse):
 
 
 class NewsfeedItemVideoResponseModel(WallCarouselBase, NewsfeedItemBase):
+
     video: typing.Optional["NewsfeedItemVideoVideo"] = Field(
         default=None,
     )
@@ -599,6 +637,7 @@ class NewsfeedItemVideoResponse(BaseResponse):
 
 
 class NewsfeedItemVideoVideoResponseModel(BaseModel):
+
     count: typing.Optional[int] = Field(
         default=None,
         description="Tags number",
@@ -613,9 +652,8 @@ class NewsfeedItemVideoVideoResponse(BaseResponse):
     response: "NewsfeedItemVideoVideoResponseModel"
 
 
-class NewsfeedItemWallpostResponseModel(
-    WallCarouselBase, NewsfeedItemBase, WallWallpostFull
-):
+class NewsfeedItemWallpostResponseModel(NewsfeedItemBase, WallWallpostFull):
+
     pass
 
 
@@ -624,6 +662,7 @@ class NewsfeedItemWallpostResponse(BaseResponse):
 
 
 class NewsfeedItemWallpostFeedbackResponseModel(BaseModel):
+
     type: "NewsfeedItemWallpostFeedbackType" = Field()
 
     question: str = Field()
@@ -654,6 +693,7 @@ class NewsfeedItemWallpostFeedbackResponse(BaseResponse):
 
 
 class NewsfeedItemWallpostFeedbackAnswerResponseModel(BaseModel):
+
     title: str = Field()
 
     id: str = Field()
@@ -664,6 +704,7 @@ class NewsfeedItemWallpostFeedbackAnswerResponse(BaseResponse):
 
 
 class NewsfeedItemWallpostFeedbackTypeResponseModel(enum.Enum):
+
     BUTTONS = "buttons"
 
     STARS = "stars"
@@ -674,6 +715,7 @@ class NewsfeedItemWallpostFeedbackTypeResponse(BaseResponse):
 
 
 class NewsfeedListResponseModel(BaseModel):
+
     id: int = Field(
         description="List ID",
     )
@@ -688,6 +730,7 @@ class NewsfeedListResponse(BaseResponse):
 
 
 class NewsfeedListFullResponseModel(NewsfeedList):
+
     no_reposts: typing.Optional[bool] = Field(
         default=None,
         description="Information whether reposts hiding is enabled",
@@ -703,6 +746,7 @@ class NewsfeedListFullResponse(BaseResponse):
 
 
 class NewsfeedNewsfeedItemResponseModel(BaseModel):
+
     pass
 
 
@@ -711,6 +755,7 @@ class NewsfeedNewsfeedItemResponse(BaseResponse):
 
 
 class NewsfeedNewsfeedItemTypeResponseModel(enum.Enum):
+
     POST = "post"
 
     PHOTO = "photo"
@@ -736,6 +781,8 @@ class NewsfeedNewsfeedItemTypeResponseModel(enum.Enum):
     AUDIO_PLAYLIST = "audio_playlist"
 
     CLIP = "clip"
+
+    CLIPS_RETENTION = "clips_retention"
 
 
 class NewsfeedNewsfeedItemTypeResponse(BaseResponse):

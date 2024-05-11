@@ -5,6 +5,7 @@ from vkbottle_types.base_model import Field
 
 
 class StorageValueResponseModel(BaseModel):
+
     key: str = Field()
 
     value: str = Field()

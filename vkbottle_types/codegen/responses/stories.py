@@ -5,30 +5,31 @@ from vkbottle_types.base_model import Field
 
 from vkbottle_types.objects import (
     StoriesFeedItem,
-    MarketMarketItem,
-    StoriesStory,
-    StoriesClickableStickers,
     StoriesStoryStatsState,
+    AppsAppMin,
+    MarketMarketItem,
+    PollsPoll,
+    StoriesClickableArea,
+    StoriesClickableStickers,
+    StoriesStoryType,
+    AudioAudio,
+    StoriesStatLine,
+    StoriesStory,
+    PhotosPhoto,
+    StoriesPromoBlock,
+    VideoVideoFull,
+    BaseLink,
     StoriesClickableSticker,
     StoriesStoryLink,
-    StoriesStoryStatsStat,
-    PollsPoll,
-    AppsAppMin,
-    StoriesClickableArea,
-    PhotosPhoto,
-    StoriesStoryType,
-    BaseLink,
-    StoriesReplies,
-    StoriesStatLine,
-    StoriesPromoBlock,
     BaseBoolInt,
-    AudioAudio,
-    VideoVideoFull,
+    StoriesStoryStatsStat,
+    StoriesReplies,
     UsersUserFull,
 )
 
 
 class StoriesClickableAreaResponseModel(BaseModel):
+
     x: int = Field()
 
     y: int = Field()
@@ -39,6 +40,7 @@ class StoriesClickableAreaResponse(BaseResponse):
 
 
 class StoriesClickableStickerResponseModel(BaseModel):
+
     clickable_area: typing.List[StoriesClickableArea] = Field()
 
     id: int = Field(
@@ -62,6 +64,7 @@ class StoriesClickableStickerResponseModel(BaseModel):
         "situational_theme",
         "playlist",
         "clip",
+        "situational_template",
     ] = Field()
 
     hashtag: typing.Optional[str] = Field(
@@ -128,15 +131,30 @@ class StoriesClickableStickerResponseModel(BaseModel):
             "question_reply",
             "light",
             "impressive",
+            "dark",
+            "accent_background",
+            "accent_text",
+            "dark_unique",
+            "light_unique",
+            "light_text",
+            "dark_text",
+            "black",
+            "dark_without_bg",
+            "light_without_bg",
+            "rectangle",
+            "circle",
+            "poop",
+            "heart",
+            "star",
         ]
     ] = Field(
         default=None,
     )
 
-    subtype: typing.Optional[
-        typing.Literal["market_item", "aliexpress_product"]
-    ] = Field(
-        default=None,
+    subtype: typing.Optional[typing.Literal["market_item", "aliexpress_product"]] = (
+        Field(
+            default=None,
+        )
     )
 
     post_owner_id: typing.Optional[int] = Field(
@@ -199,6 +217,7 @@ class StoriesClickableStickerResponse(BaseResponse):
 
 
 class StoriesClickableStickersResponseModel(BaseModel):
+
     clickable_stickers: typing.List[StoriesClickableSticker] = Field()
 
     original_height: int = Field()
@@ -211,6 +230,7 @@ class StoriesClickableStickersResponse(BaseResponse):
 
 
 class StoriesFeedItemResponseModel(BaseModel):
+
     type: typing.Literal[
         "promo_stories",
         "stories",
@@ -268,6 +288,7 @@ class StoriesFeedItemResponse(BaseResponse):
 
 
 class StoriesPromoBlockResponseModel(BaseModel):
+
     name: str = Field(
         description="Promo story title",
     )
@@ -294,6 +315,7 @@ class StoriesPromoBlockResponse(BaseResponse):
 
 
 class StoriesRepliesResponseModel(BaseModel):
+
     count: int = Field(
         description="Replies number.",
     )
@@ -309,6 +331,7 @@ class StoriesRepliesResponse(BaseResponse):
 
 
 class StoriesStatCategoryResponseModel(BaseModel):
+
     header: str = Field()
 
     lines: typing.List[StoriesStatLine] = Field()
@@ -319,6 +342,7 @@ class StoriesStatCategoryResponse(BaseResponse):
 
 
 class StoriesStatLineResponseModel(BaseModel):
+
     name: str = Field()
 
     counter: typing.Optional[int] = Field(
@@ -335,6 +359,7 @@ class StoriesStatLineResponse(BaseResponse):
 
 
 class StoriesStoryResponseModel(BaseModel):
+
     id: int = Field(
         description="Story ID.",
     )
@@ -480,6 +505,7 @@ class StoriesStoryResponse(BaseResponse):
 
 
 class StoriesStoryLinkResponseModel(BaseModel):
+
     text: str = Field(
         description="Link text",
     )
@@ -499,6 +525,7 @@ class StoriesStoryLinkResponse(BaseResponse):
 
 
 class StoriesStoryStatsResponseModel(BaseModel):
+
     answer: "StoriesStoryStatsStat" = Field()
 
     bans: "StoriesStoryStatsStat" = Field()
@@ -521,6 +548,7 @@ class StoriesStoryStatsResponse(BaseResponse):
 
 
 class StoriesStoryStatsStatResponseModel(BaseModel):
+
     state: "StoriesStoryStatsState" = Field()
 
     count: typing.Optional[int] = Field(
@@ -534,6 +562,7 @@ class StoriesStoryStatsStatResponse(BaseResponse):
 
 
 class StoriesStoryStatsStateResponseModel(enum.Enum):
+
     ON = "on"
 
     OFF = "off"
@@ -546,6 +575,7 @@ class StoriesStoryStatsStateResponse(BaseResponse):
 
 
 class StoriesStoryTypeResponseModel(enum.Enum):
+
     PHOTO = "photo"
 
     VIDEO = "video"
@@ -560,6 +590,7 @@ class StoriesStoryTypeResponse(BaseResponse):
 
 
 class StoriesUploadLinkTextResponseModel(enum.Enum):
+
     TO_STORE = "to_store"
 
     VOTE = "vote"
@@ -608,6 +639,7 @@ class StoriesUploadLinkTextResponse(BaseResponse):
 
 
 class StoriesUploadResultResponseModel(BaseModel):
+
     upload_result: typing.Optional[str] = Field(
         default=None,
     )
@@ -618,6 +650,7 @@ class StoriesUploadResultResponse(BaseResponse):
 
 
 class StoriesViewersItemResponseModel(BaseModel):
+
     is_liked: bool = Field(
         description="user has like for this object",
     )

@@ -5,6 +5,7 @@ from vkbottle_types.base_model import Field
 
 
 class OwnerStateResponseModel(BaseModel):
+
     state: typing.Optional[int] = Field(
         default=None,
     )

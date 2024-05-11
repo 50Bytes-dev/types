@@ -7,6 +7,7 @@ from vkbottle_types.responses.base import OkResponse
 
 
 class GroupsCategory(BaseCategory):
+
     async def add_address(
         self,
         group_id: int,
@@ -280,6 +281,8 @@ class GroupsCategory(BaseCategory):
         market_wiki: typing.Optional[int] = None,
         obscene_filter: typing.Optional[bool] = None,
         obscene_stopwords: typing.Optional[bool] = None,
+        toxic_filter: typing.Optional[bool] = None,
+        disable_replies_from_groups: typing.Optional[bool] = None,
         obscene_words: typing.Optional[typing.List[str]] = None,
         main_section: typing.Optional[int] = None,
         secondary_section: typing.Optional[int] = None,
@@ -331,6 +334,8 @@ class GroupsCategory(BaseCategory):
         :param market_wiki: ID of a wiki page with market description.
         :param obscene_filter: Obscene expressions filter in comments. Possible values: , *'0' - disabled,, *'1' - enabled.
         :param obscene_stopwords: Stopwords filter in comments. Possible values: , *'0' - disabled,, *'1' - enabled.
+        :param toxic_filter:
+        :param disable_replies_from_groups:
         :param obscene_words: Keywords for stopwords filter.
         :param main_section:
         :param secondary_section:
@@ -489,8 +494,7 @@ class GroupsCategory(BaseCategory):
         offset: typing.Optional[int] = None,
         count: typing.Optional[int] = None,
         **kwargs,
-    ) -> GroupsGetObjectExtendedResponseModel:
-        ...
+    ) -> GroupsGetObjectExtendedResponseModel: ...
 
     async def get(
         self,
@@ -659,8 +663,7 @@ class GroupsCategory(BaseCategory):
         extended: typing.Literal[True] = True,
         subcategories: typing.Optional[bool] = 0,
         **kwargs,
-    ) -> GroupsGetCatalogInfoExtendedResponseModel:
-        ...
+    ) -> GroupsGetCatalogInfoExtendedResponseModel: ...
 
     async def get_catalog_info(
         self,
@@ -717,8 +720,7 @@ class GroupsCategory(BaseCategory):
         offset: typing.Optional[int] = None,
         count: typing.Optional[int] = 20,
         **kwargs,
-    ) -> GroupsGetInvitesExtendedResponseModel:
-        ...
+    ) -> GroupsGetInvitesExtendedResponseModel: ...
 
     async def get_invites(
         self,
@@ -789,8 +791,7 @@ class GroupsCategory(BaseCategory):
         count: typing.Optional[int] = 1000,
         filter: typing.Optional[str] = None,
         **kwargs,
-    ) -> GroupsGetMembersFieldsResponseModel:
-        ...
+    ) -> GroupsGetMembersFieldsResponseModel: ...
 
     @typing.overload
     async def get_members(
@@ -802,8 +803,7 @@ class GroupsCategory(BaseCategory):
         count: typing.Optional[int] = 1000,
         fields: typing.Optional[typing.List[UsersFields]] = None,
         **kwargs,
-    ) -> GroupsGetMembersFilterResponseModel:
-        ...
+    ) -> GroupsGetMembersFilterResponseModel: ...
 
     async def get_members(
         self,
@@ -864,8 +864,7 @@ class GroupsCategory(BaseCategory):
         offset: typing.Optional[int] = None,
         count: typing.Optional[int] = 20,
         **kwargs,
-    ) -> GroupsGetRequestsFieldsResponseModel:
-        ...
+    ) -> GroupsGetRequestsFieldsResponseModel: ...
 
     async def get_requests(
         self,
@@ -947,8 +946,7 @@ class GroupsCategory(BaseCategory):
         user_id: typing.Optional[int] = None,
         user_ids_list: typing.Optional[typing.List[int]] = None,
         **kwargs,
-    ) -> GroupsInviteUserIdsListResponseModel:
-        ...
+    ) -> GroupsInviteUserIdsListResponseModel: ...
 
     async def invite(
         self,
@@ -983,8 +981,7 @@ class GroupsCategory(BaseCategory):
         user_id: typing.Optional[int] = None,
         extended: typing.Optional[bool] = None,
         **kwargs,
-    ) -> GroupsIsMemberUserIdsResponseModel:
-        ...
+    ) -> GroupsIsMemberUserIdsResponseModel: ...
 
     @typing.overload
     async def is_member(
@@ -994,8 +991,7 @@ class GroupsCategory(BaseCategory):
         user_id: typing.Optional[int] = None,
         user_ids: typing.Optional[typing.List[int]] = None,
         **kwargs,
-    ) -> GroupsIsMemberExtendedResponseModel:
-        ...
+    ) -> GroupsIsMemberExtendedResponseModel: ...
 
     @typing.overload
     async def is_member(
@@ -1005,8 +1001,7 @@ class GroupsCategory(BaseCategory):
         extended: typing.Literal[True] = True,
         user_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> GroupsIsMemberUserIdsExtendedResponseModel:
-        ...
+    ) -> GroupsIsMemberUserIdsExtendedResponseModel: ...
 
     async def is_member(
         self,
@@ -1047,7 +1042,7 @@ class GroupsCategory(BaseCategory):
 
     async def join(
         self,
-        group_id: typing.Optional[int] = None,
+        group_id: int,
         not_sure: typing.Optional[str] = None,
         **kwargs,
     ) -> BaseOkResponseModel:
@@ -1175,6 +1170,8 @@ class GroupsCategory(BaseCategory):
         wall_reply_restore: typing.Optional[bool] = None,
         wall_post_new: typing.Optional[bool] = None,
         wall_repost: typing.Optional[bool] = None,
+        wall_schedule_post_new: typing.Optional[bool] = None,
+        wall_schedule_post_delete: typing.Optional[bool] = None,
         board_post_new: typing.Optional[bool] = None,
         board_post_edit: typing.Optional[bool] = None,
         board_post_restore: typing.Optional[bool] = None,
@@ -1237,6 +1234,8 @@ class GroupsCategory(BaseCategory):
         :param wall_reply_restore: A wall comment has been restored ('0' - disabled, '1' - enabled).
         :param wall_post_new: New wall posts notifications ('0' - disabled, '1' - enabled).
         :param wall_repost: New wall posts notifications ('0' - disabled, '1' - enabled).
+        :param wall_schedule_post_new: Scheduled post added to time slot ('0' - disabled, '1' - enabled).
+        :param wall_schedule_post_delete: Scheduled post removed from time slot ('0' - disabled, '1' - enabled).
         :param board_post_new: New board posts notifications ('0' - disabled, '1' - enabled).
         :param board_post_edit: Board posts edited notifications ('0' - disabled, '1' - enabled).
         :param board_post_restore: Board posts restored notifications ('0' - disabled, '1' - enabled).

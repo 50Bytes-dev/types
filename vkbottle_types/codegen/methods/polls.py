@@ -7,6 +7,7 @@ from vkbottle_types.responses.base import OkResponse
 
 
 class PollsCategory(BaseCategory):
+
     async def add_vote(
         self,
         poll_id: int,
@@ -139,7 +140,7 @@ class PollsCategory(BaseCategory):
         extended: typing.Optional[bool] = None,
         friends_count: typing.Optional[int] = 3,
         fields: typing.Optional[typing.List[str]] = None,
-        name_case: typing.Optional[str] = "nom",
+        name_case: typing.Optional[str] = None,
         **kwargs,
     ) -> PollsGetByIdResponseModel:
         """polls.getById method
@@ -190,8 +191,7 @@ class PollsCategory(BaseCategory):
         count: typing.Optional[int] = None,
         name_case: typing.Optional[str] = None,
         **kwargs,
-    ) -> PollsGetVotersFieldsResponseModel:
-        ...
+    ) -> PollsGetVotersFieldsResponseModel: ...
 
     async def get_voters(
         self,
@@ -232,8 +232,8 @@ class PollsCategory(BaseCategory):
 
     async def save_photo(
         self,
-        photo: str,
-        hash: str,
+        photo: typing.Optional[str] = None,
+        hash: typing.Optional[str] = None,
         **kwargs,
     ) -> PollsSavePhotoResponseModel:
         """polls.savePhoto method

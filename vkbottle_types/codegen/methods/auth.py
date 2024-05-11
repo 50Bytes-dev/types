@@ -7,6 +7,7 @@ from vkbottle_types.responses.base import OkResponse
 
 
 class AuthCategory(BaseCategory):
+
     async def restore(
         self,
         phone: str,

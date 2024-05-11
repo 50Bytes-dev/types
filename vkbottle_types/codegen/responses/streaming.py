@@ -7,6 +7,7 @@ from vkbottle_types.objects import StreamingStatsPoint
 
 
 class StreamingStatsResponseModel(BaseModel):
+
     event_type: typing.Literal["post", "comment", "share"] = Field(
         description="Events type",
     )
@@ -21,6 +22,7 @@ class StreamingStatsResponse(BaseResponse):
 
 
 class StreamingStatsPointResponseModel(BaseModel):
+
     timestamp: int = Field()
 
     value: int = Field()

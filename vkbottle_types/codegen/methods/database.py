@@ -7,6 +7,7 @@ from vkbottle_types.responses.base import OkResponse
 
 
 class DatabaseCategory(BaseCategory):
+
     async def get_chairs(
         self,
         faculty_id: int,
@@ -30,7 +31,6 @@ class DatabaseCategory(BaseCategory):
 
     async def get_cities(
         self,
-        country_id: typing.Optional[int] = None,
         region_id: typing.Optional[int] = None,
         q: typing.Optional[str] = None,
         need_all: typing.Optional[bool] = None,
@@ -41,7 +41,6 @@ class DatabaseCategory(BaseCategory):
         """database.getCities method
 
 
-        :param country_id: Country ID.
         :param region_id: Region ID.
         :param q: Search query.
         :param need_all: '1' - to return all cities in the country, '0' - to return major cities in the country (default),
@@ -175,7 +174,6 @@ class DatabaseCategory(BaseCategory):
 
     async def get_regions(
         self,
-        country_id: int,
         q: typing.Optional[str] = None,
         offset: typing.Optional[int] = None,
         count: typing.Optional[int] = 100,
@@ -184,7 +182,6 @@ class DatabaseCategory(BaseCategory):
         """database.getRegions method
 
 
-        :param country_id: Country ID, received in [vk.com/dev/database.getCountries|database.getCountries] method.
         :param q: Search query.
         :param offset: Offset needed to return specific subset of regions.
         :param count: Number of regions to return.
@@ -239,7 +236,6 @@ class DatabaseCategory(BaseCategory):
     async def get_universities(
         self,
         q: typing.Optional[str] = None,
-        country_id: typing.Optional[int] = None,
         city_id: typing.Optional[int] = None,
         offset: typing.Optional[int] = None,
         count: typing.Optional[int] = 100,
@@ -249,7 +245,6 @@ class DatabaseCategory(BaseCategory):
 
 
         :param q: Search query.
-        :param country_id: Country ID.
         :param city_id: City ID.
         :param offset: Offset needed to return a specific subset of universities.
         :param count: Number of universities to return.

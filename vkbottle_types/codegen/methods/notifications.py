@@ -7,6 +7,7 @@ from vkbottle_types.responses.base import OkResponse
 
 
 class NotificationsCategory(BaseCategory):
+
     async def get(
         self,
         count: typing.Optional[int] = 30,

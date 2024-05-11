@@ -7,6 +7,7 @@ from vkbottle_types.objects import BaseBoolInt
 
 
 class DatabaseCityResponseModel(BaseObject):
+
     area: typing.Optional[str] = Field(
         default=None,
         description="Area title",
@@ -15,11 +16,6 @@ class DatabaseCityResponseModel(BaseObject):
     region: typing.Optional[str] = Field(
         default=None,
         description="Region title",
-    )
-
-    country: typing.Optional[str] = Field(
-        default=None,
-        description="Country title",
     )
 
     important: typing.Optional[bool] = Field(
@@ -33,6 +29,7 @@ class DatabaseCityResponse(BaseResponse):
 
 
 class DatabaseCityByIdResponseModel(BaseModel):
+
     pass
 
 
@@ -41,6 +38,7 @@ class DatabaseCityByIdResponse(BaseResponse):
 
 
 class DatabaseFacultyResponseModel(BaseModel):
+
     id: typing.Optional[int] = Field(
         default=None,
         description="Faculty ID",
@@ -57,6 +55,7 @@ class DatabaseFacultyResponse(BaseResponse):
 
 
 class DatabaseLanguageFullResponseModel(BaseModel):
+
     id: int = Field(
         description="Language ID",
     )
@@ -71,6 +70,7 @@ class DatabaseLanguageFullResponse(BaseResponse):
 
 
 class DatabaseRegionResponseModel(BaseModel):
+
     id: typing.Optional[int] = Field(
         default=None,
         description="Region ID",
@@ -87,6 +87,7 @@ class DatabaseRegionResponse(BaseResponse):
 
 
 class DatabaseSchoolResponseModel(BaseModel):
+
     id: typing.Optional[int] = Field(
         default=None,
         description="School ID",
@@ -103,6 +104,7 @@ class DatabaseSchoolResponse(BaseResponse):
 
 
 class DatabaseSchoolClassResponseModel(BaseModel):
+
     pass
 
 
@@ -111,6 +113,7 @@ class DatabaseSchoolClassResponse(BaseResponse):
 
 
 class DatabaseStationResponseModel(BaseModel):
+
     id: int = Field(
         description="Station ID",
     )
@@ -135,6 +138,7 @@ class DatabaseStationResponse(BaseResponse):
 
 
 class DatabaseUniversityResponseModel(BaseModel):
+
     id: typing.Optional[int] = Field(
         default=None,
         description="University ID",

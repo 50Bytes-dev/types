@@ -4,16 +4,16 @@ from vkbottle_types.responses.base_response import BaseResponse, BaseModel
 from vkbottle_types.base_model import Field
 
 from vkbottle_types.objects import (
-    BaseStickersList,
-    BaseImage,
-    BaseBoolInt,
+    BaseStickerNew,
     StoreProductIcon,
     StoreStickersKeywordSticker,
-    StoreStickersKeywordStickers,
+    BaseImage,
+    BaseBoolInt,
 )
 
 
 class StoreProductResponseModel(BaseModel):
+
     id: int = Field(
         description="Id of the product",
     )
@@ -67,7 +67,7 @@ class StoreProductResponseModel(BaseModel):
         description="Title of the product",
     )
 
-    stickers: typing.Optional["BaseStickersList"] = Field(
+    stickers: typing.Optional[typing.List[BaseStickerNew]] = Field(
         default=None,
     )
 
@@ -117,12 +117,18 @@ class StoreProductResponseModel(BaseModel):
         default=None,
     )
 
+    is_popup: typing.Optional[bool] = Field(
+        default=None,
+        description="Information whether the product is a sticker pack with popup stickers (for stickers product type)",
+    )
+
 
 class StoreProductResponse(BaseResponse):
     response: "StoreProductResponseModel"
 
 
 class StoreProductIconResponseModel(BaseModel):
+
     pass
 
 
@@ -131,13 +137,14 @@ class StoreProductIconResponse(BaseResponse):
 
 
 class StoreStickersKeywordResponseModel(BaseModel):
+
     words: typing.List[str] = Field()
 
-    user_stickers: typing.Optional["StoreStickersKeywordStickers"] = Field(
+    user_stickers: typing.Optional[typing.List[BaseStickerNew]] = Field(
         default=None,
     )
 
-    promoted_stickers: typing.Optional["StoreStickersKeywordStickers"] = Field(
+    promoted_stickers: typing.Optional[typing.List[BaseStickerNew]] = Field(
         default=None,
     )
 
@@ -151,6 +158,7 @@ class StoreStickersKeywordResponse(BaseResponse):
 
 
 class StoreStickersKeywordStickerResponseModel(BaseModel):
+
     pack_id: int = Field(
         description="Pack id",
     )
@@ -162,11 +170,3 @@ class StoreStickersKeywordStickerResponseModel(BaseModel):
 
 class StoreStickersKeywordStickerResponse(BaseResponse):
     response: "StoreStickersKeywordStickerResponseModel"
-
-
-class StoreStickersKeywordStickersResponseModel(BaseModel):
-    pass
-
-
-class StoreStickersKeywordStickersResponse(BaseResponse):
-    response: "StoreStickersKeywordStickersResponseModel"

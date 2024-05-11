@@ -4,30 +4,32 @@ from vkbottle_types.responses.base_response import BaseResponse, BaseModel
 from vkbottle_types.base_model import Field
 
 from vkbottle_types.objects import (
+    MarketItemPromotionInfo,
+    MarketMarketCategoryTree,
     MarketOrderItem,
-    MarketItemOwnerInfo,
+    BaseLikes,
+    MarketMarketCategory,
+    MarketMarketCategoryTreeView,
+    MarketMarketItemAvailability,
     MarketMarketItem,
-    BaseRepostsInfo,
+    MarketCurrency,
     BaseCountry,
     MarketPrice,
-    BaseImage,
     BaseCity,
-    PhotosPhoto,
-    MarketMarketCategoryTree,
-    MarketMarketCategoryTreeView,
-    MarketItemPromotionInfo,
-    MarketMarketItemAvailability,
-    BaseLink,
+    BaseRepostsInfo,
+    MarketItemOwnerInfo,
     MarketOwnerType,
+    BaseImage,
+    PhotosPhoto,
     MarketMarketCategoryNested,
-    BaseLikes,
+    MarketPropertyVariant,
+    BaseLink,
     BaseBoolInt,
-    MarketCurrency,
-    MarketMarketCategory,
 )
 
 
 class MarketCurrencyResponseModel(BaseModel):
+
     id: int = Field(
         description="Currency ID",
     )
@@ -46,6 +48,7 @@ class MarketCurrencyResponse(BaseResponse):
 
 
 class MarketGlobalSearchFiltersResponseModel(BaseModel):
+
     city: typing.Optional["BaseCity"] = Field(
         default=None,
     )
@@ -60,6 +63,7 @@ class MarketGlobalSearchFiltersResponse(BaseResponse):
 
 
 class MarketItemOwnerInfoResponseModel(BaseModel):
+
     avatar: typing.Optional[typing.List[BaseImage]] = Field(
         default=None,
         description="Avatar of the group",
@@ -96,6 +100,7 @@ class MarketItemOwnerInfoResponse(BaseResponse):
 
 
 class MarketItemPromotionInfoResponseModel(BaseModel):
+
     is_available: typing.Optional[bool] = Field(
         default=None,
         description="Can the item be promoted?",
@@ -107,6 +112,7 @@ class MarketItemPromotionInfoResponse(BaseResponse):
 
 
 class MarketMarketAlbumResponseModel(BaseModel):
+
     id: int = Field(
         description="Market album ID",
     )
@@ -157,6 +163,7 @@ class MarketMarketAlbumResponse(BaseResponse):
 
 
 class MarketMarketCategoryResponseModel(BaseModel):
+
     pass
 
 
@@ -165,6 +172,9 @@ class MarketMarketCategoryResponse(BaseResponse):
 
 
 class MarketMarketCategoryNestedResponseModel(BaseModel):
+
+    inner_type: typing.Literal["market_market_category_nested"] = Field()
+
     id: int = Field(
         description="Category ID",
     )
@@ -188,6 +198,7 @@ class MarketMarketCategoryNestedResponse(BaseResponse):
 
 
 class MarketMarketCategoryTreeResponseModel(BaseModel):
+
     id: int = Field(
         description="Category ID",
     )
@@ -214,12 +225,28 @@ class MarketMarketCategoryTreeResponseModel(BaseModel):
         description="SEO-friendly URL to page with category's items",
     )
 
+    seo_name: typing.Optional[str] = Field(
+        default=None,
+        description="SEO-friendly variant of category's name",
+    )
+
+    page_title: typing.Optional[str] = Field(
+        default=None,
+        description="Title for category's page. Used for SEO",
+    )
+
+    page_description: typing.Optional[str] = Field(
+        default=None,
+        description="Description for category's page. Used for SEO",
+    )
+
 
 class MarketMarketCategoryTreeResponse(BaseResponse):
     response: "MarketMarketCategoryTreeResponseModel"
 
 
 class MarketMarketCategoryTreeViewResponseModel(BaseModel):
+
     type: typing.Optional[typing.Literal["tab_root"]] = Field(
         default=None,
     )
@@ -238,6 +265,7 @@ class MarketMarketCategoryTreeViewResponse(BaseResponse):
 
 
 class MarketMarketItemResponseModel(BaseModel):
+
     availability: "MarketMarketItemAvailability" = Field()
 
     category: "MarketMarketCategory" = Field()
@@ -338,6 +366,7 @@ class MarketMarketItemResponse(BaseResponse):
 
 
 class MarketMarketItemAvailabilityResponseModel(enum.IntEnum):
+
     AVAILABLE = 0
 
     REMOVED = 1
@@ -350,6 +379,7 @@ class MarketMarketItemAvailabilityResponse(BaseResponse):
 
 
 class MarketMarketItemBasicResponseModel(BaseModel):
+
     id: int = Field(
         description="Item ID",
     )
@@ -379,6 +409,7 @@ class MarketMarketItemBasicResponse(BaseResponse):
 
 
 class MarketMarketItemBasicWithGroupResponseModel(MarketMarketItemBasic):
+
     is_group_verified: typing.Optional[bool] = Field(
         default=None,
     )
@@ -405,6 +436,7 @@ class MarketMarketItemBasicWithGroupResponse(BaseResponse):
 
 
 class MarketMarketItemFullResponseModel(MarketMarketItem):
+
     albums_ids: typing.Optional[typing.List[int]] = Field(
         default=None,
     )
@@ -481,6 +513,11 @@ class MarketMarketItemFullResponseModel(MarketMarketItem):
         description="Can item be deleted by current user?",
     )
 
+    can_recover: typing.Optional[bool] = Field(
+        default=None,
+        description="Can item be restored by current user?",
+    )
+
     can_show_convert_to_service: typing.Optional[bool] = Field(
         default=None,
         description="Can the item be converted from a product into a service?",
@@ -502,6 +539,7 @@ class MarketMarketItemFullResponse(BaseResponse):
 
 
 class MarketOrderResponseModel(BaseModel):
+
     id: int = Field()
 
     group_id: int = Field()
@@ -582,6 +620,7 @@ class MarketOrderResponse(BaseResponse):
 
 
 class MarketOrderItemResponseModel(BaseModel):
+
     owner_id: int = Field()
 
     item_id: int = Field()
@@ -615,6 +654,7 @@ class MarketOrderItemResponse(BaseResponse):
 
 
 class MarketOwnerTypeResponseModel(enum.Enum):
+
     BASE = "base"
 
     PRO = "pro"
@@ -627,6 +667,7 @@ class MarketOwnerTypeResponse(BaseResponse):
 
 
 class MarketPriceResponseModel(BaseModel):
+
     amount: str = Field(
         description="Amount",
     )
@@ -668,7 +709,46 @@ class MarketPriceResponse(BaseResponse):
     response: "MarketPriceResponseModel"
 
 
+class MarketPropertyResponseModel(BaseModel):
+
+    id: int = Field()
+
+    title: str = Field(
+        description="Property name",
+    )
+
+    variants: typing.List[MarketPropertyVariant] = Field()
+
+    type: typing.Optional[typing.Literal["text", "color"]] = Field(
+        default=None,
+        description="Property type",
+    )
+
+
+class MarketPropertyResponse(BaseResponse):
+    response: "MarketPropertyResponseModel"
+
+
+class MarketPropertyVariantResponseModel(BaseModel):
+
+    id: int = Field()
+
+    title: str = Field(
+        description="Property name",
+    )
+
+    value: typing.Optional[str] = Field(
+        default=None,
+        description="Property value corresponding to property type",
+    )
+
+
+class MarketPropertyVariantResponse(BaseResponse):
+    response: "MarketPropertyVariantResponseModel"
+
+
 class MarketServicesViewTypeResponseModel(enum.IntEnum):
+
     CARDS = 1
 
     ROWS = 2

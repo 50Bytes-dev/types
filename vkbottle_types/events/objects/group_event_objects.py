@@ -28,8 +28,8 @@ from .base_event_object import BaseEventObject
 
 
 class MessageNewObject(BaseEventObject):
-    client_info: Optional["ClientInfoForBots"] = None
-    message: Optional["MessagesMessage"] = None
+    client_info: Optional[ClientInfoForBots] = None
+    message: Optional[MessagesMessage] = None
 
 
 class MessageReplyObject(BaseEventObject, MessagesMessage):

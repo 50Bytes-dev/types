@@ -7,6 +7,7 @@ from vkbottle_types.responses.base import OkResponse
 
 
 class StoreCategory(BaseCategory):
+
     async def add_stickers_to_favorite(
         self,
         sticker_ids: typing.List[int],

@@ -5,6 +5,7 @@ from vkbottle_types.base_model import Field
 
 
 class LinkTargetObjectResponseModel(BaseModel):
+
     type: typing.Optional[str] = Field(
         default=None,
         description="Object type",

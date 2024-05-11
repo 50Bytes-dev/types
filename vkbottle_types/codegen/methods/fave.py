@@ -7,6 +7,7 @@ from vkbottle_types.responses.base import OkResponse
 
 
 class FaveCategory(BaseCategory):
+
     async def add_article(
         self,
         url: str,
@@ -172,8 +173,7 @@ class FaveCategory(BaseCategory):
         fields: typing.Optional[str] = None,
         is_from_snackbar: typing.Optional[bool] = None,
         **kwargs,
-    ) -> FaveGetExtendedResponseModel:
-        ...
+    ) -> FaveGetExtendedResponseModel: ...
 
     async def get(
         self,

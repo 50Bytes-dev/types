@@ -4,19 +4,20 @@ from vkbottle_types.responses.base_response import BaseResponse, BaseModel
 from vkbottle_types.base_model import Field
 
 from vkbottle_types.objects import (
-    PollsFriend,
-    PollsPollAnonymous,
-    BaseImage,
-    PollsVotersFieldsUsers,
-    UsersUserFull,
-    BaseGradientPoint,
     PollsVotersUsers,
-    PollsBackground,
+    PollsPollAnonymous,
+    BaseGradientPoint,
     PollsAnswer,
+    PollsBackground,
+    BaseImage,
+    PollsFriend,
+    UsersUserFull,
+    PollsVotersFieldsUsers,
 )
 
 
 class PollsAnswerResponseModel(BaseModel):
+
     id: int = Field(
         description="Answer ID",
     )
@@ -39,6 +40,7 @@ class PollsAnswerResponse(BaseResponse):
 
 
 class PollsBackgroundResponseModel(BaseModel):
+
     angle: typing.Optional[int] = Field(
         default=None,
         description="Gradient angle with 0 on positive X axis",
@@ -87,6 +89,7 @@ class PollsBackgroundResponse(BaseResponse):
 
 
 class PollsFieldsVotersResponseModel(BaseModel):
+
     answer_id: typing.Optional[int] = Field(
         default=None,
         description="Answer ID",
@@ -107,6 +110,7 @@ class PollsFieldsVotersResponse(BaseResponse):
 
 
 class PollsFriendResponseModel(BaseModel):
+
     id: int = Field()
 
 
@@ -115,6 +119,7 @@ class PollsFriendResponse(BaseResponse):
 
 
 class PollsPollResponseModel(BaseModel):
+
     multiple: bool = Field(
         description="Information whether the poll with multiple choices",
     )
@@ -204,7 +209,19 @@ class PollsPollAnonymousResponse(BaseResponse):
     response: "PollsPollAnonymousResponseModel"
 
 
+class PollsPollExtendedResponseModel(PollsPoll):
+
+    profiles: typing.Optional[typing.List[UsersUserFull]] = Field(
+        default=None,
+    )
+
+
+class PollsPollExtendedResponse(BaseResponse):
+    response: "PollsPollExtendedResponseModel"
+
+
 class PollsVotersResponseModel(BaseModel):
+
     answer_id: typing.Optional[int] = Field(
         default=None,
         description="Answer ID",
@@ -225,6 +242,7 @@ class PollsVotersResponse(BaseResponse):
 
 
 class PollsVotersFieldsUsersResponseModel(BaseModel):
+
     count: typing.Optional[int] = Field(
         default=None,
         description="Votes number",
@@ -240,6 +258,7 @@ class PollsVotersFieldsUsersResponse(BaseResponse):
 
 
 class PollsVotersUsersResponseModel(BaseModel):
+
     count: typing.Optional[int] = Field(
         default=None,
         description="Votes number",

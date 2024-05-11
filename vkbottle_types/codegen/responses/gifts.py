@@ -7,6 +7,7 @@ from vkbottle_types.objects import GiftsGiftPrivacy, GiftsLayout
 
 
 class GiftsGiftResponseModel(BaseModel):
+
     date: typing.Optional[int] = Field(
         default=None,
         description="Date when gist has been sent in Unixtime",
@@ -46,6 +47,7 @@ class GiftsGiftResponse(BaseResponse):
 
 
 class GiftsGiftPrivacyResponseModel(enum.IntEnum):
+
     NAME_AND_MESSAGE_FOR_ALL = 0
 
     NAME_FOR_ALL = 1
@@ -58,6 +60,7 @@ class GiftsGiftPrivacyResponse(BaseResponse):
 
 
 class GiftsLayoutResponseModel(BaseModel):
+
     id: typing.Optional[int] = Field(
         default=None,
         description="Gift ID",

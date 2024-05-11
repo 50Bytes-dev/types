@@ -3,10 +3,11 @@ import enum
 from vkbottle_types.responses.base_response import BaseResponse, BaseModel
 from vkbottle_types.base_model import Field
 
-from vkbottle_types.objects import BaseLikesInfo, BaseBoolInt, WallCommentAttachment
+from vkbottle_types.objects import WallCommentAttachment, BaseLikesInfo, BaseBoolInt
 
 
 class BoardDefaultOrderResponseModel(enum.IntEnum):
+
     DESC_UPDATED = 1
 
     DESC_CREATED = 2
@@ -21,6 +22,7 @@ class BoardDefaultOrderResponse(BaseResponse):
 
 
 class BoardTopicResponseModel(BaseModel):
+
     comments: typing.Optional[int] = Field(
         default=None,
         description="Comments number",
@@ -82,6 +84,7 @@ class BoardTopicResponse(BaseResponse):
 
 
 class BoardTopicCommentResponseModel(BaseModel):
+
     date: int = Field(
         description="Date when the comment has been added in Unixtime",
     )

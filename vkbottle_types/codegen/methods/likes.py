@@ -7,12 +7,14 @@ from vkbottle_types.responses.base import OkResponse
 
 
 class LikesCategory(BaseCategory):
+
     async def add(
         self,
         type: str,
         item_id: int,
         owner_id: typing.Optional[int] = None,
         access_key: typing.Optional[str] = None,
+        from_group: typing.Optional[bool] = None,
         **kwargs,
     ) -> LikesAddResponseModel:
         """likes.add method
@@ -22,6 +24,7 @@ class LikesCategory(BaseCategory):
         :param item_id: Object ID.
         :param owner_id: ID of the user or community that owns the object.
         :param access_key: Access key required for an object owned by a private entity.
+        :param from_group: Impersonate group
         """
         params = self.get_set_params(locals())
         response = await self.api.request("account.ban", params)
@@ -36,6 +39,7 @@ class LikesCategory(BaseCategory):
         item_id: int,
         owner_id: typing.Optional[int] = None,
         access_key: typing.Optional[str] = None,
+        from_group: typing.Optional[bool] = None,
         **kwargs,
     ) -> LikesDeleteResponseModel:
         """likes.delete method
@@ -45,6 +49,7 @@ class LikesCategory(BaseCategory):
         :param item_id: Object ID.
         :param owner_id: ID of the user or community that owns the object.
         :param access_key: Access key required for an object owned by a private entity.
+        :param from_group: Impersonate group
         """
         params = self.get_set_params(locals())
         response = await self.api.request("account.ban", params)
@@ -68,8 +73,7 @@ class LikesCategory(BaseCategory):
         skip_own: typing.Optional[bool] = None,
         fields: typing.Optional[typing.List[str]] = None,
         **kwargs,
-    ) -> LikesGetListExtendedResponseModel:
-        ...
+    ) -> LikesGetListExtendedResponseModel: ...
 
     async def get_list(
         self,

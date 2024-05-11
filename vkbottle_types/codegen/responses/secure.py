@@ -7,6 +7,7 @@ from vkbottle_types.objects import BaseBoolInt
 
 
 class SecureGiveEventStickerItemResponseModel(BaseModel):
+
     user_id: typing.Optional[int] = Field(
         default=None,
     )
@@ -21,6 +22,7 @@ class SecureGiveEventStickerItemResponse(BaseResponse):
 
 
 class SecureLevelResponseModel(BaseModel):
+
     level: typing.Optional[int] = Field(
         default=None,
         description="Level",
@@ -37,6 +39,7 @@ class SecureLevelResponse(BaseResponse):
 
 
 class SecureSetCounterItemResponseModel(BaseModel):
+
     id: int = Field(
         description="User ID",
     )
@@ -49,6 +52,7 @@ class SecureSetCounterItemResponse(BaseResponse):
 
 
 class SecureSmsNotificationResponseModel(BaseModel):
+
     app_id: typing.Optional[str] = Field(
         default=None,
         description="Application ID",
@@ -80,6 +84,7 @@ class SecureSmsNotificationResponse(BaseResponse):
 
 
 class SecureTokenCheckedResponseModel(BaseModel):
+
     date: typing.Optional[int] = Field(
         default=None,
         description="Date when access_token has been generated in Unixtime",
@@ -106,6 +111,7 @@ class SecureTokenCheckedResponse(BaseResponse):
 
 
 class SecureTransactionResponseModel(BaseModel):
+
     date: typing.Optional[int] = Field(
         default=None,
         description="Transaction date in Unixtime",

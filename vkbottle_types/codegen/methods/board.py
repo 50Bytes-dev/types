@@ -7,6 +7,7 @@ from vkbottle_types.responses.base import OkResponse
 
 
 class BoardCategory(BaseCategory):
+
     async def add_topic(
         self,
         group_id: int,
@@ -197,8 +198,7 @@ class BoardCategory(BaseCategory):
         count: typing.Optional[int] = 20,
         sort: typing.Optional[str] = None,
         **kwargs,
-    ) -> BoardGetCommentsExtendedResponseModel:
-        ...
+    ) -> BoardGetCommentsExtendedResponseModel: ...
 
     async def get_comments(
         self,
@@ -247,8 +247,7 @@ class BoardCategory(BaseCategory):
         preview: typing.Optional[int] = None,
         preview_length: typing.Optional[int] = 90,
         **kwargs,
-    ) -> BoardGetTopicsExtendedResponseModel:
-        ...
+    ) -> BoardGetTopicsExtendedResponseModel: ...
 
     async def get_topics(
         self,

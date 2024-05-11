@@ -7,6 +7,7 @@ from vkbottle_types.responses.base import OkResponse
 
 
 class PhotosCategory(BaseCategory):
+
     async def confirm_tag(
         self,
         photo_id: str,
@@ -454,8 +455,7 @@ class PhotosCategory(BaseCategory):
         access_key: typing.Optional[str] = None,
         fields: typing.Optional[typing.List[UsersFields]] = None,
         **kwargs,
-    ) -> PhotosGetCommentsExtendedResponseModel:
-        ...
+    ) -> PhotosGetCommentsExtendedResponseModel: ...
 
     async def get_comments(
         self,
@@ -1108,8 +1108,8 @@ class PhotosCategory(BaseCategory):
         q: typing.Optional[str] = None,
         lat: typing.Optional[float] = None,
         long: typing.Optional[float] = None,
-        start_time: typing.Optional[int] = None,
-        end_time: typing.Optional[int] = None,
+        start_time: typing.Optional[float] = None,
+        end_time: typing.Optional[float] = None,
         sort: typing.Optional[int] = None,
         offset: typing.Optional[int] = None,
         count: typing.Optional[int] = 100,

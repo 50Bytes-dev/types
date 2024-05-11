@@ -7,6 +7,7 @@ from vkbottle_types.responses.base import OkResponse
 
 
 class OrdersCategory(BaseCategory):
+
     async def cancel_subscription(
         self,
         user_id: int,
@@ -145,27 +146,6 @@ class OrdersCategory(BaseCategory):
         response = await self.api.request("account.ban", params)
 
         model = OrdersGetUserSubscriptionsResponse
-
-        return model(**response).response
-
-    async def update_subscription(
-        self,
-        user_id: int,
-        subscription_id: int,
-        price: int,
-        **kwargs,
-    ) -> BaseBoolResponseModel:
-        """orders.updateSubscription method
-
-
-        :param user_id:
-        :param subscription_id:
-        :param price:
-        """
-        params = self.get_set_params(locals())
-        response = await self.api.request("account.ban", params)
-
-        model = BaseBoolResponse
 
         return model(**response).response
 
