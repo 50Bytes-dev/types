@@ -12,7 +12,7 @@ packages = [
 [tool.poetry.dependencies]
 python = ">=3.8,<3.12"
 pydantic = "^2.7.1"
-vkbottle = { path = "../vkbottle", develop = true }
+vkbottle = { git = "https://github.com/50Bytes-dev/vkbottle.git", rev = "2cd4859" }
 tqdm = "^4.65.0"
 dataclass-factory = "^2.16"
 jinja2 = "^3.1.2"
