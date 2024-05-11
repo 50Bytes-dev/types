@@ -6,46 +6,26 @@ from vkbottle_types.base_model import Field
 from vkbottle_types.objects import *
 
 
-class LikesAddResponseModel(BaseModel):
+class LikesAddResponse(BaseModel):
 
     response: dict = Field()
 
 
-class LikesAddResponse(BaseResponse):
-    response: "LikesAddResponseModel"
-
-
-class LikesDeleteResponseModel(BaseModel):
+class LikesDeleteResponse(BaseModel):
 
     response: dict = Field()
 
 
-class LikesDeleteResponse(BaseResponse):
-    response: "LikesDeleteResponseModel"
-
-
-class LikesGetListExtendedResponseModel(BaseModel):
+class LikesGetListExtendedResponse(BaseModel):
 
     response: dict = Field()
 
 
-class LikesGetListExtendedResponse(BaseResponse):
-    response: "LikesGetListExtendedResponseModel"
-
-
-class LikesGetListResponseModel(BaseModel):
+class LikesGetListResponse(BaseModel):
 
     response: dict = Field()
 
 
-class LikesGetListResponse(BaseResponse):
-    response: "LikesGetListResponseModel"
-
-
-class LikesIsLikedResponseModel(BaseModel):
+class LikesIsLikedResponse(BaseModel):
 
     response: dict = Field()
-
-
-class LikesIsLikedResponse(BaseResponse):
-    response: "LikesIsLikedResponseModel"

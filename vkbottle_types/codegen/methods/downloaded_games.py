@@ -14,7 +14,7 @@ class DownloadedGamesCategory(BaseCategory):
         self,
         user_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> DownloadedGamesPaidStatusResponseModel:
+    ) -> DownloadedGamesPaidStatusResponse:
         """downloadedGames.getPaidStatus method
 
 

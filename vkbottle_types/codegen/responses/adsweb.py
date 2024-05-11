@@ -6,55 +6,31 @@ from vkbottle_types.base_model import Field
 from vkbottle_types.objects import *
 
 
-class AdswebGetAdCategoriesResponseModel(BaseModel):
+class AdswebGetAdCategoriesResponse(BaseModel):
 
     response: dict = Field()
 
 
-class AdswebGetAdCategoriesResponse(BaseResponse):
-    response: "AdswebGetAdCategoriesResponseModel"
-
-
-class AdswebGetAdUnitCodeResponseModel(BaseModel):
+class AdswebGetAdUnitCodeResponse(BaseModel):
 
     response: dict = Field()
 
 
-class AdswebGetAdUnitCodeResponse(BaseResponse):
-    response: "AdswebGetAdUnitCodeResponseModel"
-
-
-class AdswebGetAdUnitsResponseModel(BaseModel):
+class AdswebGetAdUnitsResponse(BaseModel):
 
     response: dict = Field()
 
 
-class AdswebGetAdUnitsResponse(BaseResponse):
-    response: "AdswebGetAdUnitsResponseModel"
-
-
-class AdswebGetFraudHistoryResponseModel(BaseModel):
+class AdswebGetFraudHistoryResponse(BaseModel):
 
     response: dict = Field()
 
 
-class AdswebGetFraudHistoryResponse(BaseResponse):
-    response: "AdswebGetFraudHistoryResponseModel"
-
-
-class AdswebGetSitesResponseModel(BaseModel):
+class AdswebGetSitesResponse(BaseModel):
 
     response: dict = Field()
 
 
-class AdswebGetSitesResponse(BaseResponse):
-    response: "AdswebGetSitesResponseModel"
-
-
-class AdswebGetStatisticsResponseModel(BaseModel):
+class AdswebGetStatisticsResponse(BaseModel):
 
     response: dict = Field()
-
-
-class AdswebGetStatisticsResponse(BaseResponse):
-    response: "AdswebGetStatisticsResponseModel"

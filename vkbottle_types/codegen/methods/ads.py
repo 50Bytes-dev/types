@@ -15,7 +15,7 @@ class AdsCategory(BaseCategory):
         account_id: int,
         data: str,
         **kwargs,
-    ) -> AdsAddOfficeUsersResponseModel:
+    ) -> AdsAddOfficeUsersResponse:
         """ads.addOfficeUsers method
 
 
@@ -36,7 +36,7 @@ class AdsCategory(BaseCategory):
         link_url: str,
         campaign_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> AdsCheckLinkResponseModel:
+    ) -> AdsCheckLinkResponse:
         """ads.checkLink method
 
 
@@ -57,7 +57,7 @@ class AdsCategory(BaseCategory):
         account_id: int,
         data: str,
         **kwargs,
-    ) -> AdsCreateAdsResponseModel:
+    ) -> AdsCreateAdsResponse:
         """ads.createAds method
 
 
@@ -76,7 +76,7 @@ class AdsCategory(BaseCategory):
         account_id: int,
         data: str,
         **kwargs,
-    ) -> AdsCreateCampaignsResponseModel:
+    ) -> AdsCreateCampaignsResponse:
         """ads.createCampaigns method
 
 
@@ -95,7 +95,7 @@ class AdsCategory(BaseCategory):
         account_id: int,
         data: str,
         **kwargs,
-    ) -> AdsCreateClientsResponseModel:
+    ) -> AdsCreateClientsResponse:
         """ads.createClients method
 
 
@@ -116,7 +116,7 @@ class AdsCategory(BaseCategory):
         client_id: typing.Optional[int] = None,
         retargeting_group_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> AdsCreateLookalikeRequestResponseModel:
+    ) -> AdsCreateLookalikeRequestResponse:
         """ads.createLookalikeRequest method
 
 
@@ -141,7 +141,7 @@ class AdsCategory(BaseCategory):
         target_pixel_id: typing.Optional[int] = None,
         target_pixel_rules: typing.Optional[str] = None,
         **kwargs,
-    ) -> AdsCreateTargetGroupResponseModel:
+    ) -> AdsCreateTargetGroupResponse:
         """ads.createTargetGroup method
 
 
@@ -167,7 +167,7 @@ class AdsCategory(BaseCategory):
         client_id: typing.Optional[int] = None,
         domain: typing.Optional[str] = None,
         **kwargs,
-    ) -> AdsCreateTargetPixelResponseModel:
+    ) -> AdsCreateTargetPixelResponse:
         """ads.createTargetPixel method
 
 
@@ -189,7 +189,7 @@ class AdsCategory(BaseCategory):
         account_id: int,
         ids: str,
         **kwargs,
-    ) -> AdsDeleteAdsResponseModel:
+    ) -> AdsDeleteAdsResponse:
         """ads.deleteAds method
 
 
@@ -208,7 +208,7 @@ class AdsCategory(BaseCategory):
         account_id: int,
         ids: str,
         **kwargs,
-    ) -> AdsDeleteCampaignsResponseModel:
+    ) -> AdsDeleteCampaignsResponse:
         """ads.deleteCampaigns method
 
 
@@ -227,7 +227,7 @@ class AdsCategory(BaseCategory):
         account_id: int,
         ids: str,
         **kwargs,
-    ) -> AdsDeleteClientsResponseModel:
+    ) -> AdsDeleteClientsResponse:
         """ads.deleteClients method
 
 
@@ -247,7 +247,7 @@ class AdsCategory(BaseCategory):
         target_group_id: int,
         client_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """ads.deleteTargetGroup method
 
 
@@ -268,7 +268,7 @@ class AdsCategory(BaseCategory):
         target_pixel_id: int,
         client_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> BaseUndefinedResponseModel:
+    ) -> BaseUndefinedResponse:
         """ads.deleteTargetPixel method
 
 
@@ -286,7 +286,7 @@ class AdsCategory(BaseCategory):
     async def get_accounts(
         self,
         **kwargs,
-    ) -> AdsGetAccountsResponseModel:
+    ) -> AdsGetAccountsResponse:
         """ads.getAccounts method"""
         params = self.get_set_params(locals())
         response = await self.api.request("account.ban", params)
@@ -306,7 +306,7 @@ class AdsCategory(BaseCategory):
         limit: typing.Optional[int] = None,
         offset: typing.Optional[int] = None,
         **kwargs,
-    ) -> AdsGetAdsResponseModel:
+    ) -> AdsGetAdsResponse:
         """ads.getAds method
 
 
@@ -337,7 +337,7 @@ class AdsCategory(BaseCategory):
         limit: typing.Optional[int] = None,
         offset: typing.Optional[int] = None,
         **kwargs,
-    ) -> AdsGetAdsLayoutResponseModel:
+    ) -> AdsGetAdsLayoutResponse:
         """ads.getAdsLayout method
 
 
@@ -368,7 +368,7 @@ class AdsCategory(BaseCategory):
         limit: typing.Optional[int] = None,
         offset: typing.Optional[int] = None,
         **kwargs,
-    ) -> AdsGetAdsTargetingResponseModel:
+    ) -> AdsGetAdsTargetingResponse:
         """ads.getAdsTargeting method
 
 
@@ -392,7 +392,7 @@ class AdsCategory(BaseCategory):
         self,
         account_id: int,
         **kwargs,
-    ) -> AdsGetBudgetResponseModel:
+    ) -> AdsGetBudgetResponse:
         """ads.getBudget method
 
 
@@ -413,7 +413,7 @@ class AdsCategory(BaseCategory):
         campaign_ids: typing.Optional[str] = None,
         fields: typing.Optional[typing.List[str]] = None,
         **kwargs,
-    ) -> AdsGetCampaignsResponseModel:
+    ) -> AdsGetCampaignsResponse:
         """ads.getCampaigns method
 
 
@@ -434,7 +434,7 @@ class AdsCategory(BaseCategory):
         self,
         lang: typing.Optional[str] = None,
         **kwargs,
-    ) -> AdsGetCategoriesResponseModel:
+    ) -> AdsGetCategoriesResponse:
         """ads.getCategories method
 
 
@@ -451,7 +451,7 @@ class AdsCategory(BaseCategory):
         self,
         account_id: int,
         **kwargs,
-    ) -> AdsGetClientsResponseModel:
+    ) -> AdsGetClientsResponse:
         """ads.getClients method
 
 
@@ -473,7 +473,7 @@ class AdsCategory(BaseCategory):
         date_from: str,
         date_to: str,
         **kwargs,
-    ) -> AdsGetDemographicsResponseModel:
+    ) -> AdsGetDemographicsResponse:
         """ads.getDemographics method
 
 
@@ -495,7 +495,7 @@ class AdsCategory(BaseCategory):
         self,
         account_id: int,
         **kwargs,
-    ) -> AdsGetFloodStatsResponseModel:
+    ) -> AdsGetFloodStatsResponse:
         """ads.getFloodStats method
 
 
@@ -517,7 +517,7 @@ class AdsCategory(BaseCategory):
         limit: typing.Optional[int] = 10,
         sort_by: typing.Optional[str] = "id",
         **kwargs,
-    ) -> AdsGetLookalikeRequestsResponseModel:
+    ) -> AdsGetLookalikeRequestsResponse:
         """ads.getLookalikeRequests method
 
 
@@ -539,7 +539,7 @@ class AdsCategory(BaseCategory):
         self,
         artist_name: str,
         **kwargs,
-    ) -> AdsGetMusiciansResponseModel:
+    ) -> AdsGetMusiciansResponse:
         """ads.getMusicians method
 
 
@@ -556,7 +556,7 @@ class AdsCategory(BaseCategory):
         self,
         ids: typing.List[int],
         **kwargs,
-    ) -> AdsGetMusiciansResponseModel:
+    ) -> AdsGetMusiciansResponse:
         """ads.getMusiciansByIds method
 
 
@@ -573,7 +573,7 @@ class AdsCategory(BaseCategory):
         self,
         account_id: int,
         **kwargs,
-    ) -> AdsGetOfficeUsersResponseModel:
+    ) -> AdsGetOfficeUsersResponse:
         """ads.getOfficeUsers method
 
 
@@ -592,7 +592,7 @@ class AdsCategory(BaseCategory):
         ids_type: str,
         ids: str,
         **kwargs,
-    ) -> AdsGetPostsReachResponseModel:
+    ) -> AdsGetPostsReachResponse:
         """ads.getPostsReach method
 
 
@@ -612,7 +612,7 @@ class AdsCategory(BaseCategory):
         account_id: int,
         ad_id: int,
         **kwargs,
-    ) -> AdsGetRejectionReasonResponseModel:
+    ) -> AdsGetRejectionReasonResponse:
         """ads.getRejectionReason method
 
 
@@ -636,7 +636,7 @@ class AdsCategory(BaseCategory):
         date_to: str,
         stats_fields: typing.Optional[typing.List[str]] = None,
         **kwargs,
-    ) -> AdsGetStatisticsResponseModel:
+    ) -> AdsGetStatisticsResponse:
         """ads.getStatistics method
 
 
@@ -665,7 +665,7 @@ class AdsCategory(BaseCategory):
         cities: typing.Optional[str] = None,
         lang: typing.Optional[str] = None,
         **kwargs,
-    ) -> AdsGetSuggestionsRegionsResponseModel: ...
+    ) -> AdsGetSuggestionsRegionsResponse: ...
 
     @typing.overload
     async def get_suggestions(
@@ -677,7 +677,7 @@ class AdsCategory(BaseCategory):
         country: typing.Optional[int] = None,
         lang: typing.Optional[str] = None,
         **kwargs,
-    ) -> AdsGetSuggestionsCitiesResponseModel: ...
+    ) -> AdsGetSuggestionsCitiesResponse: ...
 
     @typing.overload
     async def get_suggestions(
@@ -689,7 +689,7 @@ class AdsCategory(BaseCategory):
         cities: typing.Optional[str] = None,
         lang: typing.Optional[str] = None,
         **kwargs,
-    ) -> AdsGetSuggestionsSchoolsResponseModel: ...
+    ) -> AdsGetSuggestionsSchoolsResponse: ...
 
     async def get_suggestions(
         self,
@@ -700,7 +700,7 @@ class AdsCategory(BaseCategory):
         cities: typing.Optional[str] = None,
         lang: typing.Optional[str] = None,
         **kwargs,
-    ) -> AdsGetSuggestionsResponseModel:
+    ) -> AdsGetSuggestionsResponse:
         """ads.getSuggestions method
 
 
@@ -732,7 +732,7 @@ class AdsCategory(BaseCategory):
         client_id: typing.Optional[int] = None,
         extended: typing.Optional[bool] = None,
         **kwargs,
-    ) -> AdsGetTargetGroupsResponseModel:
+    ) -> AdsGetTargetGroupsResponse:
         """ads.getTargetGroups method
 
 
@@ -752,7 +752,7 @@ class AdsCategory(BaseCategory):
         account_id: int,
         client_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> AdsGetTargetPixelsResponseModel:
+    ) -> AdsGetTargetPixelsResponse:
         """ads.getTargetPixels method
 
 
@@ -782,7 +782,7 @@ class AdsCategory(BaseCategory):
         need_precise: typing.Optional[bool] = None,
         impressions_limit_period: typing.Optional[int] = None,
         **kwargs,
-    ) -> AdsGetTargetingStatsResponseModel:
+    ) -> AdsGetTargetingStatsResponse:
         """ads.getTargetingStats method
 
 
@@ -812,7 +812,7 @@ class AdsCategory(BaseCategory):
         ad_format: int,
         icon: typing.Optional[int] = None,
         **kwargs,
-    ) -> AdsGetUploadURLResponseModel:
+    ) -> AdsGetUploadURLResponse:
         """ads.getUploadURL method
 
 
@@ -829,7 +829,7 @@ class AdsCategory(BaseCategory):
     async def get_video_upload_u_r_l(
         self,
         **kwargs,
-    ) -> AdsGetVideoUploadURLResponseModel:
+    ) -> AdsGetVideoUploadURLResponse:
         """ads.getVideoUploadURL method"""
         params = self.get_set_params(locals())
         response = await self.api.request("account.ban", params)
@@ -845,7 +845,7 @@ class AdsCategory(BaseCategory):
         contacts: str,
         client_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> AdsImportTargetContactsResponseModel:
+    ) -> AdsImportTargetContactsResponse:
         """ads.importTargetContacts method
 
 
@@ -866,7 +866,7 @@ class AdsCategory(BaseCategory):
         account_id: int,
         ids: str,
         **kwargs,
-    ) -> AdsRemoveOfficeUsersResponseModel:
+    ) -> AdsRemoveOfficeUsersResponse:
         """ads.removeOfficeUsers method
 
 
@@ -887,7 +887,7 @@ class AdsCategory(BaseCategory):
         contacts: str,
         client_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> AdsRemoveTargetContactsResponseModel:
+    ) -> AdsRemoveTargetContactsResponse:
         """ads.removeTargetContacts method
 
 
@@ -910,7 +910,7 @@ class AdsCategory(BaseCategory):
         level: int,
         client_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> AdsSaveLookalikeRequestResultResponseModel:
+    ) -> AdsSaveLookalikeRequestResultResponse:
         """ads.saveLookalikeRequestResult method
 
 
@@ -933,7 +933,7 @@ class AdsCategory(BaseCategory):
         client_id: typing.Optional[int] = None,
         share_with_client_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> AdsShareTargetGroupResponseModel:
+    ) -> AdsShareTargetGroupResponse:
         """ads.shareTargetGroup method
 
 
@@ -954,7 +954,7 @@ class AdsCategory(BaseCategory):
         account_id: int,
         data: str,
         **kwargs,
-    ) -> AdsUpdateAdsResponseModel:
+    ) -> AdsUpdateAdsResponse:
         """ads.updateAds method
 
 
@@ -973,7 +973,7 @@ class AdsCategory(BaseCategory):
         account_id: int,
         data: str,
         **kwargs,
-    ) -> AdsUpdateCampaignsResponseModel:
+    ) -> AdsUpdateCampaignsResponse:
         """ads.updateCampaigns method
 
 
@@ -992,7 +992,7 @@ class AdsCategory(BaseCategory):
         account_id: int,
         data: str,
         **kwargs,
-    ) -> AdsUpdateClientsResponseModel:
+    ) -> AdsUpdateClientsResponse:
         """ads.updateClients method
 
 
@@ -1011,7 +1011,7 @@ class AdsCategory(BaseCategory):
         account_id: int,
         data: str,
         **kwargs,
-    ) -> AdsUpdateOfficeUsersResponseModel:
+    ) -> AdsUpdateOfficeUsersResponse:
         """ads.updateOfficeUsers method
 
 
@@ -1036,7 +1036,7 @@ class AdsCategory(BaseCategory):
         target_pixel_id: typing.Optional[int] = None,
         target_pixel_rules: typing.Optional[str] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """ads.updateTargetGroup method
 
 
@@ -1065,7 +1065,7 @@ class AdsCategory(BaseCategory):
         client_id: typing.Optional[int] = None,
         domain: typing.Optional[str] = None,
         **kwargs,
-    ) -> BaseUndefinedResponseModel:
+    ) -> BaseUndefinedResponse:
         """ads.updateTargetPixel method
 
 

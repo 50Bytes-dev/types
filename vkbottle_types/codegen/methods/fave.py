@@ -14,7 +14,7 @@ class FaveCategory(BaseCategory):
         self,
         url: str,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """fave.addArticle method
 
 
@@ -31,7 +31,7 @@ class FaveCategory(BaseCategory):
         self,
         link: str,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """fave.addLink method
 
 
@@ -49,7 +49,7 @@ class FaveCategory(BaseCategory):
         user_id: typing.Optional[int] = None,
         group_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """fave.addPage method
 
 
@@ -69,7 +69,7 @@ class FaveCategory(BaseCategory):
         id: int,
         access_key: typing.Optional[str] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """fave.addPost method
 
 
@@ -90,7 +90,7 @@ class FaveCategory(BaseCategory):
         id: int,
         access_key: typing.Optional[str] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """fave.addProduct method
 
 
@@ -110,7 +110,7 @@ class FaveCategory(BaseCategory):
         name: typing.Optional[str] = None,
         position: typing.Optional[str] = "back",
         **kwargs,
-    ) -> FaveAddTagResponseModel:
+    ) -> FaveAddTagResponse:
         """fave.addTag method
 
 
@@ -130,7 +130,7 @@ class FaveCategory(BaseCategory):
         id: int,
         access_key: typing.Optional[str] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """fave.addVideo method
 
 
@@ -150,7 +150,7 @@ class FaveCategory(BaseCategory):
         id: int,
         name: str,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """fave.editTag method
 
 
@@ -175,7 +175,7 @@ class FaveCategory(BaseCategory):
         fields: typing.Optional[str] = None,
         is_from_snackbar: typing.Optional[bool] = None,
         **kwargs,
-    ) -> FaveGetExtendedResponseModel: ...
+    ) -> FaveGetExtendedResponse: ...
 
     async def get(
         self,
@@ -187,7 +187,7 @@ class FaveCategory(BaseCategory):
         fields: typing.Optional[str] = None,
         is_from_snackbar: typing.Optional[bool] = None,
         **kwargs,
-    ) -> FaveGetResponseModel:
+    ) -> FaveGetResponse:
         """fave.get method
 
 
@@ -218,7 +218,7 @@ class FaveCategory(BaseCategory):
         fields: typing.Optional[typing.List[BaseUserGroupFields]] = None,
         tag_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> FaveGetPagesResponseModel:
+    ) -> FaveGetPagesResponse:
         """fave.getPages method
 
 
@@ -238,7 +238,7 @@ class FaveCategory(BaseCategory):
     async def get_tags(
         self,
         **kwargs,
-    ) -> FaveGetTagsResponseModel:
+    ) -> FaveGetTagsResponse:
         """fave.getTags method"""
         params = self.get_set_params(locals())
         response = await self.api.request("account.ban", params)
@@ -250,7 +250,7 @@ class FaveCategory(BaseCategory):
     async def mark_seen(
         self,
         **kwargs,
-    ) -> BaseBoolResponseModel:
+    ) -> BaseBoolResponse:
         """fave.markSeen method"""
         params = self.get_set_params(locals())
         response = await self.api.request("account.ban", params)
@@ -264,7 +264,7 @@ class FaveCategory(BaseCategory):
         owner_id: int,
         article_id: int,
         **kwargs,
-    ) -> BaseBoolResponseModel:
+    ) -> BaseBoolResponse:
         """fave.removeArticle method
 
 
@@ -283,7 +283,7 @@ class FaveCategory(BaseCategory):
         link_id: typing.Optional[str] = None,
         link: typing.Optional[str] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """fave.removeLink method
 
 
@@ -302,7 +302,7 @@ class FaveCategory(BaseCategory):
         user_id: typing.Optional[int] = None,
         group_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """fave.removePage method
 
 
@@ -321,7 +321,7 @@ class FaveCategory(BaseCategory):
         owner_id: int,
         id: int,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """fave.removePost method
 
 
@@ -340,7 +340,7 @@ class FaveCategory(BaseCategory):
         owner_id: int,
         id: int,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """fave.removeProduct method
 
 
@@ -358,7 +358,7 @@ class FaveCategory(BaseCategory):
         self,
         id: int,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """fave.removeTag method
 
 
@@ -376,7 +376,7 @@ class FaveCategory(BaseCategory):
         owner_id: int,
         id: int,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """fave.removeVideo method
 
 
@@ -394,7 +394,7 @@ class FaveCategory(BaseCategory):
         self,
         ids: typing.List[int],
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """fave.reorderTags method
 
 
@@ -413,7 +413,7 @@ class FaveCategory(BaseCategory):
         group_id: typing.Optional[int] = None,
         tag_ids: typing.Optional[typing.List[int]] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """fave.setPageTags method
 
 
@@ -437,7 +437,7 @@ class FaveCategory(BaseCategory):
         link_id: typing.Optional[str] = None,
         link_url: typing.Optional[str] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """fave.setTags method
 
 
@@ -460,7 +460,7 @@ class FaveCategory(BaseCategory):
         user_id: typing.Optional[int] = None,
         group_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """fave.trackPageInteraction method
 
 

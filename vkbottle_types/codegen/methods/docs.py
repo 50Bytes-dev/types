@@ -16,7 +16,7 @@ class DocsCategory(BaseCategory):
         doc_id: int,
         access_key: typing.Optional[str] = None,
         **kwargs,
-    ) -> DocsAddResponseModel:
+    ) -> DocsAddResponse:
         """docs.add method
 
 
@@ -36,7 +36,7 @@ class DocsCategory(BaseCategory):
         owner_id: int,
         doc_id: int,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """docs.delete method
 
 
@@ -57,7 +57,7 @@ class DocsCategory(BaseCategory):
         owner_id: typing.Optional[int] = None,
         tags: typing.Optional[typing.List[str]] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """docs.edit method
 
 
@@ -81,7 +81,7 @@ class DocsCategory(BaseCategory):
         owner_id: typing.Optional[int] = None,
         return_tags: typing.Optional[bool] = 0,
         **kwargs,
-    ) -> DocsGetResponseModel:
+    ) -> DocsGetResponse:
         """docs.get method
 
 
@@ -103,7 +103,7 @@ class DocsCategory(BaseCategory):
         docs: typing.List[str],
         return_tags: typing.Optional[bool] = 0,
         **kwargs,
-    ) -> DocsGetByIdResponseModel:
+    ) -> DocsGetByIdResponse:
         """docs.getById method
 
 
@@ -122,7 +122,7 @@ class DocsCategory(BaseCategory):
         type: typing.Optional[str] = "doc",
         peer_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> DocsGetUploadServerResponseModel:
+    ) -> DocsGetUploadServerResponse:
         """docs.getMessagesUploadServer method
 
 
@@ -140,7 +140,7 @@ class DocsCategory(BaseCategory):
         self,
         owner_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> DocsGetTypesResponseModel:
+    ) -> DocsGetTypesResponse:
         """docs.getTypes method
 
 
@@ -157,7 +157,7 @@ class DocsCategory(BaseCategory):
         self,
         group_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> DocsGetUploadServerResponseModel:
+    ) -> DocsGetUploadServerResponse:
         """docs.getUploadServer method
 
 
@@ -174,7 +174,7 @@ class DocsCategory(BaseCategory):
         self,
         group_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> BaseGetUploadServerResponseModel:
+    ) -> BaseGetUploadServerResponse:
         """docs.getWallUploadServer method
 
 
@@ -192,7 +192,7 @@ class DocsCategory(BaseCategory):
         owner_id: int,
         doc_id: int,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """docs.restore method
 
 
@@ -213,7 +213,7 @@ class DocsCategory(BaseCategory):
         tags: typing.Optional[str] = None,
         return_tags: typing.Optional[bool] = 0,
         **kwargs,
-    ) -> DocsSaveResponseModel:
+    ) -> DocsSaveResponse:
         """docs.save method
 
 
@@ -237,7 +237,7 @@ class DocsCategory(BaseCategory):
         offset: typing.Optional[int] = None,
         return_tags: typing.Optional[bool] = None,
         **kwargs,
-    ) -> DocsSearchResponseModel:
+    ) -> DocsSearchResponse:
         """docs.search method
 
 

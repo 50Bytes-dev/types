@@ -6,19 +6,11 @@ from vkbottle_types.base_model import Field
 from vkbottle_types.objects import *
 
 
-class DonutGetSubscriptionResponseModel(BaseModel):
+class DonutGetSubscriptionResponse(BaseModel):
 
     response: "DonutDonatorSubscriptionInfo" = Field()
 
 
-class DonutGetSubscriptionResponse(BaseResponse):
-    response: "DonutGetSubscriptionResponseModel"
-
-
-class DonutGetSubscriptionsResponseModel(BaseModel):
+class DonutGetSubscriptionsResponse(BaseModel):
 
     response: dict = Field()
-
-
-class DonutGetSubscriptionsResponse(BaseResponse):
-    response: "DonutGetSubscriptionsResponseModel"

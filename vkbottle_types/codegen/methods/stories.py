@@ -14,7 +14,7 @@ class StoriesCategory(BaseCategory):
         self,
         owners_ids: typing.List[int],
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """stories.banOwner method
 
 
@@ -33,7 +33,7 @@ class StoriesCategory(BaseCategory):
         story_id: typing.Optional[int] = None,
         stories: typing.Optional[typing.List[str]] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """stories.delete method
 
 
@@ -54,7 +54,7 @@ class StoriesCategory(BaseCategory):
         extended: typing.Optional[bool] = 0,
         fields: typing.Optional[typing.List[BaseUserGroupFields]] = None,
         **kwargs,
-    ) -> StoriesGetV5113ResponseModel:
+    ) -> StoriesGetV5113Response:
         """stories.get method
 
 
@@ -75,14 +75,14 @@ class StoriesCategory(BaseCategory):
         extended: typing.Literal[True] = True,
         fields: typing.Optional[typing.List[BaseUserGroupFields]] = None,
         **kwargs,
-    ) -> StoriesGetBannedExtendedResponseModel: ...
+    ) -> StoriesGetBannedExtendedResponse: ...
 
     async def get_banned(
         self,
         extended: typing.Optional[bool] = None,
         fields: typing.Optional[typing.List[BaseUserGroupFields]] = None,
         **kwargs,
-    ) -> StoriesGetBannedResponseModel:
+    ) -> StoriesGetBannedResponse:
         """stories.getBanned method
 
 
@@ -106,7 +106,7 @@ class StoriesCategory(BaseCategory):
         extended: typing.Optional[bool] = 0,
         fields: typing.Optional[typing.List[BaseUserGroupFields]] = None,
         **kwargs,
-    ) -> StoriesGetByIdExtendedResponseModel:
+    ) -> StoriesGetByIdExtendedResponse:
         """stories.getById method
 
 
@@ -126,7 +126,7 @@ class StoriesCategory(BaseCategory):
         owner_id: int,
         story_id: int,
         **kwargs,
-    ) -> StoriesGetStatsV5200ResponseModel:
+    ) -> StoriesGetStatsV5200Response:
         """stories.getDetailedStats method
 
 
@@ -150,7 +150,7 @@ class StoriesCategory(BaseCategory):
         group_id: typing.Optional[int] = None,
         clickable_stickers: typing.Optional[str] = None,
         **kwargs,
-    ) -> StoriesGetPhotoUploadServerResponseModel:
+    ) -> StoriesGetPhotoUploadServerResponse:
         """stories.getPhotoUploadServer method
 
 
@@ -177,7 +177,7 @@ class StoriesCategory(BaseCategory):
         extended: typing.Optional[bool] = 0,
         fields: typing.Optional[typing.List[BaseUserGroupFields]] = None,
         **kwargs,
-    ) -> StoriesGetV5113ResponseModel:
+    ) -> StoriesGetV5113Response:
         """stories.getReplies method
 
 
@@ -199,7 +199,7 @@ class StoriesCategory(BaseCategory):
         owner_id: int,
         story_id: int,
         **kwargs,
-    ) -> StoriesGetStatsResponseModel:
+    ) -> StoriesGetStatsResponse:
         """stories.getStats method
 
 
@@ -223,7 +223,7 @@ class StoriesCategory(BaseCategory):
         group_id: typing.Optional[int] = None,
         clickable_stickers: typing.Optional[str] = None,
         **kwargs,
-    ) -> StoriesGetVideoUploadServerResponseModel:
+    ) -> StoriesGetVideoUploadServerResponse:
         """stories.getVideoUploadServer method
 
 
@@ -252,7 +252,7 @@ class StoriesCategory(BaseCategory):
         offset: typing.Optional[int] = 0,
         fields: typing.Optional[typing.List[BaseUserGroupFields]] = None,
         **kwargs,
-    ) -> StoriesGetViewersExtendedV5115ResponseModel: ...
+    ) -> StoriesGetViewersExtendedV5115Response: ...
 
     async def get_viewers(
         self,
@@ -263,7 +263,7 @@ class StoriesCategory(BaseCategory):
         extended: typing.Optional[bool] = 0,
         fields: typing.Optional[typing.List[BaseUserGroupFields]] = None,
         **kwargs,
-    ) -> StoriesGetViewersExtendedV5115ResponseModel:
+    ) -> StoriesGetViewersExtendedV5115Response:
         """stories.getViewers method
 
 
@@ -290,7 +290,7 @@ class StoriesCategory(BaseCategory):
         owner_id: int,
         group_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """stories.hideAllReplies method
 
 
@@ -309,7 +309,7 @@ class StoriesCategory(BaseCategory):
         owner_id: int,
         story_id: int,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """stories.hideReply method
 
 
@@ -330,7 +330,7 @@ class StoriesCategory(BaseCategory):
         extended: typing.Optional[bool] = None,
         fields: typing.Optional[typing.List[BaseUserGroupFields]] = None,
         **kwargs,
-    ) -> StoriesSaveResponseModel:
+    ) -> StoriesSaveResponse:
         """stories.save method
 
 
@@ -358,7 +358,7 @@ class StoriesCategory(BaseCategory):
         extended: typing.Optional[bool] = None,
         fields: typing.Optional[typing.List[BaseUserGroupFields]] = None,
         **kwargs,
-    ) -> StoriesGetV5113ResponseModel:
+    ) -> StoriesGetV5113Response:
         """stories.search method
 
 
@@ -387,7 +387,7 @@ class StoriesCategory(BaseCategory):
         is_anonymous: typing.Optional[bool] = 0,
         unseen_marker: typing.Optional[bool] = 0,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """stories.sendInteraction method
 
 
@@ -408,7 +408,7 @@ class StoriesCategory(BaseCategory):
         self,
         owners_ids: typing.List[int],
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """stories.unbanOwner method
 
 

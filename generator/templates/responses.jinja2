@@ -9,7 +9,7 @@ from vkbottle_types.objects import *
 
 {% if definition.type == 'object' %}
 
-class {{camelcase(name)}}Model({{", ".join(definition.get_bases())}}):
+class {{camelcase(name)}}({{", ".join(definition.get_bases())}}):
     {% if not definition.get_properties() %}
     pass
     {% else %}
@@ -31,12 +31,12 @@ class {{camelcase(name)}}Model({{", ".join(definition.get_bases())}}):
 {% elif definition.enum %}
 
 {% if is_int(definition.enum[0]) %}
-class {{camelcase(name)}}Model(enum.IntEnum):
+class {{camelcase(name)}}(enum.IntEnum):
     {% for enumeration in definition.enum %}
     {{makesafe(definition.enumNames[loop.index-1])|upper}} = {{enumeration}}
     {% endfor %}
 {% else %}
-class {{camelcase(name)}}Model(enum.Enum):
+class {{camelcase(name)}}(enum.Enum):
     {% for enumeration in definition.enum %}
     {{makesafe(enumeration|upper)}} = "{{enumeration}}"
     {% endfor %}
@@ -44,11 +44,8 @@ class {{camelcase(name)}}Model(enum.Enum):
 
 {% else %}
 
-{{camelcase(name)}}Model = {{definition.get_typehint()}}
+{{camelcase(name)}} = {{definition.get_typehint()}}
 
 {% endif %}
-
-class {{camelcase(name)}}(BaseResponse):
-    response: '{{camelcase(name)}}Model'
 
 {% endfor %}

@@ -16,7 +16,7 @@ class GroupsCategory(GroupsCategory):
         fields: Optional[Literal[None]] = ...,
         filter: Optional[Literal["friends", "unsure", "donut"]] = ...,
         **kwargs
-    ) -> GroupsGetMembersResponseModel: ...
+    ) -> GroupsGetMembersResponse: ...
 
     @overload
     async def get_members(
@@ -28,7 +28,7 @@ class GroupsCategory(GroupsCategory):
         fields: List[str] = ...,
         filter: Optional[Literal[None]] = ...,
         **kwargs
-    ) -> GroupsGetMembersFieldsResponseModel: ...
+    ) -> GroupsGetMembersFieldsResponse: ...
 
     @overload
     async def get_members(
@@ -40,7 +40,7 @@ class GroupsCategory(GroupsCategory):
         fields: Optional[Literal[None]] = ...,
         filter: Literal["managers"] = ...,
         **kwargs
-    ) -> GetMembersFilterManagersResponseModel: ...
+    ) -> GetMembersFilterManagersResponse: ...
 
     @overload
     async def get_members(
@@ -52,7 +52,7 @@ class GroupsCategory(GroupsCategory):
         fields: List[str] = ...,
         filter: Literal["managers"] = ...,
         **kwargs
-    ) -> GetMembersFieldsFilterManagersResponseModel: ...
+    ) -> GetMembersFieldsFilterManagersResponse: ...
 
     async def get_members(
         self,
@@ -64,10 +64,10 @@ class GroupsCategory(GroupsCategory):
         filter=None,
         **kwargs
     ) -> Union[
-        GroupsGetMembersResponseModel,
-        GroupsGetMembersFieldsResponseModel,
-        GetMembersFilterManagersResponseModel,
-        GetMembersFieldsFilterManagersResponseModel,
+        GroupsGetMembersResponse,
+        GroupsGetMembersFieldsResponse,
+        GetMembersFilterManagersResponse,
+        GetMembersFieldsFilterManagersResponse,
     ]:
         """Returns a list of community members.
 

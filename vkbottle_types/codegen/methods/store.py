@@ -14,7 +14,7 @@ class StoreCategory(BaseCategory):
         self,
         sticker_ids: typing.List[int],
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """store.addStickersToFavorite method
 
 
@@ -30,7 +30,7 @@ class StoreCategory(BaseCategory):
     async def get_favorite_stickers(
         self,
         **kwargs,
-    ) -> StoreGetFavoriteStickersResponseModel:
+    ) -> StoreGetFavoriteStickersResponse:
         """store.getFavoriteStickers method"""
         params = self.get_set_params(locals())
         response = await self.api.request("account.ban", params)
@@ -48,7 +48,7 @@ class StoreCategory(BaseCategory):
         filters: typing.Optional[typing.List[str]] = None,
         extended: typing.Optional[bool] = 0,
         **kwargs,
-    ) -> StoreGetProductsResponseModel:
+    ) -> StoreGetProductsResponse:
         """store.getProducts method
 
 
@@ -74,7 +74,7 @@ class StoreCategory(BaseCategory):
         all_products: typing.Optional[bool] = None,
         need_stickers: typing.Optional[bool] = 1,
         **kwargs,
-    ) -> StoreGetStickersKeywordsResponseModel:
+    ) -> StoreGetStickersKeywordsResponse:
         """store.getStickersKeywords method
 
 
@@ -95,7 +95,7 @@ class StoreCategory(BaseCategory):
         self,
         sticker_ids: typing.List[int],
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """store.removeStickersFromFavorite method
 
 

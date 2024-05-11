@@ -17,7 +17,7 @@ class NotesCategory(BaseCategory):
         privacy_view: typing.Optional[typing.List[str]] = "all",
         privacy_comment: typing.Optional[typing.List[str]] = "all",
         **kwargs,
-    ) -> NotesAddResponseModel:
+    ) -> NotesAddResponse:
         """notes.add method
 
 
@@ -41,7 +41,7 @@ class NotesCategory(BaseCategory):
         reply_to: typing.Optional[int] = None,
         guid: typing.Optional[str] = None,
         **kwargs,
-    ) -> NotesCreateCommentResponseModel:
+    ) -> NotesCreateCommentResponse:
         """notes.createComment method
 
 
@@ -62,7 +62,7 @@ class NotesCategory(BaseCategory):
         self,
         note_id: int,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """notes.delete method
 
 
@@ -80,7 +80,7 @@ class NotesCategory(BaseCategory):
         comment_id: int,
         owner_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """notes.deleteComment method
 
 
@@ -102,7 +102,7 @@ class NotesCategory(BaseCategory):
         privacy_view: typing.Optional[typing.List[str]] = "all",
         privacy_comment: typing.Optional[typing.List[str]] = "all",
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """notes.edit method
 
 
@@ -125,7 +125,7 @@ class NotesCategory(BaseCategory):
         message: str,
         owner_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """notes.editComment method
 
 
@@ -148,7 +148,7 @@ class NotesCategory(BaseCategory):
         count: typing.Optional[int] = 20,
         sort: typing.Optional[int] = 0,
         **kwargs,
-    ) -> NotesGetResponseModel:
+    ) -> NotesGetResponse:
         """notes.get method
 
 
@@ -171,7 +171,7 @@ class NotesCategory(BaseCategory):
         owner_id: typing.Optional[int] = None,
         need_wiki: typing.Optional[bool] = 0,
         **kwargs,
-    ) -> NotesGetByIdResponseModel:
+    ) -> NotesGetByIdResponse:
         """notes.getById method
 
 
@@ -194,7 +194,7 @@ class NotesCategory(BaseCategory):
         offset: typing.Optional[int] = 0,
         count: typing.Optional[int] = 20,
         **kwargs,
-    ) -> NotesGetCommentsResponseModel:
+    ) -> NotesGetCommentsResponse:
         """notes.getComments method
 
 
@@ -216,7 +216,7 @@ class NotesCategory(BaseCategory):
         comment_id: int,
         owner_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """notes.restoreComment method
 
 

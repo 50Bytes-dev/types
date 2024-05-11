@@ -6,129 +6,73 @@ from vkbottle_types.base_model import Field
 from vkbottle_types.objects import *
 
 
-class NewsfeedGenericResponseModel(BaseModel):
+class NewsfeedGenericResponse(BaseModel):
 
     response: dict = Field()
 
 
-class NewsfeedGenericResponse(BaseResponse):
-    response: "NewsfeedGenericResponseModel"
-
-
-class NewsfeedGetBannedExtendedResponseModel(BaseModel):
+class NewsfeedGetBannedExtendedResponse(BaseModel):
 
     response: dict = Field()
 
 
-class NewsfeedGetBannedExtendedResponse(BaseResponse):
-    response: "NewsfeedGetBannedExtendedResponseModel"
-
-
-class NewsfeedGetBannedResponseModel(BaseModel):
+class NewsfeedGetBannedResponse(BaseModel):
 
     response: dict = Field()
 
 
-class NewsfeedGetBannedResponse(BaseResponse):
-    response: "NewsfeedGetBannedResponseModel"
-
-
-class NewsfeedGetCommentsResponseModel(BaseModel):
+class NewsfeedGetCommentsResponse(BaseModel):
 
     response: dict = Field()
 
 
-class NewsfeedGetCommentsResponse(BaseResponse):
-    response: "NewsfeedGetCommentsResponseModel"
-
-
-class NewsfeedGetListsExtendedResponseModel(BaseModel):
+class NewsfeedGetListsExtendedResponse(BaseModel):
 
     response: dict = Field()
 
 
-class NewsfeedGetListsExtendedResponse(BaseResponse):
-    response: "NewsfeedGetListsExtendedResponseModel"
-
-
-class NewsfeedGetListsResponseModel(BaseModel):
+class NewsfeedGetListsResponse(BaseModel):
 
     response: dict = Field()
 
 
-class NewsfeedGetListsResponse(BaseResponse):
-    response: "NewsfeedGetListsResponseModel"
-
-
-class NewsfeedGetMentionsResponseModel(BaseModel):
+class NewsfeedGetMentionsResponse(BaseModel):
 
     response: dict = Field()
 
 
-class NewsfeedGetMentionsResponse(BaseResponse):
-    response: "NewsfeedGetMentionsResponseModel"
-
-
-class NewsfeedGetSuggestedSourcesResponseModel(BaseModel):
+class NewsfeedGetSuggestedSourcesResponse(BaseModel):
 
     response: dict = Field()
 
 
-class NewsfeedGetSuggestedSourcesResponse(BaseResponse):
-    response: "NewsfeedGetSuggestedSourcesResponseModel"
-
-
-class NewsfeedIgnoreItemResponseModel(BaseModel):
+class NewsfeedIgnoreItemResponse(BaseModel):
 
     response: dict = Field()
 
 
-class NewsfeedIgnoreItemResponse(BaseResponse):
-    response: "NewsfeedIgnoreItemResponseModel"
-
-
-class NewsfeedSaveListResponseModel(BaseModel):
+class NewsfeedSaveListResponse(BaseModel):
 
     response: int = Field(
         description="List ID",
     )
 
 
-class NewsfeedSaveListResponse(BaseResponse):
-    response: "NewsfeedSaveListResponseModel"
-
-
-class NewsfeedSearchExtendedResponseModel(BaseModel):
+class NewsfeedSearchExtendedResponse(BaseModel):
 
     response: dict = Field()
 
 
-class NewsfeedSearchExtendedResponse(BaseResponse):
-    response: "NewsfeedSearchExtendedResponseModel"
-
-
-class NewsfeedSearchExtendedStrictResponseModel(BaseModel):
+class NewsfeedSearchExtendedStrictResponse(BaseModel):
 
     response: dict = Field()
 
 
-class NewsfeedSearchExtendedStrictResponse(BaseResponse):
-    response: "NewsfeedSearchExtendedStrictResponseModel"
-
-
-class NewsfeedSearchResponseModel(BaseModel):
+class NewsfeedSearchResponse(BaseModel):
 
     response: dict = Field()
 
 
-class NewsfeedSearchResponse(BaseResponse):
-    response: "NewsfeedSearchResponseModel"
-
-
-class NewsfeedSearchStrictResponseModel(BaseModel):
+class NewsfeedSearchStrictResponse(BaseModel):
 
     response: dict = Field()
-
-
-class NewsfeedSearchStrictResponse(BaseResponse):
-    response: "NewsfeedSearchStrictResponseModel"

@@ -6,28 +6,16 @@ from vkbottle_types.base_model import Field
 from vkbottle_types.objects import *
 
 
-class StoreGetFavoriteStickersResponseModel(BaseModel):
+class StoreGetFavoriteStickersResponse(BaseModel):
 
     response: dict = Field()
 
 
-class StoreGetFavoriteStickersResponse(BaseResponse):
-    response: "StoreGetFavoriteStickersResponseModel"
-
-
-class StoreGetProductsResponseModel(BaseModel):
+class StoreGetProductsResponse(BaseModel):
 
     response: dict = Field()
 
 
-class StoreGetProductsResponse(BaseResponse):
-    response: "StoreGetProductsResponseModel"
-
-
-class StoreGetStickersKeywordsResponseModel(BaseModel):
+class StoreGetStickersKeywordsResponse(BaseModel):
 
     response: dict = Field()
-
-
-class StoreGetStickersKeywordsResponse(BaseResponse):
-    response: "StoreGetStickersKeywordsResponseModel"

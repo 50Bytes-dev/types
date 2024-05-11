@@ -16,7 +16,7 @@ class GiftsCategory(BaseCategory):
         count: typing.Optional[int] = None,
         offset: typing.Optional[int] = None,
         **kwargs,
-    ) -> GiftsGetResponseModel:
+    ) -> GiftsGetResponse:
         """gifts.get method
 
 

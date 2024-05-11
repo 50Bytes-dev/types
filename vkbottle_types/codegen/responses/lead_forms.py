@@ -6,55 +6,31 @@ from vkbottle_types.base_model import Field
 from vkbottle_types.objects import *
 
 
-class LeadFormsCreateResponseModel(BaseModel):
+class LeadFormsCreateResponse(BaseModel):
 
     response: dict = Field()
 
 
-class LeadFormsCreateResponse(BaseResponse):
-    response: "LeadFormsCreateResponseModel"
-
-
-class LeadFormsDeleteResponseModel(BaseModel):
+class LeadFormsDeleteResponse(BaseModel):
 
     response: dict = Field()
 
 
-class LeadFormsDeleteResponse(BaseResponse):
-    response: "LeadFormsDeleteResponseModel"
-
-
-class LeadFormsGetLeadsResponseModel(BaseModel):
+class LeadFormsGetLeadsResponse(BaseModel):
 
     response: dict = Field()
 
 
-class LeadFormsGetLeadsResponse(BaseResponse):
-    response: "LeadFormsGetLeadsResponseModel"
-
-
-class LeadFormsGetResponseModel(BaseModel):
+class LeadFormsGetResponse(BaseModel):
 
     response: "LeadFormsForm" = Field()
 
 
-class LeadFormsGetResponse(BaseResponse):
-    response: "LeadFormsGetResponseModel"
-
-
-class LeadFormsListResponseModel(BaseModel):
+class LeadFormsListResponse(BaseModel):
 
     response: typing.List[LeadFormsForm] = Field()
 
 
-class LeadFormsListResponse(BaseResponse):
-    response: "LeadFormsListResponseModel"
-
-
-class LeadFormsUploadUrlResponseModel(BaseModel):
+class LeadFormsUploadUrlResponse(BaseModel):
 
     response: str = Field()
-
-
-class LeadFormsUploadUrlResponse(BaseResponse):
-    response: "LeadFormsUploadUrlResponseModel"

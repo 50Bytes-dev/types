@@ -6,100 +6,56 @@ from vkbottle_types.base_model import Field
 from vkbottle_types.objects import *
 
 
-class StoriesGetBannedExtendedResponseModel(BaseModel):
+class StoriesGetBannedExtendedResponse(BaseModel):
 
     response: dict = Field()
 
 
-class StoriesGetBannedExtendedResponse(BaseResponse):
-    response: "StoriesGetBannedExtendedResponseModel"
-
-
-class StoriesGetBannedResponseModel(BaseModel):
+class StoriesGetBannedResponse(BaseModel):
 
     response: dict = Field()
 
 
-class StoriesGetBannedResponse(BaseResponse):
-    response: "StoriesGetBannedResponseModel"
-
-
-class StoriesGetByIdExtendedResponseModel(BaseModel):
+class StoriesGetByIdExtendedResponse(BaseModel):
 
     response: dict = Field()
 
 
-class StoriesGetByIdExtendedResponse(BaseResponse):
-    response: "StoriesGetByIdExtendedResponseModel"
-
-
-class StoriesGetPhotoUploadServerResponseModel(BaseModel):
+class StoriesGetPhotoUploadServerResponse(BaseModel):
 
     response: dict = Field()
 
 
-class StoriesGetPhotoUploadServerResponse(BaseResponse):
-    response: "StoriesGetPhotoUploadServerResponseModel"
-
-
-class StoriesGetStatsV5200ResponseModel(BaseModel):
+class StoriesGetStatsV5200Response(BaseModel):
 
     response: dict = Field()
 
 
-class StoriesGetStatsV5200Response(BaseResponse):
-    response: "StoriesGetStatsV5200ResponseModel"
-
-
-class StoriesGetStatsResponseModel(BaseModel):
+class StoriesGetStatsResponse(BaseModel):
 
     response: "StoriesStoryStats" = Field()
 
 
-class StoriesGetStatsResponse(BaseResponse):
-    response: "StoriesGetStatsResponseModel"
-
-
-class StoriesGetVideoUploadServerResponseModel(BaseModel):
+class StoriesGetVideoUploadServerResponse(BaseModel):
 
     response: dict = Field()
 
 
-class StoriesGetVideoUploadServerResponse(BaseResponse):
-    response: "StoriesGetVideoUploadServerResponseModel"
-
-
-class StoriesGetViewersExtendedV5115ResponseModel(BaseModel):
+class StoriesGetViewersExtendedV5115Response(BaseModel):
 
     response: dict = Field()
 
 
-class StoriesGetViewersExtendedV5115Response(BaseResponse):
-    response: "StoriesGetViewersExtendedV5115ResponseModel"
-
-
-class StoriesGetV5113ResponseModel(BaseModel):
+class StoriesGetV5113Response(BaseModel):
 
     response: dict = Field()
 
 
-class StoriesGetV5113Response(BaseResponse):
-    response: "StoriesGetV5113ResponseModel"
-
-
-class StoriesSaveResponseModel(BaseModel):
+class StoriesSaveResponse(BaseModel):
 
     response: dict = Field()
 
 
-class StoriesSaveResponse(BaseResponse):
-    response: "StoriesSaveResponseModel"
-
-
-class StoriesUploadResponseModel(BaseModel):
+class StoriesUploadResponse(BaseModel):
 
     response: dict = Field()
-
-
-class StoriesUploadResponse(BaseResponse):
-    response: "StoriesUploadResponseModel"

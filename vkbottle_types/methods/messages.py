@@ -4,9 +4,9 @@ from typing_extensions import Literal
 from vkbottle_types.codegen.methods.messages import MessagesCategory
 from vkbottle_types.responses.messages import (
     MessagesSendUserIdsResponseItem,
-    SendPeerIdsResponse,
-    SendResponse,
-    SendUserIdsResponse,
+    MessagesSendPeerIdsResponse,
+    MessagesSendUserIdsResponse,
+    MessagesSendDeprecatedResponse,
 )
 
 
@@ -53,8 +53,7 @@ class MessagesCategory(MessagesCategory):
         ] = None,
         subscribe_id: typing.Optional[int] = None,
         **kwargs
-    ) -> int:
-        ...
+    ) -> int: ...
 
     @typing.overload
     async def send(
@@ -98,8 +97,7 @@ class MessagesCategory(MessagesCategory):
         ] = None,
         subscribe_id: typing.Optional[int] = None,
         **kwargs
-    ) -> typing.List[MessagesSendUserIdsResponseItem]:
-        ...
+    ) -> typing.List[MessagesSendUserIdsResponseItem]: ...
 
     @typing.overload
     async def send(
@@ -143,8 +141,7 @@ class MessagesCategory(MessagesCategory):
         ] = None,
         subscribe_id: typing.Optional[int] = None,
         **kwargs
-    ) -> typing.List[MessagesSendUserIdsResponseItem]:
-        ...
+    ) -> typing.List[MessagesSendUserIdsResponseItem]: ...
 
     async def send(
         self,
@@ -206,10 +203,10 @@ class MessagesCategory(MessagesCategory):
         response = await self.api.request("messages.send", params)
         model = self.get_model(
             (
-                (("user_ids",), SendUserIdsResponse),
-                (("peer_ids",), SendPeerIdsResponse),
+                (("user_ids",), MessagesSendUserIdsResponse),
+                (("peer_ids",), MessagesSendPeerIdsResponse),
             ),
-            default=SendResponse,
+            default=MessagesSendDeprecatedResponse,
             params=params,
         )
         return model(**response).response

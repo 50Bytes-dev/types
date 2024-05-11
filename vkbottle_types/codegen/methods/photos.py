@@ -16,7 +16,7 @@ class PhotosCategory(BaseCategory):
         tag_id: int,
         owner_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """photos.confirmTag method
 
 
@@ -37,7 +37,7 @@ class PhotosCategory(BaseCategory):
         photo_id: int,
         access_key: typing.Optional[str] = None,
         **kwargs,
-    ) -> PhotosCopyResponseModel:
+    ) -> PhotosCopyResponse:
         """photos.copy method
 
 
@@ -62,7 +62,7 @@ class PhotosCategory(BaseCategory):
         upload_by_admins_only: typing.Optional[bool] = None,
         comments_disabled: typing.Optional[bool] = None,
         **kwargs,
-    ) -> PhotosCreateAlbumResponseModel:
+    ) -> PhotosCreateAlbumResponse:
         """photos.createAlbum method
 
 
@@ -93,7 +93,7 @@ class PhotosCategory(BaseCategory):
         access_key: typing.Optional[str] = None,
         guid: typing.Optional[str] = None,
         **kwargs,
-    ) -> PhotosCreateCommentResponseModel:
+    ) -> PhotosCreateCommentResponse:
         """photos.createComment method
 
 
@@ -120,7 +120,7 @@ class PhotosCategory(BaseCategory):
         photo_id: typing.Optional[int] = None,
         photos: typing.Optional[typing.List[str]] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """photos.delete method
 
 
@@ -140,7 +140,7 @@ class PhotosCategory(BaseCategory):
         album_id: int,
         group_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """photos.deleteAlbum method
 
 
@@ -159,7 +159,7 @@ class PhotosCategory(BaseCategory):
         comment_id: int,
         owner_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> BaseBoolResponseModel:
+    ) -> BaseBoolResponse:
         """photos.deleteComment method
 
 
@@ -184,7 +184,7 @@ class PhotosCategory(BaseCategory):
         foursquare_id: typing.Optional[str] = None,
         delete_place: typing.Optional[bool] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """photos.edit method
 
 
@@ -215,7 +215,7 @@ class PhotosCategory(BaseCategory):
         upload_by_admins_only: typing.Optional[bool] = None,
         comments_disabled: typing.Optional[bool] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """photos.editAlbum method
 
 
@@ -242,7 +242,7 @@ class PhotosCategory(BaseCategory):
         message: typing.Optional[str] = None,
         attachments: typing.Optional[typing.List[str]] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """photos.editComment method
 
 
@@ -271,7 +271,7 @@ class PhotosCategory(BaseCategory):
         offset: typing.Optional[int] = None,
         count: typing.Optional[int] = 50,
         **kwargs,
-    ) -> PhotosGetResponseModel:
+    ) -> PhotosGetResponse:
         """photos.get method
 
 
@@ -303,7 +303,7 @@ class PhotosCategory(BaseCategory):
         need_covers: typing.Optional[bool] = None,
         photo_sizes: typing.Optional[bool] = None,
         **kwargs,
-    ) -> PhotosGetAlbumsResponseModel:
+    ) -> PhotosGetAlbumsResponse:
         """photos.getAlbums method
 
 
@@ -328,7 +328,7 @@ class PhotosCategory(BaseCategory):
         group_id: typing.Optional[int] = None,
         need_system: typing.Optional[bool] = None,
         **kwargs,
-    ) -> PhotosGetAlbumsCountResponseModel:
+    ) -> PhotosGetAlbumsCountResponse:
         """photos.getAlbumsCount method
 
 
@@ -354,7 +354,7 @@ class PhotosCategory(BaseCategory):
         need_hidden: typing.Optional[bool] = None,
         skip_hidden: typing.Optional[bool] = None,
         **kwargs,
-    ) -> PhotosGetAllResponseModel:
+    ) -> PhotosGetAllResponse:
         """photos.getAll method
 
 
@@ -382,7 +382,7 @@ class PhotosCategory(BaseCategory):
         offset: typing.Optional[int] = None,
         count: typing.Optional[int] = None,
         **kwargs,
-    ) -> PhotosGetAllCommentsResponseModel:
+    ) -> PhotosGetAllCommentsResponse:
         """photos.getAllComments method
 
 
@@ -405,7 +405,7 @@ class PhotosCategory(BaseCategory):
         extended: typing.Optional[bool] = None,
         photo_sizes: typing.Optional[bool] = None,
         **kwargs,
-    ) -> PhotosGetByIdResponseModel:
+    ) -> PhotosGetByIdResponse:
         """photos.getById method
 
 
@@ -427,7 +427,7 @@ class PhotosCategory(BaseCategory):
         crop_y: typing.Optional[int] = None,
         crop_width: typing.Optional[int] = None,
         **kwargs,
-    ) -> BaseGetUploadServerResponseModel:
+    ) -> BaseGetUploadServerResponse:
         """photos.getChatUploadServer method
 
 
@@ -457,7 +457,7 @@ class PhotosCategory(BaseCategory):
         access_key: typing.Optional[str] = None,
         fields: typing.Optional[typing.List[UsersFields]] = None,
         **kwargs,
-    ) -> PhotosGetCommentsExtendedResponseModel: ...
+    ) -> PhotosGetCommentsExtendedResponse: ...
 
     async def get_comments(
         self,
@@ -472,7 +472,7 @@ class PhotosCategory(BaseCategory):
         extended: typing.Optional[bool] = None,
         fields: typing.Optional[typing.List[UsersFields]] = None,
         **kwargs,
-    ) -> PhotosGetCommentsResponseModel:
+    ) -> PhotosGetCommentsResponse:
         """photos.getComments method
 
 
@@ -502,7 +502,7 @@ class PhotosCategory(BaseCategory):
         self,
         group_id: int,
         **kwargs,
-    ) -> BaseGetUploadServerResponseModel:
+    ) -> BaseGetUploadServerResponse:
         """photos.getMarketAlbumUploadServer method
 
 
@@ -523,7 +523,7 @@ class PhotosCategory(BaseCategory):
         crop_y: typing.Optional[int] = None,
         crop_width: typing.Optional[int] = None,
         **kwargs,
-    ) -> PhotosGetMarketUploadServerResponseModel:
+    ) -> PhotosGetMarketUploadServerResponse:
         """photos.getMarketUploadServer method
 
 
@@ -544,7 +544,7 @@ class PhotosCategory(BaseCategory):
         self,
         peer_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> PhotosGetMessagesUploadServerResponseModel:
+    ) -> PhotosGetMessagesUploadServerResponse:
         """photos.getMessagesUploadServer method
 
 
@@ -562,7 +562,7 @@ class PhotosCategory(BaseCategory):
         offset: typing.Optional[int] = None,
         count: typing.Optional[int] = 20,
         **kwargs,
-    ) -> PhotosGetNewTagsResponseModel:
+    ) -> PhotosGetNewTagsResponse:
         """photos.getNewTags method
 
 
@@ -585,7 +585,7 @@ class PhotosCategory(BaseCategory):
         crop_y2: typing.Optional[int] = 200,
         is_video_cover: typing.Optional[bool] = 0,
         **kwargs,
-    ) -> BaseGetUploadServerResponseModel:
+    ) -> BaseGetUploadServerResponse:
         """photos.getOwnerCoverPhotoUploadServer method
 
 
@@ -607,7 +607,7 @@ class PhotosCategory(BaseCategory):
         self,
         owner_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> BaseGetUploadServerResponseModel:
+    ) -> BaseGetUploadServerResponse:
         """photos.getOwnerPhotoUploadServer method
 
 
@@ -626,7 +626,7 @@ class PhotosCategory(BaseCategory):
         owner_id: typing.Optional[int] = None,
         access_key: typing.Optional[str] = None,
         **kwargs,
-    ) -> PhotosGetTagsResponseModel:
+    ) -> PhotosGetTagsResponse:
         """photos.getTags method
 
 
@@ -646,7 +646,7 @@ class PhotosCategory(BaseCategory):
         album_id: typing.Optional[int] = None,
         group_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> PhotosGetUploadServerResponseModel:
+    ) -> PhotosGetUploadServerResponse:
         """photos.getUploadServer method
 
 
@@ -668,7 +668,7 @@ class PhotosCategory(BaseCategory):
         extended: typing.Optional[bool] = None,
         sort: typing.Optional[str] = None,
         **kwargs,
-    ) -> PhotosGetUserPhotosResponseModel:
+    ) -> PhotosGetUserPhotosResponse:
         """photos.getUserPhotos method
 
 
@@ -689,7 +689,7 @@ class PhotosCategory(BaseCategory):
         self,
         group_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> PhotosGetWallUploadServerResponseModel:
+    ) -> PhotosGetWallUploadServerResponse:
         """photos.getWallUploadServer method
 
 
@@ -708,7 +708,7 @@ class PhotosCategory(BaseCategory):
         owner_id: typing.Optional[int] = None,
         album_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """photos.makeCover method
 
 
@@ -729,7 +729,7 @@ class PhotosCategory(BaseCategory):
         photo_ids: typing.List[int],
         owner_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """photos.move method
 
 
@@ -754,7 +754,7 @@ class PhotosCategory(BaseCategory):
         x2: typing.Optional[float] = None,
         y2: typing.Optional[float] = None,
         **kwargs,
-    ) -> PhotosPutTagResponseModel:
+    ) -> PhotosPutTagResponse:
         """photos.putTag method
 
 
@@ -779,7 +779,7 @@ class PhotosCategory(BaseCategory):
         tag_id: int,
         owner_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """photos.removeTag method
 
 
@@ -801,7 +801,7 @@ class PhotosCategory(BaseCategory):
         before: typing.Optional[int] = None,
         after: typing.Optional[int] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """photos.reorderAlbums method
 
 
@@ -824,7 +824,7 @@ class PhotosCategory(BaseCategory):
         before: typing.Optional[int] = None,
         after: typing.Optional[int] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """photos.reorderPhotos method
 
 
@@ -846,7 +846,7 @@ class PhotosCategory(BaseCategory):
         photo_id: int,
         reason: typing.Optional[int] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """photos.report method
 
 
@@ -867,7 +867,7 @@ class PhotosCategory(BaseCategory):
         comment_id: int,
         reason: typing.Optional[int] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """photos.reportComment method
 
 
@@ -887,7 +887,7 @@ class PhotosCategory(BaseCategory):
         photo_id: int,
         owner_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """photos.restore method
 
 
@@ -906,7 +906,7 @@ class PhotosCategory(BaseCategory):
         comment_id: int,
         owner_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> BaseBoolResponseModel:
+    ) -> BaseBoolResponse:
         """photos.restoreComment method
 
 
@@ -931,7 +931,7 @@ class PhotosCategory(BaseCategory):
         longitude: typing.Optional[float] = None,
         caption: typing.Optional[str] = None,
         **kwargs,
-    ) -> PhotosSaveResponseModel:
+    ) -> PhotosSaveResponse:
         """photos.save method
 
 
@@ -958,7 +958,7 @@ class PhotosCategory(BaseCategory):
         server: int,
         hash: str,
         **kwargs,
-    ) -> PhotosSaveMarketAlbumPhotoResponseModel:
+    ) -> PhotosSaveMarketAlbumPhotoResponse:
         """photos.saveMarketAlbumPhoto method
 
 
@@ -983,7 +983,7 @@ class PhotosCategory(BaseCategory):
         crop_data: typing.Optional[str] = None,
         crop_hash: typing.Optional[str] = None,
         **kwargs,
-    ) -> PhotosSaveMarketPhotoResponseModel:
+    ) -> PhotosSaveMarketPhotoResponse:
         """photos.saveMarketPhoto method
 
 
@@ -1007,7 +1007,7 @@ class PhotosCategory(BaseCategory):
         server: typing.Optional[int] = None,
         hash: typing.Optional[str] = None,
         **kwargs,
-    ) -> PhotosSaveMessagesPhotoResponseModel:
+    ) -> PhotosSaveMessagesPhotoResponse:
         """photos.saveMessagesPhoto method
 
 
@@ -1033,7 +1033,7 @@ class PhotosCategory(BaseCategory):
         photo: typing.Optional[str] = None,
         is_video_cover: typing.Optional[bool] = 0,
         **kwargs,
-    ) -> PhotosSaveOwnerCoverPhotoResponseModel:
+    ) -> PhotosSaveOwnerCoverPhotoResponse:
         """photos.saveOwnerCoverPhoto method
 
 
@@ -1059,7 +1059,7 @@ class PhotosCategory(BaseCategory):
         hash: typing.Optional[str] = None,
         photo: typing.Optional[str] = None,
         **kwargs,
-    ) -> PhotosSaveOwnerPhotoResponseModel:
+    ) -> PhotosSaveOwnerPhotoResponse:
         """photos.saveOwnerPhoto method
 
 
@@ -1085,7 +1085,7 @@ class PhotosCategory(BaseCategory):
         longitude: typing.Optional[float] = None,
         caption: typing.Optional[str] = None,
         **kwargs,
-    ) -> PhotosSaveWallPhotoResponseModel:
+    ) -> PhotosSaveWallPhotoResponse:
         """photos.saveWallPhoto method
 
 
@@ -1117,7 +1117,7 @@ class PhotosCategory(BaseCategory):
         count: typing.Optional[int] = 100,
         radius: typing.Optional[int] = 5000,
         **kwargs,
-    ) -> PhotosSearchResponseModel:
+    ) -> PhotosSearchResponse:
         """photos.search method
 
 

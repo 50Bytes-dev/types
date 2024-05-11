@@ -3,8 +3,8 @@ from typing import List, Optional, Union
 from vkbottle_types.codegen.methods.secure import SecureCategory
 from vkbottle_types.responses.secure import (
     SecureSetCounterItem,
-    SetCounterArrayResponse,
-    SetCounterIntegerResponse,
+    SecureSetCounterArrayResponse,
+    SecureSetCounterIntegerResponse,
 )
 
 
@@ -28,9 +28,9 @@ class SecureCategory(SecureCategory):
         params = self.get_set_params(locals())
         response = await self.api.request("secure.setCounter", params)
         if counters and counters.count(",") > 0:
-            model = SetCounterArrayResponse
+            model = SecureSetCounterArrayResponse
         else:
-            model = SetCounterIntegerResponse
+            model = SecureSetCounterIntegerResponse
         return model(**response).response
 
 

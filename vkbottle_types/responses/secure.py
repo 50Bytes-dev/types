@@ -5,7 +5,7 @@ from vkbottle_types.codegen.responses.secure import *  # noqa: F403,F401
 from .base_response import BaseResponse
 
 
-class SetCounterIntegerResponse(BaseResponse):
+class SecureSetCounterIntegerResponse(BaseResponse):
     response: int
 
 
@@ -19,5 +19,5 @@ for item in _locals_values:
     item.model_rebuild()
     for parent in item.__bases__:
         if parent.__name__ == item.__name__:
-            parent.__fields__.update(item.model_fields)
+            parent.model_fields.update(item.model_fields)
             parent.model_rebuild()

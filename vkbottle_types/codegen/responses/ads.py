@@ -6,414 +6,234 @@ from vkbottle_types.base_model import Field
 from vkbottle_types.objects import *
 
 
-class AdsAddOfficeUsersResponseModel(BaseModel):
+class AdsAddOfficeUsersResponse(BaseModel):
 
     response: typing.List[bool] = Field()
 
 
-class AdsAddOfficeUsersResponse(BaseResponse):
-    response: "AdsAddOfficeUsersResponseModel"
-
-
-class AdsCheckLinkResponseModel(BaseModel):
+class AdsCheckLinkResponse(BaseModel):
 
     response: "AdsLinkStatus" = Field()
 
 
-class AdsCheckLinkResponse(BaseResponse):
-    response: "AdsCheckLinkResponseModel"
-
-
-class AdsCreateAdsResponseModel(BaseModel):
+class AdsCreateAdsResponse(BaseModel):
 
     response: typing.List[AdsCreateAdStatus] = Field()
 
 
-class AdsCreateAdsResponse(BaseResponse):
-    response: "AdsCreateAdsResponseModel"
-
-
-class AdsCreateCampaignsResponseModel(BaseModel):
+class AdsCreateCampaignsResponse(BaseModel):
 
     response: typing.List[AdsCreateCampaignStatus] = Field()
 
 
-class AdsCreateCampaignsResponse(BaseResponse):
-    response: "AdsCreateCampaignsResponseModel"
-
-
-class AdsCreateClientsResponseModel(BaseModel):
+class AdsCreateClientsResponse(BaseModel):
 
     response: typing.List[AdsCreateClientsStatus] = Field()
 
 
-class AdsCreateClientsResponse(BaseResponse):
-    response: "AdsCreateClientsResponseModel"
-
-
-class AdsCreateLookalikeRequestResponseModel(BaseModel):
+class AdsCreateLookalikeRequestResponse(BaseModel):
 
     response: dict = Field()
 
 
-class AdsCreateLookalikeRequestResponse(BaseResponse):
-    response: "AdsCreateLookalikeRequestResponseModel"
-
-
-class AdsCreateTargetGroupResponseModel(BaseModel):
+class AdsCreateTargetGroupResponse(BaseModel):
 
     response: dict = Field()
 
 
-class AdsCreateTargetGroupResponse(BaseResponse):
-    response: "AdsCreateTargetGroupResponseModel"
-
-
-class AdsCreateTargetPixelResponseModel(BaseModel):
+class AdsCreateTargetPixelResponse(BaseModel):
 
     response: dict = Field()
 
 
-class AdsCreateTargetPixelResponse(BaseResponse):
-    response: "AdsCreateTargetPixelResponseModel"
-
-
-class AdsDeleteAdsResponseModel(BaseModel):
+class AdsDeleteAdsResponse(BaseModel):
 
     response: typing.List[int] = Field()
 
 
-class AdsDeleteAdsResponse(BaseResponse):
-    response: "AdsDeleteAdsResponseModel"
-
-
-class AdsDeleteCampaignsResponseModel(BaseModel):
+class AdsDeleteCampaignsResponse(BaseModel):
 
     response: typing.List[int] = Field()
 
 
-class AdsDeleteCampaignsResponse(BaseResponse):
-    response: "AdsDeleteCampaignsResponseModel"
-
-
-class AdsDeleteClientsResponseModel(BaseModel):
+class AdsDeleteClientsResponse(BaseModel):
 
     response: typing.List[int] = Field()
 
 
-class AdsDeleteClientsResponse(BaseResponse):
-    response: "AdsDeleteClientsResponseModel"
-
-
-class AdsGetAccountsResponseModel(BaseModel):
+class AdsGetAccountsResponse(BaseModel):
 
     response: typing.List[AdsAccount] = Field()
 
 
-class AdsGetAccountsResponse(BaseResponse):
-    response: "AdsGetAccountsResponseModel"
-
-
-class AdsGetAdsLayoutResponseModel(BaseModel):
+class AdsGetAdsLayoutResponse(BaseModel):
 
     response: typing.List[AdsAdLayout] = Field()
 
 
-class AdsGetAdsLayoutResponse(BaseResponse):
-    response: "AdsGetAdsLayoutResponseModel"
-
-
-class AdsGetAdsTargetingResponseModel(BaseModel):
+class AdsGetAdsTargetingResponse(BaseModel):
 
     response: typing.List[AdsTargSettings] = Field()
 
 
-class AdsGetAdsTargetingResponse(BaseResponse):
-    response: "AdsGetAdsTargetingResponseModel"
-
-
-class AdsGetAdsResponseModel(BaseModel):
+class AdsGetAdsResponse(BaseModel):
 
     response: typing.List[AdsAd] = Field()
 
 
-class AdsGetAdsResponse(BaseResponse):
-    response: "AdsGetAdsResponseModel"
-
-
-class AdsGetBudgetResponseModel(BaseModel):
+class AdsGetBudgetResponse(BaseModel):
 
     response: str = Field(
         description="Budget",
     )
 
 
-class AdsGetBudgetResponse(BaseResponse):
-    response: "AdsGetBudgetResponseModel"
-
-
-class AdsGetCampaignsResponseModel(BaseModel):
+class AdsGetCampaignsResponse(BaseModel):
 
     response: typing.List[AdsCampaign] = Field()
 
 
-class AdsGetCampaignsResponse(BaseResponse):
-    response: "AdsGetCampaignsResponseModel"
-
-
-class AdsGetCategoriesResponseModel(BaseModel):
+class AdsGetCategoriesResponse(BaseModel):
 
     response: dict = Field()
 
 
-class AdsGetCategoriesResponse(BaseResponse):
-    response: "AdsGetCategoriesResponseModel"
-
-
-class AdsGetClientsResponseModel(BaseModel):
+class AdsGetClientsResponse(BaseModel):
 
     response: typing.List[AdsClient] = Field()
 
 
-class AdsGetClientsResponse(BaseResponse):
-    response: "AdsGetClientsResponseModel"
-
-
-class AdsGetDemographicsResponseModel(BaseModel):
+class AdsGetDemographicsResponse(BaseModel):
 
     response: typing.List[AdsDemoStats] = Field()
 
 
-class AdsGetDemographicsResponse(BaseResponse):
-    response: "AdsGetDemographicsResponseModel"
-
-
-class AdsGetFloodStatsResponseModel(BaseModel):
+class AdsGetFloodStatsResponse(BaseModel):
 
     response: "AdsFloodStats" = Field()
 
 
-class AdsGetFloodStatsResponse(BaseResponse):
-    response: "AdsGetFloodStatsResponseModel"
-
-
-class AdsGetLookalikeRequestsResponseModel(BaseModel):
+class AdsGetLookalikeRequestsResponse(BaseModel):
 
     response: dict = Field()
 
 
-class AdsGetLookalikeRequestsResponse(BaseResponse):
-    response: "AdsGetLookalikeRequestsResponseModel"
-
-
-class AdsGetMusiciansResponseModel(BaseModel):
+class AdsGetMusiciansResponse(BaseModel):
 
     response: dict = Field()
 
 
-class AdsGetMusiciansResponse(BaseResponse):
-    response: "AdsGetMusiciansResponseModel"
-
-
-class AdsGetOfficeUsersResponseModel(BaseModel):
+class AdsGetOfficeUsersResponse(BaseModel):
 
     response: typing.List[AdsUsers] = Field()
 
 
-class AdsGetOfficeUsersResponse(BaseResponse):
-    response: "AdsGetOfficeUsersResponseModel"
-
-
-class AdsGetPostsReachResponseModel(BaseModel):
+class AdsGetPostsReachResponse(BaseModel):
 
     response: typing.List[AdsPromotedPostReach] = Field()
 
 
-class AdsGetPostsReachResponse(BaseResponse):
-    response: "AdsGetPostsReachResponseModel"
-
-
-class AdsGetRejectionReasonResponseModel(BaseModel):
+class AdsGetRejectionReasonResponse(BaseModel):
 
     response: "AdsRejectReason" = Field()
 
 
-class AdsGetRejectionReasonResponse(BaseResponse):
-    response: "AdsGetRejectionReasonResponseModel"
-
-
-class AdsGetStatisticsResponseModel(BaseModel):
+class AdsGetStatisticsResponse(BaseModel):
 
     response: typing.List[AdsStats] = Field()
 
 
-class AdsGetStatisticsResponse(BaseResponse):
-    response: "AdsGetStatisticsResponseModel"
-
-
-class AdsGetSuggestionsCitiesResponseModel(BaseModel):
+class AdsGetSuggestionsCitiesResponse(BaseModel):
 
     response: typing.List[AdsTargSuggestionsCities] = Field()
 
 
-class AdsGetSuggestionsCitiesResponse(BaseResponse):
-    response: "AdsGetSuggestionsCitiesResponseModel"
-
-
-class AdsGetSuggestionsRegionsResponseModel(BaseModel):
+class AdsGetSuggestionsRegionsResponse(BaseModel):
 
     response: typing.List[AdsTargSuggestionsRegions] = Field()
 
 
-class AdsGetSuggestionsRegionsResponse(BaseResponse):
-    response: "AdsGetSuggestionsRegionsResponseModel"
-
-
-class AdsGetSuggestionsResponseModel(BaseModel):
+class AdsGetSuggestionsResponse(BaseModel):
 
     response: typing.List[AdsTargSuggestions] = Field()
 
 
-class AdsGetSuggestionsResponse(BaseResponse):
-    response: "AdsGetSuggestionsResponseModel"
-
-
-class AdsGetSuggestionsSchoolsResponseModel(BaseModel):
+class AdsGetSuggestionsSchoolsResponse(BaseModel):
 
     response: typing.List[AdsTargSuggestionsSchools] = Field()
 
 
-class AdsGetSuggestionsSchoolsResponse(BaseResponse):
-    response: "AdsGetSuggestionsSchoolsResponseModel"
-
-
-class AdsGetTargetGroupsResponseModel(BaseModel):
+class AdsGetTargetGroupsResponse(BaseModel):
 
     response: typing.List[AdsTargetGroup] = Field()
 
 
-class AdsGetTargetGroupsResponse(BaseResponse):
-    response: "AdsGetTargetGroupsResponseModel"
-
-
-class AdsGetTargetPixelsResponseModel(BaseModel):
+class AdsGetTargetPixelsResponse(BaseModel):
 
     response: typing.List[AdsTargetPixelInfo] = Field()
 
 
-class AdsGetTargetPixelsResponse(BaseResponse):
-    response: "AdsGetTargetPixelsResponseModel"
-
-
-class AdsGetTargetingStatsResponseModel(BaseModel):
+class AdsGetTargetingStatsResponse(BaseModel):
 
     response: "AdsTargStats" = Field()
 
 
-class AdsGetTargetingStatsResponse(BaseResponse):
-    response: "AdsGetTargetingStatsResponseModel"
-
-
-class AdsGetUploadURLResponseModel(BaseModel):
+class AdsGetUploadURLResponse(BaseModel):
 
     response: str = Field(
         description="Photo upload URL",
     )
 
 
-class AdsGetUploadURLResponse(BaseResponse):
-    response: "AdsGetUploadURLResponseModel"
-
-
-class AdsGetVideoUploadURLResponseModel(BaseModel):
+class AdsGetVideoUploadURLResponse(BaseModel):
 
     response: str = Field(
         description="Video upload URL",
     )
 
 
-class AdsGetVideoUploadURLResponse(BaseResponse):
-    response: "AdsGetVideoUploadURLResponseModel"
-
-
-class AdsImportTargetContactsResponseModel(BaseModel):
+class AdsImportTargetContactsResponse(BaseModel):
 
     response: int = Field(
         description="Imported contacts number",
     )
 
 
-class AdsImportTargetContactsResponse(BaseResponse):
-    response: "AdsImportTargetContactsResponseModel"
-
-
-class AdsRemoveOfficeUsersResponseModel(BaseModel):
+class AdsRemoveOfficeUsersResponse(BaseModel):
 
     response: typing.List[bool] = Field()
 
 
-class AdsRemoveOfficeUsersResponse(BaseResponse):
-    response: "AdsRemoveOfficeUsersResponseModel"
-
-
-class AdsRemoveTargetContactsResponseModel(BaseModel):
+class AdsRemoveTargetContactsResponse(BaseModel):
 
     response: dict = Field()
 
 
-class AdsRemoveTargetContactsResponse(BaseResponse):
-    response: "AdsRemoveTargetContactsResponseModel"
-
-
-class AdsSaveLookalikeRequestResultResponseModel(BaseModel):
+class AdsSaveLookalikeRequestResultResponse(BaseModel):
 
     response: dict = Field()
 
 
-class AdsSaveLookalikeRequestResultResponse(BaseResponse):
-    response: "AdsSaveLookalikeRequestResultResponseModel"
-
-
-class AdsShareTargetGroupResponseModel(BaseModel):
+class AdsShareTargetGroupResponse(BaseModel):
 
     response: dict = Field()
 
 
-class AdsShareTargetGroupResponse(BaseResponse):
-    response: "AdsShareTargetGroupResponseModel"
-
-
-class AdsUpdateAdsResponseModel(BaseModel):
+class AdsUpdateAdsResponse(BaseModel):
 
     response: typing.List[AdsUpdateAdsStatus] = Field()
 
 
-class AdsUpdateAdsResponse(BaseResponse):
-    response: "AdsUpdateAdsResponseModel"
-
-
-class AdsUpdateCampaignsResponseModel(BaseModel):
+class AdsUpdateCampaignsResponse(BaseModel):
 
     response: typing.List[AdsCreateCampaignStatus] = Field()
 
 
-class AdsUpdateCampaignsResponse(BaseResponse):
-    response: "AdsUpdateCampaignsResponseModel"
-
-
-class AdsUpdateClientsResponseModel(BaseModel):
+class AdsUpdateClientsResponse(BaseModel):
 
     response: typing.List[AdsUpdateClientsStatus] = Field()
 
 
-class AdsUpdateClientsResponse(BaseResponse):
-    response: "AdsUpdateClientsResponseModel"
-
-
-class AdsUpdateOfficeUsersResponseModel(BaseModel):
+class AdsUpdateOfficeUsersResponse(BaseModel):
 
     response: typing.List[AdsUpdateOfficeUsersResult] = Field()
-
-
-class AdsUpdateOfficeUsersResponse(BaseResponse):
-    response: "AdsUpdateOfficeUsersResponseModel"

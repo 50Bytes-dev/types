@@ -38,7 +38,8 @@ def get_complex_type(type_dct: dict, response: bool = False, hint: bool = False)
     elif ref := type_dct.get("$ref"):
         transformed = transform_ref(ref)
         if response:
-            return transformed + "Model"
+            # return transformed + "Model"
+            return transformed
         else:
             IMPORTS_CACHE.add(transformed)
         if hint:

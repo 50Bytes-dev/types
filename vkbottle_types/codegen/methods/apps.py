@@ -22,7 +22,7 @@ class AppsCategory(BaseCategory):
         small_image_url: typing.Optional[str] = None,
         button: typing.Optional[str] = None,
         **kwargs,
-    ) -> AppsAddSnippetResponseModel:
+    ) -> AppsAddSnippetResponse:
         """apps.addSnippet method
 
 
@@ -48,7 +48,7 @@ class AppsCategory(BaseCategory):
         user_ids: typing.List[int],
         group_id: int,
         **kwargs,
-    ) -> BaseBoolResponseModel:
+    ) -> BaseBoolResponse:
         """apps.addUsersToTestingGroup method
 
 
@@ -65,7 +65,7 @@ class AppsCategory(BaseCategory):
     async def delete_app_requests(
         self,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """apps.deleteAppRequests method"""
         params = self.get_set_params(locals())
         response = await self.api.request("account.ban", params)
@@ -78,7 +78,7 @@ class AppsCategory(BaseCategory):
         self,
         id: typing.Optional[int] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """apps.deleteSnippet method
 
 
@@ -102,7 +102,7 @@ class AppsCategory(BaseCategory):
         name_case: typing.Optional[str] = None,
         app_fields: typing.Optional[typing.List[AppsAppFields]] = None,
         **kwargs,
-    ) -> AppsGetResponseModel:
+    ) -> AppsGetResponse:
         """apps.get method
 
 
@@ -136,7 +136,7 @@ class AppsCategory(BaseCategory):
         genre_id: typing.Optional[int] = None,
         filter: typing.Optional[str] = None,
         **kwargs,
-    ) -> AppsGetCatalogResponseModel:
+    ) -> AppsGetCatalogResponse:
         """apps.getCatalog method
 
 
@@ -169,7 +169,7 @@ class AppsCategory(BaseCategory):
         fields: typing.Optional[typing.List[UsersFields]] = 1,
         query: typing.Optional[str] = None,
         **kwargs,
-    ) -> AppsGetFriendsListExtendedResponseModel: ...
+    ) -> AppsGetFriendsListExtendedResponse: ...
 
     async def get_friends_list(
         self,
@@ -180,7 +180,7 @@ class AppsCategory(BaseCategory):
         fields: typing.Optional[typing.List[UsersFields]] = 1,
         query: typing.Optional[str] = None,
         **kwargs,
-    ) -> AppsGetFriendsListResponseModel:
+    ) -> AppsGetFriendsListResponse:
         """apps.getFriendsList method
 
 
@@ -209,7 +209,7 @@ class AppsCategory(BaseCategory):
         extended: typing.Literal[True] = True,
         value_global: typing.Optional[bool] = 1,
         **kwargs,
-    ) -> AppsGetLeaderboardExtendedResponseModel: ...
+    ) -> AppsGetLeaderboardExtendedResponse: ...
 
     async def get_leaderboard(
         self,
@@ -217,7 +217,7 @@ class AppsCategory(BaseCategory):
         value_global: typing.Optional[bool] = 1,
         extended: typing.Optional[bool] = 0,
         **kwargs,
-    ) -> AppsGetLeaderboardResponseModel:
+    ) -> AppsGetLeaderboardResponse:
         """apps.getLeaderboard method
 
 
@@ -240,7 +240,7 @@ class AppsCategory(BaseCategory):
         self,
         app_id: int,
         **kwargs,
-    ) -> AppsGetMiniAppPoliciesResponseModel:
+    ) -> AppsGetMiniAppPoliciesResponse:
         """apps.getMiniAppPolicies method
 
 
@@ -257,7 +257,7 @@ class AppsCategory(BaseCategory):
         self,
         type: typing.Optional[str] = "user",
         **kwargs,
-    ) -> AppsGetScopesResponseModel:
+    ) -> AppsGetScopesResponse:
         """apps.getScopes method
 
 
@@ -274,7 +274,7 @@ class AppsCategory(BaseCategory):
         self,
         user_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> AppsGetScoreResponseModel:
+    ) -> AppsGetScoreResponse:
         """apps.getScore method
 
 
@@ -290,7 +290,7 @@ class AppsCategory(BaseCategory):
     async def get_snippets(
         self,
         **kwargs,
-    ) -> AppsGetSnippetsResponseModel:
+    ) -> AppsGetSnippetsResponse:
         """apps.getSnippets method"""
         params = self.get_set_params(locals())
         response = await self.api.request("account.ban", params)
@@ -303,7 +303,7 @@ class AppsCategory(BaseCategory):
         self,
         group_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> AppsGetTestingGroupsResponseModel:
+    ) -> AppsGetTestingGroupsResponse:
         """apps.getTestingGroups method
 
 
@@ -320,7 +320,7 @@ class AppsCategory(BaseCategory):
         self,
         user_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> AppsIsNotificationsAllowedResponseModel:
+    ) -> AppsIsNotificationsAllowedResponse:
         """apps.isNotificationsAllowed method
 
 
@@ -338,7 +338,7 @@ class AppsCategory(BaseCategory):
         promo_id: int,
         user_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> BaseBoolResponseModel:
+    ) -> BaseBoolResponse:
         """apps.promoHasActiveGift method
 
 
@@ -357,7 +357,7 @@ class AppsCategory(BaseCategory):
         promo_id: int,
         user_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> BaseBoolResponseModel:
+    ) -> BaseBoolResponse:
         """apps.promoUseGift method
 
 
@@ -375,7 +375,7 @@ class AppsCategory(BaseCategory):
         self,
         group_id: int,
         **kwargs,
-    ) -> BaseBoolResponseModel:
+    ) -> BaseBoolResponse:
         """apps.removeTestingGroup method
 
 
@@ -392,7 +392,7 @@ class AppsCategory(BaseCategory):
         self,
         user_ids: typing.List[int],
         **kwargs,
-    ) -> BaseBoolResponseModel:
+    ) -> BaseBoolResponse:
         """apps.removeUsersFromTestingGroups method
 
 
@@ -414,7 +414,7 @@ class AppsCategory(BaseCategory):
         key: typing.Optional[str] = None,
         separate: typing.Optional[bool] = None,
         **kwargs,
-    ) -> AppsSendRequestResponseModel:
+    ) -> AppsSendRequestResponse:
         """apps.sendRequest method
 
 
@@ -440,7 +440,7 @@ class AppsCategory(BaseCategory):
         group_id: typing.Optional[int] = None,
         user_ids: typing.Optional[typing.List[int]] = None,
         **kwargs,
-    ) -> AppsCreatedGroupResponseModel:
+    ) -> AppsCreatedGroupResponse:
         """apps.updateMetaForTestingGroup method
 
 

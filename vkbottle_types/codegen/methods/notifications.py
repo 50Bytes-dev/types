@@ -18,7 +18,7 @@ class NotificationsCategory(BaseCategory):
         start_time: typing.Optional[int] = None,
         end_time: typing.Optional[int] = None,
         **kwargs,
-    ) -> NotificationsGetResponseModel:
+    ) -> NotificationsGetResponse:
         """notifications.get method
 
 
@@ -38,7 +38,7 @@ class NotificationsCategory(BaseCategory):
     async def mark_as_viewed(
         self,
         **kwargs,
-    ) -> BaseBoolResponseModel:
+    ) -> BaseBoolResponse:
         """notifications.markAsViewed method"""
         params = self.get_set_params(locals())
         response = await self.api.request("account.ban", params)
@@ -56,7 +56,7 @@ class NotificationsCategory(BaseCategory):
         random_id: typing.Optional[int] = None,
         sending_mode: typing.Optional[str] = "immediately",
         **kwargs,
-    ) -> NotificationsSendMessageResponseModel:
+    ) -> NotificationsSendMessageResponse:
         """notifications.sendMessage method
 
 

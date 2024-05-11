@@ -14,7 +14,7 @@ class PagesCategory(BaseCategory):
         self,
         url: str,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """pages.clearCache method
 
 
@@ -37,7 +37,7 @@ class PagesCategory(BaseCategory):
         need_source: typing.Optional[bool] = None,
         need_html: typing.Optional[bool] = None,
         **kwargs,
-    ) -> PagesGetResponseModel:
+    ) -> PagesGetResponse:
         """pages.get method
 
 
@@ -62,7 +62,7 @@ class PagesCategory(BaseCategory):
         group_id: typing.Optional[int] = None,
         user_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> PagesGetHistoryResponseModel:
+    ) -> PagesGetHistoryResponse:
         """pages.getHistory method
 
 
@@ -81,7 +81,7 @@ class PagesCategory(BaseCategory):
         self,
         group_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> PagesGetTitlesResponseModel:
+    ) -> PagesGetTitlesResponse:
         """pages.getTitles method
 
 
@@ -101,7 +101,7 @@ class PagesCategory(BaseCategory):
         user_id: typing.Optional[int] = None,
         need_html: typing.Optional[bool] = None,
         **kwargs,
-    ) -> PagesGetVersionResponseModel:
+    ) -> PagesGetVersionResponse:
         """pages.getVersion method
 
 
@@ -122,7 +122,7 @@ class PagesCategory(BaseCategory):
         text: str,
         group_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> PagesParseWikiResponseModel:
+    ) -> PagesParseWikiResponse:
         """pages.parseWiki method
 
 
@@ -144,7 +144,7 @@ class PagesCategory(BaseCategory):
         user_id: typing.Optional[int] = None,
         title: typing.Optional[str] = None,
         **kwargs,
-    ) -> PagesSaveResponseModel:
+    ) -> PagesSaveResponse:
         """pages.save method
 
 
@@ -169,7 +169,7 @@ class PagesCategory(BaseCategory):
         view: typing.Optional[int] = None,
         edit: typing.Optional[int] = None,
         **kwargs,
-    ) -> PagesSaveAccessResponseModel:
+    ) -> PagesSaveAccessResponse:
         """pages.saveAccess method
 
 

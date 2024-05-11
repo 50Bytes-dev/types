@@ -6,315 +6,179 @@ from vkbottle_types.base_model import Field
 from vkbottle_types.objects import *
 
 
-class PhotosCopyResponseModel(BaseModel):
+class PhotosCopyResponse(BaseModel):
 
     response: int = Field(
         description="Photo ID",
     )
 
 
-class PhotosCopyResponse(BaseResponse):
-    response: "PhotosCopyResponseModel"
-
-
-class PhotosCreateAlbumResponseModel(BaseModel):
+class PhotosCreateAlbumResponse(BaseModel):
 
     response: "PhotosPhotoAlbumFull" = Field()
 
 
-class PhotosCreateAlbumResponse(BaseResponse):
-    response: "PhotosCreateAlbumResponseModel"
-
-
-class PhotosCreateCommentResponseModel(BaseModel):
+class PhotosCreateCommentResponse(BaseModel):
 
     response: int = Field(
         description="Created comment ID",
     )
 
 
-class PhotosCreateCommentResponse(BaseResponse):
-    response: "PhotosCreateCommentResponseModel"
-
-
-class PhotosGetAlbumsCountResponseModel(BaseModel):
+class PhotosGetAlbumsCountResponse(BaseModel):
 
     response: int = Field(
         description="Albums number",
     )
 
 
-class PhotosGetAlbumsCountResponse(BaseResponse):
-    response: "PhotosGetAlbumsCountResponseModel"
-
-
-class PhotosGetAlbumsResponseModel(BaseModel):
+class PhotosGetAlbumsResponse(BaseModel):
 
     response: dict = Field()
 
 
-class PhotosGetAlbumsResponse(BaseResponse):
-    response: "PhotosGetAlbumsResponseModel"
-
-
-class PhotosGetAllCommentsResponseModel(BaseModel):
+class PhotosGetAllCommentsResponse(BaseModel):
 
     response: dict = Field()
 
 
-class PhotosGetAllCommentsResponse(BaseResponse):
-    response: "PhotosGetAllCommentsResponseModel"
-
-
-class PhotosGetAllResponseModel(BaseModel):
+class PhotosGetAllResponse(BaseModel):
 
     response: dict = Field()
 
 
-class PhotosGetAllResponse(BaseResponse):
-    response: "PhotosGetAllResponseModel"
-
-
-class PhotosGetByIdResponseModel(BaseModel):
+class PhotosGetByIdResponse(BaseModel):
 
     response: typing.List[PhotosPhoto] = Field()
 
 
-class PhotosGetByIdResponse(BaseResponse):
-    response: "PhotosGetByIdResponseModel"
-
-
-class PhotosGetCommentsExtendedResponseModel(BaseModel):
+class PhotosGetCommentsExtendedResponse(BaseModel):
 
     response: dict = Field()
 
 
-class PhotosGetCommentsExtendedResponse(BaseResponse):
-    response: "PhotosGetCommentsExtendedResponseModel"
-
-
-class PhotosGetCommentsResponseModel(BaseModel):
+class PhotosGetCommentsResponse(BaseModel):
 
     response: dict = Field()
 
 
-class PhotosGetCommentsResponse(BaseResponse):
-    response: "PhotosGetCommentsResponseModel"
-
-
-class PhotosGetMarketUploadServerResponseModel(BaseModel):
+class PhotosGetMarketUploadServerResponse(BaseModel):
 
     response: "BaseUploadServer" = Field()
 
 
-class PhotosGetMarketUploadServerResponse(BaseResponse):
-    response: "PhotosGetMarketUploadServerResponseModel"
-
-
-class PhotosGetMessagesUploadServerResponseModel(BaseModel):
+class PhotosGetMessagesUploadServerResponse(BaseModel):
 
     response: "PhotosPhotoUpload" = Field()
 
 
-class PhotosGetMessagesUploadServerResponse(BaseResponse):
-    response: "PhotosGetMessagesUploadServerResponseModel"
-
-
-class PhotosGetNewTagsResponseModel(BaseModel):
+class PhotosGetNewTagsResponse(BaseModel):
 
     response: dict = Field()
 
 
-class PhotosGetNewTagsResponse(BaseResponse):
-    response: "PhotosGetNewTagsResponseModel"
-
-
-class PhotosGetTagsResponseModel(BaseModel):
+class PhotosGetTagsResponse(BaseModel):
 
     response: typing.List[PhotosPhotoTag] = Field()
 
 
-class PhotosGetTagsResponse(BaseResponse):
-    response: "PhotosGetTagsResponseModel"
-
-
-class PhotosGetUploadServerResponseModel(BaseModel):
+class PhotosGetUploadServerResponse(BaseModel):
 
     response: "PhotosPhotoUpload" = Field()
 
 
-class PhotosGetUploadServerResponse(BaseResponse):
-    response: "PhotosGetUploadServerResponseModel"
-
-
-class PhotosGetUserPhotosResponseModel(BaseModel):
+class PhotosGetUserPhotosResponse(BaseModel):
 
     response: dict = Field()
 
 
-class PhotosGetUserPhotosResponse(BaseResponse):
-    response: "PhotosGetUserPhotosResponseModel"
-
-
-class PhotosGetWallUploadServerResponseModel(BaseModel):
+class PhotosGetWallUploadServerResponse(BaseModel):
 
     response: "PhotosPhotoUpload" = Field()
 
 
-class PhotosGetWallUploadServerResponse(BaseResponse):
-    response: "PhotosGetWallUploadServerResponseModel"
-
-
-class PhotosGetResponseModel(BaseModel):
+class PhotosGetResponse(BaseModel):
 
     response: dict = Field()
 
 
-class PhotosGetResponse(BaseResponse):
-    response: "PhotosGetResponseModel"
-
-
-class PhotosMarketAlbumUploadResponseModel(BaseModel):
+class PhotosMarketAlbumUploadResponse(BaseModel):
 
     response: dict = Field()
 
 
-class PhotosMarketAlbumUploadResponse(BaseResponse):
-    response: "PhotosMarketAlbumUploadResponseModel"
-
-
-class PhotosMarketUploadResponseModel(BaseModel):
+class PhotosMarketUploadResponse(BaseModel):
 
     response: dict = Field()
 
 
-class PhotosMarketUploadResponse(BaseResponse):
-    response: "PhotosMarketUploadResponseModel"
-
-
-class PhotosMessageUploadResponseModel(BaseModel):
+class PhotosMessageUploadResponse(BaseModel):
 
     response: dict = Field()
 
 
-class PhotosMessageUploadResponse(BaseResponse):
-    response: "PhotosMessageUploadResponseModel"
-
-
-class PhotosOwnerCoverUploadResponseModel(BaseModel):
+class PhotosOwnerCoverUploadResponse(BaseModel):
 
     response: dict = Field()
 
 
-class PhotosOwnerCoverUploadResponse(BaseResponse):
-    response: "PhotosOwnerCoverUploadResponseModel"
-
-
-class PhotosOwnerUploadResponseModel(BaseModel):
+class PhotosOwnerUploadResponse(BaseModel):
 
     response: dict = Field()
 
 
-class PhotosOwnerUploadResponse(BaseResponse):
-    response: "PhotosOwnerUploadResponseModel"
-
-
-class PhotosPhotoUploadResponseModel(BaseModel):
+class PhotosPhotoUploadResponse(BaseModel):
 
     response: dict = Field()
 
 
-class PhotosPhotoUploadResponse(BaseResponse):
-    response: "PhotosPhotoUploadResponseModel"
-
-
-class PhotosPutTagResponseModel(BaseModel):
+class PhotosPutTagResponse(BaseModel):
 
     response: int = Field(
         description="Created tag ID",
     )
 
 
-class PhotosPutTagResponse(BaseResponse):
-    response: "PhotosPutTagResponseModel"
-
-
-class PhotosSaveMarketAlbumPhotoResponseModel(BaseModel):
+class PhotosSaveMarketAlbumPhotoResponse(BaseModel):
 
     response: typing.List[PhotosPhoto] = Field()
 
 
-class PhotosSaveMarketAlbumPhotoResponse(BaseResponse):
-    response: "PhotosSaveMarketAlbumPhotoResponseModel"
-
-
-class PhotosSaveMarketPhotoResponseModel(BaseModel):
+class PhotosSaveMarketPhotoResponse(BaseModel):
 
     response: typing.List[PhotosPhoto] = Field()
 
 
-class PhotosSaveMarketPhotoResponse(BaseResponse):
-    response: "PhotosSaveMarketPhotoResponseModel"
-
-
-class PhotosSaveMessagesPhotoResponseModel(BaseModel):
+class PhotosSaveMessagesPhotoResponse(BaseModel):
 
     response: typing.List[PhotosPhoto] = Field()
 
 
-class PhotosSaveMessagesPhotoResponse(BaseResponse):
-    response: "PhotosSaveMessagesPhotoResponseModel"
-
-
-class PhotosSaveOwnerCoverPhotoResponseModel(BaseModel):
+class PhotosSaveOwnerCoverPhotoResponse(BaseModel):
 
     response: dict = Field()
 
 
-class PhotosSaveOwnerCoverPhotoResponse(BaseResponse):
-    response: "PhotosSaveOwnerCoverPhotoResponseModel"
-
-
-class PhotosSaveOwnerPhotoResponseModel(BaseModel):
+class PhotosSaveOwnerPhotoResponse(BaseModel):
 
     response: dict = Field()
 
 
-class PhotosSaveOwnerPhotoResponse(BaseResponse):
-    response: "PhotosSaveOwnerPhotoResponseModel"
-
-
-class PhotosSaveWallPhotoResponseModel(BaseModel):
+class PhotosSaveWallPhotoResponse(BaseModel):
 
     response: typing.List[PhotosPhoto] = Field()
 
 
-class PhotosSaveWallPhotoResponse(BaseResponse):
-    response: "PhotosSaveWallPhotoResponseModel"
-
-
-class PhotosSaveResponseModel(BaseModel):
+class PhotosSaveResponse(BaseModel):
 
     response: typing.List[PhotosPhoto] = Field()
 
 
-class PhotosSaveResponse(BaseResponse):
-    response: "PhotosSaveResponseModel"
-
-
-class PhotosSearchResponseModel(BaseModel):
+class PhotosSearchResponse(BaseModel):
 
     response: dict = Field()
 
 
-class PhotosSearchResponse(BaseResponse):
-    response: "PhotosSearchResponseModel"
-
-
-class PhotosWallUploadResponseModel(BaseModel):
+class PhotosWallUploadResponse(BaseModel):
 
     response: dict = Field()
-
-
-class PhotosWallUploadResponse(BaseResponse):
-    response: "PhotosWallUploadResponseModel"

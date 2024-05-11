@@ -6,390 +6,218 @@ from vkbottle_types.base_model import Field
 from vkbottle_types.objects import *
 
 
-class MessagesAddChatUsersResponseModel(BaseModel):
+class MessagesAddChatUsersResponse(BaseModel):
 
     response: dict = Field()
 
 
-class MessagesAddChatUsersResponse(BaseResponse):
-    response: "MessagesAddChatUsersResponseModel"
-
-
-class MessagesCreateChatWithPeerIdsResponseModel(BaseModel):
+class MessagesCreateChatWithPeerIdsResponse(BaseModel):
 
     response: dict = Field()
 
 
-class MessagesCreateChatWithPeerIdsResponse(BaseResponse):
-    response: "MessagesCreateChatWithPeerIdsResponseModel"
-
-
-class MessagesDeleteChatPhotoResponseModel(BaseModel):
+class MessagesDeleteChatPhotoResponse(BaseModel):
 
     response: dict = Field()
 
 
-class MessagesDeleteChatPhotoResponse(BaseResponse):
-    response: "MessagesDeleteChatPhotoResponseModel"
-
-
-class MessagesDeleteConversationResponseModel(BaseModel):
+class MessagesDeleteConversationResponse(BaseModel):
 
     response: dict = Field()
 
 
-class MessagesDeleteConversationResponse(BaseResponse):
-    response: "MessagesDeleteConversationResponseModel"
-
-
-class MessagesDeleteFullResponseModel(BaseModel):
+class MessagesDeleteFullResponse(BaseModel):
 
     response: typing.List[MessagesDeleteFullResponseItem] = Field()
 
 
-class MessagesDeleteFullResponse(BaseResponse):
-    response: "MessagesDeleteFullResponseModel"
-
-
-class MessagesGetByConversationMessageIdExtendedResponseModel(BaseModel):
+class MessagesGetByConversationMessageIdExtendedResponse(BaseModel):
 
     response: dict = Field()
 
 
-class MessagesGetByConversationMessageIdExtendedResponse(BaseResponse):
-    response: "MessagesGetByConversationMessageIdExtendedResponseModel"
-
-
-class MessagesGetByConversationMessageIdResponseModel(BaseModel):
+class MessagesGetByConversationMessageIdResponse(BaseModel):
 
     response: dict = Field()
 
 
-class MessagesGetByConversationMessageIdResponse(BaseResponse):
-    response: "MessagesGetByConversationMessageIdResponseModel"
-
-
-class MessagesGetByIdExtendedResponseModel(BaseModel):
+class MessagesGetByIdExtendedResponse(BaseModel):
 
     response: dict = Field()
 
 
-class MessagesGetByIdExtendedResponse(BaseResponse):
-    response: "MessagesGetByIdExtendedResponseModel"
-
-
-class MessagesGetByIdResponseModel(BaseModel):
+class MessagesGetByIdResponse(BaseModel):
 
     response: dict = Field()
 
 
-class MessagesGetByIdResponse(BaseResponse):
-    response: "MessagesGetByIdResponseModel"
-
-
-class MessagesGetChatPreviewResponseModel(BaseModel):
+class MessagesGetChatPreviewResponse(BaseModel):
 
     response: dict = Field()
 
 
-class MessagesGetChatPreviewResponse(BaseResponse):
-    response: "MessagesGetChatPreviewResponseModel"
-
-
-class MessagesGetChatChatIdsFieldsResponseModel(BaseModel):
+class MessagesGetChatChatIdsFieldsResponse(BaseModel):
 
     response: typing.List[MessagesChatFull] = Field()
 
 
-class MessagesGetChatChatIdsFieldsResponse(BaseResponse):
-    response: "MessagesGetChatChatIdsFieldsResponseModel"
-
-
-class MessagesGetChatChatIdsResponseModel(BaseModel):
+class MessagesGetChatChatIdsResponse(BaseModel):
 
     response: typing.List[MessagesChat] = Field()
 
 
-class MessagesGetChatChatIdsResponse(BaseResponse):
-    response: "MessagesGetChatChatIdsResponseModel"
-
-
-class MessagesGetChatFieldsResponseModel(BaseModel):
+class MessagesGetChatFieldsResponse(BaseModel):
 
     response: "MessagesChatFull" = Field()
 
 
-class MessagesGetChatFieldsResponse(BaseResponse):
-    response: "MessagesGetChatFieldsResponseModel"
-
-
-class MessagesGetChatResponseModel(BaseModel):
+class MessagesGetChatResponse(BaseModel):
 
     response: "MessagesChat" = Field()
 
 
-class MessagesGetChatResponse(BaseResponse):
-    response: "MessagesGetChatResponseModel"
-
-
-class MessagesGetConversationMembersResponseModel(BaseModel):
+class MessagesGetConversationMembersResponse(BaseModel):
 
     response: "MessagesGetConversationMembers" = Field()
 
 
-class MessagesGetConversationMembersResponse(BaseResponse):
-    response: "MessagesGetConversationMembersResponseModel"
-
-
-class MessagesGetConversationsByIdExtendedResponseModel(BaseModel):
+class MessagesGetConversationsByIdExtendedResponse(BaseModel):
 
     response: "MessagesGetConversationByIdExtended" = Field()
 
 
-class MessagesGetConversationsByIdExtendedResponse(BaseResponse):
-    response: "MessagesGetConversationsByIdExtendedResponseModel"
-
-
-class MessagesGetConversationsByIdResponseModel(BaseModel):
+class MessagesGetConversationsByIdResponse(BaseModel):
 
     response: "MessagesGetConversationById" = Field()
 
 
-class MessagesGetConversationsByIdResponse(BaseResponse):
-    response: "MessagesGetConversationsByIdResponseModel"
-
-
-class MessagesGetConversationsResponseModel(BaseModel):
+class MessagesGetConversationsResponse(BaseModel):
 
     response: dict = Field()
 
 
-class MessagesGetConversationsResponse(BaseResponse):
-    response: "MessagesGetConversationsResponseModel"
-
-
-class MessagesGetHistoryAttachmentsResponseModel(BaseModel):
+class MessagesGetHistoryAttachmentsResponse(BaseModel):
 
     response: dict = Field()
 
 
-class MessagesGetHistoryAttachmentsResponse(BaseResponse):
-    response: "MessagesGetHistoryAttachmentsResponseModel"
-
-
-class MessagesGetHistoryExtendedResponseModel(BaseModel):
+class MessagesGetHistoryExtendedResponse(BaseModel):
 
     response: dict = Field()
 
 
-class MessagesGetHistoryExtendedResponse(BaseResponse):
-    response: "MessagesGetHistoryExtendedResponseModel"
-
-
-class MessagesGetHistoryResponseModel(BaseModel):
+class MessagesGetHistoryResponse(BaseModel):
 
     response: dict = Field()
 
 
-class MessagesGetHistoryResponse(BaseResponse):
-    response: "MessagesGetHistoryResponseModel"
-
-
-class MessagesGetImportantMessagesExtendedResponseModel(BaseModel):
+class MessagesGetImportantMessagesExtendedResponse(BaseModel):
 
     response: dict = Field()
 
 
-class MessagesGetImportantMessagesExtendedResponse(BaseResponse):
-    response: "MessagesGetImportantMessagesExtendedResponseModel"
-
-
-class MessagesGetImportantMessagesResponseModel(BaseModel):
+class MessagesGetImportantMessagesResponse(BaseModel):
 
     response: dict = Field()
 
 
-class MessagesGetImportantMessagesResponse(BaseResponse):
-    response: "MessagesGetImportantMessagesResponseModel"
-
-
-class MessagesGetIntentUsersResponseModel(BaseModel):
+class MessagesGetIntentUsersResponse(BaseModel):
 
     response: dict = Field()
 
 
-class MessagesGetIntentUsersResponse(BaseResponse):
-    response: "MessagesGetIntentUsersResponseModel"
-
-
-class MessagesGetInviteLinkByOwnerResponseModel(BaseModel):
+class MessagesGetInviteLinkByOwnerResponse(BaseModel):
 
     response: dict = Field()
 
 
-class MessagesGetInviteLinkByOwnerResponse(BaseResponse):
-    response: "MessagesGetInviteLinkByOwnerResponseModel"
-
-
-class MessagesGetInviteLinkResponseModel(BaseModel):
+class MessagesGetInviteLinkResponse(BaseModel):
 
     response: dict = Field()
 
 
-class MessagesGetInviteLinkResponse(BaseResponse):
-    response: "MessagesGetInviteLinkResponseModel"
-
-
-class MessagesGetLastActivityResponseModel(BaseModel):
+class MessagesGetLastActivityResponse(BaseModel):
 
     response: "MessagesLastActivity" = Field()
 
 
-class MessagesGetLastActivityResponse(BaseResponse):
-    response: "MessagesGetLastActivityResponseModel"
-
-
-class MessagesGetLongPollHistoryResponseModel(BaseModel):
+class MessagesGetLongPollHistoryResponse(BaseModel):
 
     response: dict = Field()
 
 
-class MessagesGetLongPollHistoryResponse(BaseResponse):
-    response: "MessagesGetLongPollHistoryResponseModel"
-
-
-class MessagesGetLongPollServerResponseModel(BaseModel):
+class MessagesGetLongPollServerResponse(BaseModel):
 
     response: "MessagesLongpollParams" = Field()
 
 
-class MessagesGetLongPollServerResponse(BaseResponse):
-    response: "MessagesGetLongPollServerResponseModel"
-
-
-class MessagesGetMessagesReactionsResponseModel(BaseModel):
+class MessagesGetMessagesReactionsResponse(BaseModel):
 
     response: dict = Field()
 
 
-class MessagesGetMessagesReactionsResponse(BaseResponse):
-    response: "MessagesGetMessagesReactionsResponseModel"
-
-
-class MessagesGetReactedPeersResponseModel(BaseModel):
+class MessagesGetReactedPeersResponse(BaseModel):
 
     response: dict = Field()
 
 
-class MessagesGetReactedPeersResponse(BaseResponse):
-    response: "MessagesGetReactedPeersResponseModel"
-
-
-class MessagesGetReactionsAssetsResponseModel(BaseModel):
+class MessagesGetReactionsAssetsResponse(BaseModel):
 
     response: dict = Field()
 
 
-class MessagesGetReactionsAssetsResponse(BaseResponse):
-    response: "MessagesGetReactionsAssetsResponseModel"
-
-
-class MessagesIsMessagesFromGroupAllowedResponseModel(BaseModel):
+class MessagesIsMessagesFromGroupAllowedResponse(BaseModel):
 
     response: dict = Field()
 
 
-class MessagesIsMessagesFromGroupAllowedResponse(BaseResponse):
-    response: "MessagesIsMessagesFromGroupAllowedResponseModel"
-
-
-class MessagesJoinChatByInviteLinkResponseModel(BaseModel):
+class MessagesJoinChatByInviteLinkResponse(BaseModel):
 
     response: dict = Field()
 
 
-class MessagesJoinChatByInviteLinkResponse(BaseResponse):
-    response: "MessagesJoinChatByInviteLinkResponseModel"
-
-
-class MessagesMarkAsImportantDeprecatedResponseModel(BaseModel):
+class MessagesMarkAsImportantDeprecatedResponse(BaseModel):
 
     response: typing.List[int] = Field()
 
 
-class MessagesMarkAsImportantDeprecatedResponse(BaseResponse):
-    response: "MessagesMarkAsImportantDeprecatedResponseModel"
-
-
-class MessagesPinResponseModel(BaseModel):
+class MessagesPinResponse(BaseModel):
 
     response: "MessagesPinnedMessage" = Field()
 
 
-class MessagesPinResponse(BaseResponse):
-    response: "MessagesPinResponseModel"
-
-
-class MessagesSearchConversationsExtendedResponseModel(BaseModel):
+class MessagesSearchConversationsExtendedResponse(BaseModel):
 
     response: dict = Field()
 
 
-class MessagesSearchConversationsExtendedResponse(BaseResponse):
-    response: "MessagesSearchConversationsExtendedResponseModel"
-
-
-class MessagesSearchConversationsResponseModel(BaseModel):
+class MessagesSearchConversationsResponse(BaseModel):
 
     response: dict = Field()
 
 
-class MessagesSearchConversationsResponse(BaseResponse):
-    response: "MessagesSearchConversationsResponseModel"
-
-
-class MessagesSearchExtendedResponseModel(BaseModel):
+class MessagesSearchExtendedResponse(BaseModel):
 
     response: dict = Field()
 
 
-class MessagesSearchExtendedResponse(BaseResponse):
-    response: "MessagesSearchExtendedResponseModel"
-
-
-class MessagesSearchResponseModel(BaseModel):
+class MessagesSearchResponse(BaseModel):
 
     response: dict = Field()
 
 
-class MessagesSearchResponse(BaseResponse):
-    response: "MessagesSearchResponseModel"
-
-
-class MessagesSendDeprecatedResponseModel(BaseModel):
+class MessagesSendDeprecatedResponse(BaseModel):
 
     response: int = Field(
         description="Message ID",
     )
 
 
-class MessagesSendDeprecatedResponse(BaseResponse):
-    response: "MessagesSendDeprecatedResponseModel"
-
-
-class MessagesSendUserIdsResponseModel(BaseModel):
+class MessagesSendUserIdsResponse(BaseModel):
 
     response: typing.List[MessagesSendUserIdsResponseItem] = Field()
 
 
-class MessagesSendUserIdsResponse(BaseResponse):
-    response: "MessagesSendUserIdsResponseModel"
-
-
-class MessagesSetChatPhotoResponseModel(BaseModel):
+class MessagesSetChatPhotoResponse(BaseModel):
 
     response: dict = Field()
-
-
-class MessagesSetChatPhotoResponse(BaseResponse):
-    response: "MessagesSetChatPhotoResponseModel"

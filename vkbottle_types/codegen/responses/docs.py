@@ -6,75 +6,43 @@ from vkbottle_types.base_model import Field
 from vkbottle_types.objects import *
 
 
-class DocsAddResponseModel(BaseModel):
+class DocsAddResponse(BaseModel):
 
     response: int = Field(
         description="Document ID",
     )
 
 
-class DocsAddResponse(BaseResponse):
-    response: "DocsAddResponseModel"
-
-
-class DocsDocUploadResponseModel(BaseModel):
+class DocsDocUploadResponse(BaseModel):
 
     response: dict = Field()
 
 
-class DocsDocUploadResponse(BaseResponse):
-    response: "DocsDocUploadResponseModel"
-
-
-class DocsGetByIdResponseModel(BaseModel):
+class DocsGetByIdResponse(BaseModel):
 
     response: typing.List[DocsDoc] = Field()
 
 
-class DocsGetByIdResponse(BaseResponse):
-    response: "DocsGetByIdResponseModel"
-
-
-class DocsGetTypesResponseModel(BaseModel):
+class DocsGetTypesResponse(BaseModel):
 
     response: dict = Field()
 
 
-class DocsGetTypesResponse(BaseResponse):
-    response: "DocsGetTypesResponseModel"
-
-
-class DocsGetUploadServerResponseModel(BaseModel):
+class DocsGetUploadServerResponse(BaseModel):
 
     response: "BaseUploadServer" = Field()
 
 
-class DocsGetUploadServerResponse(BaseResponse):
-    response: "DocsGetUploadServerResponseModel"
-
-
-class DocsGetResponseModel(BaseModel):
+class DocsGetResponse(BaseModel):
 
     response: dict = Field()
 
 
-class DocsGetResponse(BaseResponse):
-    response: "DocsGetResponseModel"
-
-
-class DocsSaveResponseModel(BaseModel):
+class DocsSaveResponse(BaseModel):
 
     response: dict = Field()
 
 
-class DocsSaveResponse(BaseResponse):
-    response: "DocsSaveResponseModel"
-
-
-class DocsSearchResponseModel(BaseModel):
+class DocsSearchResponse(BaseModel):
 
     response: dict = Field()
-
-
-class DocsSearchResponse(BaseResponse):
-    response: "DocsSearchResponseModel"

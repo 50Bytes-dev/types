@@ -6,10 +6,6 @@ from vkbottle_types.base_model import Field
 from vkbottle_types.objects import *
 
 
-class CallsStartResponseModel(BaseModel):
+class CallsStartResponse(BaseModel):
 
     response: dict = Field()
-
-
-class CallsStartResponse(BaseResponse):
-    response: "CallsStartResponseModel"

@@ -18,7 +18,7 @@ class BoardCategory(BaseCategory):
         from_group: typing.Optional[bool] = None,
         attachments: typing.Optional[typing.List[str]] = None,
         **kwargs,
-    ) -> BoardAddTopicResponseModel:
+    ) -> BoardAddTopicResponse:
         """board.addTopic method
 
 
@@ -40,7 +40,7 @@ class BoardCategory(BaseCategory):
         group_id: int,
         topic_id: int,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """board.closeTopic method
 
 
@@ -64,7 +64,7 @@ class BoardCategory(BaseCategory):
         sticker_id: typing.Optional[int] = None,
         guid: typing.Optional[str] = None,
         **kwargs,
-    ) -> BoardCreateCommentResponseModel:
+    ) -> BoardCreateCommentResponse:
         """board.createComment method
 
 
@@ -89,7 +89,7 @@ class BoardCategory(BaseCategory):
         topic_id: int,
         comment_id: int,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """board.deleteComment method
 
 
@@ -109,7 +109,7 @@ class BoardCategory(BaseCategory):
         group_id: int,
         topic_id: int,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """board.deleteTopic method
 
 
@@ -131,7 +131,7 @@ class BoardCategory(BaseCategory):
         message: typing.Optional[str] = None,
         attachments: typing.Optional[typing.List[str]] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """board.editComment method
 
 
@@ -154,7 +154,7 @@ class BoardCategory(BaseCategory):
         topic_id: int,
         title: str,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """board.editTopic method
 
 
@@ -174,7 +174,7 @@ class BoardCategory(BaseCategory):
         group_id: int,
         topic_id: int,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """board.fixTopic method
 
 
@@ -200,7 +200,7 @@ class BoardCategory(BaseCategory):
         count: typing.Optional[int] = 20,
         sort: typing.Optional[str] = None,
         **kwargs,
-    ) -> BoardGetCommentsExtendedResponseModel: ...
+    ) -> BoardGetCommentsExtendedResponse: ...
 
     async def get_comments(
         self,
@@ -213,7 +213,7 @@ class BoardCategory(BaseCategory):
         extended: typing.Optional[bool] = None,
         sort: typing.Optional[str] = None,
         **kwargs,
-    ) -> BoardGetCommentsResponseModel:
+    ) -> BoardGetCommentsResponse:
         """board.getComments method
 
 
@@ -249,7 +249,7 @@ class BoardCategory(BaseCategory):
         preview: typing.Optional[int] = None,
         preview_length: typing.Optional[int] = 90,
         **kwargs,
-    ) -> BoardGetTopicsExtendedResponseModel: ...
+    ) -> BoardGetTopicsExtendedResponse: ...
 
     async def get_topics(
         self,
@@ -262,7 +262,7 @@ class BoardCategory(BaseCategory):
         preview: typing.Optional[int] = None,
         preview_length: typing.Optional[int] = 90,
         **kwargs,
-    ) -> BoardGetTopicsResponseModel:
+    ) -> BoardGetTopicsResponse:
         """board.getTopics method
 
 
@@ -291,7 +291,7 @@ class BoardCategory(BaseCategory):
         group_id: int,
         topic_id: int,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """board.openTopic method
 
 
@@ -311,7 +311,7 @@ class BoardCategory(BaseCategory):
         topic_id: int,
         comment_id: int,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """board.restoreComment method
 
 
@@ -331,7 +331,7 @@ class BoardCategory(BaseCategory):
         group_id: int,
         topic_id: int,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """board.unfixTopic method
 
 

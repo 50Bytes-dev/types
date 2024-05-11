@@ -6,55 +6,31 @@ from vkbottle_types.base_model import Field
 from vkbottle_types.objects import *
 
 
-class UsersGetFollowersFieldsResponseModel(BaseModel):
+class UsersGetFollowersFieldsResponse(BaseModel):
 
     response: dict = Field()
 
 
-class UsersGetFollowersFieldsResponse(BaseResponse):
-    response: "UsersGetFollowersFieldsResponseModel"
-
-
-class UsersGetFollowersResponseModel(BaseModel):
+class UsersGetFollowersResponse(BaseModel):
 
     response: dict = Field()
 
 
-class UsersGetFollowersResponse(BaseResponse):
-    response: "UsersGetFollowersResponseModel"
-
-
-class UsersGetSubscriptionsExtendedResponseModel(BaseModel):
+class UsersGetSubscriptionsExtendedResponse(BaseModel):
 
     response: dict = Field()
 
 
-class UsersGetSubscriptionsExtendedResponse(BaseResponse):
-    response: "UsersGetSubscriptionsExtendedResponseModel"
-
-
-class UsersGetSubscriptionsResponseModel(BaseModel):
+class UsersGetSubscriptionsResponse(BaseModel):
 
     response: dict = Field()
 
 
-class UsersGetSubscriptionsResponse(BaseResponse):
-    response: "UsersGetSubscriptionsResponseModel"
-
-
-class UsersGetResponseModel(BaseModel):
+class UsersGetResponse(BaseModel):
 
     response: typing.List[UsersUserFull] = Field()
 
 
-class UsersGetResponse(BaseResponse):
-    response: "UsersGetResponseModel"
-
-
-class UsersSearchResponseModel(BaseModel):
+class UsersSearchResponse(BaseModel):
 
     response: dict = Field()
-
-
-class UsersSearchResponse(BaseResponse):
-    response: "UsersSearchResponseModel"

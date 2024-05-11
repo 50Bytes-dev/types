@@ -6,149 +6,85 @@ from vkbottle_types.base_model import Field
 from vkbottle_types.objects import *
 
 
-class AppsAddSnippetResponseModel(BaseModel):
+class AppsAddSnippetResponse(BaseModel):
 
     response: dict = Field()
 
 
-class AppsAddSnippetResponse(BaseResponse):
-    response: "AppsAddSnippetResponseModel"
-
-
-class AppsCreatedGroupResponseModel(BaseModel):
+class AppsCreatedGroupResponse(BaseModel):
 
     response: dict = Field()
 
 
-class AppsCreatedGroupResponse(BaseResponse):
-    response: "AppsCreatedGroupResponseModel"
-
-
-class AppsGetCatalogResponseModel(BaseModel):
+class AppsGetCatalogResponse(BaseModel):
 
     response: "AppsCatalogList" = Field()
 
 
-class AppsGetCatalogResponse(BaseResponse):
-    response: "AppsGetCatalogResponseModel"
-
-
-class AppsGetFriendsListExtendedResponseModel(BaseModel):
+class AppsGetFriendsListExtendedResponse(BaseModel):
 
     response: dict = Field()
 
 
-class AppsGetFriendsListExtendedResponse(BaseResponse):
-    response: "AppsGetFriendsListExtendedResponseModel"
-
-
-class AppsGetFriendsListResponseModel(BaseModel):
+class AppsGetFriendsListResponse(BaseModel):
 
     response: dict = Field()
 
 
-class AppsGetFriendsListResponse(BaseResponse):
-    response: "AppsGetFriendsListResponseModel"
-
-
-class AppsGetLeaderboardExtendedResponseModel(BaseModel):
+class AppsGetLeaderboardExtendedResponse(BaseModel):
 
     response: dict = Field()
 
 
-class AppsGetLeaderboardExtendedResponse(BaseResponse):
-    response: "AppsGetLeaderboardExtendedResponseModel"
-
-
-class AppsGetLeaderboardResponseModel(BaseModel):
+class AppsGetLeaderboardResponse(BaseModel):
 
     response: dict = Field()
 
 
-class AppsGetLeaderboardResponse(BaseResponse):
-    response: "AppsGetLeaderboardResponseModel"
-
-
-class AppsGetMiniAppPoliciesResponseModel(BaseModel):
+class AppsGetMiniAppPoliciesResponse(BaseModel):
 
     response: dict = Field()
 
 
-class AppsGetMiniAppPoliciesResponse(BaseResponse):
-    response: "AppsGetMiniAppPoliciesResponseModel"
-
-
-class AppsGetScopesResponseModel(BaseModel):
+class AppsGetScopesResponse(BaseModel):
 
     response: dict = Field()
 
 
-class AppsGetScopesResponse(BaseResponse):
-    response: "AppsGetScopesResponseModel"
-
-
-class AppsGetScoreResponseModel(BaseModel):
+class AppsGetScoreResponse(BaseModel):
 
     response: int = Field(
         description="Score number",
     )
 
 
-class AppsGetScoreResponse(BaseResponse):
-    response: "AppsGetScoreResponseModel"
-
-
-class AppsGetSnippetsResponseModel(BaseModel):
+class AppsGetSnippetsResponse(BaseModel):
 
     response: dict = Field()
 
 
-class AppsGetSnippetsResponse(BaseResponse):
-    response: "AppsGetSnippetsResponseModel"
-
-
-class AppsGetTestingGroupsResponseModel(BaseModel):
+class AppsGetTestingGroupsResponse(BaseModel):
 
     response: typing.List[AppsTestingGroup] = Field()
 
 
-class AppsGetTestingGroupsResponse(BaseResponse):
-    response: "AppsGetTestingGroupsResponseModel"
-
-
-class AppsGetResponseModel(BaseModel):
+class AppsGetResponse(BaseModel):
 
     response: dict = Field()
 
 
-class AppsGetResponse(BaseResponse):
-    response: "AppsGetResponseModel"
-
-
-class AppsImageUploadResponseModel(BaseModel):
+class AppsImageUploadResponse(BaseModel):
 
     response: dict = Field()
 
 
-class AppsImageUploadResponse(BaseResponse):
-    response: "AppsImageUploadResponseModel"
-
-
-class AppsIsNotificationsAllowedResponseModel(BaseModel):
+class AppsIsNotificationsAllowedResponse(BaseModel):
 
     response: dict = Field()
 
 
-class AppsIsNotificationsAllowedResponse(BaseResponse):
-    response: "AppsIsNotificationsAllowedResponseModel"
-
-
-class AppsSendRequestResponseModel(BaseModel):
+class AppsSendRequestResponse(BaseModel):
 
     response: int = Field(
         description="Request ID",
     )
-
-
-class AppsSendRequestResponse(BaseResponse):
-    response: "AppsSendRequestResponseModel"

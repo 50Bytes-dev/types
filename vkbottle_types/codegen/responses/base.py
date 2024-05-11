@@ -6,37 +6,21 @@ from vkbottle_types.base_model import Field
 from vkbottle_types.objects import *
 
 
-class BaseBoolResponseModel(BaseModel):
+class BaseBoolResponse(BaseModel):
 
     response: bool = Field()
 
 
-class BaseBoolResponse(BaseResponse):
-    response: "BaseBoolResponseModel"
-
-
-class BaseGetUploadServerResponseModel(BaseModel):
+class BaseGetUploadServerResponse(BaseModel):
 
     response: "BaseUploadServer" = Field()
 
 
-class BaseGetUploadServerResponse(BaseResponse):
-    response: "BaseGetUploadServerResponseModel"
-
-
-class BaseOkResponseModel(BaseModel):
+class BaseOkResponse(BaseModel):
 
     response: int = Field()
 
 
-class BaseOkResponse(BaseResponse):
-    response: "BaseOkResponseModel"
-
-
-class BaseUndefinedResponseModel(BaseModel):
+class BaseUndefinedResponse(BaseModel):
 
     response: dict = Field()
-
-
-class BaseUndefinedResponse(BaseResponse):
-    response: "BaseUndefinedResponseModel"

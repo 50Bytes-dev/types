@@ -16,7 +16,7 @@ class SecureCategory(BaseCategory):
         user_id: typing.Optional[int] = None,
         value: typing.Optional[int] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """secure.addAppEvent method
 
 
@@ -36,7 +36,7 @@ class SecureCategory(BaseCategory):
         token: typing.Optional[str] = None,
         ip: typing.Optional[str] = None,
         **kwargs,
-    ) -> SecureCheckTokenResponseModel:
+    ) -> SecureCheckTokenResponse:
         """secure.checkToken method
 
 
@@ -53,7 +53,7 @@ class SecureCategory(BaseCategory):
     async def get_app_balance(
         self,
         **kwargs,
-    ) -> SecureGetAppBalanceResponseModel:
+    ) -> SecureGetAppBalanceResponse:
         """secure.getAppBalance method"""
         params = self.get_set_params(locals())
         response = await self.api.request("account.ban", params)
@@ -69,7 +69,7 @@ class SecureCategory(BaseCategory):
         date_to: typing.Optional[int] = None,
         limit: typing.Optional[int] = 1000,
         **kwargs,
-    ) -> SecureGetSMSHistoryResponseModel:
+    ) -> SecureGetSMSHistoryResponse:
         """secure.getSMSHistory method
 
 
@@ -94,7 +94,7 @@ class SecureCategory(BaseCategory):
         date_to: typing.Optional[int] = None,
         limit: typing.Optional[int] = 1000,
         **kwargs,
-    ) -> SecureGetTransactionsHistoryResponseModel:
+    ) -> SecureGetTransactionsHistoryResponse:
         """secure.getTransactionsHistory method
 
 
@@ -116,7 +116,7 @@ class SecureCategory(BaseCategory):
         self,
         user_ids: typing.List[int],
         **kwargs,
-    ) -> SecureGetUserLevelResponseModel:
+    ) -> SecureGetUserLevelResponse:
         """secure.getUserLevel method
 
 
@@ -134,7 +134,7 @@ class SecureCategory(BaseCategory):
         user_ids: typing.List[int],
         achievement_id: int,
         **kwargs,
-    ) -> SecureGiveEventStickerResponseModel:
+    ) -> SecureGiveEventStickerResponse:
         """secure.giveEventSticker method
 
 
@@ -156,7 +156,7 @@ class SecureCategory(BaseCategory):
         notification_id: typing.Optional[int] = 0,
         promo_id: typing.Optional[int] = 0,
         **kwargs,
-    ) -> SecureSendNotificationResponseModel:
+    ) -> SecureSendNotificationResponse:
         """secure.sendNotification method
 
 
@@ -178,7 +178,7 @@ class SecureCategory(BaseCategory):
         user_id: int,
         message: str,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """secure.sendSMSNotification method
 
 
@@ -200,7 +200,7 @@ class SecureCategory(BaseCategory):
         counter: typing.Optional[int] = None,
         increment: typing.Optional[bool] = None,
         **kwargs,
-    ) -> BaseBoolResponseModel: ...
+    ) -> BaseBoolResponse: ...
 
     @typing.overload
     async def set_counter(
@@ -210,7 +210,7 @@ class SecureCategory(BaseCategory):
         counter: typing.Optional[int] = None,
         increment: typing.Optional[bool] = None,
         **kwargs,
-    ) -> SecureSetCounterArrayResponseModel: ...
+    ) -> SecureSetCounterArrayResponse: ...
 
     async def set_counter(
         self,
@@ -219,7 +219,7 @@ class SecureCategory(BaseCategory):
         counter: typing.Optional[int] = None,
         increment: typing.Optional[bool] = None,
         **kwargs,
-    ) -> typing.Union[BaseBoolResponseModel, SecureSetCounterArrayResponseModel]:
+    ) -> typing.Union[BaseBoolResponse, SecureSetCounterArrayResponse]:
         """secure.setCounter method
 
 

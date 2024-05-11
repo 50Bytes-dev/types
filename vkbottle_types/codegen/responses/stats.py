@@ -6,19 +6,11 @@ from vkbottle_types.base_model import Field
 from vkbottle_types.objects import *
 
 
-class StatsGetPostReachResponseModel(BaseModel):
+class StatsGetPostReachResponse(BaseModel):
 
     response: typing.List[StatsWallpostStat] = Field()
 
 
-class StatsGetPostReachResponse(BaseResponse):
-    response: "StatsGetPostReachResponseModel"
-
-
-class StatsGetResponseModel(BaseModel):
+class StatsGetResponse(BaseModel):
 
     response: typing.List[StatsPeriod] = Field()
-
-
-class StatsGetResponse(BaseResponse):
-    response: "StatsGetResponseModel"

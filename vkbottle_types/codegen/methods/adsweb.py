@@ -14,7 +14,7 @@ class AdswebCategory(BaseCategory):
         self,
         office_id: int,
         **kwargs,
-    ) -> AdswebGetAdCategoriesResponseModel:
+    ) -> AdswebGetAdCategoriesResponse:
         """adsweb.getAdCategories method
 
 
@@ -30,7 +30,7 @@ class AdswebCategory(BaseCategory):
     async def get_ad_unit_code(
         self,
         **kwargs,
-    ) -> AdswebGetAdUnitCodeResponseModel:
+    ) -> AdswebGetAdUnitCodeResponse:
         """adsweb.getAdUnitCode method"""
         params = self.get_set_params(locals())
         response = await self.api.request("account.ban", params)
@@ -48,7 +48,7 @@ class AdswebCategory(BaseCategory):
         limit: typing.Optional[int] = None,
         offset: typing.Optional[int] = 0,
         **kwargs,
-    ) -> AdswebGetAdUnitsResponseModel:
+    ) -> AdswebGetAdUnitsResponse:
         """adsweb.getAdUnits method
 
 
@@ -73,7 +73,7 @@ class AdswebCategory(BaseCategory):
         limit: typing.Optional[int] = None,
         offset: typing.Optional[int] = 0,
         **kwargs,
-    ) -> AdswebGetFraudHistoryResponseModel:
+    ) -> AdswebGetFraudHistoryResponse:
         """adsweb.getFraudHistory method
 
 
@@ -97,7 +97,7 @@ class AdswebCategory(BaseCategory):
         limit: typing.Optional[int] = None,
         offset: typing.Optional[int] = 0,
         **kwargs,
-    ) -> AdswebGetSitesResponseModel:
+    ) -> AdswebGetSitesResponse:
         """adsweb.getSites method
 
 
@@ -126,7 +126,7 @@ class AdswebCategory(BaseCategory):
         limit: typing.Optional[int] = None,
         page_id: typing.Optional[str] = None,
         **kwargs,
-    ) -> AdswebGetStatisticsResponseModel:
+    ) -> AdswebGetStatisticsResponse:
         """adsweb.getStatistics method
 
 

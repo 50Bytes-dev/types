@@ -9,6 +9,9 @@ from . import generator_types
 import pathlib
 import jinja2
 
+# https://github.com/VKCOM/vk-api-schema
+API_VERSION = "v5.199.63"
+
 CATEGORIES = (
     "users",
     "account",
@@ -69,7 +72,7 @@ CATEGORIES = (
 )
 
 
-URL = "https://raw.githubusercontent.com/VKCOM/vk-api-schema/master/{}/{}.json"
+URL = "https://raw.githubusercontent.com/VKCOM/vk-api-schema/{}/{}/{}.json"
 env = jinja2.Environment(loader=jinja2.FileSystemLoader("generator/templates"))
 env.globals.update(
     {
@@ -113,7 +116,7 @@ def download_schema() -> list[Category]:
     for category_name in tqdm(CATEGORIES):
         dct = {"name": category_name}
         for file in ("methods", "objects", "responses"):
-            result = requests.get(URL.format(category_name, file))
+            result = requests.get(URL.format(API_VERSION, category_name, file))
             if result.status_code == 200:
                 dct[file] = result.json()
             else:

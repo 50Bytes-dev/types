@@ -6,154 +6,86 @@ from vkbottle_types.base_model import Field
 from vkbottle_types.objects import *
 
 
-class WallCreateCommentResponseModel(BaseModel):
+class WallCreateCommentResponse(BaseModel):
 
     response: dict = Field()
 
 
-class WallCreateCommentResponse(BaseResponse):
-    response: "WallCreateCommentResponseModel"
-
-
-class WallEditResponseModel(BaseModel):
+class WallEditResponse(BaseModel):
 
     response: dict = Field()
 
 
-class WallEditResponse(BaseResponse):
-    response: "WallEditResponseModel"
-
-
-class WallGetByIdExtendedResponseModel(BaseModel):
+class WallGetByIdExtendedResponse(BaseModel):
 
     response: dict = Field()
 
 
-class WallGetByIdExtendedResponse(BaseResponse):
-    response: "WallGetByIdExtendedResponseModel"
-
-
-class WallGetByIdResponseModel(BaseModel):
+class WallGetByIdResponse(BaseModel):
 
     response: dict = Field()
 
 
-class WallGetByIdResponse(BaseResponse):
-    response: "WallGetByIdResponseModel"
-
-
-class WallGetCommentExtendedResponseModel(BaseModel):
+class WallGetCommentExtendedResponse(BaseModel):
 
     response: dict = Field()
 
 
-class WallGetCommentExtendedResponse(BaseResponse):
-    response: "WallGetCommentExtendedResponseModel"
-
-
-class WallGetCommentResponseModel(BaseModel):
+class WallGetCommentResponse(BaseModel):
 
     response: dict = Field()
 
 
-class WallGetCommentResponse(BaseResponse):
-    response: "WallGetCommentResponseModel"
-
-
-class WallGetCommentsExtendedResponseModel(BaseModel):
+class WallGetCommentsExtendedResponse(BaseModel):
 
     response: dict = Field()
 
 
-class WallGetCommentsExtendedResponse(BaseResponse):
-    response: "WallGetCommentsExtendedResponseModel"
-
-
-class WallGetCommentsResponseModel(BaseModel):
+class WallGetCommentsResponse(BaseModel):
 
     response: dict = Field()
 
 
-class WallGetCommentsResponse(BaseResponse):
-    response: "WallGetCommentsResponseModel"
-
-
-class WallGetRepostsResponseModel(BaseModel):
+class WallGetRepostsResponse(BaseModel):
 
     response: dict = Field()
 
 
-class WallGetRepostsResponse(BaseResponse):
-    response: "WallGetRepostsResponseModel"
-
-
-class WallGetExtendedResponseModel(BaseModel):
+class WallGetExtendedResponse(BaseModel):
 
     response: dict = Field()
 
 
-class WallGetExtendedResponse(BaseResponse):
-    response: "WallGetExtendedResponseModel"
-
-
-class WallGetResponseModel(BaseModel):
+class WallGetResponse(BaseModel):
 
     response: dict = Field()
 
 
-class WallGetResponse(BaseResponse):
-    response: "WallGetResponseModel"
-
-
-class WallParseAttachedLinkResponseModel(BaseModel):
+class WallParseAttachedLinkResponse(BaseModel):
 
     response: dict = Field()
 
 
-class WallParseAttachedLinkResponse(BaseResponse):
-    response: "WallParseAttachedLinkResponseModel"
-
-
-class WallPostAdsStealthResponseModel(BaseModel):
+class WallPostAdsStealthResponse(BaseModel):
 
     response: dict = Field()
 
 
-class WallPostAdsStealthResponse(BaseResponse):
-    response: "WallPostAdsStealthResponseModel"
-
-
-class WallPostResponseModel(BaseModel):
+class WallPostResponse(BaseModel):
 
     response: dict = Field()
 
 
-class WallPostResponse(BaseResponse):
-    response: "WallPostResponseModel"
-
-
-class WallRepostResponseModel(BaseModel):
+class WallRepostResponse(BaseModel):
 
     response: dict = Field()
 
 
-class WallRepostResponse(BaseResponse):
-    response: "WallRepostResponseModel"
-
-
-class WallSearchExtendedResponseModel(BaseModel):
+class WallSearchExtendedResponse(BaseModel):
 
     response: dict = Field()
 
 
-class WallSearchExtendedResponse(BaseResponse):
-    response: "WallSearchExtendedResponseModel"
-
-
-class WallSearchResponseModel(BaseModel):
+class WallSearchResponse(BaseModel):
 
     response: dict = Field()
-
-
-class WallSearchResponse(BaseResponse):
-    response: "WallSearchResponseModel"

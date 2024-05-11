@@ -14,7 +14,7 @@ class WallCategory(BaseCategory):
         self,
         link: str,
         **kwargs,
-    ) -> BaseBoolResponseModel:
+    ) -> BaseBoolResponse:
         """wall.checkCopyrightLink method
 
 
@@ -32,7 +32,7 @@ class WallCategory(BaseCategory):
         owner_id: int,
         post_id: int,
         **kwargs,
-    ) -> BaseBoolResponseModel:
+    ) -> BaseBoolResponse:
         """wall.closeComments method
 
 
@@ -57,7 +57,7 @@ class WallCategory(BaseCategory):
         sticker_id: typing.Optional[int] = None,
         guid: typing.Optional[str] = None,
         **kwargs,
-    ) -> WallCreateCommentResponseModel:
+    ) -> WallCreateCommentResponse:
         """wall.createComment method
 
 
@@ -82,7 +82,7 @@ class WallCategory(BaseCategory):
         owner_id: typing.Optional[int] = None,
         post_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """wall.delete method
 
 
@@ -101,7 +101,7 @@ class WallCategory(BaseCategory):
         comment_id: int,
         owner_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """wall.deleteComment method
 
 
@@ -137,7 +137,7 @@ class WallCategory(BaseCategory):
         copyright: typing.Optional[str] = None,
         topic_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> WallEditResponseModel:
+    ) -> WallEditResponse:
         """wall.edit method
 
 
@@ -183,7 +183,7 @@ class WallCategory(BaseCategory):
         link_image: typing.Optional[str] = None,
         link_video: typing.Optional[str] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """wall.editAdsStealth method
 
 
@@ -214,7 +214,7 @@ class WallCategory(BaseCategory):
         message: typing.Optional[str] = None,
         attachments: typing.Optional[typing.List[str]] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """wall.editComment method
 
 
@@ -240,7 +240,7 @@ class WallCategory(BaseCategory):
         filter: typing.Optional[str] = None,
         fields: typing.Optional[typing.List[BaseUserGroupFields]] = None,
         **kwargs,
-    ) -> WallGetExtendedResponseModel: ...
+    ) -> WallGetExtendedResponse: ...
 
     async def get(
         self,
@@ -251,7 +251,7 @@ class WallCategory(BaseCategory):
         extended: typing.Optional[bool] = None,
         fields: typing.Optional[typing.List[BaseUserGroupFields]] = None,
         **kwargs,
-    ) -> WallGetResponseModel:
+    ) -> WallGetResponse:
         """wall.get method
 
 
@@ -281,7 +281,7 @@ class WallCategory(BaseCategory):
         copy_history_depth: typing.Optional[int] = 2,
         fields: typing.Optional[typing.List[BaseUserGroupFields]] = None,
         **kwargs,
-    ) -> WallGetByIdExtendedResponseModel: ...
+    ) -> WallGetByIdExtendedResponse: ...
 
     async def get_by_id(
         self,
@@ -290,7 +290,7 @@ class WallCategory(BaseCategory):
         copy_history_depth: typing.Optional[int] = 2,
         fields: typing.Optional[typing.List[BaseUserGroupFields]] = None,
         **kwargs,
-    ) -> WallGetByIdResponseModel:
+    ) -> WallGetByIdResponse:
         """wall.getById method
 
 
@@ -318,7 +318,7 @@ class WallCategory(BaseCategory):
         owner_id: typing.Optional[int] = None,
         fields: typing.Optional[typing.List[BaseUserGroupFields]] = None,
         **kwargs,
-    ) -> WallGetCommentExtendedResponseModel: ...
+    ) -> WallGetCommentExtendedResponse: ...
 
     async def get_comment(
         self,
@@ -327,7 +327,7 @@ class WallCategory(BaseCategory):
         extended: typing.Optional[bool] = None,
         fields: typing.Optional[typing.List[BaseUserGroupFields]] = None,
         **kwargs,
-    ) -> WallGetCommentResponseModel:
+    ) -> WallGetCommentResponse:
         """wall.getComment method
 
 
@@ -363,7 +363,7 @@ class WallCategory(BaseCategory):
         comment_id: typing.Optional[int] = None,
         thread_items_count: typing.Optional[int] = 0,
         **kwargs,
-    ) -> WallGetCommentsExtendedResponseModel: ...
+    ) -> WallGetCommentsExtendedResponse: ...
 
     async def get_comments(
         self,
@@ -380,7 +380,7 @@ class WallCategory(BaseCategory):
         comment_id: typing.Optional[int] = None,
         thread_items_count: typing.Optional[int] = 0,
         **kwargs,
-    ) -> WallGetCommentsResponseModel:
+    ) -> WallGetCommentsResponse:
         """wall.getComments method
 
 
@@ -415,7 +415,7 @@ class WallCategory(BaseCategory):
         offset: typing.Optional[int] = None,
         count: typing.Optional[int] = 20,
         **kwargs,
-    ) -> WallGetRepostsResponseModel:
+    ) -> WallGetRepostsResponse:
         """wall.getReposts method
 
 
@@ -436,7 +436,7 @@ class WallCategory(BaseCategory):
         owner_id: int,
         post_id: int,
         **kwargs,
-    ) -> BaseBoolResponseModel:
+    ) -> BaseBoolResponse:
         """wall.openComments method
 
 
@@ -457,7 +457,7 @@ class WallCategory(BaseCategory):
         fields: typing.Optional[typing.List[str]] = None,
         name_case: typing.Optional[str] = None,
         **kwargs,
-    ) -> WallParseAttachedLinkResponseModel:
+    ) -> WallParseAttachedLinkResponse:
         """wall.parseAttachedLink method
 
 
@@ -478,7 +478,7 @@ class WallCategory(BaseCategory):
         post_id: int,
         owner_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """wall.pin method
 
 
@@ -515,7 +515,7 @@ class WallCategory(BaseCategory):
         mute_notifications: typing.Optional[bool] = None,
         copyright: typing.Optional[str] = None,
         **kwargs,
-    ) -> WallPostResponseModel:
+    ) -> WallPostResponse:
         """wall.post method
 
 
@@ -562,7 +562,7 @@ class WallCategory(BaseCategory):
         link_image: typing.Optional[str] = None,
         link_video: typing.Optional[str] = None,
         **kwargs,
-    ) -> WallPostAdsStealthResponseModel:
+    ) -> WallPostAdsStealthResponse:
         """wall.postAdsStealth method
 
 
@@ -592,7 +592,7 @@ class WallCategory(BaseCategory):
         comment_id: int,
         reason: int,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """wall.reportComment method
 
 
@@ -613,7 +613,7 @@ class WallCategory(BaseCategory):
         post_id: int,
         reason: int,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """wall.reportPost method
 
 
@@ -636,7 +636,7 @@ class WallCategory(BaseCategory):
         mark_as_ads: typing.Optional[bool] = 0,
         mute_notifications: typing.Optional[bool] = None,
         **kwargs,
-    ) -> WallRepostResponseModel:
+    ) -> WallRepostResponse:
         """wall.repost method
 
 
@@ -658,7 +658,7 @@ class WallCategory(BaseCategory):
         owner_id: typing.Optional[int] = None,
         post_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """wall.restore method
 
 
@@ -677,7 +677,7 @@ class WallCategory(BaseCategory):
         comment_id: int,
         owner_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """wall.restoreComment method
 
 
@@ -702,7 +702,7 @@ class WallCategory(BaseCategory):
         offset: typing.Optional[int] = 0,
         fields: typing.Optional[typing.List[BaseUserGroupFields]] = None,
         **kwargs,
-    ) -> WallSearchExtendedResponseModel: ...
+    ) -> WallSearchExtendedResponse: ...
 
     async def search(
         self,
@@ -714,7 +714,7 @@ class WallCategory(BaseCategory):
         extended: typing.Optional[bool] = None,
         fields: typing.Optional[typing.List[BaseUserGroupFields]] = None,
         **kwargs,
-    ) -> WallSearchResponseModel:
+    ) -> WallSearchResponse:
         """wall.search method
 
 
@@ -742,7 +742,7 @@ class WallCategory(BaseCategory):
         post_id: int,
         owner_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """wall.unpin method
 
 

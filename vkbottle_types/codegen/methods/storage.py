@@ -16,7 +16,7 @@ class StorageCategory(BaseCategory):
         keys: typing.Optional[typing.List[str]] = None,
         user_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> StorageGetResponseModel:
+    ) -> StorageGetResponse:
         """storage.get method
 
 
@@ -37,7 +37,7 @@ class StorageCategory(BaseCategory):
         offset: typing.Optional[int] = 0,
         count: typing.Optional[int] = 100,
         **kwargs,
-    ) -> StorageGetKeysResponseModel:
+    ) -> StorageGetKeysResponse:
         """storage.getKeys method
 
 
@@ -58,7 +58,7 @@ class StorageCategory(BaseCategory):
         value: typing.Optional[str] = None,
         user_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """storage.set method
 
 

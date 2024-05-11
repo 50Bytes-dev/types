@@ -14,7 +14,7 @@ class AppWidgetsCategory(BaseCategory):
         self,
         image_type: str,
         **kwargs,
-    ) -> AppWidgetsGetAppImageUploadServerResponseModel:
+    ) -> AppWidgetsGetAppImageUploadServerResponse:
         """appWidgets.getAppImageUploadServer method
 
 
@@ -33,7 +33,7 @@ class AppWidgetsCategory(BaseCategory):
         count: typing.Optional[int] = 20,
         image_type: typing.Optional[str] = None,
         **kwargs,
-    ) -> AppWidgetsGetAppImagesResponseModel:
+    ) -> AppWidgetsGetAppImagesResponse:
         """appWidgets.getAppImages method
 
 
@@ -52,7 +52,7 @@ class AppWidgetsCategory(BaseCategory):
         self,
         image_type: str,
         **kwargs,
-    ) -> AppWidgetsGetGroupImageUploadServerResponseModel:
+    ) -> AppWidgetsGetGroupImageUploadServerResponse:
         """appWidgets.getGroupImageUploadServer method
 
 
@@ -71,7 +71,7 @@ class AppWidgetsCategory(BaseCategory):
         count: typing.Optional[int] = 20,
         image_type: typing.Optional[str] = None,
         **kwargs,
-    ) -> AppWidgetsGetGroupImagesResponseModel:
+    ) -> AppWidgetsGetGroupImagesResponse:
         """appWidgets.getGroupImages method
 
 
@@ -90,7 +90,7 @@ class AppWidgetsCategory(BaseCategory):
         self,
         images: typing.List[str],
         **kwargs,
-    ) -> AppWidgetsGetImagesByIdResponseModel:
+    ) -> AppWidgetsGetImagesByIdResponse:
         """appWidgets.getImagesById method
 
 
@@ -108,7 +108,7 @@ class AppWidgetsCategory(BaseCategory):
         hash: str,
         image: str,
         **kwargs,
-    ) -> AppWidgetsSaveAppImageResponseModel:
+    ) -> AppWidgetsSaveAppImageResponse:
         """appWidgets.saveAppImage method
 
 
@@ -127,7 +127,7 @@ class AppWidgetsCategory(BaseCategory):
         hash: str,
         image: str,
         **kwargs,
-    ) -> AppWidgetsSaveGroupImageResponseModel:
+    ) -> AppWidgetsSaveGroupImageResponse:
         """appWidgets.saveGroupImage method
 
 
@@ -146,7 +146,7 @@ class AppWidgetsCategory(BaseCategory):
         code: str,
         type: str,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """appWidgets.update method
 
 

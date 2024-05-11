@@ -6,183 +6,103 @@ from vkbottle_types.base_model import Field
 from vkbottle_types.objects import *
 
 
-class VideoAddAlbumResponseModel(BaseModel):
+class VideoAddAlbumResponse(BaseModel):
 
     response: dict = Field()
 
 
-class VideoAddAlbumResponse(BaseResponse):
-    response: "VideoAddAlbumResponseModel"
-
-
-class VideoChangeVideoAlbumsResponseModel(BaseModel):
+class VideoChangeVideoAlbumsResponse(BaseModel):
 
     response: typing.List[int] = Field()
 
 
-class VideoChangeVideoAlbumsResponse(BaseResponse):
-    response: "VideoChangeVideoAlbumsResponseModel"
-
-
-class VideoCreateCommentResponseModel(BaseModel):
+class VideoCreateCommentResponse(BaseModel):
 
     response: int = Field(
         description="Created comment ID",
     )
 
 
-class VideoCreateCommentResponse(BaseResponse):
-    response: "VideoCreateCommentResponseModel"
-
-
-class VideoEditResponseModel(BaseModel):
+class VideoEditResponse(BaseModel):
 
     response: dict = Field()
 
 
-class VideoEditResponse(BaseResponse):
-    response: "VideoEditResponseModel"
-
-
-class VideoGetAlbumByIdResponseModel(BaseModel):
+class VideoGetAlbumByIdResponse(BaseModel):
 
     response: "VideoVideoAlbumFull" = Field()
 
 
-class VideoGetAlbumByIdResponse(BaseResponse):
-    response: "VideoGetAlbumByIdResponseModel"
-
-
-class VideoGetAlbumsByVideoExtendedResponseModel(BaseModel):
+class VideoGetAlbumsByVideoExtendedResponse(BaseModel):
 
     response: dict = Field()
 
 
-class VideoGetAlbumsByVideoExtendedResponse(BaseResponse):
-    response: "VideoGetAlbumsByVideoExtendedResponseModel"
-
-
-class VideoGetAlbumsByVideoResponseModel(BaseModel):
+class VideoGetAlbumsByVideoResponse(BaseModel):
 
     response: typing.List[int] = Field()
 
 
-class VideoGetAlbumsByVideoResponse(BaseResponse):
-    response: "VideoGetAlbumsByVideoResponseModel"
-
-
-class VideoGetAlbumsExtendedResponseModel(BaseModel):
+class VideoGetAlbumsExtendedResponse(BaseModel):
 
     response: dict = Field()
 
 
-class VideoGetAlbumsExtendedResponse(BaseResponse):
-    response: "VideoGetAlbumsExtendedResponseModel"
-
-
-class VideoGetAlbumsResponseModel(BaseModel):
+class VideoGetAlbumsResponse(BaseModel):
 
     response: dict = Field()
 
 
-class VideoGetAlbumsResponse(BaseResponse):
-    response: "VideoGetAlbumsResponseModel"
-
-
-class VideoGetCommentsExtendedResponseModel(BaseModel):
+class VideoGetCommentsExtendedResponse(BaseModel):
 
     response: dict = Field()
 
 
-class VideoGetCommentsExtendedResponse(BaseResponse):
-    response: "VideoGetCommentsExtendedResponseModel"
-
-
-class VideoGetCommentsResponseModel(BaseModel):
+class VideoGetCommentsResponse(BaseModel):
 
     response: dict = Field()
 
 
-class VideoGetCommentsResponse(BaseResponse):
-    response: "VideoGetCommentsResponseModel"
-
-
-class VideoGetLongPollServerResponseModel(BaseModel):
+class VideoGetLongPollServerResponse(BaseModel):
 
     response: dict = Field()
 
 
-class VideoGetLongPollServerResponse(BaseResponse):
-    response: "VideoGetLongPollServerResponseModel"
-
-
-class VideoGetResponseModel(BaseModel):
+class VideoGetResponse(BaseModel):
 
     response: dict = Field()
 
 
-class VideoGetResponse(BaseResponse):
-    response: "VideoGetResponseModel"
-
-
-class VideoLiveGetCategoriesResponseModel(BaseModel):
+class VideoLiveGetCategoriesResponse(BaseModel):
 
     response: typing.List[VideoLiveCategory] = Field()
 
 
-class VideoLiveGetCategoriesResponse(BaseResponse):
-    response: "VideoLiveGetCategoriesResponseModel"
-
-
-class VideoSaveResponseModel(BaseModel):
+class VideoSaveResponse(BaseModel):
 
     response: "VideoSaveResult" = Field()
 
 
-class VideoSaveResponse(BaseResponse):
-    response: "VideoSaveResponseModel"
-
-
-class VideoSearchExtendedResponseModel(BaseModel):
+class VideoSearchExtendedResponse(BaseModel):
 
     response: dict = Field()
 
 
-class VideoSearchExtendedResponse(BaseResponse):
-    response: "VideoSearchExtendedResponseModel"
-
-
-class VideoSearchResponseModel(BaseModel):
+class VideoSearchResponse(BaseModel):
 
     response: dict = Field()
 
 
-class VideoSearchResponse(BaseResponse):
-    response: "VideoSearchResponseModel"
-
-
-class VideoStartStreamingResponseModel(BaseModel):
+class VideoStartStreamingResponse(BaseModel):
 
     response: dict = Field()
 
 
-class VideoStartStreamingResponse(BaseResponse):
-    response: "VideoStartStreamingResponseModel"
-
-
-class VideoStopStreamingResponseModel(BaseModel):
+class VideoStopStreamingResponse(BaseModel):
 
     response: dict = Field()
 
 
-class VideoStopStreamingResponse(BaseResponse):
-    response: "VideoStopStreamingResponseModel"
-
-
-class VideoUploadResponseModel(BaseModel):
+class VideoUploadResponse(BaseModel):
 
     response: dict = Field()
-
-
-class VideoUploadResponse(BaseResponse):
-    response: "VideoUploadResponseModel"

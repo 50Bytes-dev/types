@@ -6,84 +6,48 @@ from vkbottle_types.base_model import Field
 from vkbottle_types.objects import *
 
 
-class AccountChangePasswordResponseModel(BaseModel):
+class AccountChangePasswordResponse(BaseModel):
 
     response: dict = Field()
 
 
-class AccountChangePasswordResponse(BaseResponse):
-    response: "AccountChangePasswordResponseModel"
-
-
-class AccountGetActiveOffersResponseModel(BaseModel):
+class AccountGetActiveOffersResponse(BaseModel):
 
     response: dict = Field()
 
 
-class AccountGetActiveOffersResponse(BaseResponse):
-    response: "AccountGetActiveOffersResponseModel"
-
-
-class AccountGetAppPermissionsResponseModel(BaseModel):
+class AccountGetAppPermissionsResponse(BaseModel):
 
     response: int = Field(
         description="Permissions mask",
     )
 
 
-class AccountGetAppPermissionsResponse(BaseResponse):
-    response: "AccountGetAppPermissionsResponseModel"
-
-
-class AccountGetBannedResponseModel(BaseModel):
+class AccountGetBannedResponse(BaseModel):
 
     response: dict = Field()
 
 
-class AccountGetBannedResponse(BaseResponse):
-    response: "AccountGetBannedResponseModel"
-
-
-class AccountGetCountersResponseModel(BaseModel):
+class AccountGetCountersResponse(BaseModel):
 
     response: "AccountAccountCounters" = Field()
 
 
-class AccountGetCountersResponse(BaseResponse):
-    response: "AccountGetCountersResponseModel"
-
-
-class AccountGetInfoResponseModel(BaseModel):
+class AccountGetInfoResponse(BaseModel):
 
     response: "AccountInfo" = Field()
 
 
-class AccountGetInfoResponse(BaseResponse):
-    response: "AccountGetInfoResponseModel"
-
-
-class AccountGetProfileInfoResponseModel(BaseModel):
+class AccountGetProfileInfoResponse(BaseModel):
 
     response: "AccountUserSettings" = Field()
 
 
-class AccountGetProfileInfoResponse(BaseResponse):
-    response: "AccountGetProfileInfoResponseModel"
-
-
-class AccountGetPushSettingsResponseModel(BaseModel):
+class AccountGetPushSettingsResponse(BaseModel):
 
     response: "AccountPushSettings" = Field()
 
 
-class AccountGetPushSettingsResponse(BaseResponse):
-    response: "AccountGetPushSettingsResponseModel"
-
-
-class AccountSaveProfileInfoResponseModel(BaseModel):
+class AccountSaveProfileInfoResponse(BaseModel):
 
     response: dict = Field()
-
-
-class AccountSaveProfileInfoResponse(BaseResponse):
-    response: "AccountSaveProfileInfoResponseModel"

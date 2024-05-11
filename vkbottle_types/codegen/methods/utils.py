@@ -14,7 +14,7 @@ class UtilsCategory(BaseCategory):
         self,
         url: str,
         **kwargs,
-    ) -> UtilsCheckLinkResponseModel:
+    ) -> UtilsCheckLinkResponse:
         """utils.checkLink method
 
 
@@ -31,7 +31,7 @@ class UtilsCategory(BaseCategory):
         self,
         key: str,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """utils.deleteFromLastShortened method
 
 
@@ -49,7 +49,7 @@ class UtilsCategory(BaseCategory):
         count: typing.Optional[int] = 10,
         offset: typing.Optional[int] = 0,
         **kwargs,
-    ) -> UtilsGetLastShortenedLinksResponseModel:
+    ) -> UtilsGetLastShortenedLinksResponse:
         """utils.getLastShortenedLinks method
 
 
@@ -73,7 +73,7 @@ class UtilsCategory(BaseCategory):
         interval: typing.Optional[str] = "day",
         intervals_count: typing.Optional[int] = 1,
         **kwargs,
-    ) -> UtilsGetLinkStatsExtendedResponseModel: ...
+    ) -> UtilsGetLinkStatsExtendedResponse: ...
 
     async def get_link_stats(
         self,
@@ -84,7 +84,7 @@ class UtilsCategory(BaseCategory):
         intervals_count: typing.Optional[int] = 1,
         extended: typing.Optional[bool] = 0,
         **kwargs,
-    ) -> UtilsGetLinkStatsResponseModel:
+    ) -> UtilsGetLinkStatsResponse:
         """utils.getLinkStats method
 
 
@@ -109,7 +109,7 @@ class UtilsCategory(BaseCategory):
     async def get_server_time(
         self,
         **kwargs,
-    ) -> UtilsGetServerTimeResponseModel:
+    ) -> UtilsGetServerTimeResponse:
         """utils.getServerTime method"""
         params = self.get_set_params(locals())
         response = await self.api.request("account.ban", params)
@@ -123,7 +123,7 @@ class UtilsCategory(BaseCategory):
         url: str,
         private: typing.Optional[bool] = 0,
         **kwargs,
-    ) -> UtilsGetShortLinkResponseModel:
+    ) -> UtilsGetShortLinkResponse:
         """utils.getShortLink method
 
 
@@ -141,7 +141,7 @@ class UtilsCategory(BaseCategory):
         self,
         screen_name: str,
         **kwargs,
-    ) -> UtilsResolveScreenNameResponseModel:
+    ) -> UtilsResolveScreenNameResponse:
         """utils.resolveScreenName method
 
 

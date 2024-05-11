@@ -6,55 +6,31 @@ from vkbottle_types.base_model import Field
 from vkbottle_types.objects import *
 
 
-class PollsCreateResponseModel(BaseModel):
+class PollsCreateResponse(BaseModel):
 
     response: "PollsPoll" = Field()
 
 
-class PollsCreateResponse(BaseResponse):
-    response: "PollsCreateResponseModel"
-
-
-class PollsGetBackgroundsResponseModel(BaseModel):
+class PollsGetBackgroundsResponse(BaseModel):
 
     response: typing.List[PollsBackground] = Field()
 
 
-class PollsGetBackgroundsResponse(BaseResponse):
-    response: "PollsGetBackgroundsResponseModel"
-
-
-class PollsGetByIdResponseModel(BaseModel):
+class PollsGetByIdResponse(BaseModel):
 
     response: "PollsPollExtended" = Field()
 
 
-class PollsGetByIdResponse(BaseResponse):
-    response: "PollsGetByIdResponseModel"
-
-
-class PollsGetVotersFieldsResponseModel(BaseModel):
+class PollsGetVotersFieldsResponse(BaseModel):
 
     response: typing.List[PollsFieldsVoters] = Field()
 
 
-class PollsGetVotersFieldsResponse(BaseResponse):
-    response: "PollsGetVotersFieldsResponseModel"
-
-
-class PollsGetVotersResponseModel(BaseModel):
+class PollsGetVotersResponse(BaseModel):
 
     response: typing.List[PollsVoters] = Field()
 
 
-class PollsGetVotersResponse(BaseResponse):
-    response: "PollsGetVotersResponseModel"
-
-
-class PollsSavePhotoResponseModel(BaseModel):
+class PollsSavePhotoResponse(BaseModel):
 
     response: "PollsBackground" = Field()
-
-
-class PollsSavePhotoResponse(BaseResponse):
-    response: "PollsSavePhotoResponseModel"

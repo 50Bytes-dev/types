@@ -20,7 +20,7 @@ class PrettyCardsCategory(BaseCategory):
         price_old: typing.Optional[str] = None,
         button: typing.Optional[str] = None,
         **kwargs,
-    ) -> PrettyCardsCreateResponseModel:
+    ) -> PrettyCardsCreateResponse:
         """prettyCards.create method
 
 
@@ -44,7 +44,7 @@ class PrettyCardsCategory(BaseCategory):
         owner_id: int,
         card_id: int,
         **kwargs,
-    ) -> PrettyCardsDeleteResponseModel:
+    ) -> PrettyCardsDeleteResponse:
         """prettyCards.delete method
 
 
@@ -69,7 +69,7 @@ class PrettyCardsCategory(BaseCategory):
         price_old: typing.Optional[str] = None,
         button: typing.Optional[str] = None,
         **kwargs,
-    ) -> PrettyCardsEditResponseModel:
+    ) -> PrettyCardsEditResponse:
         """prettyCards.edit method
 
 
@@ -95,7 +95,7 @@ class PrettyCardsCategory(BaseCategory):
         offset: typing.Optional[int] = 0,
         count: typing.Optional[int] = 10,
         **kwargs,
-    ) -> PrettyCardsGetResponseModel:
+    ) -> PrettyCardsGetResponse:
         """prettyCards.get method
 
 
@@ -115,7 +115,7 @@ class PrettyCardsCategory(BaseCategory):
         owner_id: int,
         card_ids: typing.List[int],
         **kwargs,
-    ) -> PrettyCardsGetByIdResponseModel:
+    ) -> PrettyCardsGetByIdResponse:
         """prettyCards.getById method
 
 
@@ -132,7 +132,7 @@ class PrettyCardsCategory(BaseCategory):
     async def get_upload_u_r_l(
         self,
         **kwargs,
-    ) -> PrettyCardsGetUploadURLResponseModel:
+    ) -> PrettyCardsGetUploadURLResponse:
         """prettyCards.getUploadURL method"""
         params = self.get_set_params(locals())
         response = await self.api.request("account.ban", params)

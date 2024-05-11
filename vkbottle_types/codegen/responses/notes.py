@@ -6,50 +6,30 @@ from vkbottle_types.base_model import Field
 from vkbottle_types.objects import *
 
 
-class NotesAddResponseModel(BaseModel):
+class NotesAddResponse(BaseModel):
 
     response: int = Field(
         description="Note ID",
     )
 
 
-class NotesAddResponse(BaseResponse):
-    response: "NotesAddResponseModel"
-
-
-class NotesCreateCommentResponseModel(BaseModel):
+class NotesCreateCommentResponse(BaseModel):
 
     response: int = Field(
         description="Comment ID",
     )
 
 
-class NotesCreateCommentResponse(BaseResponse):
-    response: "NotesCreateCommentResponseModel"
-
-
-class NotesGetByIdResponseModel(BaseModel):
+class NotesGetByIdResponse(BaseModel):
 
     response: "NotesNote" = Field()
 
 
-class NotesGetByIdResponse(BaseResponse):
-    response: "NotesGetByIdResponseModel"
-
-
-class NotesGetCommentsResponseModel(BaseModel):
+class NotesGetCommentsResponse(BaseModel):
 
     response: dict = Field()
 
 
-class NotesGetCommentsResponse(BaseResponse):
-    response: "NotesGetCommentsResponseModel"
-
-
-class NotesGetResponseModel(BaseModel):
+class NotesGetResponse(BaseModel):
 
     response: dict = Field()
-
-
-class NotesGetResponse(BaseResponse):
-    response: "NotesGetResponseModel"

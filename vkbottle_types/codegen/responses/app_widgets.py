@@ -6,64 +6,36 @@ from vkbottle_types.base_model import Field
 from vkbottle_types.objects import *
 
 
-class AppWidgetsGetAppImageUploadServerResponseModel(BaseModel):
+class AppWidgetsGetAppImageUploadServerResponse(BaseModel):
 
     response: dict = Field()
 
 
-class AppWidgetsGetAppImageUploadServerResponse(BaseResponse):
-    response: "AppWidgetsGetAppImageUploadServerResponseModel"
-
-
-class AppWidgetsGetAppImagesResponseModel(BaseModel):
+class AppWidgetsGetAppImagesResponse(BaseModel):
 
     response: "AppWidgetsPhotos" = Field()
 
 
-class AppWidgetsGetAppImagesResponse(BaseResponse):
-    response: "AppWidgetsGetAppImagesResponseModel"
-
-
-class AppWidgetsGetGroupImageUploadServerResponseModel(BaseModel):
+class AppWidgetsGetGroupImageUploadServerResponse(BaseModel):
 
     response: dict = Field()
 
 
-class AppWidgetsGetGroupImageUploadServerResponse(BaseResponse):
-    response: "AppWidgetsGetGroupImageUploadServerResponseModel"
-
-
-class AppWidgetsGetGroupImagesResponseModel(BaseModel):
+class AppWidgetsGetGroupImagesResponse(BaseModel):
 
     response: "AppWidgetsPhotos" = Field()
 
 
-class AppWidgetsGetGroupImagesResponse(BaseResponse):
-    response: "AppWidgetsGetGroupImagesResponseModel"
-
-
-class AppWidgetsGetImagesByIdResponseModel(BaseModel):
+class AppWidgetsGetImagesByIdResponse(BaseModel):
 
     response: typing.List[AppWidgetsPhoto] = Field()
 
 
-class AppWidgetsGetImagesByIdResponse(BaseResponse):
-    response: "AppWidgetsGetImagesByIdResponseModel"
-
-
-class AppWidgetsSaveAppImageResponseModel(BaseModel):
+class AppWidgetsSaveAppImageResponse(BaseModel):
 
     response: "AppWidgetsPhoto" = Field()
 
 
-class AppWidgetsSaveAppImageResponse(BaseResponse):
-    response: "AppWidgetsSaveAppImageResponseModel"
-
-
-class AppWidgetsSaveGroupImageResponseModel(BaseModel):
+class AppWidgetsSaveGroupImageResponse(BaseModel):
 
     response: "AppWidgetsPhoto" = Field()
-
-
-class AppWidgetsSaveGroupImageResponse(BaseResponse):
-    response: "AppWidgetsSaveGroupImageResponseModel"

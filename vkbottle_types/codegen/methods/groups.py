@@ -25,7 +25,7 @@ class GroupsCategory(BaseCategory):
         timetable: typing.Optional[str] = None,
         is_main_address: typing.Optional[bool] = None,
         **kwargs,
-    ) -> GroupsAddAddressResponseModel:
+    ) -> GroupsAddAddressResponse:
         """groups.addAddress method
 
 
@@ -56,7 +56,7 @@ class GroupsCategory(BaseCategory):
         title: str,
         secret_key: typing.Optional[str] = None,
         **kwargs,
-    ) -> GroupsAddCallbackServerResponseModel:
+    ) -> GroupsAddCallbackServerResponse:
         """groups.addCallbackServer method
 
 
@@ -78,7 +78,7 @@ class GroupsCategory(BaseCategory):
         link: str,
         text: typing.Optional[str] = None,
         **kwargs,
-    ) -> GroupsAddLinkResponseModel:
+    ) -> GroupsAddLinkResponse:
         """groups.addLink method
 
 
@@ -98,7 +98,7 @@ class GroupsCategory(BaseCategory):
         group_id: int,
         user_id: int,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """groups.approveRequest method
 
 
@@ -121,7 +121,7 @@ class GroupsCategory(BaseCategory):
         comment: typing.Optional[str] = None,
         comment_visible: typing.Optional[bool] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """groups.ban method
 
 
@@ -148,7 +148,7 @@ class GroupsCategory(BaseCategory):
         public_subcategory: typing.Optional[int] = None,
         subtype: typing.Optional[int] = None,
         **kwargs,
-    ) -> GroupsCreateResponseModel:
+    ) -> GroupsCreateResponse:
         """groups.create method
 
 
@@ -171,7 +171,7 @@ class GroupsCategory(BaseCategory):
         group_id: int,
         address_id: int,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """groups.deleteAddress method
 
 
@@ -190,7 +190,7 @@ class GroupsCategory(BaseCategory):
         group_id: int,
         server_id: int,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """groups.deleteCallbackServer method
 
 
@@ -209,7 +209,7 @@ class GroupsCategory(BaseCategory):
         group_id: int,
         link_id: int,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """groups.deleteLink method
 
 
@@ -227,7 +227,7 @@ class GroupsCategory(BaseCategory):
         self,
         group_id: int,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """groups.disableOnline method
 
 
@@ -291,7 +291,7 @@ class GroupsCategory(BaseCategory):
         country: typing.Optional[int] = None,
         city: typing.Optional[int] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """groups.edit method
 
 
@@ -367,7 +367,7 @@ class GroupsCategory(BaseCategory):
         timetable: typing.Optional[str] = None,
         is_main_address: typing.Optional[bool] = None,
         **kwargs,
-    ) -> GroupsEditAddressResponseModel:
+    ) -> GroupsEditAddressResponse:
         """groups.editAddress method
 
 
@@ -400,7 +400,7 @@ class GroupsCategory(BaseCategory):
         title: str,
         secret_key: typing.Optional[str] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """groups.editCallbackServer method
 
 
@@ -423,7 +423,7 @@ class GroupsCategory(BaseCategory):
         link_id: int,
         text: typing.Optional[str] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """groups.editLink method
 
 
@@ -449,7 +449,7 @@ class GroupsCategory(BaseCategory):
         contact_phone: typing.Optional[str] = None,
         contact_email: typing.Optional[str] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """groups.editManager method
 
 
@@ -473,7 +473,7 @@ class GroupsCategory(BaseCategory):
         self,
         group_id: int,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """groups.enableOnline method
 
 
@@ -496,7 +496,7 @@ class GroupsCategory(BaseCategory):
         offset: typing.Optional[int] = None,
         count: typing.Optional[int] = None,
         **kwargs,
-    ) -> GroupsGetObjectExtendedResponseModel: ...
+    ) -> GroupsGetObjectExtendedResponse: ...
 
     async def get(
         self,
@@ -507,7 +507,7 @@ class GroupsCategory(BaseCategory):
         offset: typing.Optional[int] = None,
         count: typing.Optional[int] = None,
         **kwargs,
-    ) -> GroupsGetResponseModel:
+    ) -> GroupsGetResponse:
         """groups.get method
 
 
@@ -539,7 +539,7 @@ class GroupsCategory(BaseCategory):
         count: typing.Optional[int] = 10,
         fields: typing.Optional[typing.List[AddressFields]] = None,
         **kwargs,
-    ) -> GroupsGetAddressesResponseModel:
+    ) -> GroupsGetAddressesResponse:
         """groups.getAddresses method
 
 
@@ -566,7 +566,7 @@ class GroupsCategory(BaseCategory):
         fields: typing.Optional[typing.List[BaseUserGroupFields]] = None,
         owner_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> GroupsGetBannedResponseModel:
+    ) -> GroupsGetBannedResponse:
         """groups.getBanned method
 
 
@@ -589,7 +589,7 @@ class GroupsCategory(BaseCategory):
         group_id: typing.Optional[typing.Union["int", "str"]] = None,
         fields: typing.Optional[typing.List[GroupsFields]] = None,
         **kwargs,
-    ) -> GroupsGetByIdObjectResponseModel:
+    ) -> GroupsGetByIdObjectResponse:
         """groups.getById method
 
 
@@ -608,7 +608,7 @@ class GroupsCategory(BaseCategory):
         self,
         group_id: int,
         **kwargs,
-    ) -> GroupsGetCallbackConfirmationCodeResponseModel:
+    ) -> GroupsGetCallbackConfirmationCodeResponse:
         """groups.getCallbackConfirmationCode method
 
 
@@ -626,7 +626,7 @@ class GroupsCategory(BaseCategory):
         group_id: int,
         server_ids: typing.Optional[typing.List[int]] = None,
         **kwargs,
-    ) -> GroupsGetCallbackServersResponseModel:
+    ) -> GroupsGetCallbackServersResponse:
         """groups.getCallbackServers method
 
 
@@ -645,7 +645,7 @@ class GroupsCategory(BaseCategory):
         group_id: int,
         server_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> GroupsGetCallbackSettingsResponseModel:
+    ) -> GroupsGetCallbackSettingsResponse:
         """groups.getCallbackSettings method
 
 
@@ -665,14 +665,14 @@ class GroupsCategory(BaseCategory):
         extended: typing.Literal[True] = True,
         subcategories: typing.Optional[bool] = 0,
         **kwargs,
-    ) -> GroupsGetCatalogInfoExtendedResponseModel: ...
+    ) -> GroupsGetCatalogInfoExtendedResponse: ...
 
     async def get_catalog_info(
         self,
         extended: typing.Optional[bool] = 0,
         subcategories: typing.Optional[bool] = 0,
         **kwargs,
-    ) -> GroupsGetCatalogInfoResponseModel:
+    ) -> GroupsGetCatalogInfoResponse:
         """groups.getCatalogInfo method
 
 
@@ -698,7 +698,7 @@ class GroupsCategory(BaseCategory):
         fields: typing.Optional[typing.List[UsersFields]] = None,
         name_case: typing.Optional[str] = None,
         **kwargs,
-    ) -> GroupsGetInvitedUsersResponseModel:
+    ) -> GroupsGetInvitedUsersResponse:
         """groups.getInvitedUsers method
 
 
@@ -722,7 +722,7 @@ class GroupsCategory(BaseCategory):
         offset: typing.Optional[int] = None,
         count: typing.Optional[int] = 20,
         **kwargs,
-    ) -> GroupsGetInvitesExtendedResponseModel: ...
+    ) -> GroupsGetInvitesExtendedResponse: ...
 
     async def get_invites(
         self,
@@ -730,7 +730,7 @@ class GroupsCategory(BaseCategory):
         count: typing.Optional[int] = 20,
         extended: typing.Optional[bool] = None,
         **kwargs,
-    ) -> GroupsGetInvitesResponseModel:
+    ) -> GroupsGetInvitesResponse:
         """groups.getInvites method
 
 
@@ -753,7 +753,7 @@ class GroupsCategory(BaseCategory):
         self,
         group_id: int,
         **kwargs,
-    ) -> GroupsGetLongPollServerResponseModel:
+    ) -> GroupsGetLongPollServerResponse:
         """groups.getLongPollServer method
 
 
@@ -770,7 +770,7 @@ class GroupsCategory(BaseCategory):
         self,
         group_id: int,
         **kwargs,
-    ) -> GroupsGetLongPollSettingsResponseModel:
+    ) -> GroupsGetLongPollSettingsResponse:
         """groups.getLongPollSettings method
 
 
@@ -793,7 +793,7 @@ class GroupsCategory(BaseCategory):
         count: typing.Optional[int] = 1000,
         filter: typing.Optional[str] = None,
         **kwargs,
-    ) -> GroupsGetMembersFieldsResponseModel: ...
+    ) -> GroupsGetMembersFieldsResponse: ...
 
     @typing.overload
     async def get_members(
@@ -805,7 +805,7 @@ class GroupsCategory(BaseCategory):
         count: typing.Optional[int] = 1000,
         fields: typing.Optional[typing.List[UsersFields]] = None,
         **kwargs,
-    ) -> GroupsGetMembersFilterResponseModel: ...
+    ) -> GroupsGetMembersFilterResponse: ...
 
     async def get_members(
         self,
@@ -816,7 +816,7 @@ class GroupsCategory(BaseCategory):
         fields: typing.Optional[typing.List[UsersFields]] = None,
         filter: typing.Optional[str] = None,
         **kwargs,
-    ) -> GroupsGetMembersResponseModel:
+    ) -> GroupsGetMembersResponse:
         """groups.getMembers method
 
 
@@ -845,7 +845,7 @@ class GroupsCategory(BaseCategory):
         self,
         group_id: int,
         **kwargs,
-    ) -> GroupsGetOnlineStatusResponseModel:
+    ) -> GroupsGetOnlineStatusResponse:
         """groups.getOnlineStatus method
 
 
@@ -866,7 +866,7 @@ class GroupsCategory(BaseCategory):
         offset: typing.Optional[int] = None,
         count: typing.Optional[int] = 20,
         **kwargs,
-    ) -> GroupsGetRequestsFieldsResponseModel: ...
+    ) -> GroupsGetRequestsFieldsResponse: ...
 
     async def get_requests(
         self,
@@ -875,7 +875,7 @@ class GroupsCategory(BaseCategory):
         count: typing.Optional[int] = 20,
         fields: typing.Optional[typing.List[UsersFields]] = None,
         **kwargs,
-    ) -> GroupsGetRequestsResponseModel:
+    ) -> GroupsGetRequestsResponse:
         """groups.getRequests method
 
 
@@ -899,7 +899,7 @@ class GroupsCategory(BaseCategory):
         self,
         group_id: typing.Union["int", "str"],
         **kwargs,
-    ) -> GroupsGetSettingsResponseModel:
+    ) -> GroupsGetSettingsResponse:
         """groups.getSettings method
 
 
@@ -916,7 +916,7 @@ class GroupsCategory(BaseCategory):
         self,
         group_id: int,
         **kwargs,
-    ) -> GroupsGetTagListResponseModel:
+    ) -> GroupsGetTagListResponse:
         """groups.getTagList method
 
 
@@ -932,7 +932,7 @@ class GroupsCategory(BaseCategory):
     async def get_token_permissions(
         self,
         **kwargs,
-    ) -> GroupsGetTokenPermissionsResponseModel:
+    ) -> GroupsGetTokenPermissionsResponse:
         """groups.getTokenPermissions method"""
         params = self.get_set_params(locals())
         response = await self.api.request("account.ban", params)
@@ -948,7 +948,7 @@ class GroupsCategory(BaseCategory):
         user_id: typing.Optional[int] = None,
         user_ids_list: typing.Optional[typing.List[int]] = None,
         **kwargs,
-    ) -> GroupsInviteUserIdsListResponseModel: ...
+    ) -> GroupsInviteUserIdsListResponse: ...
 
     async def invite(
         self,
@@ -956,7 +956,7 @@ class GroupsCategory(BaseCategory):
         user_id: typing.Optional[int] = None,
         user_ids_list: typing.Optional[typing.List[int]] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """groups.invite method
 
 
@@ -983,7 +983,7 @@ class GroupsCategory(BaseCategory):
         user_id: typing.Optional[int] = None,
         extended: typing.Optional[bool] = None,
         **kwargs,
-    ) -> GroupsIsMemberUserIdsResponseModel: ...
+    ) -> GroupsIsMemberUserIdsResponse: ...
 
     @typing.overload
     async def is_member(
@@ -993,7 +993,7 @@ class GroupsCategory(BaseCategory):
         user_id: typing.Optional[int] = None,
         user_ids: typing.Optional[typing.List[int]] = None,
         **kwargs,
-    ) -> GroupsIsMemberExtendedResponseModel: ...
+    ) -> GroupsIsMemberExtendedResponse: ...
 
     @typing.overload
     async def is_member(
@@ -1003,7 +1003,7 @@ class GroupsCategory(BaseCategory):
         extended: typing.Literal[True] = True,
         user_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> GroupsIsMemberUserIdsExtendedResponseModel: ...
+    ) -> GroupsIsMemberUserIdsExtendedResponse: ...
 
     async def is_member(
         self,
@@ -1012,7 +1012,7 @@ class GroupsCategory(BaseCategory):
         user_ids: typing.Optional[typing.List[int]] = None,
         extended: typing.Optional[bool] = None,
         **kwargs,
-    ) -> BaseBoolResponseModel:
+    ) -> BaseBoolResponse:
         """groups.isMember method
 
 
@@ -1047,7 +1047,7 @@ class GroupsCategory(BaseCategory):
         group_id: int,
         not_sure: typing.Optional[str] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """groups.join method
 
 
@@ -1065,7 +1065,7 @@ class GroupsCategory(BaseCategory):
         self,
         group_id: int,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """groups.leave method
 
 
@@ -1083,7 +1083,7 @@ class GroupsCategory(BaseCategory):
         group_id: int,
         user_id: int,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """groups.removeUser method
 
 
@@ -1103,7 +1103,7 @@ class GroupsCategory(BaseCategory):
         link_id: int,
         after: typing.Optional[int] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """groups.reorderLink method
 
 
@@ -1130,7 +1130,7 @@ class GroupsCategory(BaseCategory):
         offset: typing.Optional[int] = None,
         count: typing.Optional[int] = 20,
         **kwargs,
-    ) -> GroupsSearchResponseModel:
+    ) -> GroupsSearchResponse:
         """groups.search method
 
 
@@ -1213,7 +1213,7 @@ class GroupsCategory(BaseCategory):
         donut_money_withdraw: typing.Optional[bool] = None,
         donut_money_withdraw_error: typing.Optional[bool] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """groups.setCallbackSettings method
 
 
@@ -1341,7 +1341,7 @@ class GroupsCategory(BaseCategory):
         donut_money_withdraw: typing.Optional[bool] = None,
         donut_money_withdraw_error: typing.Optional[bool] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """groups.setLongPollSettings method
 
 
@@ -1415,7 +1415,7 @@ class GroupsCategory(BaseCategory):
         bots_start_button: typing.Optional[bool] = None,
         bots_add_to_chat: typing.Optional[bool] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """groups.setSettings method
 
 
@@ -1438,7 +1438,7 @@ class GroupsCategory(BaseCategory):
         user_id: int,
         note: typing.Optional[str] = None,
         **kwargs,
-    ) -> BaseBoolResponseModel:
+    ) -> BaseBoolResponse:
         """groups.setUserNote method
 
 
@@ -1459,7 +1459,7 @@ class GroupsCategory(BaseCategory):
         tag_name: str,
         tag_color: typing.Optional[str] = None,
         **kwargs,
-    ) -> BaseBoolResponseModel:
+    ) -> BaseBoolResponse:
         """groups.tagAdd method
 
 
@@ -1481,7 +1481,7 @@ class GroupsCategory(BaseCategory):
         user_id: int,
         act: str,
         **kwargs,
-    ) -> BaseBoolResponseModel:
+    ) -> BaseBoolResponse:
         """groups.tagBind method
 
 
@@ -1502,7 +1502,7 @@ class GroupsCategory(BaseCategory):
         group_id: int,
         tag_id: int,
         **kwargs,
-    ) -> BaseBoolResponseModel:
+    ) -> BaseBoolResponse:
         """groups.tagDelete method
 
 
@@ -1522,7 +1522,7 @@ class GroupsCategory(BaseCategory):
         tag_id: int,
         tag_name: str,
         **kwargs,
-    ) -> BaseBoolResponseModel:
+    ) -> BaseBoolResponse:
         """groups.tagUpdate method
 
 
@@ -1543,7 +1543,7 @@ class GroupsCategory(BaseCategory):
         state: str,
         ref: typing.Optional[str] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """groups.toggleMarket method
 
 
@@ -1563,7 +1563,7 @@ class GroupsCategory(BaseCategory):
         group_id: int,
         owner_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """groups.unban method
 
 

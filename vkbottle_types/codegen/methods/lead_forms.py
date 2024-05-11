@@ -27,7 +27,7 @@ class LeadFormsCategory(BaseCategory):
         notify_admins: typing.Optional[typing.List[int]] = None,
         notify_emails: typing.Optional[typing.List[str]] = None,
         **kwargs,
-    ) -> LeadFormsCreateResponseModel:
+    ) -> LeadFormsCreateResponse:
         """leadForms.create method
 
 
@@ -58,7 +58,7 @@ class LeadFormsCategory(BaseCategory):
         group_id: int,
         form_id: int,
         **kwargs,
-    ) -> LeadFormsDeleteResponseModel:
+    ) -> LeadFormsDeleteResponse:
         """leadForms.delete method
 
 
@@ -77,7 +77,7 @@ class LeadFormsCategory(BaseCategory):
         group_id: int,
         form_id: int,
         **kwargs,
-    ) -> LeadFormsGetResponseModel:
+    ) -> LeadFormsGetResponse:
         """leadForms.get method
 
 
@@ -98,7 +98,7 @@ class LeadFormsCategory(BaseCategory):
         limit: typing.Optional[int] = 10,
         next_page_token: typing.Optional[str] = None,
         **kwargs,
-    ) -> LeadFormsGetLeadsResponseModel:
+    ) -> LeadFormsGetLeadsResponse:
         """leadForms.getLeads method
 
 
@@ -117,7 +117,7 @@ class LeadFormsCategory(BaseCategory):
     async def get_upload_u_r_l(
         self,
         **kwargs,
-    ) -> LeadFormsUploadUrlResponseModel:
+    ) -> LeadFormsUploadUrlResponse:
         """leadForms.getUploadURL method"""
         params = self.get_set_params(locals())
         response = await self.api.request("account.ban", params)
@@ -130,7 +130,7 @@ class LeadFormsCategory(BaseCategory):
         self,
         group_id: int,
         **kwargs,
-    ) -> LeadFormsListResponseModel:
+    ) -> LeadFormsListResponse:
         """leadForms.list method
 
 
@@ -161,7 +161,7 @@ class LeadFormsCategory(BaseCategory):
         notify_admins: typing.Optional[typing.List[int]] = None,
         notify_emails: typing.Optional[typing.List[str]] = None,
         **kwargs,
-    ) -> LeadFormsCreateResponseModel:
+    ) -> LeadFormsCreateResponse:
         """leadForms.update method
 
 

@@ -6,59 +6,35 @@ from vkbottle_types.base_model import Field
 from vkbottle_types.objects import *
 
 
-class BoardAddTopicResponseModel(BaseModel):
+class BoardAddTopicResponse(BaseModel):
 
     response: int = Field(
         description="Topic ID",
     )
 
 
-class BoardAddTopicResponse(BaseResponse):
-    response: "BoardAddTopicResponseModel"
-
-
-class BoardCreateCommentResponseModel(BaseModel):
+class BoardCreateCommentResponse(BaseModel):
 
     response: int = Field(
         description="Comment ID",
     )
 
 
-class BoardCreateCommentResponse(BaseResponse):
-    response: "BoardCreateCommentResponseModel"
-
-
-class BoardGetCommentsExtendedResponseModel(BaseModel):
+class BoardGetCommentsExtendedResponse(BaseModel):
 
     response: dict = Field()
 
 
-class BoardGetCommentsExtendedResponse(BaseResponse):
-    response: "BoardGetCommentsExtendedResponseModel"
-
-
-class BoardGetCommentsResponseModel(BaseModel):
+class BoardGetCommentsResponse(BaseModel):
 
     response: dict = Field()
 
 
-class BoardGetCommentsResponse(BaseResponse):
-    response: "BoardGetCommentsResponseModel"
-
-
-class BoardGetTopicsExtendedResponseModel(BaseModel):
+class BoardGetTopicsExtendedResponse(BaseModel):
 
     response: dict = Field()
 
 
-class BoardGetTopicsExtendedResponse(BaseResponse):
-    response: "BoardGetTopicsExtendedResponseModel"
-
-
-class BoardGetTopicsResponseModel(BaseModel):
+class BoardGetTopicsResponse(BaseModel):
 
     response: dict = Field()
-
-
-class BoardGetTopicsResponse(BaseResponse):
-    response: "BoardGetTopicsResponseModel"

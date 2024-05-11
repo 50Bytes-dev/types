@@ -17,7 +17,7 @@ class PollsCategory(BaseCategory):
         owner_id: typing.Optional[int] = None,
         is_board: typing.Optional[bool] = None,
         **kwargs,
-    ) -> BaseBoolResponseModel:
+    ) -> BaseBoolResponse:
         """polls.addVote method
 
 
@@ -46,7 +46,7 @@ class PollsCategory(BaseCategory):
         background_id: typing.Optional[str] = None,
         disable_unvote: typing.Optional[bool] = None,
         **kwargs,
-    ) -> PollsCreateResponseModel:
+    ) -> PollsCreateResponse:
         """polls.create method
 
 
@@ -74,7 +74,7 @@ class PollsCategory(BaseCategory):
         owner_id: typing.Optional[int] = None,
         is_board: typing.Optional[bool] = None,
         **kwargs,
-    ) -> BaseBoolResponseModel:
+    ) -> BaseBoolResponse:
         """polls.deleteVote method
 
 
@@ -101,7 +101,7 @@ class PollsCategory(BaseCategory):
         photo_id: typing.Optional[int] = None,
         background_id: typing.Optional[str] = None,
         **kwargs,
-    ) -> BaseOkResponseModel:
+    ) -> BaseOkResponse:
         """polls.edit method
 
 
@@ -125,7 +125,7 @@ class PollsCategory(BaseCategory):
     async def get_backgrounds(
         self,
         **kwargs,
-    ) -> PollsGetBackgroundsResponseModel:
+    ) -> PollsGetBackgroundsResponse:
         """polls.getBackgrounds method"""
         params = self.get_set_params(locals())
         response = await self.api.request("account.ban", params)
@@ -144,7 +144,7 @@ class PollsCategory(BaseCategory):
         fields: typing.Optional[typing.List[str]] = None,
         name_case: typing.Optional[str] = None,
         **kwargs,
-    ) -> PollsGetByIdResponseModel:
+    ) -> PollsGetByIdResponse:
         """polls.getById method
 
 
@@ -167,7 +167,7 @@ class PollsCategory(BaseCategory):
         self,
         owner_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> BaseGetUploadServerResponseModel:
+    ) -> BaseGetUploadServerResponse:
         """polls.getPhotoUploadServer method
 
 
@@ -193,7 +193,7 @@ class PollsCategory(BaseCategory):
         count: typing.Optional[int] = None,
         name_case: typing.Optional[str] = None,
         **kwargs,
-    ) -> PollsGetVotersFieldsResponseModel: ...
+    ) -> PollsGetVotersFieldsResponse: ...
 
     async def get_voters(
         self,
@@ -207,7 +207,7 @@ class PollsCategory(BaseCategory):
         fields: typing.Optional[typing.List[UsersFields]] = None,
         name_case: typing.Optional[str] = None,
         **kwargs,
-    ) -> PollsGetVotersResponseModel:
+    ) -> PollsGetVotersResponse:
         """polls.getVoters method
 
 
@@ -237,7 +237,7 @@ class PollsCategory(BaseCategory):
         photo: typing.Optional[str] = None,
         hash: typing.Optional[str] = None,
         **kwargs,
-    ) -> PollsSavePhotoResponseModel:
+    ) -> PollsSavePhotoResponse:
         """polls.savePhoto method
 
 

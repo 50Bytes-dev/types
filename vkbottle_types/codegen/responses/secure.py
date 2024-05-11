@@ -6,75 +6,43 @@ from vkbottle_types.base_model import Field
 from vkbottle_types.objects import *
 
 
-class SecureCheckTokenResponseModel(BaseModel):
+class SecureCheckTokenResponse(BaseModel):
 
     response: "SecureTokenChecked" = Field()
 
 
-class SecureCheckTokenResponse(BaseResponse):
-    response: "SecureCheckTokenResponseModel"
-
-
-class SecureGetAppBalanceResponseModel(BaseModel):
+class SecureGetAppBalanceResponse(BaseModel):
 
     response: int = Field(
         description="App balance",
     )
 
 
-class SecureGetAppBalanceResponse(BaseResponse):
-    response: "SecureGetAppBalanceResponseModel"
-
-
-class SecureGetSMSHistoryResponseModel(BaseModel):
+class SecureGetSMSHistoryResponse(BaseModel):
 
     response: typing.List[SecureSmsNotification] = Field()
 
 
-class SecureGetSMSHistoryResponse(BaseResponse):
-    response: "SecureGetSMSHistoryResponseModel"
-
-
-class SecureGetTransactionsHistoryResponseModel(BaseModel):
+class SecureGetTransactionsHistoryResponse(BaseModel):
 
     response: typing.List[SecureTransaction] = Field()
 
 
-class SecureGetTransactionsHistoryResponse(BaseResponse):
-    response: "SecureGetTransactionsHistoryResponseModel"
-
-
-class SecureGetUserLevelResponseModel(BaseModel):
+class SecureGetUserLevelResponse(BaseModel):
 
     response: typing.List[SecureLevel] = Field()
 
 
-class SecureGetUserLevelResponse(BaseResponse):
-    response: "SecureGetUserLevelResponseModel"
-
-
-class SecureGiveEventStickerResponseModel(BaseModel):
+class SecureGiveEventStickerResponse(BaseModel):
 
     response: typing.List[SecureGiveEventStickerItem] = Field()
 
 
-class SecureGiveEventStickerResponse(BaseResponse):
-    response: "SecureGiveEventStickerResponseModel"
-
-
-class SecureSendNotificationResponseModel(BaseModel):
+class SecureSendNotificationResponse(BaseModel):
 
     response: typing.List[int] = Field()
 
 
-class SecureSendNotificationResponse(BaseResponse):
-    response: "SecureSendNotificationResponseModel"
-
-
-class SecureSetCounterArrayResponseModel(BaseModel):
+class SecureSetCounterArrayResponse(BaseModel):
 
     response: typing.List[SecureSetCounterItem] = Field()
-
-
-class SecureSetCounterArrayResponse(BaseResponse):
-    response: "SecureSetCounterArrayResponseModel"
