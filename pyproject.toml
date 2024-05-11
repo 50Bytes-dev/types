@@ -10,7 +10,7 @@ packages = [
 
 [tool.poetry.dependencies]
 python = "^3.7.2"
-pydantic = ">=1.10.6,<3"
+pydantic = "^2.7.1"
 vkbottle = "^4.3.12"
 tqdm = "^4.65.0"
 dataclass-factory = "^2.16"
