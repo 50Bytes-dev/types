@@ -6,157 +6,48 @@ from vkbottle_types.base_model import Field
 from vkbottle_types.objects import *
 
 
-
-
-
 class AccountChangePasswordResponse(BaseModel):
-    
-    
-    response: dict = Field(
-        
-        
-        
-    )
-    
-    
 
-
-
-
-
+    response: dict = Field()
 
 
 class AccountGetActiveOffersResponse(BaseModel):
-    
-    
-    response: dict = Field(
-        
-        
-        
-    )
-    
-    
 
-
-
-
-
+    response: dict = Field()
 
 
 class AccountGetAppPermissionsResponse(BaseModel):
-    
-    
+
     response: int = Field(
-        
-        
         description="Permissions mask",
-        
-        
     )
-    
-    
-
-
-
-
-
 
 
 class AccountGetBannedResponse(BaseModel):
-    
-    
-    response: dict = Field(
-        
-        
-        
-    )
-    
-    
 
-
-
-
-
+    response: dict = Field()
 
 
 class AccountGetCountersResponse(BaseModel):
-    
-    
-    response: 'AccountAccountCounters' = Field(
-        
-        
-        
-    )
-    
-    
 
-
-
-
-
+    response: "AccountAccountCounters" = Field()
 
 
 class AccountGetInfoResponse(BaseModel):
-    
-    
-    response: 'AccountInfo' = Field(
-        
-        
-        
-    )
-    
-    
 
-
-
-
-
+    response: "AccountInfo" = Field()
 
 
 class AccountGetProfileInfoResponse(BaseModel):
-    
-    
-    response: 'AccountUserSettings' = Field(
-        
-        
-        
-    )
-    
-    
 
-
-
-
-
+    response: "AccountUserSettings" = Field()
 
 
 class AccountGetPushSettingsResponse(BaseModel):
-    
-    
-    response: 'AccountPushSettings' = Field(
-        
-        
-        
-    )
-    
-    
 
-
-
-
-
+    response: "AccountPushSettings" = Field()
 
 
 class AccountSaveProfileInfoResponse(BaseModel):
-    
-    
-    response: dict = Field(
-        
-        
-        
-    )
-    
-    
 
-
-
+    response: dict = Field()

@@ -6,36 +6,11 @@ from vkbottle_types.base_model import Field
 from vkbottle_types.objects import *
 
 
-
-
-
 class StorageGetKeysResponse(BaseModel):
-    
-    
-    response: typing.List[str] = Field(
-        
-        
-        
-    )
-    
-    
 
-
-
-
-
+    response: typing.List[str] = Field()
 
 
 class StorageGetResponse(BaseModel):
-    
-    
-    response: typing.List[StorageValue] = Field(
-        
-        
-        
-    )
-    
-    
 
-
-
+    response: typing.List[StorageValue] = Field()

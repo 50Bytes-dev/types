@@ -4,30 +4,24 @@ from typing_extensions import Literal
 from vkbottle_types.methods.base_category import BaseCategory
 from vkbottle_types.responses.board import *
 from vkbottle_types.responses.base import *
+
 ### OPTIONAL
 
+
 class BoardCategory(BaseCategory):
-    
-    
 
     async def add_topic(
         self,
-        
         group_id: int,
-        
         title: str,
-        
-        text: typing.Optional[str] = None ,
-        
-        from_group: typing.Optional[bool] = None ,
-        
-        attachments: typing.Optional[typing.List[str]] = None ,
-        
+        text: typing.Optional[str] = None,
+        from_group: typing.Optional[bool] = None,
+        attachments: typing.Optional[typing.List[str]] = None,
         **kwargs,
     ) -> BoardAddTopicResponse:
         """board.addTopic method
-        
-        
+
+
         :param group_id: ID of the community that owns the discussion board.
         :param title: Topic title.
         :param text: Text of the topic.
@@ -36,59 +30,44 @@ class BoardCategory(BaseCategory):
         """
         params = self.get_set_params(locals())
         response = await self.api.request("board.addTopic", params)
-        
+
         model = BoardAddTopicResponse
-        
+
         return model(**response).response
-    
-    
 
     async def close_topic(
         self,
-        
         group_id: int,
-        
         topic_id: int,
-        
         **kwargs,
     ) -> BaseOkResponse:
         """board.closeTopic method
-        
-        
+
+
         :param group_id: ID of the community that owns the discussion board.
         :param topic_id: Topic ID.
         """
         params = self.get_set_params(locals())
         response = await self.api.request("board.closeTopic", params)
-        
+
         model = BaseOkResponse
-        
+
         return model(**response).response
-    
-    
 
     async def create_comment(
         self,
-        
         group_id: int,
-        
         topic_id: int,
-        
-        message: typing.Optional[str] = None ,
-        
-        attachments: typing.Optional[typing.List[str]] = None ,
-        
-        from_group: typing.Optional[bool] = None ,
-        
-        sticker_id: typing.Optional[int] = None ,
-        
-        guid: typing.Optional[str] = None ,
-        
+        message: typing.Optional[str] = None,
+        attachments: typing.Optional[typing.List[str]] = None,
+        from_group: typing.Optional[bool] = None,
+        sticker_id: typing.Optional[int] = None,
+        guid: typing.Optional[str] = None,
         **kwargs,
     ) -> BoardCreateCommentResponse:
         """board.createComment method
-        
-        
+
+
         :param group_id: ID of the community that owns the discussion board.
         :param topic_id: ID of the topic to be commented on.
         :param message: (Required if 'attachments' is not set.) Text of the comment.
@@ -99,82 +78,63 @@ class BoardCategory(BaseCategory):
         """
         params = self.get_set_params(locals())
         response = await self.api.request("board.createComment", params)
-        
+
         model = BoardCreateCommentResponse
-        
+
         return model(**response).response
-    
-    
 
     async def delete_comment(
         self,
-        
         group_id: int,
-        
         topic_id: int,
-        
         comment_id: int,
-        
         **kwargs,
     ) -> BaseOkResponse:
         """board.deleteComment method
-        
-        
+
+
         :param group_id: ID of the community that owns the discussion board.
         :param topic_id: Topic ID.
         :param comment_id: Comment ID.
         """
         params = self.get_set_params(locals())
         response = await self.api.request("board.deleteComment", params)
-        
+
         model = BaseOkResponse
-        
+
         return model(**response).response
-    
-    
 
     async def delete_topic(
         self,
-        
         group_id: int,
-        
         topic_id: int,
-        
         **kwargs,
     ) -> BaseOkResponse:
         """board.deleteTopic method
-        
-        
+
+
         :param group_id: ID of the community that owns the discussion board.
         :param topic_id: Topic ID.
         """
         params = self.get_set_params(locals())
         response = await self.api.request("board.deleteTopic", params)
-        
+
         model = BaseOkResponse
-        
+
         return model(**response).response
-    
-    
 
     async def edit_comment(
         self,
-        
         group_id: int,
-        
         topic_id: int,
-        
         comment_id: int,
-        
-        message: typing.Optional[str] = None ,
-        
-        attachments: typing.Optional[typing.List[str]] = None ,
-        
+        message: typing.Optional[str] = None,
+        attachments: typing.Optional[typing.List[str]] = None,
         **kwargs,
     ) -> BaseOkResponse:
         """board.editComment method
-        
-        
+
+
         :param group_id: ID of the community that owns the discussion board.
         :param topic_id: Topic ID.
         :param comment_id: ID of the comment on the topic.
@@ -183,119 +143,84 @@ class BoardCategory(BaseCategory):
         """
         params = self.get_set_params(locals())
         response = await self.api.request("board.editComment", params)
-        
+
         model = BaseOkResponse
-        
+
         return model(**response).response
-    
-    
 
     async def edit_topic(
         self,
-        
         group_id: int,
-        
         topic_id: int,
-        
         title: str,
-        
         **kwargs,
     ) -> BaseOkResponse:
         """board.editTopic method
-        
-        
+
+
         :param group_id: ID of the community that owns the discussion board.
         :param topic_id: Topic ID.
         :param title: New title of the topic.
         """
         params = self.get_set_params(locals())
         response = await self.api.request("board.editTopic", params)
-        
+
         model = BaseOkResponse
-        
+
         return model(**response).response
-    
-    
 
     async def fix_topic(
         self,
-        
         group_id: int,
-        
         topic_id: int,
-        
         **kwargs,
     ) -> BaseOkResponse:
         """board.fixTopic method
-        
-        
+
+
         :param group_id: ID of the community that owns the discussion board.
         :param topic_id: Topic ID.
         """
         params = self.get_set_params(locals())
         response = await self.api.request("board.fixTopic", params)
-        
-        model = BaseOkResponse
-        
-        return model(**response).response
-    
-    
 
-    
+        model = BaseOkResponse
+
+        return model(**response).response
+
     @typing.overload
     async def get_comments(
         self,
-        
         group_id: int,
-        
         topic_id: int,
-        
-        extended: typing.Literal[True] = True ,
-        
-        need_likes: typing.Optional[bool] = None ,
-        
-        start_comment_id: typing.Optional[int] = None ,
-        
-        offset: typing.Optional[int] = None ,
-        
-        count: typing.Optional[int] = 20 ,
-        
-        sort: typing.Optional[str] = None ,
-        
-        **kwargs
-    ) -> BoardGetCommentsExtendedResponse:
-        ...
-    
-    
+        extended: typing.Literal[True] = True,
+        need_likes: typing.Optional[bool] = None,
+        start_comment_id: typing.Optional[int] = None,
+        offset: typing.Optional[int] = None,
+        count: typing.Optional[int] = 20,
+        sort: typing.Optional[str] = None,
+        **kwargs,
+    ) -> BoardGetCommentsExtendedResponse: ...
 
     async def get_comments(
         self,
-        
         group_id: int,
-        
         topic_id: int,
-        
-        need_likes: typing.Optional[bool] = None ,
-        
-        start_comment_id: typing.Optional[int] = None ,
-        
-        offset: typing.Optional[int] = None ,
-        
-        count: typing.Optional[int] = 20 ,
-        
-        extended: typing.Optional[bool] = None ,
-        
-        sort: typing.Optional[str] = None ,
-        
+        need_likes: typing.Optional[bool] = None,
+        start_comment_id: typing.Optional[int] = None,
+        offset: typing.Optional[int] = None,
+        count: typing.Optional[int] = 20,
+        extended: typing.Optional[bool] = None,
+        sort: typing.Optional[str] = None,
         **kwargs,
     ) -> BoardGetCommentsResponse:
         """board.getComments method
-        
-        
+
+
         :param group_id: ID of the community that owns the discussion board.
         :param topic_id: Topic ID.
         :param need_likes: '1' - to return the 'likes' field, '0' - not to return the 'likes' field (default)
-        :param start_comment_id: 
+        :param start_comment_id:
         :param offset: Offset needed to return a specific subset of comments.
         :param count: Number of comments to return.
         :param extended: '1' - to return information about users who posted comments, '0' - to return no additional fields (default)
@@ -303,72 +228,44 @@ class BoardCategory(BaseCategory):
         """
         params = self.get_set_params(locals())
         response = await self.api.request("board.getComments", params)
-        
+
         model = self.get_model(
-            (
-                
-                (("extended", ), BoardGetCommentsExtendedResponse),
-                
-            ),
+            ((("extended",), BoardGetCommentsExtendedResponse),),
             default=BoardGetCommentsResponse,
             params=params,
         )
-        
-        return model(**response).response
-    
-    
 
-    
+        return model(**response).response
+
     @typing.overload
     async def get_topics(
         self,
-        
         group_id: int,
-        
-        extended: typing.Literal[True] = True ,
-        
-        topic_ids: typing.Optional[typing.List[int]] = None ,
-        
-        order: typing.Optional[int] = None ,
-        
-        offset: typing.Optional[int] = None ,
-        
-        count: typing.Optional[int] = 40 ,
-        
-        preview: typing.Optional[int] = None ,
-        
-        preview_length: typing.Optional[int] = 90 ,
-        
-        **kwargs
-    ) -> BoardGetTopicsExtendedResponse:
-        ...
-    
-    
+        extended: typing.Literal[True] = True,
+        topic_ids: typing.Optional[typing.List[int]] = None,
+        order: typing.Optional[int] = None,
+        offset: typing.Optional[int] = None,
+        count: typing.Optional[int] = 40,
+        preview: typing.Optional[int] = None,
+        preview_length: typing.Optional[int] = 90,
+        **kwargs,
+    ) -> BoardGetTopicsExtendedResponse: ...
 
     async def get_topics(
         self,
-        
         group_id: int,
-        
-        topic_ids: typing.Optional[typing.List[int]] = None ,
-        
-        order: typing.Optional[int] = None ,
-        
-        offset: typing.Optional[int] = None ,
-        
-        count: typing.Optional[int] = 40 ,
-        
-        extended: typing.Optional[bool] = None ,
-        
-        preview: typing.Optional[int] = None ,
-        
-        preview_length: typing.Optional[int] = 90 ,
-        
+        topic_ids: typing.Optional[typing.List[int]] = None,
+        order: typing.Optional[int] = None,
+        offset: typing.Optional[int] = None,
+        count: typing.Optional[int] = 40,
+        extended: typing.Optional[bool] = None,
+        preview: typing.Optional[int] = None,
+        preview_length: typing.Optional[int] = 90,
         **kwargs,
     ) -> BoardGetTopicsResponse:
         """board.getTopics method
-        
-        
+
+
         :param group_id: ID of the community that owns the discussion board.
         :param topic_ids: IDs of topics to be returned (100 maximum). By default, all topics are returned. If this parameter is set, the 'order', 'offset', and 'count' parameters are ignored.
         :param order: Sort order: '1' - by date updated in reverse chronological order. '2' - by date created in reverse chronological order. '-1' - by date updated in chronological order. '-2' - by date created in chronological order. If no sort order is specified, topics are returned in the order specified by the group administrator. Pinned topics are returned first, regardless of the sorting.
@@ -380,96 +277,73 @@ class BoardCategory(BaseCategory):
         """
         params = self.get_set_params(locals())
         response = await self.api.request("board.getTopics", params)
-        
+
         model = self.get_model(
-            (
-                
-                (("extended", ), BoardGetTopicsExtendedResponse),
-                
-            ),
+            ((("extended",), BoardGetTopicsExtendedResponse),),
             default=BoardGetTopicsResponse,
             params=params,
         )
-        
+
         return model(**response).response
-    
-    
 
     async def open_topic(
         self,
-        
         group_id: int,
-        
         topic_id: int,
-        
         **kwargs,
     ) -> BaseOkResponse:
         """board.openTopic method
-        
-        
+
+
         :param group_id: ID of the community that owns the discussion board.
         :param topic_id: Topic ID.
         """
         params = self.get_set_params(locals())
         response = await self.api.request("board.openTopic", params)
-        
+
         model = BaseOkResponse
-        
+
         return model(**response).response
-    
-    
 
     async def restore_comment(
         self,
-        
         group_id: int,
-        
         topic_id: int,
-        
         comment_id: int,
-        
         **kwargs,
     ) -> BaseOkResponse:
         """board.restoreComment method
-        
-        
+
+
         :param group_id: ID of the community that owns the discussion board.
         :param topic_id: Topic ID.
         :param comment_id: Comment ID.
         """
         params = self.get_set_params(locals())
         response = await self.api.request("board.restoreComment", params)
-        
+
         model = BaseOkResponse
-        
+
         return model(**response).response
-    
-    
 
     async def unfix_topic(
         self,
-        
         group_id: int,
-        
         topic_id: int,
-        
         **kwargs,
     ) -> BaseOkResponse:
         """board.unfixTopic method
-        
-        
+
+
         :param group_id: ID of the community that owns the discussion board.
         :param topic_id: Topic ID.
         """
         params = self.get_set_params(locals())
         response = await self.api.request("board.unfixTopic", params)
-        
+
         model = BaseOkResponse
-        
+
         return model(**response).response
-    
 
 
-__all__ = (
-    "BoardCategory",
-)
+__all__ = ("BoardCategory",)
