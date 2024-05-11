@@ -2,16 +2,7 @@ from typing import List, Optional, Union, overload
 
 from typing_extensions import Literal
 from vkbottle_types.codegen.methods.groups import GroupsCategory  # type: ignore
-from vkbottle_types.responses.groups import (
-    GetMembersFieldsFilterManagersResponse,
-    GetMembersFieldsFilterManagersResponseModel,
-    GetMembersFieldsResponse,
-    GetMembersFieldsResponseModel,
-    GetMembersFilterManagersResponse,
-    GetMembersFilterManagersResponseModel,
-    GetMembersResponse,
-    GetMembersResponseModel,
-)
+from vkbottle_types.responses.groups import *
 
 
 class GroupsCategory(GroupsCategory):
@@ -25,8 +16,7 @@ class GroupsCategory(GroupsCategory):
         fields: Optional[Literal[None]] = ...,
         filter: Optional[Literal["friends", "unsure", "donut"]] = ...,
         **kwargs
-    ) -> GetMembersResponseModel:
-        ...
+    ) -> GroupsGetMembersResponseModel: ...
 
     @overload
     async def get_members(
@@ -38,8 +28,7 @@ class GroupsCategory(GroupsCategory):
         fields: List[str] = ...,
         filter: Optional[Literal[None]] = ...,
         **kwargs
-    ) -> GetMembersFieldsResponseModel:
-        ...
+    ) -> GroupsGetMembersFieldsResponseModel: ...
 
     @overload
     async def get_members(
@@ -51,8 +40,7 @@ class GroupsCategory(GroupsCategory):
         fields: Optional[Literal[None]] = ...,
         filter: Literal["managers"] = ...,
         **kwargs
-    ) -> GetMembersFilterManagersResponseModel:
-        ...
+    ) -> GetMembersFilterManagersResponseModel: ...
 
     @overload
     async def get_members(
@@ -64,8 +52,7 @@ class GroupsCategory(GroupsCategory):
         fields: List[str] = ...,
         filter: Literal["managers"] = ...,
         **kwargs
-    ) -> GetMembersFieldsFilterManagersResponseModel:
-        ...
+    ) -> GetMembersFieldsFilterManagersResponseModel: ...
 
     async def get_members(
         self,
@@ -77,8 +64,8 @@ class GroupsCategory(GroupsCategory):
         filter=None,
         **kwargs
     ) -> Union[
-        GetMembersResponseModel,
-        GetMembersFieldsResponseModel,
+        GroupsGetMembersResponseModel,
+        GroupsGetMembersFieldsResponseModel,
         GetMembersFilterManagersResponseModel,
         GetMembersFieldsFilterManagersResponseModel,
     ]:
@@ -96,14 +83,14 @@ class GroupsCategory(GroupsCategory):
         response = await self.api.request("groups.getMembers", params)
         model = self.get_model(
             (
-                (("fields",), GetMembersFieldsResponse),
+                (("fields",), GroupsGetMembersFieldsResponse),
                 ((["filter", "managers"],), GetMembersFilterManagersResponse),
                 (
                     (["filter", "managers"], "fields"),
                     GetMembersFieldsFilterManagersResponse,
                 ),
             ),
-            default=GetMembersResponse,
+            default=GroupsGetMembersResponse,
             params=params,
         )
         return model(**response).response
