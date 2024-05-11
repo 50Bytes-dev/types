@@ -6,11 +6,36 @@ from vkbottle_types.base_model import Field
 from vkbottle_types.objects import *
 
 
-class NotificationsGetResponse(BaseModel):
 
-    response: dict = Field()
+
+
+class NotificationsGetResponse(BaseModel):
+    
+    
+    response: dict = Field(
+        
+        
+        
+    )
+    
+    
+
+
+
+
+
 
 
 class NotificationsSendMessageResponse(BaseModel):
+    
+    
+    response: typing.List[NotificationsSendMessageItem] = Field(
+        
+        
+        
+    )
+    
+    
 
-    response: typing.List[NotificationsSendMessageItem] = Field()
+
+

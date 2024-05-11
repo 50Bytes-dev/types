@@ -36,7 +36,7 @@ class {{camelcase(category.name)}}Category(BaseCategory):
         :param {{parameter.name}}: {{parameter.description or ''}}{% endfor %}
         """
         params = self.get_set_params(locals())
-        response = await self.api.request("account.ban", params)
+        response = await self.api.request("{{category.name}}.{{method.name}}", params)
         {% if method.is_single_response %}
         model = {{method.get_response_model(category.name)}}
         {% else %}

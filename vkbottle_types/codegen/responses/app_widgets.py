@@ -6,36 +6,121 @@ from vkbottle_types.base_model import Field
 from vkbottle_types.objects import *
 
 
-class AppWidgetsGetAppImageUploadServerResponse(BaseModel):
 
-    response: dict = Field()
+
+
+class AppWidgetsGetAppImageUploadServerResponse(BaseModel):
+    
+    
+    response: dict = Field(
+        
+        
+        
+    )
+    
+    
+
+
+
+
+
 
 
 class AppWidgetsGetAppImagesResponse(BaseModel):
+    
+    
+    response: 'AppWidgetsPhotos' = Field(
+        
+        
+        
+    )
+    
+    
 
-    response: "AppWidgetsPhotos" = Field()
+
+
+
+
 
 
 class AppWidgetsGetGroupImageUploadServerResponse(BaseModel):
+    
+    
+    response: dict = Field(
+        
+        
+        
+    )
+    
+    
 
-    response: dict = Field()
+
+
+
+
 
 
 class AppWidgetsGetGroupImagesResponse(BaseModel):
+    
+    
+    response: 'AppWidgetsPhotos' = Field(
+        
+        
+        
+    )
+    
+    
 
-    response: "AppWidgetsPhotos" = Field()
+
+
+
+
 
 
 class AppWidgetsGetImagesByIdResponse(BaseModel):
+    
+    
+    response: typing.List[AppWidgetsPhoto] = Field(
+        
+        
+        
+    )
+    
+    
 
-    response: typing.List[AppWidgetsPhoto] = Field()
+
+
+
+
 
 
 class AppWidgetsSaveAppImageResponse(BaseModel):
+    
+    
+    response: 'AppWidgetsPhoto' = Field(
+        
+        
+        
+    )
+    
+    
 
-    response: "AppWidgetsPhoto" = Field()
+
+
+
+
 
 
 class AppWidgetsSaveGroupImageResponse(BaseModel):
+    
+    
+    response: 'AppWidgetsPhoto' = Field(
+        
+        
+        
+    )
+    
+    
 
-    response: "AppWidgetsPhoto" = Field()
+
+

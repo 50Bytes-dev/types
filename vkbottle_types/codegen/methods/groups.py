@@ -4,154 +4,203 @@ from typing_extensions import Literal
 from vkbottle_types.methods.base_category import BaseCategory
 from vkbottle_types.responses.groups import *
 from vkbottle_types.responses.base import *
-
 ### OPTIONAL
 
-
 class GroupsCategory(BaseCategory):
+    
+    
 
     async def add_address(
         self,
+        
         group_id: int,
+        
         title: str,
+        
         address: str,
+        
         city_id: int,
+        
         latitude: float,
+        
         longitude: float,
-        additional_address: typing.Optional[str] = None,
-        metro_id: typing.Optional[int] = None,
-        phone: typing.Optional[str] = None,
-        work_info_status: typing.Optional[str] = "no_information",
-        timetable: typing.Optional[str] = None,
-        is_main_address: typing.Optional[bool] = None,
+        
+        additional_address: typing.Optional[str] = None ,
+        
+        metro_id: typing.Optional[int] = None ,
+        
+        phone: typing.Optional[str] = None ,
+        
+        work_info_status: typing.Optional[str] = 'no_information' ,
+        
+        timetable: typing.Optional[str] = None ,
+        
+        is_main_address: typing.Optional[bool] = None ,
+        
         **kwargs,
     ) -> GroupsAddAddressResponse:
         """groups.addAddress method
-
-
-        :param group_id:
-        :param title:
-        :param address:
-        :param city_id:
-        :param latitude:
-        :param longitude:
-        :param additional_address:
-        :param metro_id:
-        :param phone:
-        :param work_info_status:
-        :param timetable:
-        :param is_main_address:
+        
+        
+        :param group_id: 
+        :param title: 
+        :param address: 
+        :param city_id: 
+        :param latitude: 
+        :param longitude: 
+        :param additional_address: 
+        :param metro_id: 
+        :param phone: 
+        :param work_info_status: 
+        :param timetable: 
+        :param is_main_address: 
         """
         params = self.get_set_params(locals())
-        response = await self.api.request("account.ban", params)
-
+        response = await self.api.request("groups.addAddress", params)
+        
         model = GroupsAddAddressResponse
-
+        
         return model(**response).response
+    
+    
 
     async def add_callback_server(
         self,
+        
         group_id: int,
+        
         url: str,
+        
         title: str,
-        secret_key: typing.Optional[str] = None,
+        
+        secret_key: typing.Optional[str] = None ,
+        
         **kwargs,
     ) -> GroupsAddCallbackServerResponse:
         """groups.addCallbackServer method
-
-
-        :param group_id:
-        :param url:
-        :param title:
-        :param secret_key:
+        
+        
+        :param group_id: 
+        :param url: 
+        :param title: 
+        :param secret_key: 
         """
         params = self.get_set_params(locals())
-        response = await self.api.request("account.ban", params)
-
+        response = await self.api.request("groups.addCallbackServer", params)
+        
         model = GroupsAddCallbackServerResponse
-
+        
         return model(**response).response
+    
+    
 
     async def add_link(
         self,
+        
         group_id: int,
+        
         link: str,
-        text: typing.Optional[str] = None,
+        
+        text: typing.Optional[str] = None ,
+        
         **kwargs,
     ) -> GroupsAddLinkResponse:
         """groups.addLink method
-
-
+        
+        
         :param group_id: Community ID.
         :param link: Link URL.
         :param text: Description text for the link.
         """
         params = self.get_set_params(locals())
-        response = await self.api.request("account.ban", params)
-
+        response = await self.api.request("groups.addLink", params)
+        
         model = GroupsAddLinkResponse
-
+        
         return model(**response).response
+    
+    
 
     async def approve_request(
         self,
+        
         group_id: int,
+        
         user_id: int,
+        
         **kwargs,
     ) -> BaseOkResponse:
         """groups.approveRequest method
-
-
+        
+        
         :param group_id: Community ID.
         :param user_id: User ID.
         """
         params = self.get_set_params(locals())
-        response = await self.api.request("account.ban", params)
-
+        response = await self.api.request("groups.approveRequest", params)
+        
         model = BaseOkResponse
-
+        
         return model(**response).response
+    
+    
 
     async def ban(
         self,
+        
         group_id: int,
-        owner_id: typing.Optional[int] = None,
-        end_date: typing.Optional[int] = None,
-        reason: typing.Optional[int] = None,
-        comment: typing.Optional[str] = None,
-        comment_visible: typing.Optional[bool] = None,
+        
+        owner_id: typing.Optional[int] = None ,
+        
+        end_date: typing.Optional[int] = None ,
+        
+        reason: typing.Optional[int] = None ,
+        
+        comment: typing.Optional[str] = None ,
+        
+        comment_visible: typing.Optional[bool] = None ,
+        
         **kwargs,
     ) -> BaseOkResponse:
         """groups.ban method
-
-
-        :param group_id:
-        :param owner_id:
-        :param end_date:
-        :param reason:
-        :param comment:
-        :param comment_visible:
+        
+        
+        :param group_id: 
+        :param owner_id: 
+        :param end_date: 
+        :param reason: 
+        :param comment: 
+        :param comment_visible: 
         """
         params = self.get_set_params(locals())
-        response = await self.api.request("account.ban", params)
-
+        response = await self.api.request("groups.ban", params)
+        
         model = BaseOkResponse
-
+        
         return model(**response).response
+    
+    
 
     async def create(
         self,
+        
         title: str,
-        description: typing.Optional[str] = None,
-        type: typing.Optional[str] = "group",
-        public_category: typing.Optional[int] = None,
-        public_subcategory: typing.Optional[int] = None,
-        subtype: typing.Optional[int] = None,
+        
+        description: typing.Optional[str] = None ,
+        
+        type: typing.Optional[str] = 'group' ,
+        
+        public_category: typing.Optional[int] = None ,
+        
+        public_subcategory: typing.Optional[int] = None ,
+        
+        subtype: typing.Optional[int] = None ,
+        
         **kwargs,
     ) -> GroupsCreateResponse:
         """groups.create method
-
-
+        
+        
         :param title: Community title.
         :param description: Community description (ignored for 'type' = 'public').
         :param type: Community type. Possible values: *'group' - group,, *'event' - event,, *'public' - public page
@@ -160,141 +209,211 @@ class GroupsCategory(BaseCategory):
         :param subtype: Public page subtype. Possible values: *'1' - place or small business,, *'2' - company, organization or website,, *'3' - famous person or group of people,, *'4' - product or work of art.
         """
         params = self.get_set_params(locals())
-        response = await self.api.request("account.ban", params)
-
+        response = await self.api.request("groups.create", params)
+        
         model = GroupsCreateResponse
-
+        
         return model(**response).response
+    
+    
 
     async def delete_address(
         self,
+        
         group_id: int,
+        
         address_id: int,
+        
         **kwargs,
     ) -> BaseOkResponse:
         """groups.deleteAddress method
-
-
-        :param group_id:
-        :param address_id:
+        
+        
+        :param group_id: 
+        :param address_id: 
         """
         params = self.get_set_params(locals())
-        response = await self.api.request("account.ban", params)
-
+        response = await self.api.request("groups.deleteAddress", params)
+        
         model = BaseOkResponse
-
+        
         return model(**response).response
+    
+    
 
     async def delete_callback_server(
         self,
+        
         group_id: int,
+        
         server_id: int,
+        
         **kwargs,
     ) -> BaseOkResponse:
         """groups.deleteCallbackServer method
-
-
-        :param group_id:
-        :param server_id:
+        
+        
+        :param group_id: 
+        :param server_id: 
         """
         params = self.get_set_params(locals())
-        response = await self.api.request("account.ban", params)
-
+        response = await self.api.request("groups.deleteCallbackServer", params)
+        
         model = BaseOkResponse
-
+        
         return model(**response).response
+    
+    
 
     async def delete_link(
         self,
+        
         group_id: int,
+        
         link_id: int,
+        
         **kwargs,
     ) -> BaseOkResponse:
         """groups.deleteLink method
-
-
+        
+        
         :param group_id: Community ID.
         :param link_id: Link ID.
         """
         params = self.get_set_params(locals())
-        response = await self.api.request("account.ban", params)
-
+        response = await self.api.request("groups.deleteLink", params)
+        
         model = BaseOkResponse
-
+        
         return model(**response).response
+    
+    
 
     async def disable_online(
         self,
+        
         group_id: int,
+        
         **kwargs,
     ) -> BaseOkResponse:
         """groups.disableOnline method
-
-
-        :param group_id:
+        
+        
+        :param group_id: 
         """
         params = self.get_set_params(locals())
-        response = await self.api.request("account.ban", params)
-
+        response = await self.api.request("groups.disableOnline", params)
+        
         model = BaseOkResponse
-
+        
         return model(**response).response
+    
+    
 
     async def edit(
         self,
+        
         group_id: int,
-        title: typing.Optional[str] = None,
-        description: typing.Optional[str] = None,
-        screen_name: typing.Optional[str] = None,
-        access: typing.Optional[int] = None,
-        website: typing.Optional[str] = None,
-        subject: typing.Optional[int] = None,
-        email: typing.Optional[str] = None,
-        phone: typing.Optional[str] = None,
-        rss: typing.Optional[str] = None,
-        event_start_date: typing.Optional[int] = None,
-        event_finish_date: typing.Optional[int] = None,
-        event_group_id: typing.Optional[int] = None,
-        public_category: typing.Optional[int] = None,
-        public_subcategory: typing.Optional[int] = None,
-        public_date: typing.Optional[str] = None,
-        wall: typing.Optional[int] = None,
-        topics: typing.Optional[int] = None,
-        photos: typing.Optional[int] = None,
-        video: typing.Optional[int] = None,
-        audio: typing.Optional[int] = None,
-        links: typing.Optional[bool] = None,
-        events: typing.Optional[bool] = None,
-        places: typing.Optional[bool] = None,
-        contacts: typing.Optional[bool] = None,
-        docs: typing.Optional[int] = None,
-        wiki: typing.Optional[int] = None,
-        messages: typing.Optional[bool] = None,
-        articles: typing.Optional[bool] = None,
-        addresses: typing.Optional[bool] = None,
-        age_limits: typing.Optional[int] = 1,
-        market: typing.Optional[bool] = None,
-        market_buttons: typing.Optional[str] = None,
-        market_comments: typing.Optional[bool] = None,
-        market_country: typing.Optional[typing.List[int]] = None,
-        market_city: typing.Optional[typing.List[int]] = None,
-        market_currency: typing.Optional[int] = None,
-        market_contact: typing.Optional[int] = None,
-        market_wiki: typing.Optional[int] = None,
-        obscene_filter: typing.Optional[bool] = None,
-        obscene_stopwords: typing.Optional[bool] = None,
-        toxic_filter: typing.Optional[bool] = None,
-        disable_replies_from_groups: typing.Optional[bool] = None,
-        obscene_words: typing.Optional[typing.List[str]] = None,
-        main_section: typing.Optional[int] = None,
-        secondary_section: typing.Optional[int] = None,
-        country: typing.Optional[int] = None,
-        city: typing.Optional[int] = None,
+        
+        title: typing.Optional[str] = None ,
+        
+        description: typing.Optional[str] = None ,
+        
+        screen_name: typing.Optional[str] = None ,
+        
+        access: typing.Optional[int] = None ,
+        
+        website: typing.Optional[str] = None ,
+        
+        subject: typing.Optional[int] = None ,
+        
+        email: typing.Optional[str] = None ,
+        
+        phone: typing.Optional[str] = None ,
+        
+        rss: typing.Optional[str] = None ,
+        
+        event_start_date: typing.Optional[int] = None ,
+        
+        event_finish_date: typing.Optional[int] = None ,
+        
+        event_group_id: typing.Optional[int] = None ,
+        
+        public_category: typing.Optional[int] = None ,
+        
+        public_subcategory: typing.Optional[int] = None ,
+        
+        public_date: typing.Optional[str] = None ,
+        
+        wall: typing.Optional[int] = None ,
+        
+        topics: typing.Optional[int] = None ,
+        
+        photos: typing.Optional[int] = None ,
+        
+        video: typing.Optional[int] = None ,
+        
+        audio: typing.Optional[int] = None ,
+        
+        links: typing.Optional[bool] = None ,
+        
+        events: typing.Optional[bool] = None ,
+        
+        places: typing.Optional[bool] = None ,
+        
+        contacts: typing.Optional[bool] = None ,
+        
+        docs: typing.Optional[int] = None ,
+        
+        wiki: typing.Optional[int] = None ,
+        
+        messages: typing.Optional[bool] = None ,
+        
+        articles: typing.Optional[bool] = None ,
+        
+        addresses: typing.Optional[bool] = None ,
+        
+        age_limits: typing.Optional[int] = 1 ,
+        
+        market: typing.Optional[bool] = None ,
+        
+        market_buttons: typing.Optional[str] = None ,
+        
+        market_comments: typing.Optional[bool] = None ,
+        
+        market_country: typing.Optional[typing.List[int]] = None ,
+        
+        market_city: typing.Optional[typing.List[int]] = None ,
+        
+        market_currency: typing.Optional[int] = None ,
+        
+        market_contact: typing.Optional[int] = None ,
+        
+        market_wiki: typing.Optional[int] = None ,
+        
+        obscene_filter: typing.Optional[bool] = None ,
+        
+        obscene_stopwords: typing.Optional[bool] = None ,
+        
+        toxic_filter: typing.Optional[bool] = None ,
+        
+        disable_replies_from_groups: typing.Optional[bool] = None ,
+        
+        obscene_words: typing.Optional[typing.List[str]] = None ,
+        
+        main_section: typing.Optional[int] = None ,
+        
+        secondary_section: typing.Optional[int] = None ,
+        
+        country: typing.Optional[int] = None ,
+        
+        city: typing.Optional[int] = None ,
+        
         **kwargs,
     ) -> BaseOkResponse:
         """groups.edit method
-
-
+        
+        
         :param group_id: Community ID.
         :param title: Community title.
         :param description: Community description.
@@ -323,8 +442,8 @@ class GroupsCategory(BaseCategory):
         :param docs: Documents settings. Possible values: *'0' - disabled,, *'1' - open,, *'2' - limited (for groups and events only).
         :param wiki: Wiki pages settings. Possible values: *'0' - disabled,, *'1' - open,, *'2' - limited (for groups and events only).
         :param messages: Community messages. Possible values: *'0' - disabled,, *'1' - enabled.
-        :param articles:
-        :param addresses:
+        :param articles: 
+        :param addresses: 
         :param age_limits: Community age limits. Possible values: *'1' - no limits,, *'2' - 16+,, *'3' - 18+.
         :param market: Market settings. Possible values: *'0' - disabled,, *'1' - enabled.
         :param market_buttons: Buttons details, see market/objects.json#/definitions/market_custom_button
@@ -336,123 +455,164 @@ class GroupsCategory(BaseCategory):
         :param market_wiki: ID of a wiki page with market description.
         :param obscene_filter: Obscene expressions filter in comments. Possible values: , *'0' - disabled,, *'1' - enabled.
         :param obscene_stopwords: Stopwords filter in comments. Possible values: , *'0' - disabled,, *'1' - enabled.
-        :param toxic_filter:
-        :param disable_replies_from_groups:
+        :param toxic_filter: 
+        :param disable_replies_from_groups: 
         :param obscene_words: Keywords for stopwords filter.
-        :param main_section:
-        :param secondary_section:
+        :param main_section: 
+        :param secondary_section: 
         :param country: Country of the community.
         :param city: City of the community.
         """
         params = self.get_set_params(locals())
-        response = await self.api.request("account.ban", params)
-
+        response = await self.api.request("groups.edit", params)
+        
         model = BaseOkResponse
-
+        
         return model(**response).response
+    
+    
 
     async def edit_address(
         self,
+        
         group_id: int,
+        
         address_id: int,
-        title: typing.Optional[str] = None,
-        address: typing.Optional[str] = None,
-        additional_address: typing.Optional[str] = None,
-        city_id: typing.Optional[int] = None,
-        metro_id: typing.Optional[int] = None,
-        latitude: typing.Optional[float] = None,
-        longitude: typing.Optional[float] = None,
-        phone: typing.Optional[str] = None,
-        work_info_status: typing.Optional[str] = None,
-        timetable: typing.Optional[str] = None,
-        is_main_address: typing.Optional[bool] = None,
+        
+        title: typing.Optional[str] = None ,
+        
+        address: typing.Optional[str] = None ,
+        
+        additional_address: typing.Optional[str] = None ,
+        
+        city_id: typing.Optional[int] = None ,
+        
+        metro_id: typing.Optional[int] = None ,
+        
+        latitude: typing.Optional[float] = None ,
+        
+        longitude: typing.Optional[float] = None ,
+        
+        phone: typing.Optional[str] = None ,
+        
+        work_info_status: typing.Optional[str] = None ,
+        
+        timetable: typing.Optional[str] = None ,
+        
+        is_main_address: typing.Optional[bool] = None ,
+        
         **kwargs,
     ) -> GroupsEditAddressResponse:
         """groups.editAddress method
-
-
-        :param group_id:
-        :param address_id:
-        :param title:
-        :param address:
-        :param additional_address:
-        :param city_id:
-        :param metro_id:
-        :param latitude:
-        :param longitude:
-        :param phone:
-        :param work_info_status:
-        :param timetable:
-        :param is_main_address:
+        
+        
+        :param group_id: 
+        :param address_id: 
+        :param title: 
+        :param address: 
+        :param additional_address: 
+        :param city_id: 
+        :param metro_id: 
+        :param latitude: 
+        :param longitude: 
+        :param phone: 
+        :param work_info_status: 
+        :param timetable: 
+        :param is_main_address: 
         """
         params = self.get_set_params(locals())
-        response = await self.api.request("account.ban", params)
-
+        response = await self.api.request("groups.editAddress", params)
+        
         model = GroupsEditAddressResponse
-
+        
         return model(**response).response
+    
+    
 
     async def edit_callback_server(
         self,
+        
         group_id: int,
+        
         server_id: int,
+        
         url: str,
+        
         title: str,
-        secret_key: typing.Optional[str] = None,
+        
+        secret_key: typing.Optional[str] = None ,
+        
         **kwargs,
     ) -> BaseOkResponse:
         """groups.editCallbackServer method
-
-
-        :param group_id:
-        :param server_id:
-        :param url:
-        :param title:
-        :param secret_key:
+        
+        
+        :param group_id: 
+        :param server_id: 
+        :param url: 
+        :param title: 
+        :param secret_key: 
         """
         params = self.get_set_params(locals())
-        response = await self.api.request("account.ban", params)
-
+        response = await self.api.request("groups.editCallbackServer", params)
+        
         model = BaseOkResponse
-
+        
         return model(**response).response
+    
+    
 
     async def edit_link(
         self,
+        
         group_id: int,
+        
         link_id: int,
-        text: typing.Optional[str] = None,
+        
+        text: typing.Optional[str] = None ,
+        
         **kwargs,
     ) -> BaseOkResponse:
         """groups.editLink method
-
-
+        
+        
         :param group_id: Community ID.
         :param link_id: Link ID.
         :param text: New description text for the link.
         """
         params = self.get_set_params(locals())
-        response = await self.api.request("account.ban", params)
-
+        response = await self.api.request("groups.editLink", params)
+        
         model = BaseOkResponse
-
+        
         return model(**response).response
+    
+    
 
     async def edit_manager(
         self,
+        
         group_id: int,
+        
         user_id: int,
-        role: typing.Optional[str] = None,
-        is_call_operator: typing.Optional[bool] = None,
-        is_contact: typing.Optional[bool] = None,
-        contact_position: typing.Optional[str] = None,
-        contact_phone: typing.Optional[str] = None,
-        contact_email: typing.Optional[str] = None,
+        
+        role: typing.Optional[str] = None ,
+        
+        is_call_operator: typing.Optional[bool] = None ,
+        
+        is_contact: typing.Optional[bool] = None ,
+        
+        contact_position: typing.Optional[str] = None ,
+        
+        contact_phone: typing.Optional[str] = None ,
+        
+        contact_email: typing.Optional[str] = None ,
+        
         **kwargs,
     ) -> BaseOkResponse:
         """groups.editManager method
-
-
+        
+        
         :param group_id: Community ID.
         :param user_id: User ID.
         :param role: Manager role. Possible values: *'moderator',, *'editor',, *'administrator',, *'advertiser'.
@@ -463,54 +623,78 @@ class GroupsCategory(BaseCategory):
         :param contact_email: Contact e-mail.
         """
         params = self.get_set_params(locals())
-        response = await self.api.request("account.ban", params)
-
+        response = await self.api.request("groups.editManager", params)
+        
         model = BaseOkResponse
-
+        
         return model(**response).response
+    
+    
 
     async def enable_online(
         self,
+        
         group_id: int,
+        
         **kwargs,
     ) -> BaseOkResponse:
         """groups.enableOnline method
-
-
-        :param group_id:
+        
+        
+        :param group_id: 
         """
         params = self.get_set_params(locals())
-        response = await self.api.request("account.ban", params)
-
+        response = await self.api.request("groups.enableOnline", params)
+        
         model = BaseOkResponse
-
+        
         return model(**response).response
+    
+    
 
+    
     @typing.overload
     async def get(
         self,
-        extended: typing.Literal[True] = True,
-        user_id: typing.Optional[int] = None,
-        filter: typing.Optional[typing.List[GroupsFilter]] = None,
-        fields: typing.Optional[typing.List[GroupsFields]] = None,
-        offset: typing.Optional[int] = None,
-        count: typing.Optional[int] = None,
-        **kwargs,
-    ) -> GroupsGetObjectExtendedResponse: ...
+        
+        extended: typing.Literal[True] = True ,
+        
+        user_id: typing.Optional[int] = None ,
+        
+        filter: typing.Optional[typing.List[GroupsFilter]] = None ,
+        
+        fields: typing.Optional[typing.List[GroupsFields]] = None ,
+        
+        offset: typing.Optional[int] = None ,
+        
+        count: typing.Optional[int] = None ,
+        
+        **kwargs
+    ) -> GroupsGetObjectExtendedResponse:
+        ...
+    
+    
 
     async def get(
         self,
-        user_id: typing.Optional[int] = None,
-        extended: typing.Optional[bool] = None,
-        filter: typing.Optional[typing.List[GroupsFilter]] = None,
-        fields: typing.Optional[typing.List[GroupsFields]] = None,
-        offset: typing.Optional[int] = None,
-        count: typing.Optional[int] = None,
+        
+        user_id: typing.Optional[int] = None ,
+        
+        extended: typing.Optional[bool] = None ,
+        
+        filter: typing.Optional[typing.List[GroupsFilter]] = None ,
+        
+        fields: typing.Optional[typing.List[GroupsFields]] = None ,
+        
+        offset: typing.Optional[int] = None ,
+        
+        count: typing.Optional[int] = None ,
+        
         **kwargs,
     ) -> GroupsGetResponse:
         """groups.get method
-
-
+        
+        
         :param user_id: User ID.
         :param extended: '1' - to return complete information about a user's communities, '0' - to return a list of community IDs without any additional fields (default),
         :param filter: Types of communities to return: 'admin' - to return communities administered by the user , 'editor' - to return communities where the user is an administrator or editor, 'moder' - to return communities where the user is an administrator, editor, or moderator, 'groups' - to return only groups, 'publics' - to return only public pages, 'events' - to return only events
@@ -519,32 +703,46 @@ class GroupsCategory(BaseCategory):
         :param count: Number of communities to return.
         """
         params = self.get_set_params(locals())
-        response = await self.api.request("account.ban", params)
-
+        response = await self.api.request("groups.get", params)
+        
         model = self.get_model(
-            ((("extended",), GroupsGetObjectExtendedResponse),),
+            (
+                
+                (("extended", ), GroupsGetObjectExtendedResponse),
+                
+            ),
             default=GroupsGetResponse,
             params=params,
         )
-
+        
         return model(**response).response
+    
+    
 
     async def get_addresses(
         self,
+        
         group_id: int,
-        address_ids: typing.Optional[typing.List[int]] = None,
-        latitude: typing.Optional[float] = None,
-        longitude: typing.Optional[float] = None,
-        offset: typing.Optional[int] = None,
-        count: typing.Optional[int] = 10,
-        fields: typing.Optional[typing.List[AddressFields]] = None,
+        
+        address_ids: typing.Optional[typing.List[int]] = None ,
+        
+        latitude: typing.Optional[float] = None ,
+        
+        longitude: typing.Optional[float] = None ,
+        
+        offset: typing.Optional[int] = None ,
+        
+        count: typing.Optional[int] = 10 ,
+        
+        fields: typing.Optional[typing.List[AddressFields]] = None ,
+        
         **kwargs,
     ) -> GroupsGetAddressesResponse:
         """groups.getAddresses method
-
-
+        
+        
         :param group_id: ID or screen name of the community.
-        :param address_ids:
+        :param address_ids: 
         :param latitude: Latitude of  the user geo position.
         :param longitude: Longitude of the user geo position.
         :param offset: Offset needed to return a specific subset of community addresses.
@@ -552,156 +750,208 @@ class GroupsCategory(BaseCategory):
         :param fields: Address fields
         """
         params = self.get_set_params(locals())
-        response = await self.api.request("account.ban", params)
-
+        response = await self.api.request("groups.getAddresses", params)
+        
         model = GroupsGetAddressesResponse
-
+        
         return model(**response).response
+    
+    
 
     async def get_banned(
         self,
+        
         group_id: int,
-        offset: typing.Optional[int] = None,
-        count: typing.Optional[int] = 20,
-        fields: typing.Optional[typing.List[BaseUserGroupFields]] = None,
-        owner_id: typing.Optional[int] = None,
+        
+        offset: typing.Optional[int] = None ,
+        
+        count: typing.Optional[int] = 20 ,
+        
+        fields: typing.Optional[typing.List[BaseUserGroupFields]] = None ,
+        
+        owner_id: typing.Optional[int] = None ,
+        
         **kwargs,
     ) -> GroupsGetBannedResponse:
         """groups.getBanned method
-
-
+        
+        
         :param group_id: Community ID.
         :param offset: Offset needed to return a specific subset of users.
         :param count: Number of users to return.
-        :param fields:
-        :param owner_id:
+        :param fields: 
+        :param owner_id: 
         """
         params = self.get_set_params(locals())
-        response = await self.api.request("account.ban", params)
-
+        response = await self.api.request("groups.getBanned", params)
+        
         model = GroupsGetBannedResponse
-
+        
         return model(**response).response
+    
+    
 
     async def get_by_id(
         self,
-        group_ids: typing.Optional[typing.List[typing.Union["int", "str"]]] = None,
-        group_id: typing.Optional[typing.Union["int", "str"]] = None,
-        fields: typing.Optional[typing.List[GroupsFields]] = None,
+        
+        group_ids: typing.Optional[typing.List[typing.Union['int', 'str']]] = None ,
+        
+        group_id: typing.Optional[typing.Union['int', 'str']] = None ,
+        
+        fields: typing.Optional[typing.List[GroupsFields]] = None ,
+        
         **kwargs,
     ) -> GroupsGetByIdObjectResponse:
         """groups.getById method
-
-
+        
+        
         :param group_ids: IDs or screen names of communities.
         :param group_id: ID or screen name of the community.
         :param fields: Group fields to return.
         """
         params = self.get_set_params(locals())
-        response = await self.api.request("account.ban", params)
-
+        response = await self.api.request("groups.getById", params)
+        
         model = GroupsGetByIdObjectResponse
-
+        
         return model(**response).response
+    
+    
 
     async def get_callback_confirmation_code(
         self,
+        
         group_id: int,
+        
         **kwargs,
     ) -> GroupsGetCallbackConfirmationCodeResponse:
         """groups.getCallbackConfirmationCode method
-
-
+        
+        
         :param group_id: Community ID.
         """
         params = self.get_set_params(locals())
-        response = await self.api.request("account.ban", params)
-
+        response = await self.api.request("groups.getCallbackConfirmationCode", params)
+        
         model = GroupsGetCallbackConfirmationCodeResponse
-
+        
         return model(**response).response
+    
+    
 
     async def get_callback_servers(
         self,
+        
         group_id: int,
-        server_ids: typing.Optional[typing.List[int]] = None,
+        
+        server_ids: typing.Optional[typing.List[int]] = None ,
+        
         **kwargs,
     ) -> GroupsGetCallbackServersResponse:
         """groups.getCallbackServers method
-
-
-        :param group_id:
-        :param server_ids:
+        
+        
+        :param group_id: 
+        :param server_ids: 
         """
         params = self.get_set_params(locals())
-        response = await self.api.request("account.ban", params)
-
+        response = await self.api.request("groups.getCallbackServers", params)
+        
         model = GroupsGetCallbackServersResponse
-
+        
         return model(**response).response
+    
+    
 
     async def get_callback_settings(
         self,
+        
         group_id: int,
-        server_id: typing.Optional[int] = None,
+        
+        server_id: typing.Optional[int] = None ,
+        
         **kwargs,
     ) -> GroupsGetCallbackSettingsResponse:
         """groups.getCallbackSettings method
-
-
+        
+        
         :param group_id: Community ID.
         :param server_id: Server ID.
         """
         params = self.get_set_params(locals())
-        response = await self.api.request("account.ban", params)
-
+        response = await self.api.request("groups.getCallbackSettings", params)
+        
         model = GroupsGetCallbackSettingsResponse
-
+        
         return model(**response).response
+    
+    
 
+    
     @typing.overload
     async def get_catalog_info(
         self,
-        extended: typing.Literal[True] = True,
-        subcategories: typing.Optional[bool] = 0,
-        **kwargs,
-    ) -> GroupsGetCatalogInfoExtendedResponse: ...
+        
+        extended: typing.Literal[True] = True ,
+        
+        subcategories: typing.Optional[bool] = 0 ,
+        
+        **kwargs
+    ) -> GroupsGetCatalogInfoExtendedResponse:
+        ...
+    
+    
 
     async def get_catalog_info(
         self,
-        extended: typing.Optional[bool] = 0,
-        subcategories: typing.Optional[bool] = 0,
+        
+        extended: typing.Optional[bool] = 0 ,
+        
+        subcategories: typing.Optional[bool] = 0 ,
+        
         **kwargs,
     ) -> GroupsGetCatalogInfoResponse:
         """groups.getCatalogInfo method
-
-
+        
+        
         :param extended: 1 - to return communities count and three communities for preview. By default: 0.
         :param subcategories: 1 - to return subcategories info. By default: 0.
         """
         params = self.get_set_params(locals())
-        response = await self.api.request("account.ban", params)
-
+        response = await self.api.request("groups.getCatalogInfo", params)
+        
         model = self.get_model(
-            ((("extended",), GroupsGetCatalogInfoExtendedResponse),),
+            (
+                
+                (("extended", ), GroupsGetCatalogInfoExtendedResponse),
+                
+            ),
             default=GroupsGetCatalogInfoResponse,
             params=params,
         )
-
+        
         return model(**response).response
+    
+    
 
     async def get_invited_users(
         self,
+        
         group_id: int,
-        offset: typing.Optional[int] = None,
-        count: typing.Optional[int] = 20,
-        fields: typing.Optional[typing.List[UsersFields]] = None,
-        name_case: typing.Optional[str] = None,
+        
+        offset: typing.Optional[int] = None ,
+        
+        count: typing.Optional[int] = 20 ,
+        
+        fields: typing.Optional[typing.List[UsersFields]] = None ,
+        
+        name_case: typing.Optional[str] = None ,
+        
         **kwargs,
     ) -> GroupsGetInvitedUsersResponse:
         """groups.getInvitedUsers method
-
-
+        
+        
         :param group_id: Group ID to return invited users for.
         :param offset: Offset needed to return a specific subset of results.
         :param count: Number of results to return.
@@ -709,117 +959,171 @@ class GroupsCategory(BaseCategory):
         :param name_case: Case for declension of user name and surname. Possible values: *'nom' - nominative (default),, *'gen' - genitive,, *'dat' - dative,, *'acc' - accusative, , *'ins' - instrumental,, *'abl' - prepositional.
         """
         params = self.get_set_params(locals())
-        response = await self.api.request("account.ban", params)
-
+        response = await self.api.request("groups.getInvitedUsers", params)
+        
         model = GroupsGetInvitedUsersResponse
-
+        
         return model(**response).response
+    
+    
 
+    
     @typing.overload
     async def get_invites(
         self,
-        extended: typing.Literal[True] = True,
-        offset: typing.Optional[int] = None,
-        count: typing.Optional[int] = 20,
-        **kwargs,
-    ) -> GroupsGetInvitesExtendedResponse: ...
+        
+        extended: typing.Literal[True] = True ,
+        
+        offset: typing.Optional[int] = None ,
+        
+        count: typing.Optional[int] = 20 ,
+        
+        **kwargs
+    ) -> GroupsGetInvitesExtendedResponse:
+        ...
+    
+    
 
     async def get_invites(
         self,
-        offset: typing.Optional[int] = None,
-        count: typing.Optional[int] = 20,
-        extended: typing.Optional[bool] = None,
+        
+        offset: typing.Optional[int] = None ,
+        
+        count: typing.Optional[int] = 20 ,
+        
+        extended: typing.Optional[bool] = None ,
+        
         **kwargs,
     ) -> GroupsGetInvitesResponse:
         """groups.getInvites method
-
-
+        
+        
         :param offset: Offset needed to return a specific subset of invitations.
         :param count: Number of invitations to return.
         :param extended: '1' - to return additional [vk.com/dev/fields_groups|fields] for communities..
         """
         params = self.get_set_params(locals())
-        response = await self.api.request("account.ban", params)
-
+        response = await self.api.request("groups.getInvites", params)
+        
         model = self.get_model(
-            ((("extended",), GroupsGetInvitesExtendedResponse),),
+            (
+                
+                (("extended", ), GroupsGetInvitesExtendedResponse),
+                
+            ),
             default=GroupsGetInvitesResponse,
             params=params,
         )
-
+        
         return model(**response).response
+    
+    
 
     async def get_long_poll_server(
         self,
+        
         group_id: int,
+        
         **kwargs,
     ) -> GroupsGetLongPollServerResponse:
         """groups.getLongPollServer method
-
-
+        
+        
         :param group_id: Community ID.
         """
         params = self.get_set_params(locals())
-        response = await self.api.request("account.ban", params)
-
+        response = await self.api.request("groups.getLongPollServer", params)
+        
         model = GroupsGetLongPollServerResponse
-
+        
         return model(**response).response
+    
+    
 
     async def get_long_poll_settings(
         self,
+        
         group_id: int,
+        
         **kwargs,
     ) -> GroupsGetLongPollSettingsResponse:
         """groups.getLongPollSettings method
-
-
+        
+        
         :param group_id: Community ID.
         """
         params = self.get_set_params(locals())
-        response = await self.api.request("account.ban", params)
-
+        response = await self.api.request("groups.getLongPollSettings", params)
+        
         model = GroupsGetLongPollSettingsResponse
-
+        
         return model(**response).response
+    
+    
 
+    
     @typing.overload
     async def get_members(
         self,
+        
         fields: typing.List[UsersFields],
-        group_id: typing.Optional[typing.Union["int", "str"]] = None,
-        sort: typing.Optional[str] = "id_asc",
-        offset: typing.Optional[int] = None,
-        count: typing.Optional[int] = 1000,
-        filter: typing.Optional[str] = None,
-        **kwargs,
-    ) -> GroupsGetMembersFieldsResponse: ...
-
+        
+        group_id: typing.Optional[typing.Union['int', 'str']] = None ,
+        
+        sort: typing.Optional[str] = 'id_asc' ,
+        
+        offset: typing.Optional[int] = None ,
+        
+        count: typing.Optional[int] = 1000 ,
+        
+        filter: typing.Optional[str] = None ,
+        
+        **kwargs
+    ) -> GroupsGetMembersFieldsResponse:
+        ...
+    
     @typing.overload
     async def get_members(
         self,
+        
         filter: str,
-        group_id: typing.Optional[typing.Union["int", "str"]] = None,
-        sort: typing.Optional[str] = "id_asc",
-        offset: typing.Optional[int] = None,
-        count: typing.Optional[int] = 1000,
-        fields: typing.Optional[typing.List[UsersFields]] = None,
-        **kwargs,
-    ) -> GroupsGetMembersFilterResponse: ...
+        
+        group_id: typing.Optional[typing.Union['int', 'str']] = None ,
+        
+        sort: typing.Optional[str] = 'id_asc' ,
+        
+        offset: typing.Optional[int] = None ,
+        
+        count: typing.Optional[int] = 1000 ,
+        
+        fields: typing.Optional[typing.List[UsersFields]] = None ,
+        
+        **kwargs
+    ) -> GroupsGetMembersFilterResponse:
+        ...
+    
+    
 
     async def get_members(
         self,
-        group_id: typing.Optional[typing.Union["int", "str"]] = None,
-        sort: typing.Optional[str] = "id_asc",
-        offset: typing.Optional[int] = None,
-        count: typing.Optional[int] = 1000,
-        fields: typing.Optional[typing.List[UsersFields]] = None,
-        filter: typing.Optional[str] = None,
+        
+        group_id: typing.Optional[typing.Union['int', 'str']] = None ,
+        
+        sort: typing.Optional[str] = 'id_asc' ,
+        
+        offset: typing.Optional[int] = None ,
+        
+        count: typing.Optional[int] = 1000 ,
+        
+        fields: typing.Optional[typing.List[UsersFields]] = None ,
+        
+        filter: typing.Optional[str] = None ,
+        
         **kwargs,
     ) -> GroupsGetMembersResponse:
         """groups.getMembers method
-
-
+        
+        
         :param group_id: ID or screen name of the community.
         :param sort: Sort order. Available values: 'id_asc', 'id_desc', 'time_asc', 'time_desc'. 'time_asc' and 'time_desc' are availavle only if the method is called by the group's 'moderator'.
         :param offset: Offset needed to return a specific subset of community members.
@@ -828,312 +1132,429 @@ class GroupsCategory(BaseCategory):
         :param filter: *'friends' - only friends in this community will be returned,, *'unsure' - only those who pressed 'I may attend' will be returned (if it's an event).
         """
         params = self.get_set_params(locals())
-        response = await self.api.request("account.ban", params)
-
+        response = await self.api.request("groups.getMembers", params)
+        
         model = self.get_model(
             (
-                (("fields",), GroupsGetMembersFieldsResponse),
-                (("filter",), GroupsGetMembersFilterResponse),
+                
+                (("fields", ), GroupsGetMembersFieldsResponse),
+                
+                (("filter", ), GroupsGetMembersFilterResponse),
+                
             ),
             default=GroupsGetMembersResponse,
             params=params,
         )
-
+        
         return model(**response).response
+    
+    
 
     async def get_online_status(
         self,
+        
         group_id: int,
+        
         **kwargs,
     ) -> GroupsGetOnlineStatusResponse:
         """groups.getOnlineStatus method
-
-
-        :param group_id:
+        
+        
+        :param group_id: 
         """
         params = self.get_set_params(locals())
-        response = await self.api.request("account.ban", params)
-
+        response = await self.api.request("groups.getOnlineStatus", params)
+        
         model = GroupsGetOnlineStatusResponse
-
+        
         return model(**response).response
+    
+    
 
+    
     @typing.overload
     async def get_requests(
         self,
+        
         group_id: int,
+        
         fields: typing.List[UsersFields],
-        offset: typing.Optional[int] = None,
-        count: typing.Optional[int] = 20,
-        **kwargs,
-    ) -> GroupsGetRequestsFieldsResponse: ...
+        
+        offset: typing.Optional[int] = None ,
+        
+        count: typing.Optional[int] = 20 ,
+        
+        **kwargs
+    ) -> GroupsGetRequestsFieldsResponse:
+        ...
+    
+    
 
     async def get_requests(
         self,
+        
         group_id: int,
-        offset: typing.Optional[int] = None,
-        count: typing.Optional[int] = 20,
-        fields: typing.Optional[typing.List[UsersFields]] = None,
+        
+        offset: typing.Optional[int] = None ,
+        
+        count: typing.Optional[int] = 20 ,
+        
+        fields: typing.Optional[typing.List[UsersFields]] = None ,
+        
         **kwargs,
     ) -> GroupsGetRequestsResponse:
         """groups.getRequests method
-
-
+        
+        
         :param group_id: Community ID.
         :param offset: Offset needed to return a specific subset of results.
         :param count: Number of results to return.
         :param fields: Profile fields to return.
         """
         params = self.get_set_params(locals())
-        response = await self.api.request("account.ban", params)
-
+        response = await self.api.request("groups.getRequests", params)
+        
         model = self.get_model(
-            ((("fields",), GroupsGetRequestsFieldsResponse),),
+            (
+                
+                (("fields", ), GroupsGetRequestsFieldsResponse),
+                
+            ),
             default=GroupsGetRequestsResponse,
             params=params,
         )
-
+        
         return model(**response).response
+    
+    
 
     async def get_settings(
         self,
-        group_id: typing.Union["int", "str"],
+        
+        group_id: typing.Union['int', 'str'],
+        
         **kwargs,
     ) -> GroupsGetSettingsResponse:
         """groups.getSettings method
-
-
+        
+        
         :param group_id: Community ID.
         """
         params = self.get_set_params(locals())
-        response = await self.api.request("account.ban", params)
-
+        response = await self.api.request("groups.getSettings", params)
+        
         model = GroupsGetSettingsResponse
-
+        
         return model(**response).response
+    
+    
 
     async def get_tag_list(
         self,
+        
         group_id: int,
+        
         **kwargs,
     ) -> GroupsGetTagListResponse:
         """groups.getTagList method
-
-
-        :param group_id:
+        
+        
+        :param group_id: 
         """
         params = self.get_set_params(locals())
-        response = await self.api.request("account.ban", params)
-
+        response = await self.api.request("groups.getTagList", params)
+        
         model = GroupsGetTagListResponse
-
+        
         return model(**response).response
+    
+    
 
     async def get_token_permissions(
         self,
+        
         **kwargs,
     ) -> GroupsGetTokenPermissionsResponse:
-        """groups.getTokenPermissions method"""
+        """groups.getTokenPermissions method
+        
+        
+        """
         params = self.get_set_params(locals())
-        response = await self.api.request("account.ban", params)
-
+        response = await self.api.request("groups.getTokenPermissions", params)
+        
         model = GroupsGetTokenPermissionsResponse
-
+        
         return model(**response).response
+    
+    
 
+    
     @typing.overload
     async def invite(
         self,
+        
         group_id: int,
-        user_id: typing.Optional[int] = None,
-        user_ids_list: typing.Optional[typing.List[int]] = None,
-        **kwargs,
-    ) -> GroupsInviteUserIdsListResponse: ...
+        
+        user_id: typing.Optional[int] = None ,
+        
+        user_ids_list: typing.Optional[typing.List[int]] = None ,
+        
+        **kwargs
+    ) -> GroupsInviteUserIdsListResponse:
+        ...
+    
+    
 
     async def invite(
         self,
+        
         group_id: int,
-        user_id: typing.Optional[int] = None,
-        user_ids_list: typing.Optional[typing.List[int]] = None,
+        
+        user_id: typing.Optional[int] = None ,
+        
+        user_ids_list: typing.Optional[typing.List[int]] = None ,
+        
         **kwargs,
     ) -> BaseOkResponse:
         """groups.invite method
-
-
+        
+        
         :param group_id: Community ID.
         :param user_id: User ID.
         :param user_ids_list: User IDs.
         """
         params = self.get_set_params(locals())
-        response = await self.api.request("account.ban", params)
-
+        response = await self.api.request("groups.invite", params)
+        
         model = self.get_model(
-            ((("user_ids",), GroupsInviteUserIdsListResponse),),
+            (
+                
+                (("user_ids", ), GroupsInviteUserIdsListResponse),
+                
+            ),
             default=BaseOkResponse,
             params=params,
         )
-
+        
         return model(**response).response
+    
+    
 
+    
     @typing.overload
     async def is_member(
         self,
-        group_id: typing.Union["int", "str"],
+        
+        group_id: typing.Union['int', 'str'],
+        
         user_ids: typing.List[int],
-        user_id: typing.Optional[int] = None,
-        extended: typing.Optional[bool] = None,
-        **kwargs,
-    ) -> GroupsIsMemberUserIdsResponse: ...
-
+        
+        user_id: typing.Optional[int] = None ,
+        
+        extended: typing.Optional[bool] = None ,
+        
+        **kwargs
+    ) -> GroupsIsMemberUserIdsResponse:
+        ...
+    
     @typing.overload
     async def is_member(
         self,
-        group_id: typing.Union["int", "str"],
-        extended: typing.Literal[True] = True,
-        user_id: typing.Optional[int] = None,
-        user_ids: typing.Optional[typing.List[int]] = None,
-        **kwargs,
-    ) -> GroupsIsMemberExtendedResponse: ...
-
+        
+        group_id: typing.Union['int', 'str'],
+        
+        extended: typing.Literal[True] = True ,
+        
+        user_id: typing.Optional[int] = None ,
+        
+        user_ids: typing.Optional[typing.List[int]] = None ,
+        
+        **kwargs
+    ) -> GroupsIsMemberExtendedResponse:
+        ...
+    
     @typing.overload
     async def is_member(
         self,
-        group_id: typing.Union["int", "str"],
+        
+        group_id: typing.Union['int', 'str'],
+        
         user_ids: typing.List[int],
-        extended: typing.Literal[True] = True,
-        user_id: typing.Optional[int] = None,
-        **kwargs,
-    ) -> GroupsIsMemberUserIdsExtendedResponse: ...
+        
+        extended: typing.Literal[True] = True ,
+        
+        user_id: typing.Optional[int] = None ,
+        
+        **kwargs
+    ) -> GroupsIsMemberUserIdsExtendedResponse:
+        ...
+    
+    
 
     async def is_member(
         self,
-        group_id: typing.Union["int", "str"],
-        user_id: typing.Optional[int] = None,
-        user_ids: typing.Optional[typing.List[int]] = None,
-        extended: typing.Optional[bool] = None,
+        
+        group_id: typing.Union['int', 'str'],
+        
+        user_id: typing.Optional[int] = None ,
+        
+        user_ids: typing.Optional[typing.List[int]] = None ,
+        
+        extended: typing.Optional[bool] = None ,
+        
         **kwargs,
     ) -> BaseBoolResponse:
         """groups.isMember method
-
-
+        
+        
         :param group_id: ID or screen name of the community.
         :param user_id: User ID.
         :param user_ids: User IDs.
         :param extended: '1' - to return an extended response with additional fields. By default: '0'.
         """
         params = self.get_set_params(locals())
-        response = await self.api.request("account.ban", params)
-
+        response = await self.api.request("groups.isMember", params)
+        
         model = self.get_model(
             (
-                (("user_ids",), GroupsIsMemberUserIdsResponse),
-                (("extended",), GroupsIsMemberExtendedResponse),
-                (
-                    (
-                        "user_ids",
-                        "extended",
-                    ),
-                    GroupsIsMemberUserIdsExtendedResponse,
-                ),
+                
+                (("user_ids", ), GroupsIsMemberUserIdsResponse),
+                
+                (("extended", ), GroupsIsMemberExtendedResponse),
+                
+                (("user_ids", "extended", ), GroupsIsMemberUserIdsExtendedResponse),
+                
             ),
             default=BaseBoolResponse,
             params=params,
         )
-
+        
         return model(**response).response
+    
+    
 
     async def join(
         self,
+        
         group_id: int,
-        not_sure: typing.Optional[str] = None,
+        
+        not_sure: typing.Optional[str] = None ,
+        
         **kwargs,
     ) -> BaseOkResponse:
         """groups.join method
-
-
+        
+        
         :param group_id: ID or screen name of the community.
         :param not_sure: Optional parameter which is taken into account when 'gid' belongs to the event: '1' - Perhaps I will attend, '0' - I will be there for sure (default), ,
         """
         params = self.get_set_params(locals())
-        response = await self.api.request("account.ban", params)
-
+        response = await self.api.request("groups.join", params)
+        
         model = BaseOkResponse
-
+        
         return model(**response).response
+    
+    
 
     async def leave(
         self,
+        
         group_id: int,
+        
         **kwargs,
     ) -> BaseOkResponse:
         """groups.leave method
-
-
+        
+        
         :param group_id: ID or screen name of the community.
         """
         params = self.get_set_params(locals())
-        response = await self.api.request("account.ban", params)
-
+        response = await self.api.request("groups.leave", params)
+        
         model = BaseOkResponse
-
+        
         return model(**response).response
+    
+    
 
     async def remove_user(
         self,
+        
         group_id: int,
+        
         user_id: int,
+        
         **kwargs,
     ) -> BaseOkResponse:
         """groups.removeUser method
-
-
+        
+        
         :param group_id: Community ID.
         :param user_id: User ID.
         """
         params = self.get_set_params(locals())
-        response = await self.api.request("account.ban", params)
-
+        response = await self.api.request("groups.removeUser", params)
+        
         model = BaseOkResponse
-
+        
         return model(**response).response
+    
+    
 
     async def reorder_link(
         self,
+        
         group_id: int,
+        
         link_id: int,
-        after: typing.Optional[int] = None,
+        
+        after: typing.Optional[int] = None ,
+        
         **kwargs,
     ) -> BaseOkResponse:
         """groups.reorderLink method
-
-
+        
+        
         :param group_id: Community ID.
         :param link_id: Link ID.
         :param after: ID of the link after which to place the link with 'link_id'.
         """
         params = self.get_set_params(locals())
-        response = await self.api.request("account.ban", params)
-
+        response = await self.api.request("groups.reorderLink", params)
+        
         model = BaseOkResponse
-
+        
         return model(**response).response
+    
+    
 
     async def search(
         self,
+        
         q: str,
-        type: typing.Optional[str] = None,
-        country_id: typing.Optional[int] = None,
-        city_id: typing.Optional[int] = None,
-        future: typing.Optional[bool] = None,
-        market: typing.Optional[bool] = None,
-        sort: typing.Optional[int] = None,
-        offset: typing.Optional[int] = None,
-        count: typing.Optional[int] = 20,
+        
+        type: typing.Optional[str] = None ,
+        
+        country_id: typing.Optional[int] = None ,
+        
+        city_id: typing.Optional[int] = None ,
+        
+        future: typing.Optional[bool] = None ,
+        
+        market: typing.Optional[bool] = None ,
+        
+        sort: typing.Optional[int] = None ,
+        
+        offset: typing.Optional[int] = None ,
+        
+        count: typing.Optional[int] = 20 ,
+        
         **kwargs,
     ) -> GroupsSearchResponse:
         """groups.search method
-
-
+        
+        
         :param q: Search query string.
         :param type: Community type. Possible values: 'group, page, event.'
         :param country_id: Country ID.
@@ -1145,87 +1566,149 @@ class GroupsCategory(BaseCategory):
         :param count: Number of communities to return. "Note that you can not receive more than first thousand of results, regardless of 'count' and 'offset' values."
         """
         params = self.get_set_params(locals())
-        response = await self.api.request("account.ban", params)
-
+        response = await self.api.request("groups.search", params)
+        
         model = GroupsSearchResponse
-
+        
         return model(**response).response
+    
+    
 
     async def set_callback_settings(
         self,
+        
         group_id: int,
-        server_id: typing.Optional[int] = None,
-        api_version: typing.Optional[str] = None,
-        message_new: typing.Optional[bool] = None,
-        message_reply: typing.Optional[bool] = None,
-        message_allow: typing.Optional[bool] = None,
-        message_edit: typing.Optional[bool] = None,
-        message_deny: typing.Optional[bool] = None,
-        message_typing_state: typing.Optional[bool] = None,
-        message_read: typing.Optional[bool] = None,
-        photo_new: typing.Optional[bool] = None,
-        audio_new: typing.Optional[bool] = None,
-        video_new: typing.Optional[bool] = None,
-        wall_reply_new: typing.Optional[bool] = None,
-        wall_reply_edit: typing.Optional[bool] = None,
-        wall_reply_delete: typing.Optional[bool] = None,
-        wall_reply_restore: typing.Optional[bool] = None,
-        wall_post_new: typing.Optional[bool] = None,
-        wall_repost: typing.Optional[bool] = None,
-        wall_schedule_post_new: typing.Optional[bool] = None,
-        wall_schedule_post_delete: typing.Optional[bool] = None,
-        board_post_new: typing.Optional[bool] = None,
-        board_post_edit: typing.Optional[bool] = None,
-        board_post_restore: typing.Optional[bool] = None,
-        board_post_delete: typing.Optional[bool] = None,
-        photo_comment_new: typing.Optional[bool] = None,
-        photo_comment_edit: typing.Optional[bool] = None,
-        photo_comment_delete: typing.Optional[bool] = None,
-        photo_comment_restore: typing.Optional[bool] = None,
-        video_comment_new: typing.Optional[bool] = None,
-        video_comment_edit: typing.Optional[bool] = None,
-        video_comment_delete: typing.Optional[bool] = None,
-        video_comment_restore: typing.Optional[bool] = None,
-        market_comment_new: typing.Optional[bool] = None,
-        market_comment_edit: typing.Optional[bool] = None,
-        market_comment_delete: typing.Optional[bool] = None,
-        market_comment_restore: typing.Optional[bool] = None,
-        market_order_new: typing.Optional[bool] = None,
-        market_order_edit: typing.Optional[bool] = None,
-        poll_vote_new: typing.Optional[bool] = None,
-        group_join: typing.Optional[bool] = None,
-        group_leave: typing.Optional[bool] = None,
-        group_change_settings: typing.Optional[bool] = None,
-        group_change_photo: typing.Optional[bool] = None,
-        group_officers_edit: typing.Optional[bool] = None,
-        user_block: typing.Optional[bool] = None,
-        user_unblock: typing.Optional[bool] = None,
-        lead_forms_new: typing.Optional[bool] = None,
-        like_add: typing.Optional[bool] = None,
-        like_remove: typing.Optional[bool] = None,
-        message_event: typing.Optional[bool] = None,
-        message_reaction_event: typing.Optional[bool] = None,
-        donut_subscription_create: typing.Optional[bool] = None,
-        donut_subscription_prolonged: typing.Optional[bool] = None,
-        donut_subscription_cancelled: typing.Optional[bool] = None,
-        donut_subscription_price_changed: typing.Optional[bool] = None,
-        donut_subscription_expired: typing.Optional[bool] = None,
-        donut_money_withdraw: typing.Optional[bool] = None,
-        donut_money_withdraw_error: typing.Optional[bool] = None,
+        
+        server_id: typing.Optional[int] = None ,
+        
+        api_version: typing.Optional[str] = None ,
+        
+        message_new: typing.Optional[bool] = None ,
+        
+        message_reply: typing.Optional[bool] = None ,
+        
+        message_allow: typing.Optional[bool] = None ,
+        
+        message_edit: typing.Optional[bool] = None ,
+        
+        message_deny: typing.Optional[bool] = None ,
+        
+        message_typing_state: typing.Optional[bool] = None ,
+        
+        message_read: typing.Optional[bool] = None ,
+        
+        photo_new: typing.Optional[bool] = None ,
+        
+        audio_new: typing.Optional[bool] = None ,
+        
+        video_new: typing.Optional[bool] = None ,
+        
+        wall_reply_new: typing.Optional[bool] = None ,
+        
+        wall_reply_edit: typing.Optional[bool] = None ,
+        
+        wall_reply_delete: typing.Optional[bool] = None ,
+        
+        wall_reply_restore: typing.Optional[bool] = None ,
+        
+        wall_post_new: typing.Optional[bool] = None ,
+        
+        wall_repost: typing.Optional[bool] = None ,
+        
+        wall_schedule_post_new: typing.Optional[bool] = None ,
+        
+        wall_schedule_post_delete: typing.Optional[bool] = None ,
+        
+        board_post_new: typing.Optional[bool] = None ,
+        
+        board_post_edit: typing.Optional[bool] = None ,
+        
+        board_post_restore: typing.Optional[bool] = None ,
+        
+        board_post_delete: typing.Optional[bool] = None ,
+        
+        photo_comment_new: typing.Optional[bool] = None ,
+        
+        photo_comment_edit: typing.Optional[bool] = None ,
+        
+        photo_comment_delete: typing.Optional[bool] = None ,
+        
+        photo_comment_restore: typing.Optional[bool] = None ,
+        
+        video_comment_new: typing.Optional[bool] = None ,
+        
+        video_comment_edit: typing.Optional[bool] = None ,
+        
+        video_comment_delete: typing.Optional[bool] = None ,
+        
+        video_comment_restore: typing.Optional[bool] = None ,
+        
+        market_comment_new: typing.Optional[bool] = None ,
+        
+        market_comment_edit: typing.Optional[bool] = None ,
+        
+        market_comment_delete: typing.Optional[bool] = None ,
+        
+        market_comment_restore: typing.Optional[bool] = None ,
+        
+        market_order_new: typing.Optional[bool] = None ,
+        
+        market_order_edit: typing.Optional[bool] = None ,
+        
+        poll_vote_new: typing.Optional[bool] = None ,
+        
+        group_join: typing.Optional[bool] = None ,
+        
+        group_leave: typing.Optional[bool] = None ,
+        
+        group_change_settings: typing.Optional[bool] = None ,
+        
+        group_change_photo: typing.Optional[bool] = None ,
+        
+        group_officers_edit: typing.Optional[bool] = None ,
+        
+        user_block: typing.Optional[bool] = None ,
+        
+        user_unblock: typing.Optional[bool] = None ,
+        
+        lead_forms_new: typing.Optional[bool] = None ,
+        
+        like_add: typing.Optional[bool] = None ,
+        
+        like_remove: typing.Optional[bool] = None ,
+        
+        message_event: typing.Optional[bool] = None ,
+        
+        message_reaction_event: typing.Optional[bool] = None ,
+        
+        donut_subscription_create: typing.Optional[bool] = None ,
+        
+        donut_subscription_prolonged: typing.Optional[bool] = None ,
+        
+        donut_subscription_cancelled: typing.Optional[bool] = None ,
+        
+        donut_subscription_price_changed: typing.Optional[bool] = None ,
+        
+        donut_subscription_expired: typing.Optional[bool] = None ,
+        
+        donut_money_withdraw: typing.Optional[bool] = None ,
+        
+        donut_money_withdraw_error: typing.Optional[bool] = None ,
+        
         **kwargs,
     ) -> BaseOkResponse:
         """groups.setCallbackSettings method
-
-
+        
+        
         :param group_id: Community ID.
         :param server_id: Server ID.
-        :param api_version:
+        :param api_version: 
         :param message_new: A new incoming message has been received ('0' - disabled, '1' - enabled).
         :param message_reply: A new outcoming message has been received ('0' - disabled, '1' - enabled).
         :param message_allow: Allowed messages notifications ('0' - disabled, '1' - enabled).
-        :param message_edit:
+        :param message_edit: 
         :param message_deny: Denied messages notifications ('0' - disabled, '1' - enabled).
-        :param message_typing_state:
+        :param message_typing_state: 
         :param message_read: Messages read notifications ('0' - disabled, '1' - enabled).
         :param photo_new: New photos notifications ('0' - disabled, '1' - enabled).
         :param audio_new: New audios notifications ('0' - disabled, '1' - enabled).
@@ -1254,106 +1737,163 @@ class GroupsCategory(BaseCategory):
         :param market_comment_edit: A market comment has been edited ('0' - disabled, '1' - enabled).
         :param market_comment_delete: A market comment has been deleted ('0' - disabled, '1' - enabled).
         :param market_comment_restore: A market comment has been restored ('0' - disabled, '1' - enabled).
-        :param market_order_new:
-        :param market_order_edit:
+        :param market_order_new: 
+        :param market_order_edit: 
         :param poll_vote_new: A vote in a public poll has been added ('0' - disabled, '1' - enabled).
         :param group_join: Joined community notifications ('0' - disabled, '1' - enabled).
         :param group_leave: Left community notifications ('0' - disabled, '1' - enabled).
-        :param group_change_settings:
-        :param group_change_photo:
-        :param group_officers_edit:
+        :param group_change_settings: 
+        :param group_change_photo: 
+        :param group_officers_edit: 
         :param user_block: User added to community blacklist
         :param user_unblock: User removed from community blacklist
         :param lead_forms_new: New form in lead forms
-        :param like_add:
-        :param like_remove:
-        :param message_event:
-        :param message_reaction_event:
-        :param donut_subscription_create:
-        :param donut_subscription_prolonged:
-        :param donut_subscription_cancelled:
-        :param donut_subscription_price_changed:
-        :param donut_subscription_expired:
-        :param donut_money_withdraw:
-        :param donut_money_withdraw_error:
+        :param like_add: 
+        :param like_remove: 
+        :param message_event: 
+        :param message_reaction_event: 
+        :param donut_subscription_create: 
+        :param donut_subscription_prolonged: 
+        :param donut_subscription_cancelled: 
+        :param donut_subscription_price_changed: 
+        :param donut_subscription_expired: 
+        :param donut_money_withdraw: 
+        :param donut_money_withdraw_error: 
         """
         params = self.get_set_params(locals())
-        response = await self.api.request("account.ban", params)
-
+        response = await self.api.request("groups.setCallbackSettings", params)
+        
         model = BaseOkResponse
-
+        
         return model(**response).response
+    
+    
 
     async def set_long_poll_settings(
         self,
+        
         group_id: int,
-        enabled: typing.Optional[bool] = None,
-        api_version: typing.Optional[str] = None,
-        message_new: typing.Optional[bool] = None,
-        message_reply: typing.Optional[bool] = None,
-        message_allow: typing.Optional[bool] = None,
-        message_deny: typing.Optional[bool] = None,
-        message_edit: typing.Optional[bool] = None,
-        message_typing_state: typing.Optional[bool] = None,
-        message_read: typing.Optional[bool] = None,
-        photo_new: typing.Optional[bool] = None,
-        audio_new: typing.Optional[bool] = None,
-        video_new: typing.Optional[bool] = None,
-        wall_reply_new: typing.Optional[bool] = None,
-        wall_reply_edit: typing.Optional[bool] = None,
-        wall_reply_delete: typing.Optional[bool] = None,
-        wall_reply_restore: typing.Optional[bool] = None,
-        wall_post_new: typing.Optional[bool] = None,
-        wall_repost: typing.Optional[bool] = None,
-        board_post_new: typing.Optional[bool] = None,
-        board_post_edit: typing.Optional[bool] = None,
-        board_post_restore: typing.Optional[bool] = None,
-        board_post_delete: typing.Optional[bool] = None,
-        photo_comment_new: typing.Optional[bool] = None,
-        photo_comment_edit: typing.Optional[bool] = None,
-        photo_comment_delete: typing.Optional[bool] = None,
-        photo_comment_restore: typing.Optional[bool] = None,
-        video_comment_new: typing.Optional[bool] = None,
-        video_comment_edit: typing.Optional[bool] = None,
-        video_comment_delete: typing.Optional[bool] = None,
-        video_comment_restore: typing.Optional[bool] = None,
-        market_comment_new: typing.Optional[bool] = None,
-        market_comment_edit: typing.Optional[bool] = None,
-        market_comment_delete: typing.Optional[bool] = None,
-        market_comment_restore: typing.Optional[bool] = None,
-        poll_vote_new: typing.Optional[bool] = None,
-        group_join: typing.Optional[bool] = None,
-        group_leave: typing.Optional[bool] = None,
-        group_change_settings: typing.Optional[bool] = None,
-        group_change_photo: typing.Optional[bool] = None,
-        group_officers_edit: typing.Optional[bool] = None,
-        user_block: typing.Optional[bool] = None,
-        user_unblock: typing.Optional[bool] = None,
-        like_add: typing.Optional[bool] = None,
-        like_remove: typing.Optional[bool] = None,
-        message_event: typing.Optional[bool] = None,
-        message_reaction_event: typing.Optional[bool] = None,
-        donut_subscription_create: typing.Optional[bool] = None,
-        donut_subscription_prolonged: typing.Optional[bool] = None,
-        donut_subscription_cancelled: typing.Optional[bool] = None,
-        donut_subscription_price_changed: typing.Optional[bool] = None,
-        donut_subscription_expired: typing.Optional[bool] = None,
-        donut_money_withdraw: typing.Optional[bool] = None,
-        donut_money_withdraw_error: typing.Optional[bool] = None,
+        
+        enabled: typing.Optional[bool] = None ,
+        
+        api_version: typing.Optional[str] = None ,
+        
+        message_new: typing.Optional[bool] = None ,
+        
+        message_reply: typing.Optional[bool] = None ,
+        
+        message_allow: typing.Optional[bool] = None ,
+        
+        message_deny: typing.Optional[bool] = None ,
+        
+        message_edit: typing.Optional[bool] = None ,
+        
+        message_typing_state: typing.Optional[bool] = None ,
+        
+        message_read: typing.Optional[bool] = None ,
+        
+        photo_new: typing.Optional[bool] = None ,
+        
+        audio_new: typing.Optional[bool] = None ,
+        
+        video_new: typing.Optional[bool] = None ,
+        
+        wall_reply_new: typing.Optional[bool] = None ,
+        
+        wall_reply_edit: typing.Optional[bool] = None ,
+        
+        wall_reply_delete: typing.Optional[bool] = None ,
+        
+        wall_reply_restore: typing.Optional[bool] = None ,
+        
+        wall_post_new: typing.Optional[bool] = None ,
+        
+        wall_repost: typing.Optional[bool] = None ,
+        
+        board_post_new: typing.Optional[bool] = None ,
+        
+        board_post_edit: typing.Optional[bool] = None ,
+        
+        board_post_restore: typing.Optional[bool] = None ,
+        
+        board_post_delete: typing.Optional[bool] = None ,
+        
+        photo_comment_new: typing.Optional[bool] = None ,
+        
+        photo_comment_edit: typing.Optional[bool] = None ,
+        
+        photo_comment_delete: typing.Optional[bool] = None ,
+        
+        photo_comment_restore: typing.Optional[bool] = None ,
+        
+        video_comment_new: typing.Optional[bool] = None ,
+        
+        video_comment_edit: typing.Optional[bool] = None ,
+        
+        video_comment_delete: typing.Optional[bool] = None ,
+        
+        video_comment_restore: typing.Optional[bool] = None ,
+        
+        market_comment_new: typing.Optional[bool] = None ,
+        
+        market_comment_edit: typing.Optional[bool] = None ,
+        
+        market_comment_delete: typing.Optional[bool] = None ,
+        
+        market_comment_restore: typing.Optional[bool] = None ,
+        
+        poll_vote_new: typing.Optional[bool] = None ,
+        
+        group_join: typing.Optional[bool] = None ,
+        
+        group_leave: typing.Optional[bool] = None ,
+        
+        group_change_settings: typing.Optional[bool] = None ,
+        
+        group_change_photo: typing.Optional[bool] = None ,
+        
+        group_officers_edit: typing.Optional[bool] = None ,
+        
+        user_block: typing.Optional[bool] = None ,
+        
+        user_unblock: typing.Optional[bool] = None ,
+        
+        like_add: typing.Optional[bool] = None ,
+        
+        like_remove: typing.Optional[bool] = None ,
+        
+        message_event: typing.Optional[bool] = None ,
+        
+        message_reaction_event: typing.Optional[bool] = None ,
+        
+        donut_subscription_create: typing.Optional[bool] = None ,
+        
+        donut_subscription_prolonged: typing.Optional[bool] = None ,
+        
+        donut_subscription_cancelled: typing.Optional[bool] = None ,
+        
+        donut_subscription_price_changed: typing.Optional[bool] = None ,
+        
+        donut_subscription_expired: typing.Optional[bool] = None ,
+        
+        donut_money_withdraw: typing.Optional[bool] = None ,
+        
+        donut_money_withdraw_error: typing.Optional[bool] = None ,
+        
         **kwargs,
     ) -> BaseOkResponse:
         """groups.setLongPollSettings method
-
-
+        
+        
         :param group_id: Community ID.
         :param enabled: Sets whether Long Poll is enabled ('0' - disabled, '1' - enabled).
-        :param api_version:
+        :param api_version: 
         :param message_new: A new incoming message has been received ('0' - disabled, '1' - enabled).
         :param message_reply: A new outcoming message has been received ('0' - disabled, '1' - enabled).
         :param message_allow: Allowed messages notifications ('0' - disabled, '1' - enabled).
         :param message_deny: Denied messages notifications ('0' - disabled, '1' - enabled).
         :param message_edit: A message has been edited ('0' - disabled, '1' - enabled).
-        :param message_typing_state:
+        :param message_typing_state: 
         :param message_read: Messages read notifications ('0' - disabled, '1' - enabled).
         :param photo_new: New photos notifications ('0' - disabled, '1' - enabled).
         :param audio_new: New audios notifications ('0' - disabled, '1' - enabled).
@@ -1383,199 +1923,251 @@ class GroupsCategory(BaseCategory):
         :param poll_vote_new: A vote in a public poll has been added ('0' - disabled, '1' - enabled).
         :param group_join: Joined community notifications ('0' - disabled, '1' - enabled).
         :param group_leave: Left community notifications ('0' - disabled, '1' - enabled).
-        :param group_change_settings:
-        :param group_change_photo:
-        :param group_officers_edit:
+        :param group_change_settings: 
+        :param group_change_photo: 
+        :param group_officers_edit: 
         :param user_block: User added to community blacklist
         :param user_unblock: User removed from community blacklist
-        :param like_add:
-        :param like_remove:
-        :param message_event:
-        :param message_reaction_event:
-        :param donut_subscription_create:
-        :param donut_subscription_prolonged:
-        :param donut_subscription_cancelled:
-        :param donut_subscription_price_changed:
-        :param donut_subscription_expired:
-        :param donut_money_withdraw:
-        :param donut_money_withdraw_error:
+        :param like_add: 
+        :param like_remove: 
+        :param message_event: 
+        :param message_reaction_event: 
+        :param donut_subscription_create: 
+        :param donut_subscription_prolonged: 
+        :param donut_subscription_cancelled: 
+        :param donut_subscription_price_changed: 
+        :param donut_subscription_expired: 
+        :param donut_money_withdraw: 
+        :param donut_money_withdraw_error: 
         """
         params = self.get_set_params(locals())
-        response = await self.api.request("account.ban", params)
-
+        response = await self.api.request("groups.setLongPollSettings", params)
+        
         model = BaseOkResponse
-
+        
         return model(**response).response
+    
+    
 
     async def set_settings(
         self,
+        
         group_id: int,
-        messages: typing.Optional[bool] = None,
-        bots_capabilities: typing.Optional[bool] = None,
-        bots_start_button: typing.Optional[bool] = None,
-        bots_add_to_chat: typing.Optional[bool] = None,
+        
+        messages: typing.Optional[bool] = None ,
+        
+        bots_capabilities: typing.Optional[bool] = None ,
+        
+        bots_start_button: typing.Optional[bool] = None ,
+        
+        bots_add_to_chat: typing.Optional[bool] = None ,
+        
         **kwargs,
     ) -> BaseOkResponse:
         """groups.setSettings method
-
-
-        :param group_id:
-        :param messages:
+        
+        
+        :param group_id: 
+        :param messages: 
         :param bots_capabilities: By enabling bot abilities, you can send users messages with a customized keyboard attached as well as use other promotional abilities
         :param bots_start_button: If this setting is enabled, users will see a Start button when they start a chat with your community for the first time
         :param bots_add_to_chat: If this setting is enabled then users can add your community to a chat
         """
         params = self.get_set_params(locals())
-        response = await self.api.request("account.ban", params)
-
+        response = await self.api.request("groups.setSettings", params)
+        
         model = BaseOkResponse
-
+        
         return model(**response).response
+    
+    
 
     async def set_user_note(
         self,
+        
         group_id: int,
+        
         user_id: int,
-        note: typing.Optional[str] = None,
+        
+        note: typing.Optional[str] = None ,
+        
         **kwargs,
     ) -> BaseBoolResponse:
         """groups.setUserNote method
-
-
-        :param group_id:
-        :param user_id:
+        
+        
+        :param group_id: 
+        :param user_id: 
         :param note: Note body
         """
         params = self.get_set_params(locals())
-        response = await self.api.request("account.ban", params)
-
+        response = await self.api.request("groups.setUserNote", params)
+        
         model = BaseBoolResponse
-
+        
         return model(**response).response
+    
+    
 
     async def tag_add(
         self,
+        
         group_id: int,
+        
         tag_name: str,
-        tag_color: typing.Optional[str] = None,
+        
+        tag_color: typing.Optional[str] = None ,
+        
         **kwargs,
     ) -> BaseBoolResponse:
         """groups.tagAdd method
-
-
-        :param group_id:
-        :param tag_name:
-        :param tag_color:
+        
+        
+        :param group_id: 
+        :param tag_name: 
+        :param tag_color: 
         """
         params = self.get_set_params(locals())
-        response = await self.api.request("account.ban", params)
-
+        response = await self.api.request("groups.tagAdd", params)
+        
         model = BaseBoolResponse
-
+        
         return model(**response).response
+    
+    
 
     async def tag_bind(
         self,
+        
         group_id: int,
+        
         tag_id: int,
+        
         user_id: int,
+        
         act: str,
+        
         **kwargs,
     ) -> BaseBoolResponse:
         """groups.tagBind method
-
-
-        :param group_id:
-        :param tag_id:
-        :param user_id:
+        
+        
+        :param group_id: 
+        :param tag_id: 
+        :param user_id: 
         :param act: Describe the action
         """
         params = self.get_set_params(locals())
-        response = await self.api.request("account.ban", params)
-
+        response = await self.api.request("groups.tagBind", params)
+        
         model = BaseBoolResponse
-
+        
         return model(**response).response
+    
+    
 
     async def tag_delete(
         self,
+        
         group_id: int,
+        
         tag_id: int,
+        
         **kwargs,
     ) -> BaseBoolResponse:
         """groups.tagDelete method
-
-
-        :param group_id:
-        :param tag_id:
+        
+        
+        :param group_id: 
+        :param tag_id: 
         """
         params = self.get_set_params(locals())
-        response = await self.api.request("account.ban", params)
-
+        response = await self.api.request("groups.tagDelete", params)
+        
         model = BaseBoolResponse
-
+        
         return model(**response).response
+    
+    
 
     async def tag_update(
         self,
+        
         group_id: int,
+        
         tag_id: int,
+        
         tag_name: str,
+        
         **kwargs,
     ) -> BaseBoolResponse:
         """groups.tagUpdate method
-
-
-        :param group_id:
-        :param tag_id:
-        :param tag_name:
+        
+        
+        :param group_id: 
+        :param tag_id: 
+        :param tag_name: 
         """
         params = self.get_set_params(locals())
-        response = await self.api.request("account.ban", params)
-
+        response = await self.api.request("groups.tagUpdate", params)
+        
         model = BaseBoolResponse
-
+        
         return model(**response).response
+    
+    
 
     async def toggle_market(
         self,
+        
         group_id: int,
+        
         state: str,
-        ref: typing.Optional[str] = None,
+        
+        ref: typing.Optional[str] = None ,
+        
         **kwargs,
     ) -> BaseOkResponse:
         """groups.toggleMarket method
-
-
-        :param group_id:
-        :param state:
-        :param ref:
+        
+        
+        :param group_id: 
+        :param state: 
+        :param ref: 
         """
         params = self.get_set_params(locals())
-        response = await self.api.request("account.ban", params)
-
+        response = await self.api.request("groups.toggleMarket", params)
+        
         model = BaseOkResponse
-
+        
         return model(**response).response
+    
+    
 
     async def unban(
         self,
+        
         group_id: int,
-        owner_id: typing.Optional[int] = None,
+        
+        owner_id: typing.Optional[int] = None ,
+        
         **kwargs,
     ) -> BaseOkResponse:
         """groups.unban method
-
-
-        :param group_id:
-        :param owner_id:
+        
+        
+        :param group_id: 
+        :param owner_id: 
         """
         params = self.get_set_params(locals())
-        response = await self.api.request("account.ban", params)
-
+        response = await self.api.request("groups.unban", params)
+        
         model = BaseOkResponse
-
+        
         return model(**response).response
+    
 
 
-__all__ = ("GroupsCategory",)
+__all__ = (
+    "GroupsCategory",
+)

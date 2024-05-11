@@ -6,6 +6,19 @@ from vkbottle_types.base_model import Field
 from vkbottle_types.objects import *
 
 
-class SearchGetHintsResponse(BaseModel):
 
-    response: dict = Field()
+
+
+class SearchGetHintsResponse(BaseModel):
+    
+    
+    response: dict = Field(
+        
+        
+        
+    )
+    
+    
+
+
+

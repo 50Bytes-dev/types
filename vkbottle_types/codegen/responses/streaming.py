@@ -6,16 +6,53 @@ from vkbottle_types.base_model import Field
 from vkbottle_types.objects import *
 
 
-class StreamingGetServerUrlResponse(BaseModel):
 
-    response: dict = Field()
+
+
+class StreamingGetServerUrlResponse(BaseModel):
+    
+    
+    response: dict = Field(
+        
+        
+        
+    )
+    
+    
+
+
+
+
+
 
 
 class StreamingGetStatsResponse(BaseModel):
+    
+    
+    response: typing.List[StreamingStats] = Field(
+        
+        
+        
+    )
+    
+    
 
-    response: typing.List[StreamingStats] = Field()
+
+
+
+
 
 
 class StreamingGetStemResponse(BaseModel):
+    
+    
+    response: dict = Field(
+        
+        
+        
+    )
+    
+    
 
-    response: dict = Field()
+
+
