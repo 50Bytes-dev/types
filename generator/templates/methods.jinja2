@@ -3,7 +3,8 @@ import typing
 from typing_extensions import Literal
 from vkbottle_types.methods.base_category import BaseCategory
 from vkbottle_types.responses.{{snake_case(category.name)}} import *
-from vkbottle_types.responses.base import OkResponse
+from vkbottle_types.responses.base import *
+### OPTIONAL
 
 class {{camelcase(category.name)}}Category(BaseCategory):
     {% for method in category.methods %}

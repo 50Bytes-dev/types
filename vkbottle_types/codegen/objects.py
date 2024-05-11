@@ -1503,6 +1503,41 @@ class AccountUserSettingsInterests(BaseModel):
     )
 
 
+class AddressFields(enum.Enum):
+
+    ID = "id"
+
+    TITLE = "title"
+
+    ADDRESS = "address"
+
+    ADDITIONAL_ADDRESS = "additional_address"
+
+    COUNTRY_ID = "country_id"
+
+    CITY_ID = "city_id"
+
+    CITY = "city"
+
+    METRO_STATION_ID = "metro_station_id"
+
+    METRO_STATION = "metro_station"
+
+    LATITUDE = "latitude"
+
+    LONGITUDE = "longitude"
+
+    DISTANCE = "distance"
+
+    WORK_INFO_STATUS = "work_info_status"
+
+    TIMETABLE = "timetable"
+
+    PHONE = "phone"
+
+    TIME_OFFSET = "time_offset"
+
+
 class AddressesFields(enum.Enum):
 
     ID = "id"
@@ -19347,6 +19382,7 @@ __all__ = (
     "AccountPushSettings",
     "AccountUserSettingsInterest",
     "AccountUserSettingsInterests",
+    "AddressFields",
     "AddressesFields",
     "AdsAccessRole",
     "AdsAccessRolePublic",

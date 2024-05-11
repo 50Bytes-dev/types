@@ -3,30 +3,31 @@ import enum
 from vkbottle_types.responses.base_response import BaseResponse, BaseModel
 from vkbottle_types.base_model import Field
 
-from vkbottle_types.objects import StreamingStatsPoint
+from vkbottle_types.objects import *
 
 
-class StreamingStatsResponseModel(BaseModel):
+class StreamingGetServerUrlResponseModel(BaseModel):
 
-    event_type: typing.Literal["post", "comment", "share"] = Field(
-        description="Events type",
-    )
-
-    stats: typing.List[StreamingStatsPoint] = Field(
-        description="Statistics",
-    )
+    response: dict = Field()
 
 
-class StreamingStatsResponse(BaseResponse):
-    response: "StreamingStatsResponseModel"
+class StreamingGetServerUrlResponse(BaseResponse):
+    response: "StreamingGetServerUrlResponseModel"
 
 
-class StreamingStatsPointResponseModel(BaseModel):
+class StreamingGetStatsResponseModel(BaseModel):
 
-    timestamp: int = Field()
-
-    value: int = Field()
+    response: typing.List[StreamingStats] = Field()
 
 
-class StreamingStatsPointResponse(BaseResponse):
-    response: "StreamingStatsPointResponseModel"
+class StreamingGetStatsResponse(BaseResponse):
+    response: "StreamingGetStatsResponseModel"
+
+
+class StreamingGetStemResponseModel(BaseModel):
+
+    response: dict = Field()
+
+
+class StreamingGetStemResponse(BaseResponse):
+    response: "StreamingGetStemResponseModel"

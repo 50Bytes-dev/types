@@ -3,140 +3,78 @@ import enum
 from vkbottle_types.responses.base_response import BaseResponse, BaseModel
 from vkbottle_types.base_model import Field
 
-from vkbottle_types.objects import BaseBoolInt
+from vkbottle_types.objects import *
 
 
-class SecureGiveEventStickerItemResponseModel(BaseModel):
+class SecureCheckTokenResponseModel(BaseModel):
 
-    user_id: typing.Optional[int] = Field(
-        default=None,
-    )
-
-    status: typing.Optional[str] = Field(
-        default=None,
-    )
+    response: "SecureTokenChecked" = Field()
 
 
-class SecureGiveEventStickerItemResponse(BaseResponse):
-    response: "SecureGiveEventStickerItemResponseModel"
+class SecureCheckTokenResponse(BaseResponse):
+    response: "SecureCheckTokenResponseModel"
 
 
-class SecureLevelResponseModel(BaseModel):
+class SecureGetAppBalanceResponseModel(BaseModel):
 
-    level: typing.Optional[int] = Field(
-        default=None,
-        description="Level",
-    )
-
-    uid: typing.Optional[int] = Field(
-        default=None,
-        description="User ID",
+    response: int = Field(
+        description="App balance",
     )
 
 
-class SecureLevelResponse(BaseResponse):
-    response: "SecureLevelResponseModel"
+class SecureGetAppBalanceResponse(BaseResponse):
+    response: "SecureGetAppBalanceResponseModel"
 
 
-class SecureSetCounterItemResponseModel(BaseModel):
+class SecureGetSMSHistoryResponseModel(BaseModel):
 
-    id: int = Field(
-        description="User ID",
-    )
-
-    result: bool = Field()
+    response: typing.List[SecureSmsNotification] = Field()
 
 
-class SecureSetCounterItemResponse(BaseResponse):
-    response: "SecureSetCounterItemResponseModel"
+class SecureGetSMSHistoryResponse(BaseResponse):
+    response: "SecureGetSMSHistoryResponseModel"
 
 
-class SecureSmsNotificationResponseModel(BaseModel):
+class SecureGetTransactionsHistoryResponseModel(BaseModel):
 
-    app_id: typing.Optional[str] = Field(
-        default=None,
-        description="Application ID",
-    )
-
-    date: typing.Optional[str] = Field(
-        default=None,
-        description="Date when message has been sent in Unixtime",
-    )
-
-    id: typing.Optional[str] = Field(
-        default=None,
-        description="Notification ID",
-    )
-
-    message: typing.Optional[str] = Field(
-        default=None,
-        description="Messsage text",
-    )
-
-    user_id: typing.Optional[str] = Field(
-        default=None,
-        description="User ID",
-    )
+    response: typing.List[SecureTransaction] = Field()
 
 
-class SecureSmsNotificationResponse(BaseResponse):
-    response: "SecureSmsNotificationResponseModel"
+class SecureGetTransactionsHistoryResponse(BaseResponse):
+    response: "SecureGetTransactionsHistoryResponseModel"
 
 
-class SecureTokenCheckedResponseModel(BaseModel):
+class SecureGetUserLevelResponseModel(BaseModel):
 
-    date: typing.Optional[int] = Field(
-        default=None,
-        description="Date when access_token has been generated in Unixtime",
-    )
-
-    expire: typing.Optional[int] = Field(
-        default=None,
-        description="Date when access_token will expire in Unixtime",
-    )
-
-    success: typing.Optional[int] = Field(
-        default=None,
-        description="Returns if successfully processed",
-    )
-
-    user_id: typing.Optional[int] = Field(
-        default=None,
-        description="User ID",
-    )
+    response: typing.List[SecureLevel] = Field()
 
 
-class SecureTokenCheckedResponse(BaseResponse):
-    response: "SecureTokenCheckedResponseModel"
+class SecureGetUserLevelResponse(BaseResponse):
+    response: "SecureGetUserLevelResponseModel"
 
 
-class SecureTransactionResponseModel(BaseModel):
+class SecureGiveEventStickerResponseModel(BaseModel):
 
-    date: typing.Optional[int] = Field(
-        default=None,
-        description="Transaction date in Unixtime",
-    )
-
-    id: typing.Optional[int] = Field(
-        default=None,
-        description="Transaction ID",
-    )
-
-    uid_from: typing.Optional[int] = Field(
-        default=None,
-        description="From ID",
-    )
-
-    uid_to: typing.Optional[int] = Field(
-        default=None,
-        description="To ID",
-    )
-
-    votes: typing.Optional[int] = Field(
-        default=None,
-        description="Votes number",
-    )
+    response: typing.List[SecureGiveEventStickerItem] = Field()
 
 
-class SecureTransactionResponse(BaseResponse):
-    response: "SecureTransactionResponseModel"
+class SecureGiveEventStickerResponse(BaseResponse):
+    response: "SecureGiveEventStickerResponseModel"
+
+
+class SecureSendNotificationResponseModel(BaseModel):
+
+    response: typing.List[int] = Field()
+
+
+class SecureSendNotificationResponse(BaseResponse):
+    response: "SecureSendNotificationResponseModel"
+
+
+class SecureSetCounterArrayResponseModel(BaseModel):
+
+    response: typing.List[SecureSetCounterItem] = Field()
+
+
+class SecureSetCounterArrayResponse(BaseResponse):
+    response: "SecureSetCounterArrayResponseModel"

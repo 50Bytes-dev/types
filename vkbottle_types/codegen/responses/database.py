@@ -3,152 +3,112 @@ import enum
 from vkbottle_types.responses.base_response import BaseResponse, BaseModel
 from vkbottle_types.base_model import Field
 
-from vkbottle_types.objects import BaseBoolInt
+from vkbottle_types.objects import *
 
 
-class DatabaseCityResponseModel(BaseObject):
+class DatabaseGetChairsResponseModel(BaseModel):
 
-    area: typing.Optional[str] = Field(
-        default=None,
-        description="Area title",
-    )
-
-    region: typing.Optional[str] = Field(
-        default=None,
-        description="Region title",
-    )
-
-    important: typing.Optional[bool] = Field(
-        default=None,
-        description="Information whether the city is included in important cities list",
-    )
+    response: dict = Field()
 
 
-class DatabaseCityResponse(BaseResponse):
-    response: "DatabaseCityResponseModel"
+class DatabaseGetChairsResponse(BaseResponse):
+    response: "DatabaseGetChairsResponseModel"
 
 
-class DatabaseCityByIdResponseModel(BaseModel):
+class DatabaseGetCitiesByIdResponseModel(BaseModel):
 
-    pass
-
-
-class DatabaseCityByIdResponse(BaseResponse):
-    response: "DatabaseCityByIdResponseModel"
+    response: typing.List[DatabaseCityById] = Field()
 
 
-class DatabaseFacultyResponseModel(BaseModel):
-
-    id: typing.Optional[int] = Field(
-        default=None,
-        description="Faculty ID",
-    )
-
-    title: typing.Optional[str] = Field(
-        default=None,
-        description="Faculty title",
-    )
+class DatabaseGetCitiesByIdResponse(BaseResponse):
+    response: "DatabaseGetCitiesByIdResponseModel"
 
 
-class DatabaseFacultyResponse(BaseResponse):
-    response: "DatabaseFacultyResponseModel"
+class DatabaseGetCitiesResponseModel(BaseModel):
+
+    response: dict = Field()
 
 
-class DatabaseLanguageFullResponseModel(BaseModel):
-
-    id: int = Field(
-        description="Language ID",
-    )
-
-    native_name: str = Field(
-        description="Language native name",
-    )
+class DatabaseGetCitiesResponse(BaseResponse):
+    response: "DatabaseGetCitiesResponseModel"
 
 
-class DatabaseLanguageFullResponse(BaseResponse):
-    response: "DatabaseLanguageFullResponseModel"
+class DatabaseGetCountriesByIdResponseModel(BaseModel):
+
+    response: typing.List[BaseCountry] = Field()
 
 
-class DatabaseRegionResponseModel(BaseModel):
-
-    id: typing.Optional[int] = Field(
-        default=None,
-        description="Region ID",
-    )
-
-    title: typing.Optional[str] = Field(
-        default=None,
-        description="Region title",
-    )
+class DatabaseGetCountriesByIdResponse(BaseResponse):
+    response: "DatabaseGetCountriesByIdResponseModel"
 
 
-class DatabaseRegionResponse(BaseResponse):
-    response: "DatabaseRegionResponseModel"
+class DatabaseGetCountriesResponseModel(BaseModel):
+
+    response: dict = Field()
 
 
-class DatabaseSchoolResponseModel(BaseModel):
-
-    id: typing.Optional[int] = Field(
-        default=None,
-        description="School ID",
-    )
-
-    title: typing.Optional[str] = Field(
-        default=None,
-        description="School title",
-    )
+class DatabaseGetCountriesResponse(BaseResponse):
+    response: "DatabaseGetCountriesResponseModel"
 
 
-class DatabaseSchoolResponse(BaseResponse):
-    response: "DatabaseSchoolResponseModel"
+class DatabaseGetFacultiesResponseModel(BaseModel):
+
+    response: dict = Field()
 
 
-class DatabaseSchoolClassResponseModel(BaseModel):
-
-    pass
-
-
-class DatabaseSchoolClassResponse(BaseResponse):
-    response: "DatabaseSchoolClassResponseModel"
+class DatabaseGetFacultiesResponse(BaseResponse):
+    response: "DatabaseGetFacultiesResponseModel"
 
 
-class DatabaseStationResponseModel(BaseModel):
+class DatabaseGetMetroStationsByIdResponseModel(BaseModel):
 
-    id: int = Field(
-        description="Station ID",
-    )
-
-    name: str = Field(
-        description="Station name",
-    )
-
-    city_id: typing.Optional[int] = Field(
-        default=None,
-        description="City ID",
-    )
-
-    color: typing.Optional[str] = Field(
-        default=None,
-        description="Hex color code without #",
-    )
+    response: typing.List[DatabaseStation] = Field()
 
 
-class DatabaseStationResponse(BaseResponse):
-    response: "DatabaseStationResponseModel"
+class DatabaseGetMetroStationsByIdResponse(BaseResponse):
+    response: "DatabaseGetMetroStationsByIdResponseModel"
 
 
-class DatabaseUniversityResponseModel(BaseModel):
+class DatabaseGetMetroStationsResponseModel(BaseModel):
 
-    id: typing.Optional[int] = Field(
-        default=None,
-        description="University ID",
-    )
-
-    title: typing.Optional[str] = Field(
-        default=None,
-        description="University title",
-    )
+    response: dict = Field()
 
 
-class DatabaseUniversityResponse(BaseResponse):
-    response: "DatabaseUniversityResponseModel"
+class DatabaseGetMetroStationsResponse(BaseResponse):
+    response: "DatabaseGetMetroStationsResponseModel"
+
+
+class DatabaseGetRegionsResponseModel(BaseModel):
+
+    response: dict = Field()
+
+
+class DatabaseGetRegionsResponse(BaseResponse):
+    response: "DatabaseGetRegionsResponseModel"
+
+
+class DatabaseGetSchoolClassesNewResponseModel(BaseModel):
+
+    response: typing.List[DatabaseSchoolClass] = Field()
+
+
+class DatabaseGetSchoolClassesNewResponse(BaseResponse):
+    response: "DatabaseGetSchoolClassesNewResponseModel"
+
+
+class DatabaseGetSchoolsResponseModel(BaseModel):
+
+    response: dict = Field()
+
+
+class DatabaseGetSchoolsResponse(BaseResponse):
+    response: "DatabaseGetSchoolsResponseModel"
+
+
+class DatabaseGetUniversitiesResponseModel(BaseModel):
+
+    response: dict = Field()
+
+
+class DatabaseGetUniversitiesResponse(BaseResponse):
+    response: "DatabaseGetUniversitiesResponseModel"

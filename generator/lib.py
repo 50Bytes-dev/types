@@ -12,6 +12,7 @@ import jinja2
 CATEGORIES = (
     "users",
     "account",
+    "address",
     "addresses",
     "ads",
     "adsweb",
@@ -214,11 +215,17 @@ def generate_methods(category: Category, path: str):
     ) as fs:
         template = env.get_template("methods.jinja2")
         generated = template.render(category=category)
+
+        if category.name == "donut":
+            generated = generated.replace(
+                "### OPTIONAL", "from vkbottle_types.responses.groups import *"
+            )
+
         fs.write(generated)
 
 
 def generate_responses(category: Category, path: str):
-    definitions = get_definitions(category.objects)
+    definitions = get_definitions(category.responses)
     generator_types.IMPORTS_CACHE = set()
     with open(
         pathlib.Path(path, "responses", snake_case(category.name) + ".py"), "w"

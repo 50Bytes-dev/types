@@ -3,19 +3,13 @@ import enum
 from vkbottle_types.responses.base_response import BaseResponse, BaseModel
 from vkbottle_types.base_model import Field
 
-from vkbottle_types.objects import AudioAudio
+from vkbottle_types.objects import *
 
 
-class StatusStatusResponseModel(BaseModel):
+class StatusGetResponseModel(BaseModel):
 
-    text: str = Field(
-        description="Status text",
-    )
-
-    audio: typing.Optional["AudioAudio"] = Field(
-        default=None,
-    )
+    response: "StatusStatus" = Field()
 
 
-class StatusStatusResponse(BaseResponse):
-    response: "StatusStatusResponseModel"
+class StatusGetResponse(BaseResponse):
+    response: "StatusGetResponseModel"

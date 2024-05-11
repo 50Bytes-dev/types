@@ -3,558 +3,186 @@ import enum
 from vkbottle_types.responses.base_response import BaseResponse, BaseModel
 from vkbottle_types.base_model import Field
 
-from vkbottle_types.objects import (
-    BasePropertyExists,
-    BaseRepostsInfo,
-    VideoLiveSettings,
-    VideoLiveCategory,
-    BaseLikes,
-    BaseBoolInt,
-    VideoVideoImage,
-    VideoVideoFiles,
-    VideoEpisode,
-)
-
-
-class VideoEpisodeResponseModel(BaseModel):
-
-    time: typing.Optional[int] = Field(
-        default=None,
-        description="Seconds from start of the video",
-    )
-
-    text: typing.Optional[str] = Field(
-        default=None,
-        description="Description of episode",
-    )
-
-
-class VideoEpisodeResponse(BaseResponse):
-    response: "VideoEpisodeResponseModel"
-
-
-class VideoLiveCategoryResponseModel(BaseModel):
-
-    id: int = Field()
-
-    label: str = Field()
-
-    sublist: typing.Optional[typing.List[VideoLiveCategory]] = Field(
-        default=None,
-    )
-
-
-class VideoLiveCategoryResponse(BaseResponse):
-    response: "VideoLiveCategoryResponseModel"
-
-
-class VideoLiveInfoResponseModel(BaseModel):
-
-    enabled: bool = Field()
-
-    is_notifications_blocked: typing.Optional[bool] = Field(
-        default=None,
-    )
-
-
-class VideoLiveInfoResponse(BaseResponse):
-    response: "VideoLiveInfoResponseModel"
-
-
-class VideoLiveSettingsResponseModel(BaseModel):
-
-    can_rewind: typing.Optional[bool] = Field(
-        default=None,
-        description="If user car rewind live or not",
-    )
-
-    is_endless: typing.Optional[bool] = Field(
-        default=None,
-        description="If live is endless or not",
-    )
-
-    max_duration: typing.Optional[int] = Field(
-        default=None,
-        description="Max possible time for rewind",
-    )
-
-    is_clips_live: typing.Optional[bool] = Field(
-        default=None,
-        description="If live in clips apps",
-    )
-
-
-class VideoLiveSettingsResponse(BaseResponse):
-    response: "VideoLiveSettingsResponseModel"
-
-
-class VideoSaveResultResponseModel(BaseModel):
+from vkbottle_types.objects import *
 
-    access_key: typing.Optional[str] = Field(
-        default=None,
-        description="Video access key",
-    )
-
-    description: typing.Optional[str] = Field(
-        default=None,
-        description="Video description",
-    )
-
-    owner_id: typing.Optional[int] = Field(
-        default=None,
-        description="Video owner ID",
-    )
-
-    title: typing.Optional[str] = Field(
-        default=None,
-        description="Video title",
-    )
-
-    upload_url: typing.Optional[str] = Field(
-        default=None,
-        description="URL for the video uploading",
-    )
-
-    video_id: typing.Optional[int] = Field(
-        default=None,
-        description="Video ID",
-    )
-
-
-class VideoSaveResultResponse(BaseResponse):
-    response: "VideoSaveResultResponseModel"
-
-
-class VideoStreamInputParamsResponseModel(BaseModel):
-
-    url: typing.Optional[str] = Field(
-        default=None,
-    )
 
-    key: typing.Optional[str] = Field(
-        default=None,
-    )
-
-    okmp_url: typing.Optional[str] = Field(
-        default=None,
-    )
-
-    webrtc_url: typing.Optional[str] = Field(
-        default=None,
-    )
-
-
-class VideoStreamInputParamsResponse(BaseResponse):
-    response: "VideoStreamInputParamsResponseModel"
-
+class VideoAddAlbumResponseModel(BaseModel):
 
-class VideoVideoResponseModel(BaseModel):
+    response: dict = Field()
 
-    response_type: typing.Optional[typing.Literal["min", "full"]] = Field(
-        default=None,
-    )
-
-    access_key: typing.Optional[str] = Field(
-        default=None,
-        description="Video access key",
-    )
-
-    adding_date: typing.Optional[int] = Field(
-        default=None,
-        description="Date when the video has been added in Unixtime",
-    )
 
-    can_comment: typing.Optional[bool] = Field(
-        default=None,
-        description="Information whether current user can comment the video",
-    )
+class VideoAddAlbumResponse(BaseResponse):
+    response: "VideoAddAlbumResponseModel"
 
-    can_edit: typing.Optional[bool] = Field(
-        default=None,
-        description="Information whether current user can edit the video",
-    )
 
-    can_delete: typing.Optional[bool] = Field(
-        default=None,
-        description="Information whether current user can delete the video",
-    )
+class VideoChangeVideoAlbumsResponseModel(BaseModel):
 
-    can_like: typing.Optional[bool] = Field(
-        default=None,
-        description="Information whether current user can like the video",
-    )
+    response: typing.List[int] = Field()
 
-    can_repost: typing.Optional[int] = Field(
-        default=None,
-        description="Information whether current user can repost the video",
-    )
 
-    can_subscribe: typing.Optional[bool] = Field(
-        default=None,
-        description="Information whether current user can subscribe to author of the video",
-    )
+class VideoChangeVideoAlbumsResponse(BaseResponse):
+    response: "VideoChangeVideoAlbumsResponseModel"
 
-    can_add_to_faves: typing.Optional[bool] = Field(
-        default=None,
-        description="Information whether current user can add the video to favourites",
-    )
 
-    can_add: typing.Optional[bool] = Field(
-        default=None,
-        description="Information whether current user can add the video",
-    )
+class VideoCreateCommentResponseModel(BaseModel):
 
-    can_attach_link: typing.Optional[bool] = Field(
-        default=None,
-        description="Information whether current user can attach action button to the video",
+    response: int = Field(
+        description="Created comment ID",
     )
 
-    can_edit_privacy: typing.Optional[bool] = Field(
-        default=None,
-        description="Information whether current user can edit the video privacy",
-    )
 
-    is_private: typing.Optional[bool] = Field(
-        default=None,
-        description="1 if video is private",
-    )
+class VideoCreateCommentResponse(BaseResponse):
+    response: "VideoCreateCommentResponseModel"
 
-    comments: typing.Optional[int] = Field(
-        default=None,
-        description="Number of comments",
-    )
 
-    date: typing.Optional[int] = Field(
-        default=None,
-        description="Date when video has been uploaded in Unixtime",
-    )
+class VideoEditResponseModel(BaseModel):
 
-    description: typing.Optional[str] = Field(
-        default=None,
-        description="Video description",
-    )
+    response: dict = Field()
 
-    duration: typing.Optional[int] = Field(
-        default=None,
-        description="Video duration in seconds",
-    )
 
-    image: typing.Optional[typing.List[VideoVideoImage]] = Field(
-        default=None,
-    )
+class VideoEditResponse(BaseResponse):
+    response: "VideoEditResponseModel"
 
-    first_frame: typing.Optional[typing.List[VideoVideoImage]] = Field(
-        default=None,
-    )
 
-    width: typing.Optional[int] = Field(
-        default=None,
-        description="Video width",
-    )
+class VideoGetAlbumByIdResponseModel(BaseModel):
 
-    height: typing.Optional[int] = Field(
-        default=None,
-        description="Video height",
-    )
+    response: "VideoVideoAlbumFull" = Field()
 
-    id: typing.Optional[int] = Field(
-        default=None,
-        description="Video ID",
-    )
 
-    owner_id: typing.Optional[int] = Field(
-        default=None,
-        description="Video owner ID",
-    )
+class VideoGetAlbumByIdResponse(BaseResponse):
+    response: "VideoGetAlbumByIdResponseModel"
 
-    user_id: typing.Optional[int] = Field(
-        default=None,
-        description="Id of the user who uploaded the video if it was uploaded to a group by member",
-    )
 
-    title: typing.Optional[str] = Field(
-        default=None,
-        description="Video title",
-    )
+class VideoGetAlbumsByVideoExtendedResponseModel(BaseModel):
 
-    is_favorite: typing.Optional[bool] = Field(
-        default=None,
-        description="Whether video is added to bookmarks",
-    )
+    response: dict = Field()
 
-    player: typing.Optional[str] = Field(
-        default=None,
-        description="Video embed URL",
-    )
 
-    processing: typing.Optional["BasePropertyExists"] = Field(
-        default=None,
-        description="Returns if the video is processing",
-    )
+class VideoGetAlbumsByVideoExtendedResponse(BaseResponse):
+    response: "VideoGetAlbumsByVideoExtendedResponseModel"
 
-    converting: typing.Optional[bool] = Field(
-        default=None,
-        description="1 if  video is being converted",
-    )
 
-    added: typing.Optional[bool] = Field(
-        default=None,
-        description="1 if video is added to user's albums",
-    )
+class VideoGetAlbumsByVideoResponseModel(BaseModel):
 
-    is_subscribed: typing.Optional[bool] = Field(
-        default=None,
-        description="1 if user is subscribed to author of the video",
-    )
+    response: typing.List[int] = Field()
 
-    track_code: typing.Optional[str] = Field(
-        default=None,
-    )
 
-    repeat: typing.Optional["BasePropertyExists"] = Field(
-        default=None,
-        description="Information whether the video is repeated",
-    )
+class VideoGetAlbumsByVideoResponse(BaseResponse):
+    response: "VideoGetAlbumsByVideoResponseModel"
 
-    type: typing.Optional[
-        typing.Literal["video", "music_video", "movie", "live", "short_video"]
-    ] = Field(
-        default=None,
-    )
 
-    views: typing.Optional[int] = Field(
-        default=None,
-        description="Number of views",
-    )
+class VideoGetAlbumsExtendedResponseModel(BaseModel):
 
-    local_views: typing.Optional[int] = Field(
-        default=None,
-        description="If video is external, number of views on vk",
-    )
+    response: dict = Field()
 
-    content_restricted: typing.Optional[int] = Field(
-        default=None,
-        description="Restriction code",
-    )
 
-    content_restricted_message: typing.Optional[str] = Field(
-        default=None,
-        description="Restriction text",
-    )
+class VideoGetAlbumsExtendedResponse(BaseResponse):
+    response: "VideoGetAlbumsExtendedResponseModel"
 
-    balance: typing.Optional[int] = Field(
-        default=None,
-        description="Live donations balance",
-    )
 
-    live: typing.Optional["BasePropertyExists"] = Field(
-        default=None,
-        description="1 if the video is a live stream",
-    )
+class VideoGetAlbumsResponseModel(BaseModel):
 
-    upcoming: typing.Optional["BasePropertyExists"] = Field(
-        default=None,
-        description="1 if the video is an upcoming stream",
-    )
+    response: dict = Field()
 
-    live_start_time: typing.Optional[int] = Field(
-        default=None,
-        description="Date in Unixtime when the live stream is scheduled to start by the author",
-    )
 
-    live_notify: typing.Optional[bool] = Field(
-        default=None,
-        description="Whether current user is subscribed to the upcoming live stream notification (if not subscribed to the author)",
-    )
+class VideoGetAlbumsResponse(BaseResponse):
+    response: "VideoGetAlbumsResponseModel"
 
-    spectators: typing.Optional[int] = Field(
-        default=None,
-        description="Number of spectators of the stream",
-    )
 
-    platform: typing.Optional[str] = Field(
-        default=None,
-        description="External platform",
-    )
+class VideoGetCommentsExtendedResponseModel(BaseModel):
 
-    likes: typing.Optional["BaseLikes"] = Field(
-        default=None,
-    )
+    response: dict = Field()
 
-    reposts: typing.Optional["BaseRepostsInfo"] = Field(
-        default=None,
-    )
 
+class VideoGetCommentsExtendedResponse(BaseResponse):
+    response: "VideoGetCommentsExtendedResponseModel"
 
-class VideoVideoResponse(BaseResponse):
-    response: "VideoVideoResponseModel"
 
+class VideoGetCommentsResponseModel(BaseModel):
 
-class VideoVideoAlbumResponseModel(BaseModel):
+    response: dict = Field()
 
-    id: int = Field(
-        description="Album ID",
-    )
 
-    owner_id: int = Field(
-        description="Album owner's ID",
-    )
+class VideoGetCommentsResponse(BaseResponse):
+    response: "VideoGetCommentsResponseModel"
 
-    title: str = Field(
-        description="Album title",
-    )
 
-    track_code: typing.Optional[str] = Field(
-        default=None,
-        description="Album trackcode",
-    )
+class VideoGetLongPollServerResponseModel(BaseModel):
 
-    response_type: typing.Optional[typing.Literal["min", "full"]] = Field(
-        default=None,
-    )
+    response: dict = Field()
 
 
-class VideoVideoAlbumResponse(BaseResponse):
-    response: "VideoVideoAlbumResponseModel"
+class VideoGetLongPollServerResponse(BaseResponse):
+    response: "VideoGetLongPollServerResponseModel"
 
 
-class VideoVideoAlbumFullResponseModel(VideoVideoAlbum):
+class VideoGetResponseModel(BaseModel):
 
-    count: int = Field(
-        description="Total number of videos in album",
-    )
+    response: dict = Field()
 
-    updated_time: int = Field(
-        description="Date when the album has been updated last time in Unixtime",
-    )
 
-    image: typing.Optional[typing.List[VideoVideoImage]] = Field(
-        default=None,
-        description="Album cover image in different sizes",
-    )
+class VideoGetResponse(BaseResponse):
+    response: "VideoGetResponseModel"
 
-    image_blur: typing.Optional["BasePropertyExists"] = Field(
-        default=None,
-        description="Need blur album thumb or not",
-    )
 
-    is_system: typing.Optional["BasePropertyExists"] = Field(
-        default=None,
-        description="Information whether album is system",
-    )
+class VideoLiveGetCategoriesResponseModel(BaseModel):
 
-    can_edit: typing.Optional[bool] = Field(
-        default=None,
-        description="Is user can edit playlist",
-    )
+    response: typing.List[VideoLiveCategory] = Field()
 
-    can_delete: typing.Optional[bool] = Field(
-        default=None,
-        description="Is user can delete playlist",
-    )
 
-    can_upload: typing.Optional[bool] = Field(
-        default=None,
-        description="Is user can upload video to playlist",
-    )
+class VideoLiveGetCategoriesResponse(BaseResponse):
+    response: "VideoLiveGetCategoriesResponseModel"
 
 
-class VideoVideoAlbumFullResponse(BaseResponse):
-    response: "VideoVideoAlbumFullResponseModel"
+class VideoSaveResponseModel(BaseModel):
 
+    response: "VideoSaveResult" = Field()
 
-class VideoVideoFilesResponseModel(BaseModel):
 
-    external: typing.Optional[str] = Field(
-        default=None,
-        description="URL of the external player",
-    )
+class VideoSaveResponse(BaseResponse):
+    response: "VideoSaveResponseModel"
 
-    mp4_144: typing.Optional[str] = Field(
-        default=None,
-        description="URL of the mpeg4 file with 144p quality",
-    )
 
-    mp4_240: typing.Optional[str] = Field(
-        default=None,
-        description="URL of the mpeg4 file with 240p quality",
-    )
+class VideoSearchExtendedResponseModel(BaseModel):
 
-    mp4_360: typing.Optional[str] = Field(
-        default=None,
-        description="URL of the mpeg4 file with 360p quality",
-    )
+    response: dict = Field()
 
-    mp4_480: typing.Optional[str] = Field(
-        default=None,
-        description="URL of the mpeg4 file with 480p quality",
-    )
 
-    mp4_720: typing.Optional[str] = Field(
-        default=None,
-        description="URL of the mpeg4 file with 720p quality",
-    )
+class VideoSearchExtendedResponse(BaseResponse):
+    response: "VideoSearchExtendedResponseModel"
 
-    mp4_1080: typing.Optional[str] = Field(
-        default=None,
-        description="URL of the mpeg4 file with 1080p quality",
-    )
 
-    mp4_1440: typing.Optional[str] = Field(
-        default=None,
-        description="URL of the mpeg4 file with 2K quality",
-    )
+class VideoSearchResponseModel(BaseModel):
 
-    mp4_2160: typing.Optional[str] = Field(
-        default=None,
-        description="URL of the mpeg4 file with 4K quality",
-    )
+    response: dict = Field()
 
-    flv_320: typing.Optional[str] = Field(
-        default=None,
-        description="URL of the flv file with 320p quality",
-    )
 
+class VideoSearchResponse(BaseResponse):
+    response: "VideoSearchResponseModel"
 
-class VideoVideoFilesResponse(BaseResponse):
-    response: "VideoVideoFilesResponseModel"
 
+class VideoStartStreamingResponseModel(BaseModel):
 
-class VideoVideoFullResponseModel(VideoVideo):
+    response: dict = Field()
 
-    files: typing.Optional["VideoVideoFiles"] = Field(
-        default=None,
-    )
 
-    trailer: typing.Optional["VideoVideoFiles"] = Field(
-        default=None,
-    )
+class VideoStartStreamingResponse(BaseResponse):
+    response: "VideoStartStreamingResponseModel"
 
-    episodes: typing.Optional[typing.List[VideoEpisode]] = Field(
-        default=None,
-        description="List of video episodes with timecodes",
-    )
 
-    live_settings: typing.Optional["VideoLiveSettings"] = Field(
-        default=None,
-        description="Settings for live stream",
-    )
+class VideoStopStreamingResponseModel(BaseModel):
 
+    response: dict = Field()
 
-class VideoVideoFullResponse(BaseResponse):
-    response: "VideoVideoFullResponseModel"
 
+class VideoStopStreamingResponse(BaseResponse):
+    response: "VideoStopStreamingResponseModel"
 
-class VideoVideoImageResponseModel(BaseImage):
 
-    with_padding: typing.Optional["BasePropertyExists"] = Field(
-        default=None,
-    )
+class VideoUploadResponseModel(BaseModel):
 
-    size: typing.Optional[str] = Field(
-        default=None,
-    )
+    response: dict = Field()
 
 
-class VideoVideoImageResponse(BaseResponse):
-    response: "VideoVideoImageResponseModel"
+class VideoUploadResponse(BaseResponse):
+    response: "VideoUploadResponseModel"

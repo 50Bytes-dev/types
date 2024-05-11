@@ -3,162 +3,58 @@ import enum
 from vkbottle_types.responses.base_response import BaseResponse, BaseModel
 from vkbottle_types.base_model import Field
 
-from vkbottle_types.objects import (
-    LeadFormsAnswerOneOf,
-    LeadFormsQuestionItem,
-    BaseBoolInt,
-    LeadFormsAnswer,
-    LeadFormsQuestionItemOption,
-)
+from vkbottle_types.objects import *
 
 
-class LeadFormsAnswerResponseModel(BaseModel):
+class LeadFormsCreateResponseModel(BaseModel):
 
-    key: str = Field()
-
-    answer: "LeadFormsAnswerOneOf" = Field()
+    response: dict = Field()
 
 
-class LeadFormsAnswerResponse(BaseResponse):
-    response: "LeadFormsAnswerResponseModel"
+class LeadFormsCreateResponse(BaseResponse):
+    response: "LeadFormsCreateResponseModel"
 
 
-class LeadFormsAnswerItemResponseModel(BaseModel):
+class LeadFormsDeleteResponseModel(BaseModel):
 
-    value: str = Field()
-
-    key: typing.Optional[str] = Field(
-        default=None,
-    )
+    response: dict = Field()
 
 
-class LeadFormsAnswerItemResponse(BaseResponse):
-    response: "LeadFormsAnswerItemResponseModel"
+class LeadFormsDeleteResponse(BaseResponse):
+    response: "LeadFormsDeleteResponseModel"
 
 
-class LeadFormsAnswerOneOfResponseModel(BaseModel):
+class LeadFormsGetLeadsResponseModel(BaseModel):
 
-    pass
-
-
-class LeadFormsAnswerOneOfResponse(BaseResponse):
-    response: "LeadFormsAnswerOneOfResponseModel"
+    response: dict = Field()
 
 
-class LeadFormsFormResponseModel(BaseModel):
-
-    form_id: int = Field()
-
-    group_id: int = Field()
-
-    leads_count: int = Field()
-
-    url: str = Field()
-
-    photo: typing.Optional[str] = Field(
-        default=None,
-    )
-
-    name: typing.Optional[str] = Field(
-        default=None,
-    )
-
-    title: typing.Optional[str] = Field(
-        default=None,
-    )
-
-    description: typing.Optional[str] = Field(
-        default=None,
-    )
-
-    confirmation: typing.Optional[str] = Field(
-        default=None,
-    )
-
-    site_link_url: typing.Optional[str] = Field(
-        default=None,
-    )
-
-    policy_link_url: typing.Optional[str] = Field(
-        default=None,
-    )
-
-    questions: typing.Optional[typing.List[LeadFormsQuestionItem]] = Field(
-        default=None,
-    )
-
-    active: typing.Optional[bool] = Field(
-        default=None,
-    )
-
-    pixel_code: typing.Optional[str] = Field(
-        default=None,
-    )
-
-    once_per_user: typing.Optional[int] = Field(
-        default=None,
-    )
-
-    notify_admins: typing.Optional[str] = Field(
-        default=None,
-    )
-
-    notify_emails: typing.Optional[str] = Field(
-        default=None,
-    )
+class LeadFormsGetLeadsResponse(BaseResponse):
+    response: "LeadFormsGetLeadsResponseModel"
 
 
-class LeadFormsFormResponse(BaseResponse):
-    response: "LeadFormsFormResponseModel"
+class LeadFormsGetResponseModel(BaseModel):
+
+    response: "LeadFormsForm" = Field()
 
 
-class LeadFormsLeadResponseModel(BaseModel):
-
-    lead_id: int = Field()
-
-    user_id: int = Field()
-
-    date: int = Field()
-
-    answers: typing.List[LeadFormsAnswer] = Field()
-
-    ad_id: typing.Optional[int] = Field(
-        default=None,
-    )
+class LeadFormsGetResponse(BaseResponse):
+    response: "LeadFormsGetResponseModel"
 
 
-class LeadFormsLeadResponse(BaseResponse):
-    response: "LeadFormsLeadResponseModel"
+class LeadFormsListResponseModel(BaseModel):
+
+    response: typing.List[LeadFormsForm] = Field()
 
 
-class LeadFormsQuestionItemResponseModel(BaseModel):
-
-    key: str = Field()
-
-    type: typing.Literal["input", "textarea", "radio", "checkbox", "select"] = Field()
-
-    label: typing.Optional[str] = Field(
-        default=None,
-    )
-
-    options: typing.Optional[typing.List[LeadFormsQuestionItemOption]] = Field(
-        default=None,
-        description="Опции выбора для типов radio, checkbox, select",
-    )
+class LeadFormsListResponse(BaseResponse):
+    response: "LeadFormsListResponseModel"
 
 
-class LeadFormsQuestionItemResponse(BaseResponse):
-    response: "LeadFormsQuestionItemResponseModel"
+class LeadFormsUploadUrlResponseModel(BaseModel):
+
+    response: str = Field()
 
 
-class LeadFormsQuestionItemOptionResponseModel(BaseModel):
-
-    label: str = Field()
-
-    key: typing.Optional[str] = Field(
-        default=None,
-    )
-
-
-class LeadFormsQuestionItemOptionResponse(BaseResponse):
-    response: "LeadFormsQuestionItemOptionResponseModel"
+class LeadFormsUploadUrlResponse(BaseResponse):
+    response: "LeadFormsUploadUrlResponseModel"

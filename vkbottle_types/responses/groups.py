@@ -29,8 +29,10 @@ _locals_values = _locals.values()
 for item in _locals_values:
     if not (inspect.isclass(item) and issubclass(item, BaseResponse)):
         continue
-    item.update_forward_refs(**_locals)
+    if item.__name__ == "BaseModel":
+        continue
+    item.model_rebuild()
     for parent in item.__bases__:
         if parent.__name__ == item.__name__:
-            parent.__fields__.update(item.__fields__)  # type: ignore
-            parent.update_forward_refs(**_locals)  # type: ignore
+            parent.__fields__.update(item.model_fields)
+            parent.model_rebuild()

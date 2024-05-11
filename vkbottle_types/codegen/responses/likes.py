@@ -3,41 +3,49 @@ import enum
 from vkbottle_types.responses.base_response import BaseResponse, BaseModel
 from vkbottle_types.base_model import Field
 
-
-class LikesTypeResponseModel(enum.Enum):
-
-    POST = "post"
-
-    COMMENT = "comment"
-
-    PHOTO = "photo"
-
-    AUDIO = "audio"
-
-    VIDEO = "video"
-
-    NOTE = "note"
-
-    MARKET = "market"
-
-    PHOTO_COMMENT = "photo_comment"
-
-    VIDEO_COMMENT = "video_comment"
-
-    TOPIC_COMMENT = "topic_comment"
-
-    MARKET_COMMENT = "market_comment"
-
-    SITEPAGE = "sitepage"
-
-    TEXTPOST = "textpost"
-
-    COMMUNITY_REVIEW = "community_review"
-
-    STORY = "story"
-
-    GROUP_LIKE = "group_like"
+from vkbottle_types.objects import *
 
 
-class LikesTypeResponse(BaseResponse):
-    response: "LikesTypeResponseModel"
+class LikesAddResponseModel(BaseModel):
+
+    response: dict = Field()
+
+
+class LikesAddResponse(BaseResponse):
+    response: "LikesAddResponseModel"
+
+
+class LikesDeleteResponseModel(BaseModel):
+
+    response: dict = Field()
+
+
+class LikesDeleteResponse(BaseResponse):
+    response: "LikesDeleteResponseModel"
+
+
+class LikesGetListExtendedResponseModel(BaseModel):
+
+    response: dict = Field()
+
+
+class LikesGetListExtendedResponse(BaseResponse):
+    response: "LikesGetListExtendedResponseModel"
+
+
+class LikesGetListResponseModel(BaseModel):
+
+    response: dict = Field()
+
+
+class LikesGetListResponse(BaseResponse):
+    response: "LikesGetListResponseModel"
+
+
+class LikesIsLikedResponseModel(BaseModel):
+
+    response: dict = Field()
+
+
+class LikesIsLikedResponse(BaseResponse):
+    response: "LikesIsLikedResponseModel"

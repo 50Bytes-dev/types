@@ -3,187 +3,204 @@ import enum
 from vkbottle_types.responses.base_response import BaseResponse, BaseModel
 from vkbottle_types.base_model import Field
 
-from vkbottle_types.objects import FriendsRequestsMutual, FriendsFriendStatusStatus
+from vkbottle_types.objects import *
 
 
-class FriendsFriendExtendedStatusResponseModel(FriendsFriendStatus):
+class FriendsAddListResponseModel(BaseModel):
 
-    is_request_unread: typing.Optional[bool] = Field(
-        default=None,
-        description="Is friend request from other user unread",
+    response: dict = Field()
+
+
+class FriendsAddListResponse(BaseResponse):
+    response: "FriendsAddListResponseModel"
+
+
+class FriendsAddResponseModel(BaseModel):
+
+    response: int = Field(
+        description="Friend request status",
     )
 
 
-class FriendsFriendExtendedStatusResponse(BaseResponse):
-    response: "FriendsFriendExtendedStatusResponseModel"
+class FriendsAddResponse(BaseResponse):
+    response: "FriendsAddResponseModel"
 
 
-class FriendsFriendStatusResponseModel(BaseModel):
+class FriendsAreFriendsExtendedResponseModel(BaseModel):
 
-    friend_status: "FriendsFriendStatusStatus" = Field()
+    response: typing.List[FriendsFriendExtendedStatus] = Field()
 
-    user_id: int = Field(
-        description="User ID",
-    )
 
-    sign: typing.Optional[str] = Field(
-        default=None,
-        description="MD5 hash for the result validation",
-    )
+class FriendsAreFriendsExtendedResponse(BaseResponse):
+    response: "FriendsAreFriendsExtendedResponseModel"
 
 
-class FriendsFriendStatusResponse(BaseResponse):
-    response: "FriendsFriendStatusResponseModel"
+class FriendsAreFriendsResponseModel(BaseModel):
 
+    response: typing.List[FriendsFriendStatus] = Field()
 
-class FriendsFriendStatusStatusResponseModel(enum.IntEnum):
 
-    NOT_A_FRIEND = 0
+class FriendsAreFriendsResponse(BaseResponse):
+    response: "FriendsAreFriendsResponseModel"
 
-    OUTCOMING_REQUEST = 1
 
-    INCOMING_REQUEST = 2
+class FriendsDeleteResponseModel(BaseModel):
 
-    IS_FRIEND = 3
+    response: dict = Field()
 
 
-class FriendsFriendStatusStatusResponse(BaseResponse):
-    response: "FriendsFriendStatusStatusResponseModel"
+class FriendsDeleteResponse(BaseResponse):
+    response: "FriendsDeleteResponseModel"
 
 
-class FriendsFriendsListResponseModel(BaseModel):
+class FriendsGetAppUsersResponseModel(BaseModel):
 
-    id: int = Field(
-        description="List ID",
-    )
+    response: typing.List[int] = Field()
 
-    name: str = Field(
-        description="List title",
-    )
 
+class FriendsGetAppUsersResponse(BaseResponse):
+    response: "FriendsGetAppUsersResponseModel"
 
-class FriendsFriendsListResponse(BaseResponse):
-    response: "FriendsFriendsListResponseModel"
 
+class FriendsGetListsResponseModel(BaseModel):
 
-class FriendsMutualFriendResponseModel(BaseModel):
+    response: dict = Field()
 
-    common_count: typing.Optional[int] = Field(
-        default=None,
-        description="Total mutual friends number",
-    )
 
-    common_friends: typing.Optional[typing.List[int]] = Field(
-        default=None,
-    )
+class FriendsGetListsResponse(BaseResponse):
+    response: "FriendsGetListsResponseModel"
 
-    id: typing.Optional[int] = Field(
-        default=None,
-        description="User ID",
-    )
 
+class FriendsGetMutualResponseModel(BaseModel):
 
-class FriendsMutualFriendResponse(BaseResponse):
-    response: "FriendsMutualFriendResponseModel"
+    response: typing.List[int] = Field()
 
 
-class FriendsOnlineUsersResponseModel(BaseModel):
+class FriendsGetMutualResponse(BaseResponse):
+    response: "FriendsGetMutualResponseModel"
 
-    online: typing.List[int] = Field()
 
-    total_count: typing.Optional[int] = Field(
-        default=None,
-        description="Total online friends number",
-    )
+class FriendsGetMutualTargetUidsResponseModel(BaseModel):
 
+    response: typing.List[FriendsMutualFriend] = Field()
 
-class FriendsOnlineUsersResponse(BaseResponse):
-    response: "FriendsOnlineUsersResponseModel"
 
+class FriendsGetMutualTargetUidsResponse(BaseResponse):
+    response: "FriendsGetMutualTargetUidsResponseModel"
 
-class FriendsOnlineUsersWithMobileResponseModel(BaseModel):
 
-    online: typing.List[int] = Field()
+class FriendsGetMutualTotalCountResponseModel(BaseModel):
 
-    online_mobile: typing.List[int] = Field()
+    response: "FriendsMutualFriend" = Field()
 
-    total_count: typing.Optional[int] = Field(
-        default=None,
-        description="Total online friends number",
-    )
 
+class FriendsGetMutualTotalCountResponse(BaseResponse):
+    response: "FriendsGetMutualTotalCountResponseModel"
 
-class FriendsOnlineUsersWithMobileResponse(BaseResponse):
-    response: "FriendsOnlineUsersWithMobileResponseModel"
 
+class FriendsGetOnlineExtendedResponseModel(BaseModel):
 
-class FriendsRequestsMutualResponseModel(BaseModel):
+    response: "FriendsOnlineUsers" = Field()
 
-    count: typing.Optional[int] = Field(
-        default=None,
-        description="Total mutual friends number",
-    )
 
-    users: typing.Optional[typing.List[int]] = Field(
-        default=None,
-    )
+class FriendsGetOnlineExtendedResponse(BaseResponse):
+    response: "FriendsGetOnlineExtendedResponseModel"
 
 
-class FriendsRequestsMutualResponse(BaseResponse):
-    response: "FriendsRequestsMutualResponseModel"
+class FriendsGetOnlineOnlineMobileExtendedResponseModel(BaseModel):
 
+    response: "FriendsOnlineUsersWithMobile" = Field()
 
-class FriendsRequestsXtrMessageResponseModel(FriendsRequestsXtrMutual):
 
-    message: typing.Optional[str] = Field(
-        default=None,
-        description="Message sent with a request",
-    )
+class FriendsGetOnlineOnlineMobileExtendedResponse(BaseResponse):
+    response: "FriendsGetOnlineOnlineMobileExtendedResponseModel"
 
 
-class FriendsRequestsXtrMessageResponse(BaseResponse):
-    response: "FriendsRequestsXtrMessageResponseModel"
+class FriendsGetOnlineOnlineMobileResponseModel(BaseModel):
 
+    response: dict = Field()
 
-class FriendsRequestsXtrMutualResponseModel(UsersUserFull):
 
-    user_id: int = Field(
-        description="User ID",
-    )
+class FriendsGetOnlineOnlineMobileResponse(BaseResponse):
+    response: "FriendsGetOnlineOnlineMobileResponseModel"
 
-    id: typing.Optional[int] = Field(
-        default=None,
-        description="User ID",
-    )
 
-    value_from: typing.Optional[str] = Field(
-        default=None,
-        description="ID of the user by whom friend has been suggested",
-        alias="from",
-    )
+class FriendsGetOnlineResponseModel(BaseModel):
 
-    mutual: typing.Optional["FriendsRequestsMutual"] = Field(
-        default=None,
-    )
+    response: typing.List[int] = Field()
 
-    track_code: typing.Optional[str] = Field(
-        default=None,
-    )
 
-    message: typing.Optional[str] = Field(
-        default=None,
-        description="Message sent with a request",
-    )
+class FriendsGetOnlineResponse(BaseResponse):
+    response: "FriendsGetOnlineResponseModel"
 
-    timestamp: typing.Optional[int] = Field(
-        default=None,
-        description="Request timestamp",
-    )
 
-    descriptions: typing.Optional[typing.List[str]] = Field(
-        default=None,
-    )
+class FriendsGetRecentResponseModel(BaseModel):
 
+    response: typing.List[int] = Field()
 
-class FriendsRequestsXtrMutualResponse(BaseResponse):
-    response: "FriendsRequestsXtrMutualResponseModel"
+
+class FriendsGetRecentResponse(BaseResponse):
+    response: "FriendsGetRecentResponseModel"
+
+
+class FriendsGetRequestsExtendedResponseModel(BaseModel):
+
+    response: dict = Field()
+
+
+class FriendsGetRequestsExtendedResponse(BaseResponse):
+    response: "FriendsGetRequestsExtendedResponseModel"
+
+
+class FriendsGetRequestsNeedMutualResponseModel(BaseModel):
+
+    response: dict = Field()
+
+
+class FriendsGetRequestsNeedMutualResponse(BaseResponse):
+    response: "FriendsGetRequestsNeedMutualResponseModel"
+
+
+class FriendsGetRequestsResponseModel(BaseModel):
+
+    response: dict = Field()
+
+
+class FriendsGetRequestsResponse(BaseResponse):
+    response: "FriendsGetRequestsResponseModel"
+
+
+class FriendsGetSuggestionsResponseModel(BaseModel):
+
+    response: dict = Field()
+
+
+class FriendsGetSuggestionsResponse(BaseResponse):
+    response: "FriendsGetSuggestionsResponseModel"
+
+
+class FriendsGetFieldsResponseModel(BaseModel):
+
+    response: dict = Field()
+
+
+class FriendsGetFieldsResponse(BaseResponse):
+    response: "FriendsGetFieldsResponseModel"
+
+
+class FriendsGetResponseModel(BaseModel):
+
+    response: dict = Field()
+
+
+class FriendsGetResponse(BaseResponse):
+    response: "FriendsGetResponseModel"
+
+
+class FriendsSearchResponseModel(BaseModel):
+
+    response: dict = Field()
+
+
+class FriendsSearchResponse(BaseResponse):
+    response: "FriendsSearchResponseModel"

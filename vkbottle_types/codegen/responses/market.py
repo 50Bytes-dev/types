@@ -3,756 +3,222 @@ import enum
 from vkbottle_types.responses.base_response import BaseResponse, BaseModel
 from vkbottle_types.base_model import Field
 
-from vkbottle_types.objects import (
-    MarketItemPromotionInfo,
-    MarketMarketCategoryTree,
-    MarketOrderItem,
-    BaseLikes,
-    MarketMarketCategory,
-    MarketMarketCategoryTreeView,
-    MarketMarketItemAvailability,
-    MarketMarketItem,
-    MarketCurrency,
-    BaseCountry,
-    MarketPrice,
-    BaseCity,
-    BaseRepostsInfo,
-    MarketItemOwnerInfo,
-    MarketOwnerType,
-    BaseImage,
-    PhotosPhoto,
-    MarketMarketCategoryNested,
-    MarketPropertyVariant,
-    BaseLink,
-    BaseBoolInt,
-)
-
-
-class MarketCurrencyResponseModel(BaseModel):
-
-    id: int = Field(
-        description="Currency ID",
-    )
-
-    name: str = Field(
-        description="Currency sign",
-    )
-
-    title: str = Field(
-        description="Currency title",
-    )
-
-
-class MarketCurrencyResponse(BaseResponse):
-    response: "MarketCurrencyResponseModel"
-
-
-class MarketGlobalSearchFiltersResponseModel(BaseModel):
-
-    city: typing.Optional["BaseCity"] = Field(
-        default=None,
-    )
-
-    country: typing.Optional["BaseCountry"] = Field(
-        default=None,
-    )
-
-
-class MarketGlobalSearchFiltersResponse(BaseResponse):
-    response: "MarketGlobalSearchFiltersResponseModel"
-
-
-class MarketItemOwnerInfoResponseModel(BaseModel):
-
-    avatar: typing.Optional[typing.List[BaseImage]] = Field(
-        default=None,
-        description="Avatar of the group",
-    )
-
-    name: typing.Optional[str] = Field(
-        default=None,
-        description="Name of the group",
-    )
-
-    category: typing.Optional[str] = Field(
-        default=None,
-        description="Category of the item or description of the group",
-    )
-
-    category_url: typing.Optional[str] = Field(
-        default=None,
-        description="Link to the section of the group",
-    )
-
-    is_corporated_market: typing.Optional[bool] = Field(
-        default=None,
-        description="Is the group is VK corporated market",
-    )
-
-    market_type: typing.Optional["MarketOwnerType"] = Field(
-        default=None,
-        description="Type of the market group",
-    )
-
-
-class MarketItemOwnerInfoResponse(BaseResponse):
-    response: "MarketItemOwnerInfoResponseModel"
-
-
-class MarketItemPromotionInfoResponseModel(BaseModel):
-
-    is_available: typing.Optional[bool] = Field(
-        default=None,
-        description="Can the item be promoted?",
-    )
-
-
-class MarketItemPromotionInfoResponse(BaseResponse):
-    response: "MarketItemPromotionInfoResponseModel"
-
-
-class MarketMarketAlbumResponseModel(BaseModel):
-
-    id: int = Field(
-        description="Market album ID",
-    )
-
-    owner_id: int = Field(
-        description="Market album owner's ID",
-    )
-
-    title: str = Field(
-        description="Market album title",
-    )
-
-    count: int = Field(
-        description="Items number",
-    )
-
-    updated_time: int = Field(
-        description="Date when album has been updated last time in Unixtime",
-    )
-
-    is_main: typing.Optional[bool] = Field(
-        default=None,
-        description="Is album main for owner",
-    )
-
-    is_hidden: typing.Optional[bool] = Field(
-        default=None,
-        description="Is album hidden",
-    )
-
-    photo: typing.Optional["PhotosPhoto"] = Field(
-        default=None,
-    )
-
-    type: typing.Optional[int] = Field(
-        default=None,
-        description="Type of album",
-    )
-
-    is_blur_enabled: typing.Optional[bool] = Field(
-        default=None,
-        description="Is album needed to be blurred (18+) or not",
-    )
-
-
-class MarketMarketAlbumResponse(BaseResponse):
-    response: "MarketMarketAlbumResponseModel"
-
-
-class MarketMarketCategoryResponseModel(BaseModel):
-
-    pass
-
-
-class MarketMarketCategoryResponse(BaseResponse):
-    response: "MarketMarketCategoryResponseModel"
-
-
-class MarketMarketCategoryNestedResponseModel(BaseModel):
-
-    inner_type: typing.Literal["market_market_category_nested"] = Field()
-
-    id: int = Field(
-        description="Category ID",
-    )
-
-    name: str = Field(
-        description="Category name",
-    )
-
-    is_v2: typing.Optional[bool] = Field(
-        default=None,
-        description="Is v2 category",
-    )
-
-    parent: typing.Optional["MarketMarketCategoryNested"] = Field(
-        default=None,
-    )
-
-
-class MarketMarketCategoryNestedResponse(BaseResponse):
-    response: "MarketMarketCategoryNestedResponseModel"
-
-
-class MarketMarketCategoryTreeResponseModel(BaseModel):
-
-    id: int = Field(
-        description="Category ID",
-    )
-
-    name: str = Field(
-        description="Category name",
-    )
-
-    icon_name: typing.Optional[str] = Field(
-        default=None,
-        description="Icon name",
-    )
-
-    children: typing.Optional[typing.List[MarketMarketCategoryTree]] = Field(
-        default=None,
-    )
-
-    view: typing.Optional["MarketMarketCategoryTreeView"] = Field(
-        default=None,
-    )
-
-    url: typing.Optional[str] = Field(
-        default=None,
-        description="SEO-friendly URL to page with category's items",
-    )
-
-    seo_name: typing.Optional[str] = Field(
-        default=None,
-        description="SEO-friendly variant of category's name",
-    )
-
-    page_title: typing.Optional[str] = Field(
-        default=None,
-        description="Title for category's page. Used for SEO",
-    )
-
-    page_description: typing.Optional[str] = Field(
-        default=None,
-        description="Description for category's page. Used for SEO",
-    )
-
-
-class MarketMarketCategoryTreeResponse(BaseResponse):
-    response: "MarketMarketCategoryTreeResponseModel"
-
-
-class MarketMarketCategoryTreeViewResponseModel(BaseModel):
-
-    type: typing.Optional[typing.Literal["tab_root"]] = Field(
-        default=None,
-    )
-
-    selected: typing.Optional[bool] = Field(
-        default=None,
-    )
-
-    root_path: typing.Optional[typing.List[str]] = Field(
-        default=None,
-    )
-
-
-class MarketMarketCategoryTreeViewResponse(BaseResponse):
-    response: "MarketMarketCategoryTreeViewResponseModel"
-
-
-class MarketMarketItemResponseModel(BaseModel):
+from vkbottle_types.objects import *
 
-    availability: "MarketMarketItemAvailability" = Field()
 
-    category: "MarketMarketCategory" = Field()
+class MarketAddAlbumResponseModel(BaseModel):
 
-    description: str = Field(
-        description="Item description",
-    )
-
-    id: int = Field(
-        description="Item ID",
-    )
-
-    owner_id: int = Field(
-        description="Item owner's ID",
-    )
-
-    price: "MarketPrice" = Field()
-
-    title: str = Field(
-        description="Item title",
-    )
-
-    access_key: typing.Optional[str] = Field(
-        default=None,
-        description="Access key for the market item",
-    )
-
-    button_title: typing.Optional[str] = Field(
-        default=None,
-        description="Title for button for url",
-    )
-
-    category_v2: typing.Optional["MarketMarketCategory"] = Field(
-        default=None,
-    )
-
-    date: typing.Optional[int] = Field(
-        default=None,
-        description="Date when the item has been created in Unixtime",
-    )
-
-    external_id: typing.Optional[str] = Field(
-        default=None,
-    )
-
-    is_favorite: typing.Optional[bool] = Field(
-        default=None,
-    )
-
-    is_owner: typing.Optional[bool] = Field(
-        default=None,
-    )
-
-    is_adult: typing.Optional[bool] = Field(
-        default=None,
-    )
-
-    thumb_photo: typing.Optional[str] = Field(
-        default=None,
-        description="URL of the preview image",
-    )
-
-    url: typing.Optional[str] = Field(
-        default=None,
-        description="URL to item",
-    )
-
-    variants_grouping_id: typing.Optional[int] = Field(
-        default=None,
-    )
-
-    is_main_variant: typing.Optional[bool] = Field(
-        default=None,
-    )
-
-    sku: typing.Optional[str] = Field(
-        default=None,
-    )
-
-    stock_amount: typing.Optional[int] = Field(
-        default=None,
-        description="Inventory balances",
-    )
-
-    post_id: typing.Optional[int] = Field(
-        default=None,
-        description="Attach for post id",
-    )
-
-    post_owner_id: typing.Optional[int] = Field(
-        default=None,
-        description="Attach for post owner id",
-    )
-
-
-class MarketMarketItemResponse(BaseResponse):
-    response: "MarketMarketItemResponseModel"
-
-
-class MarketMarketItemAvailabilityResponseModel(enum.IntEnum):
-
-    AVAILABLE = 0
-
-    REMOVED = 1
-
-    UNAVAILABLE = 2
-
-
-class MarketMarketItemAvailabilityResponse(BaseResponse):
-    response: "MarketMarketItemAvailabilityResponseModel"
-
-
-class MarketMarketItemBasicResponseModel(BaseModel):
-
-    id: int = Field(
-        description="Item ID",
-    )
-
-    owner_id: int = Field(
-        description="Item owner's ID",
-    )
-
-    title: str = Field(
-        description="Item title",
-    )
+    response: dict = Field()
 
-    price: "MarketPrice" = Field()
 
-    thumb_photo: typing.Optional[str] = Field(
-        default=None,
-        description="URL of the preview image",
-    )
+class MarketAddAlbumResponse(BaseResponse):
+    response: "MarketAddAlbumResponseModel"
 
-    is_favorite: typing.Optional[bool] = Field(
-        default=None,
-    )
 
+class MarketAddPropertyVariantResponseModel(BaseModel):
 
-class MarketMarketItemBasicResponse(BaseResponse):
-    response: "MarketMarketItemBasicResponseModel"
+    response: dict = Field()
 
 
-class MarketMarketItemBasicWithGroupResponseModel(MarketMarketItemBasic):
+class MarketAddPropertyVariantResponse(BaseResponse):
+    response: "MarketAddPropertyVariantResponseModel"
 
-    is_group_verified: typing.Optional[bool] = Field(
-        default=None,
-    )
 
-    group_name: typing.Optional[str] = Field(
-        default=None,
-    )
+class MarketAddPropertyResponseModel(BaseModel):
 
-    group_link: typing.Optional[str] = Field(
-        default=None,
-    )
+    response: dict = Field()
 
-    is_owner: typing.Optional[bool] = Field(
-        default=None,
-    )
 
-    is_adult: typing.Optional[bool] = Field(
-        default=None,
-    )
+class MarketAddPropertyResponse(BaseResponse):
+    response: "MarketAddPropertyResponseModel"
 
 
-class MarketMarketItemBasicWithGroupResponse(BaseResponse):
-    response: "MarketMarketItemBasicWithGroupResponseModel"
+class MarketAddResponseModel(BaseModel):
 
+    response: dict = Field()
 
-class MarketMarketItemFullResponseModel(MarketMarketItem):
 
-    albums_ids: typing.Optional[typing.List[int]] = Field(
-        default=None,
-    )
+class MarketAddResponse(BaseResponse):
+    response: "MarketAddResponseModel"
 
-    photos: typing.Optional[typing.List[PhotosPhoto]] = Field(
-        default=None,
-    )
 
-    can_comment: typing.Optional[bool] = Field(
-        default=None,
-        description="Information whether current use can comment the item",
-    )
+class MarketCreateCommentResponseModel(BaseModel):
 
-    can_repost: typing.Optional[bool] = Field(
-        default=None,
-        description="Information whether current use can repost the item",
+    response: int = Field(
+        description="Comment ID",
     )
 
-    likes: typing.Optional["BaseLikes"] = Field(
-        default=None,
-    )
 
-    reposts: typing.Optional["BaseRepostsInfo"] = Field(
-        default=None,
-    )
+class MarketCreateCommentResponse(BaseResponse):
+    response: "MarketCreateCommentResponseModel"
 
-    views_count: typing.Optional[int] = Field(
-        default=None,
-        description="Views number",
-    )
 
-    wishlist_item_id: typing.Optional[int] = Field(
-        default=None,
-        description="Object identifier in wishlist of viewer",
-    )
+class MarketGetAlbumByIdResponseModel(BaseModel):
 
-    rating: typing.Optional[float] = Field(
-        default=None,
-        description="Rating of product",
-    )
+    response: dict = Field()
 
-    orders_count: typing.Optional[int] = Field(
-        default=None,
-        description="Count of product orders",
-    )
 
-    cancel_info: typing.Optional["BaseLink"] = Field(
-        default=None,
-        description="Information for cancel and revert order",
-    )
+class MarketGetAlbumByIdResponse(BaseResponse):
+    response: "MarketGetAlbumByIdResponseModel"
 
-    user_agreement_info: typing.Optional[str] = Field(
-        default=None,
-        description="User agreement info",
-    )
 
-    ad_id: typing.Optional[int] = Field(
-        default=None,
-        description="Contains ad ID if it has",
-    )
+class MarketGetAlbumsResponseModel(BaseModel):
 
-    owner_info: typing.Optional["MarketItemOwnerInfo"] = Field(
-        default=None,
-        description="Information about the group where the item is placed",
-    )
+    response: dict = Field()
 
-    can_edit: typing.Optional[bool] = Field(
-        default=None,
-        description="Can the item be updated by current user?",
-    )
 
-    can_delete: typing.Optional[bool] = Field(
-        default=None,
-        description="Can item be deleted by current user?",
-    )
+class MarketGetAlbumsResponse(BaseResponse):
+    response: "MarketGetAlbumsResponseModel"
 
-    can_recover: typing.Optional[bool] = Field(
-        default=None,
-        description="Can item be restored by current user?",
-    )
 
-    can_show_convert_to_service: typing.Optional[bool] = Field(
-        default=None,
-        description="Can the item be converted from a product into a service?",
-    )
+class MarketGetByIdExtendedResponseModel(BaseModel):
 
-    promotion: typing.Optional["MarketItemPromotionInfo"] = Field(
-        default=None,
-        description="Information about promotion of the item",
-    )
+    response: dict = Field()
 
-    vk_pay_discount: typing.Optional[int] = Field(
-        default=None,
-        description="The amount of the discount if VK Pay is used for payment",
-    )
 
+class MarketGetByIdExtendedResponse(BaseResponse):
+    response: "MarketGetByIdExtendedResponseModel"
 
-class MarketMarketItemFullResponse(BaseResponse):
-    response: "MarketMarketItemFullResponseModel"
 
+class MarketGetByIdResponseModel(BaseModel):
 
-class MarketOrderResponseModel(BaseModel):
+    response: dict = Field()
 
-    id: int = Field()
 
-    group_id: int = Field()
+class MarketGetByIdResponse(BaseResponse):
+    response: "MarketGetByIdResponseModel"
 
-    user_id: int = Field()
 
-    date: int = Field()
+class MarketGetCategoriesNewResponseModel(BaseModel):
 
-    status: int = Field()
+    response: dict = Field()
 
-    items_count: int = Field()
 
-    total_price: "MarketPrice" = Field()
+class MarketGetCategoriesNewResponse(BaseResponse):
+    response: "MarketGetCategoriesNewResponseModel"
 
-    display_order_id: typing.Optional[str] = Field(
-        default=None,
-    )
 
-    track_number: typing.Optional[str] = Field(
-        default=None,
-    )
+class MarketGetCommentsResponseModel(BaseModel):
 
-    track_link: typing.Optional[str] = Field(
-        default=None,
-    )
+    response: dict = Field()
 
-    comment: typing.Optional[str] = Field(
-        default=None,
-    )
 
-    address: typing.Optional[str] = Field(
-        default=None,
-    )
+class MarketGetCommentsResponse(BaseResponse):
+    response: "MarketGetCommentsResponseModel"
 
-    merchant_comment: typing.Optional[str] = Field(
-        default=None,
-    )
 
-    weight: typing.Optional[int] = Field(
-        default=None,
-    )
+class MarketGetGroupOrdersResponseModel(BaseModel):
 
-    discount: typing.Optional["MarketPrice"] = Field(
-        default=None,
-    )
+    response: dict = Field()
 
-    preview_order_items: typing.Optional[typing.List[MarketOrderItem]] = Field(
-        default=None,
-        description="Several order items for preview",
-    )
 
-    cancel_info: typing.Optional["BaseLink"] = Field(
-        default=None,
-        description="Information for cancel and revert order",
-    )
+class MarketGetGroupOrdersResponse(BaseResponse):
+    response: "MarketGetGroupOrdersResponseModel"
 
-    comment_for_user: typing.Optional[str] = Field(
-        default=None,
-        description="Seller comment for user",
-    )
 
-    is_viewed_by_admin: typing.Optional[bool] = Field(
-        default=None,
-    )
+class MarketGetOrderByIdResponseModel(BaseModel):
 
-    date_viewed: typing.Optional[int] = Field(
-        default=None,
-    )
+    response: dict = Field()
 
-    can_add_review: typing.Optional[bool] = Field(
-        default=None,
-        description="Extended field. Can current viewer add review for at least one item in this order",
-    )
 
+class MarketGetOrderByIdResponse(BaseResponse):
+    response: "MarketGetOrderByIdResponseModel"
 
-class MarketOrderResponse(BaseResponse):
-    response: "MarketOrderResponseModel"
 
+class MarketGetOrderItemsResponseModel(BaseModel):
 
-class MarketOrderItemResponseModel(BaseModel):
+    response: dict = Field()
 
-    owner_id: int = Field()
 
-    item_id: int = Field()
+class MarketGetOrderItemsResponse(BaseResponse):
+    response: "MarketGetOrderItemsResponseModel"
 
-    price: "MarketPrice" = Field()
 
-    quantity: int = Field()
+class MarketGetOrdersExtendedResponseModel(BaseModel):
 
-    item: "MarketMarketItem" = Field()
+    response: dict = Field()
 
-    title: typing.Optional[str] = Field(
-        default=None,
-    )
 
-    photo: typing.Optional["PhotosPhoto"] = Field(
-        default=None,
-    )
+class MarketGetOrdersExtendedResponse(BaseResponse):
+    response: "MarketGetOrdersExtendedResponseModel"
 
-    variants: typing.Optional[typing.List[str]] = Field(
-        default=None,
-    )
 
-    can_add_review: typing.Optional[bool] = Field(
-        default=None,
-        description="Extended field. Can current viewer add review for this ordered item",
-    )
+class MarketGetOrdersResponseModel(BaseModel):
 
+    response: dict = Field()
 
-class MarketOrderItemResponse(BaseResponse):
-    response: "MarketOrderItemResponseModel"
 
+class MarketGetOrdersResponse(BaseResponse):
+    response: "MarketGetOrdersResponseModel"
 
-class MarketOwnerTypeResponseModel(enum.Enum):
 
-    BASE = "base"
+class MarketGetPropertiesResponseModel(BaseModel):
 
-    PRO = "pro"
+    response: dict = Field()
 
-    DISABLED = "disabled"
 
+class MarketGetPropertiesResponse(BaseResponse):
+    response: "MarketGetPropertiesResponseModel"
 
-class MarketOwnerTypeResponse(BaseResponse):
-    response: "MarketOwnerTypeResponseModel"
 
+class MarketGetExtendedResponseModel(BaseModel):
 
-class MarketPriceResponseModel(BaseModel):
+    response: dict = Field()
 
-    amount: str = Field(
-        description="Amount",
-    )
 
-    currency: "MarketCurrency" = Field()
+class MarketGetExtendedResponse(BaseResponse):
+    response: "MarketGetExtendedResponseModel"
 
-    text: str = Field(
-        description="Text",
-    )
 
-    amount_to: typing.Optional[str] = Field(
-        default=None,
-        description="Amount to for price_type=2",
-    )
+class MarketGetResponseModel(BaseModel):
 
-    price_type: typing.Optional[int] = Field(
-        default=None,
-    )
+    response: dict = Field()
 
-    price_unit: typing.Optional[int] = Field(
-        default=None,
-    )
 
-    discount_rate: typing.Optional[int] = Field(
-        default=None,
-    )
+class MarketGetResponse(BaseResponse):
+    response: "MarketGetResponseModel"
 
-    old_amount: typing.Optional[str] = Field(
-        default=None,
-    )
 
-    old_amount_text: typing.Optional[str] = Field(
-        default=None,
-        description="Textual representation of old price",
-    )
+class MarketGroupItemsResponseModel(BaseModel):
 
+    response: dict = Field()
 
-class MarketPriceResponse(BaseResponse):
-    response: "MarketPriceResponseModel"
 
+class MarketGroupItemsResponse(BaseResponse):
+    response: "MarketGroupItemsResponseModel"
 
-class MarketPropertyResponseModel(BaseModel):
 
-    id: int = Field()
+class MarketPhotoIdResponseModel(BaseModel):
 
-    title: str = Field(
-        description="Property name",
-    )
+    response: dict = Field()
 
-    variants: typing.List[MarketPropertyVariant] = Field()
 
-    type: typing.Optional[typing.Literal["text", "color"]] = Field(
-        default=None,
-        description="Property type",
-    )
+class MarketPhotoIdResponse(BaseResponse):
+    response: "MarketPhotoIdResponseModel"
 
 
-class MarketPropertyResponse(BaseResponse):
-    response: "MarketPropertyResponseModel"
+class MarketSearchBasicResponseModel(BaseModel):
 
+    response: dict = Field()
 
-class MarketPropertyVariantResponseModel(BaseModel):
 
-    id: int = Field()
+class MarketSearchBasicResponse(BaseResponse):
+    response: "MarketSearchBasicResponseModel"
 
-    title: str = Field(
-        description="Property name",
-    )
 
-    value: typing.Optional[str] = Field(
-        default=None,
-        description="Property value corresponding to property type",
-    )
+class MarketSearchExtendedResponseModel(BaseModel):
 
+    response: dict = Field()
 
-class MarketPropertyVariantResponse(BaseResponse):
-    response: "MarketPropertyVariantResponseModel"
 
+class MarketSearchExtendedResponse(BaseResponse):
+    response: "MarketSearchExtendedResponseModel"
 
-class MarketServicesViewTypeResponseModel(enum.IntEnum):
 
-    CARDS = 1
+class MarketSearchResponseModel(BaseModel):
 
-    ROWS = 2
+    response: dict = Field()
 
 
-class MarketServicesViewTypeResponse(BaseResponse):
-    response: "MarketServicesViewTypeResponseModel"
+class MarketSearchResponse(BaseResponse):
+    response: "MarketSearchResponseModel"

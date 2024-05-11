@@ -3,279 +3,69 @@ import enum
 from vkbottle_types.responses.base_response import BaseResponse, BaseModel
 from vkbottle_types.base_model import Field
 
-from vkbottle_types.objects import (
-    UtilsStatsExtended,
-    UtilsStatsCountry,
-    UtilsStats,
-    UtilsDomainResolvedType,
-    UtilsStatsSexAge,
-    UtilsStatsCity,
-    UtilsLinkCheckedStatus,
-)
+from vkbottle_types.objects import *
 
 
-class UtilsDomainResolvedResponseModel(BaseModel):
+class UtilsCheckLinkResponseModel(BaseModel):
 
-    object_id: typing.Optional[int] = Field(
-        default=None,
-        description="Object ID",
-    )
-
-    group_id: typing.Optional[int] = Field(
-        default=None,
-        description="Group ID",
-    )
-
-    type: typing.Optional["UtilsDomainResolvedType"] = Field(
-        default=None,
-    )
+    response: "UtilsLinkChecked" = Field()
 
 
-class UtilsDomainResolvedResponse(BaseResponse):
-    response: "UtilsDomainResolvedResponseModel"
+class UtilsCheckLinkResponse(BaseResponse):
+    response: "UtilsCheckLinkResponseModel"
 
 
-class UtilsDomainResolvedTypeResponseModel(enum.Enum):
+class UtilsGetLastShortenedLinksResponseModel(BaseModel):
 
-    USER = "user"
-
-    GROUP = "group"
-
-    APPLICATION = "application"
-
-    PAGE = "page"
-
-    VK_APP = "vk_app"
-
-    COMMUNITY_APPLICATION = "community_application"
+    response: dict = Field()
 
 
-class UtilsDomainResolvedTypeResponse(BaseResponse):
-    response: "UtilsDomainResolvedTypeResponseModel"
+class UtilsGetLastShortenedLinksResponse(BaseResponse):
+    response: "UtilsGetLastShortenedLinksResponseModel"
 
 
-class UtilsLastShortenedLinkResponseModel(BaseModel):
+class UtilsGetLinkStatsExtendedResponseModel(BaseModel):
 
-    access_key: typing.Optional[str] = Field(
-        default=None,
-        description="Access key for private stats",
-    )
+    response: "UtilsLinkStatsExtended" = Field()
 
-    key: typing.Optional[str] = Field(
-        default=None,
-        description="Link key (characters after vk.cc/)",
-    )
 
-    short_url: typing.Optional[str] = Field(
-        default=None,
-        description="Short link URL",
-    )
+class UtilsGetLinkStatsExtendedResponse(BaseResponse):
+    response: "UtilsGetLinkStatsExtendedResponseModel"
 
-    timestamp: typing.Optional[int] = Field(
-        default=None,
-        description="Creation time in Unixtime",
-    )
 
-    url: typing.Optional[str] = Field(
-        default=None,
-        description="Full URL",
-    )
+class UtilsGetLinkStatsResponseModel(BaseModel):
 
-    views: typing.Optional[int] = Field(
-        default=None,
-        description="Total views number",
+    response: "UtilsLinkStats" = Field()
+
+
+class UtilsGetLinkStatsResponse(BaseResponse):
+    response: "UtilsGetLinkStatsResponseModel"
+
+
+class UtilsGetServerTimeResponseModel(BaseModel):
+
+    response: int = Field(
+        description="Time as Unixtime",
     )
 
 
-class UtilsLastShortenedLinkResponse(BaseResponse):
-    response: "UtilsLastShortenedLinkResponseModel"
+class UtilsGetServerTimeResponse(BaseResponse):
+    response: "UtilsGetServerTimeResponseModel"
 
 
-class UtilsLinkCheckedResponseModel(BaseModel):
+class UtilsGetShortLinkResponseModel(BaseModel):
 
-    link: typing.Optional[str] = Field(
-        default=None,
-        description="Link URL",
-    )
+    response: "UtilsShortLink" = Field()
 
-    status: typing.Optional["UtilsLinkCheckedStatus"] = Field(
-        default=None,
-    )
 
+class UtilsGetShortLinkResponse(BaseResponse):
+    response: "UtilsGetShortLinkResponseModel"
 
-class UtilsLinkCheckedResponse(BaseResponse):
-    response: "UtilsLinkCheckedResponseModel"
 
+class UtilsResolveScreenNameResponseModel(BaseModel):
 
-class UtilsLinkCheckedStatusResponseModel(enum.Enum):
+    response: "UtilsDomainResolved" = Field()
 
-    NOT_BANNED = "not_banned"
 
-    BANNED = "banned"
-
-    PROCESSING = "processing"
-
-
-class UtilsLinkCheckedStatusResponse(BaseResponse):
-    response: "UtilsLinkCheckedStatusResponseModel"
-
-
-class UtilsLinkStatsResponseModel(BaseModel):
-
-    key: typing.Optional[str] = Field(
-        default=None,
-        description="Link key (characters after vk.cc/)",
-    )
-
-    stats: typing.Optional[typing.List[UtilsStats]] = Field(
-        default=None,
-    )
-
-
-class UtilsLinkStatsResponse(BaseResponse):
-    response: "UtilsLinkStatsResponseModel"
-
-
-class UtilsLinkStatsExtendedResponseModel(BaseModel):
-
-    key: typing.Optional[str] = Field(
-        default=None,
-        description="Link key (characters after vk.cc/)",
-    )
-
-    stats: typing.Optional[typing.List[UtilsStatsExtended]] = Field(
-        default=None,
-    )
-
-
-class UtilsLinkStatsExtendedResponse(BaseResponse):
-    response: "UtilsLinkStatsExtendedResponseModel"
-
-
-class UtilsShortLinkResponseModel(BaseModel):
-
-    access_key: typing.Optional[str] = Field(
-        default=None,
-        description="Access key for private stats",
-    )
-
-    key: typing.Optional[str] = Field(
-        default=None,
-        description="Link key (characters after vk.cc/)",
-    )
-
-    short_url: typing.Optional[str] = Field(
-        default=None,
-        description="Short link URL",
-    )
-
-    url: typing.Optional[str] = Field(
-        default=None,
-        description="Full URL",
-    )
-
-
-class UtilsShortLinkResponse(BaseResponse):
-    response: "UtilsShortLinkResponseModel"
-
-
-class UtilsStatsResponseModel(BaseModel):
-
-    timestamp: typing.Optional[int] = Field(
-        default=None,
-        description="Start time",
-    )
-
-    views: typing.Optional[int] = Field(
-        default=None,
-        description="Total views number",
-    )
-
-
-class UtilsStatsResponse(BaseResponse):
-    response: "UtilsStatsResponseModel"
-
-
-class UtilsStatsCityResponseModel(BaseModel):
-
-    city_id: typing.Optional[int] = Field(
-        default=None,
-        description="City ID",
-    )
-
-    views: typing.Optional[int] = Field(
-        default=None,
-        description="Views number",
-    )
-
-
-class UtilsStatsCityResponse(BaseResponse):
-    response: "UtilsStatsCityResponseModel"
-
-
-class UtilsStatsCountryResponseModel(BaseModel):
-
-    country_id: typing.Optional[int] = Field(
-        default=None,
-        description="Country ID",
-    )
-
-    views: typing.Optional[int] = Field(
-        default=None,
-        description="Views number",
-    )
-
-
-class UtilsStatsCountryResponse(BaseResponse):
-    response: "UtilsStatsCountryResponseModel"
-
-
-class UtilsStatsExtendedResponseModel(BaseModel):
-
-    cities: typing.Optional[typing.List[UtilsStatsCity]] = Field(
-        default=None,
-    )
-
-    countries: typing.Optional[typing.List[UtilsStatsCountry]] = Field(
-        default=None,
-    )
-
-    sex_age: typing.Optional[typing.List[UtilsStatsSexAge]] = Field(
-        default=None,
-    )
-
-    timestamp: typing.Optional[int] = Field(
-        default=None,
-        description="Start time",
-    )
-
-    views: typing.Optional[int] = Field(
-        default=None,
-        description="Total views number",
-    )
-
-
-class UtilsStatsExtendedResponse(BaseResponse):
-    response: "UtilsStatsExtendedResponseModel"
-
-
-class UtilsStatsSexAgeResponseModel(BaseModel):
-
-    age_range: typing.Optional[str] = Field(
-        default=None,
-        description="Age denotation",
-    )
-
-    female: typing.Optional[int] = Field(
-        default=None,
-        description=" Views by female users",
-    )
-
-    male: typing.Optional[int] = Field(
-        default=None,
-        description=" Views by male users",
-    )
-
-
-class UtilsStatsSexAgeResponse(BaseResponse):
-    response: "UtilsStatsSexAgeResponseModel"
+class UtilsResolveScreenNameResponse(BaseResponse):
+    response: "UtilsResolveScreenNameResponseModel"

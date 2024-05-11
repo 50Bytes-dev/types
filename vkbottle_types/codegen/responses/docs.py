@@ -3,221 +3,78 @@ import enum
 from vkbottle_types.responses.base_response import BaseResponse, BaseModel
 from vkbottle_types.base_model import Field
 
-from vkbottle_types.objects import (
-    DocsDocPreviewPhoto,
-    PhotosPhotoSizesType,
-    DocsDocPreviewVideo,
-    DocsDocPreview,
-    DocsDocPreviewPhotoSizes,
-    BaseBoolInt,
-    DocsDocPreviewGraffiti,
-    DocsDocPreviewAudioMsg,
-)
+from vkbottle_types.objects import *
 
 
-class DocsDocResponseModel(BaseModel):
+class DocsAddResponseModel(BaseModel):
 
-    id: int = Field(
+    response: int = Field(
         description="Document ID",
     )
 
-    owner_id: int = Field(
-        description="Document owner ID",
-    )
 
-    title: str = Field(
-        description="Document title",
-    )
+class DocsAddResponse(BaseResponse):
+    response: "DocsAddResponseModel"
 
-    size: int = Field(
-        description="File size in bites",
-    )
 
-    ext: str = Field(
-        description="File extension",
-    )
+class DocsDocUploadResponseModel(BaseModel):
 
-    date: int = Field(
-        description="Date when file has been uploaded in Unixtime",
-    )
+    response: dict = Field()
 
-    type: int = Field(
-        description="Document type",
-    )
 
-    url: typing.Optional[str] = Field(
-        default=None,
-        description="File URL",
-    )
+class DocsDocUploadResponse(BaseResponse):
+    response: "DocsDocUploadResponseModel"
 
-    preview: typing.Optional["DocsDocPreview"] = Field(
-        default=None,
-    )
 
-    is_licensed: typing.Optional[bool] = Field(
-        default=None,
-    )
+class DocsGetByIdResponseModel(BaseModel):
 
-    access_key: typing.Optional[str] = Field(
-        default=None,
-        description="Access key for the document",
-    )
+    response: typing.List[DocsDoc] = Field()
 
-    tags: typing.Optional[typing.List[str]] = Field(
-        default=None,
-        description="Document tags",
-    )
 
+class DocsGetByIdResponse(BaseResponse):
+    response: "DocsGetByIdResponseModel"
 
-class DocsDocResponse(BaseResponse):
-    response: "DocsDocResponseModel"
 
+class DocsGetTypesResponseModel(BaseModel):
 
-class DocsDocAttachmentTypeResponseModel(enum.Enum):
+    response: dict = Field()
 
-    DOC = "doc"
 
-    GRAFFITI = "graffiti"
+class DocsGetTypesResponse(BaseResponse):
+    response: "DocsGetTypesResponseModel"
 
-    AUDIO_MESSAGE = "audio_message"
 
+class DocsGetUploadServerResponseModel(BaseModel):
 
-class DocsDocAttachmentTypeResponse(BaseResponse):
-    response: "DocsDocAttachmentTypeResponseModel"
+    response: "BaseUploadServer" = Field()
 
 
-class DocsDocPreviewResponseModel(BaseModel):
+class DocsGetUploadServerResponse(BaseResponse):
+    response: "DocsGetUploadServerResponseModel"
 
-    audio_msg: typing.Optional["DocsDocPreviewAudioMsg"] = Field(
-        default=None,
-    )
 
-    graffiti: typing.Optional["DocsDocPreviewGraffiti"] = Field(
-        default=None,
-    )
+class DocsGetResponseModel(BaseModel):
 
-    photo: typing.Optional["DocsDocPreviewPhoto"] = Field(
-        default=None,
-    )
+    response: dict = Field()
 
-    video: typing.Optional["DocsDocPreviewVideo"] = Field(
-        default=None,
-    )
 
+class DocsGetResponse(BaseResponse):
+    response: "DocsGetResponseModel"
 
-class DocsDocPreviewResponse(BaseResponse):
-    response: "DocsDocPreviewResponseModel"
 
+class DocsSaveResponseModel(BaseModel):
 
-class DocsDocPreviewAudioMsgResponseModel(BaseModel):
+    response: dict = Field()
 
-    duration: int = Field(
-        description="Audio message duration in seconds",
-    )
 
-    link_mp3: str = Field(
-        description="MP3 file URL",
-    )
+class DocsSaveResponse(BaseResponse):
+    response: "DocsSaveResponseModel"
 
-    link_ogg: str = Field(
-        description="OGG file URL",
-    )
 
-    waveform: typing.List[int] = Field()
+class DocsSearchResponseModel(BaseModel):
 
+    response: dict = Field()
 
-class DocsDocPreviewAudioMsgResponse(BaseResponse):
-    response: "DocsDocPreviewAudioMsgResponseModel"
 
-
-class DocsDocPreviewGraffitiResponseModel(BaseModel):
-
-    src: str = Field(
-        description="Graffiti file URL",
-    )
-
-    width: int = Field(
-        description="Graffiti width",
-    )
-
-    height: int = Field(
-        description="Graffiti height",
-    )
-
-
-class DocsDocPreviewGraffitiResponse(BaseResponse):
-    response: "DocsDocPreviewGraffitiResponseModel"
-
-
-class DocsDocPreviewPhotoResponseModel(BaseModel):
-
-    sizes: typing.Optional[typing.List[DocsDocPreviewPhotoSizes]] = Field(
-        default=None,
-    )
-
-
-class DocsDocPreviewPhotoResponse(BaseResponse):
-    response: "DocsDocPreviewPhotoResponseModel"
-
-
-class DocsDocPreviewPhotoSizesResponseModel(BaseModel):
-
-    src: str = Field(
-        description="URL of the image",
-    )
-
-    width: int = Field(
-        description="Width in px",
-    )
-
-    height: int = Field(
-        description="Height in px",
-    )
-
-    type: "PhotosPhotoSizesType" = Field()
-
-
-class DocsDocPreviewPhotoSizesResponse(BaseResponse):
-    response: "DocsDocPreviewPhotoSizesResponseModel"
-
-
-class DocsDocPreviewVideoResponseModel(BaseModel):
-
-    src: str = Field(
-        description="Video URL",
-    )
-
-    width: int = Field(
-        description="Video's width in pixels",
-    )
-
-    height: int = Field(
-        description="Video's height in pixels",
-    )
-
-    file_size: int = Field(
-        description="Video file size in bites",
-    )
-
-
-class DocsDocPreviewVideoResponse(BaseResponse):
-    response: "DocsDocPreviewVideoResponseModel"
-
-
-class DocsDocTypesResponseModel(BaseModel):
-
-    id: int = Field(
-        description="Doc type ID",
-    )
-
-    name: str = Field(
-        description="Doc type title",
-    )
-
-    count: int = Field(
-        description="Number of docs",
-    )
-
-
-class DocsDocTypesResponse(BaseResponse):
-    response: "DocsDocTypesResponseModel"
+class DocsSearchResponse(BaseResponse):
+    response: "DocsSearchResponseModel"

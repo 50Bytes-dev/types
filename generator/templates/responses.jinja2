@@ -3,13 +3,13 @@ import enum
 from vkbottle_types.responses.base_response import BaseResponse, BaseModel
 from vkbottle_types.base_model import Field
 
-### IMPORTS
+from vkbottle_types.objects import *
 
 {% for (name, definition) in definitions %}
 
 {% if definition.type == 'object' %}
 
-class {{camelcase(name)}}ResponseModel({{", ".join(definition.get_bases())}}):
+class {{camelcase(name)}}Model({{", ".join(definition.get_bases())}}):
     {% if not definition.get_properties() %}
     pass
     {% else %}
@@ -31,12 +31,12 @@ class {{camelcase(name)}}ResponseModel({{", ".join(definition.get_bases())}}):
 {% elif definition.enum %}
 
 {% if is_int(definition.enum[0]) %}
-class {{camelcase(name)}}ResponseModel(enum.IntEnum):
+class {{camelcase(name)}}Model(enum.IntEnum):
     {% for enumeration in definition.enum %}
     {{makesafe(definition.enumNames[loop.index-1])|upper}} = {{enumeration}}
     {% endfor %}
 {% else %}
-class {{camelcase(name)}}ResponseModel(enum.Enum):
+class {{camelcase(name)}}Model(enum.Enum):
     {% for enumeration in definition.enum %}
     {{makesafe(enumeration|upper)}} = "{{enumeration}}"
     {% endfor %}
@@ -44,11 +44,11 @@ class {{camelcase(name)}}ResponseModel(enum.Enum):
 
 {% else %}
 
-{{camelcase(name)}}ResponseModel = {{definition.get_typehint()}}
+{{camelcase(name)}}Model = {{definition.get_typehint()}}
 
 {% endif %}
 
-class {{camelcase(name)}}Response(BaseResponse):
-    response: '{{camelcase(name)}}ResponseModel'
+class {{camelcase(name)}}(BaseResponse):
+    response: '{{camelcase(name)}}Model'
 
 {% endfor %}
