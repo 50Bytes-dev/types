@@ -13,7 +13,7 @@ class StreamingCategory(BaseCategory):
     async def get_server_url(
         self,
         **kwargs,
-    ) -> StreamingGetServerUrlResponse:
+    ):
         """streaming.getServerUrl method"""
         params = self.get_set_params(locals())
         response = await self.api.request("streaming.getServerUrl", params)
@@ -29,7 +29,7 @@ class StreamingCategory(BaseCategory):
         start_time: typing.Optional[int] = None,
         end_time: typing.Optional[int] = None,
         **kwargs,
-    ) -> StreamingGetStatsResponse:
+    ):
         """streaming.getStats method
 
 
@@ -49,7 +49,7 @@ class StreamingCategory(BaseCategory):
         self,
         word: str,
         **kwargs,
-    ) -> StreamingGetStemResponse:
+    ):
         """streaming.getStem method
 
 

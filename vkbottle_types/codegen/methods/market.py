@@ -32,7 +32,7 @@ class MarketCategory(BaseCategory):
         sku: typing.Optional[str] = None,
         stock_amount: typing.Optional[int] = None,
         **kwargs,
-    ) -> MarketAddResponse:
+    ):
         """market.add method
 
 
@@ -71,7 +71,7 @@ class MarketCategory(BaseCategory):
         main_album: typing.Optional[bool] = None,
         is_hidden: typing.Optional[bool] = None,
         **kwargs,
-    ) -> MarketAddAlbumResponse:
+    ):
         """market.addAlbum method
 
 
@@ -93,7 +93,7 @@ class MarketCategory(BaseCategory):
         group_id: int,
         title: str,
         **kwargs,
-    ) -> MarketAddPropertyResponse:
+    ):
         """market.addProperty method
 
 
@@ -113,7 +113,7 @@ class MarketCategory(BaseCategory):
         property_id: int,
         title: str,
         **kwargs,
-    ) -> MarketAddPropertyVariantResponse:
+    ):
         """market.addPropertyVariant method
 
 
@@ -134,7 +134,7 @@ class MarketCategory(BaseCategory):
         item_ids: typing.List[int],
         album_ids: typing.List[int],
         **kwargs,
-    ) -> BaseOkResponse:
+    ):
         """market.addToAlbum method
 
 
@@ -160,7 +160,7 @@ class MarketCategory(BaseCategory):
         sticker_id: typing.Optional[int] = None,
         guid: typing.Optional[str] = None,
         **kwargs,
-    ) -> MarketCreateCommentResponse:
+    ):
         """market.createComment method
 
 
@@ -185,7 +185,7 @@ class MarketCategory(BaseCategory):
         owner_id: int,
         item_id: int,
         **kwargs,
-    ) -> BaseOkResponse:
+    ):
         """market.delete method
 
 
@@ -204,7 +204,7 @@ class MarketCategory(BaseCategory):
         owner_id: int,
         album_id: int,
         **kwargs,
-    ) -> BaseOkResponse:
+    ):
         """market.deleteAlbum method
 
 
@@ -223,7 +223,7 @@ class MarketCategory(BaseCategory):
         owner_id: int,
         comment_id: int,
         **kwargs,
-    ) -> BaseBoolResponse:
+    ):
         """market.deleteComment method
 
 
@@ -242,7 +242,7 @@ class MarketCategory(BaseCategory):
         group_id: int,
         property_id: int,
         **kwargs,
-    ) -> BaseOkResponse:
+    ):
         """market.deleteProperty method
 
 
@@ -261,7 +261,7 @@ class MarketCategory(BaseCategory):
         group_id: int,
         variant_id: int,
         **kwargs,
-    ) -> BaseOkResponse:
+    ):
         """market.deletePropertyVariant method
 
 
@@ -298,7 +298,7 @@ class MarketCategory(BaseCategory):
         sku: typing.Optional[str] = None,
         stock_amount: typing.Optional[int] = None,
         **kwargs,
-    ) -> BaseOkResponse:
+    ):
         """market.edit method
 
 
@@ -339,7 +339,7 @@ class MarketCategory(BaseCategory):
         main_album: typing.Optional[bool] = None,
         is_hidden: typing.Optional[bool] = None,
         **kwargs,
-    ) -> BaseOkResponse:
+    ):
         """market.editAlbum method
 
 
@@ -364,7 +364,7 @@ class MarketCategory(BaseCategory):
         message: typing.Optional[str] = None,
         attachments: typing.Optional[typing.List[str]] = None,
         **kwargs,
-    ) -> BaseOkResponse:
+    ):
         """market.editComment method
 
 
@@ -396,7 +396,7 @@ class MarketCategory(BaseCategory):
         comment_for_user: typing.Optional[str] = None,
         receipt_link: typing.Optional[str] = None,
         **kwargs,
-    ) -> BaseOkResponse:
+    ):
         """market.editOrder method
 
 
@@ -427,7 +427,7 @@ class MarketCategory(BaseCategory):
         property_id: int,
         title: str,
         **kwargs,
-    ) -> BaseOkResponse:
+    ):
         """market.editProperty method
 
 
@@ -448,7 +448,7 @@ class MarketCategory(BaseCategory):
         variant_id: int,
         title: str,
         **kwargs,
-    ) -> BaseOkResponse:
+    ):
         """market.editPropertyVariant method
 
 
@@ -469,7 +469,7 @@ class MarketCategory(BaseCategory):
         query: typing.Optional[str] = None,
         count: typing.Optional[int] = 20,
         **kwargs,
-    ) -> MarketGetCategoriesNewResponse:
+    ):
         """market.filterCategories method
 
 
@@ -498,7 +498,7 @@ class MarketCategory(BaseCategory):
         with_disabled: typing.Optional[bool] = None,
         fields: typing.Optional[typing.List[str]] = None,
         **kwargs,
-    ) -> MarketGetExtendedResponse: ...
+    ): ...
 
     async def get(
         self,
@@ -513,7 +513,7 @@ class MarketCategory(BaseCategory):
         with_disabled: typing.Optional[bool] = None,
         fields: typing.Optional[typing.List[str]] = None,
         **kwargs,
-    ) -> MarketGetResponse:
+    ):
         """market.get method
 
 
@@ -544,7 +544,7 @@ class MarketCategory(BaseCategory):
         owner_id: int,
         album_ids: typing.List[int],
         **kwargs,
-    ) -> MarketGetAlbumByIdResponse:
+    ):
         """market.getAlbumById method
 
 
@@ -564,7 +564,7 @@ class MarketCategory(BaseCategory):
         offset: typing.Optional[int] = None,
         count: typing.Optional[int] = 50,
         **kwargs,
-    ) -> MarketGetAlbumsResponse:
+    ):
         """market.getAlbums method
 
 
@@ -585,14 +585,14 @@ class MarketCategory(BaseCategory):
         item_ids: typing.List[str],
         extended: typing.Literal[True] = True,
         **kwargs,
-    ) -> MarketGetByIdExtendedResponse: ...
+    ): ...
 
     async def get_by_id(
         self,
         item_ids: typing.List[str],
         extended: typing.Optional[bool] = None,
         **kwargs,
-    ) -> MarketGetByIdResponse:
+    ):
         """market.getById method
 
 
@@ -615,7 +615,7 @@ class MarketCategory(BaseCategory):
         group_id: typing.Optional[int] = None,
         album_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> MarketGetCategoriesNewResponse:
+    ):
         """market.getCategories method
 
 
@@ -641,7 +641,7 @@ class MarketCategory(BaseCategory):
         extended: typing.Optional[bool] = None,
         fields: typing.Optional[typing.List[UsersFields]] = None,
         **kwargs,
-    ) -> MarketGetCommentsResponse:
+    ):
         """market.getComments method
 
 
@@ -668,7 +668,7 @@ class MarketCategory(BaseCategory):
         offset: typing.Optional[int] = 0,
         count: typing.Optional[int] = 10,
         **kwargs,
-    ) -> MarketGetGroupOrdersResponse:
+    ):
         """market.getGroupOrders method
 
 
@@ -689,7 +689,7 @@ class MarketCategory(BaseCategory):
         user_id: typing.Optional[int] = None,
         extended: typing.Optional[bool] = None,
         **kwargs,
-    ) -> MarketGetOrderByIdResponse:
+    ):
         """market.getOrderById method
 
 
@@ -711,7 +711,7 @@ class MarketCategory(BaseCategory):
         offset: typing.Optional[int] = None,
         count: typing.Optional[int] = 50,
         **kwargs,
-    ) -> MarketGetOrderItemsResponse:
+    ):
         """market.getOrderItems method
 
 
@@ -736,7 +736,7 @@ class MarketCategory(BaseCategory):
         date_from: typing.Optional[str] = None,
         date_to: typing.Optional[str] = None,
         **kwargs,
-    ) -> MarketGetOrdersExtendedResponse: ...
+    ): ...
 
     async def get_orders(
         self,
@@ -746,7 +746,7 @@ class MarketCategory(BaseCategory):
         date_from: typing.Optional[str] = None,
         date_to: typing.Optional[str] = None,
         **kwargs,
-    ) -> MarketGetOrdersResponse:
+    ):
         """market.getOrders method
 
 
@@ -771,7 +771,7 @@ class MarketCategory(BaseCategory):
         self,
         group_id: int,
         **kwargs,
-    ) -> BaseGetUploadServerResponse:
+    ):
         """market.getProductPhotoUploadServer method
 
 
@@ -788,7 +788,7 @@ class MarketCategory(BaseCategory):
         self,
         group_id: int,
         **kwargs,
-    ) -> MarketGetPropertiesResponse:
+    ):
         """market.getProperties method
 
 
@@ -807,7 +807,7 @@ class MarketCategory(BaseCategory):
         item_ids: typing.List[int],
         item_group_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> MarketGroupItemsResponse:
+    ):
         """market.groupItems method
 
 
@@ -828,7 +828,7 @@ class MarketCategory(BaseCategory):
         item_id: int,
         album_ids: typing.List[int],
         **kwargs,
-    ) -> BaseOkResponse:
+    ):
         """market.removeFromAlbum method
 
 
@@ -850,7 +850,7 @@ class MarketCategory(BaseCategory):
         before: typing.Optional[int] = None,
         after: typing.Optional[int] = None,
         **kwargs,
-    ) -> BaseOkResponse:
+    ):
         """market.reorderAlbums method
 
 
@@ -874,7 +874,7 @@ class MarketCategory(BaseCategory):
         before: typing.Optional[int] = None,
         after: typing.Optional[int] = None,
         **kwargs,
-    ) -> BaseOkResponse:
+    ):
         """market.reorderItems method
 
 
@@ -897,7 +897,7 @@ class MarketCategory(BaseCategory):
         item_id: int,
         reason: typing.Optional[int] = 0,
         **kwargs,
-    ) -> BaseOkResponse:
+    ):
         """market.report method
 
 
@@ -918,7 +918,7 @@ class MarketCategory(BaseCategory):
         comment_id: int,
         reason: int,
         **kwargs,
-    ) -> BaseOkResponse:
+    ):
         """market.reportComment method
 
 
@@ -938,7 +938,7 @@ class MarketCategory(BaseCategory):
         owner_id: int,
         item_id: int,
         **kwargs,
-    ) -> BaseOkResponse:
+    ):
         """market.restore method
 
 
@@ -957,7 +957,7 @@ class MarketCategory(BaseCategory):
         owner_id: int,
         comment_id: int,
         **kwargs,
-    ) -> BaseBoolResponse:
+    ):
         """market.restoreComment method
 
 
@@ -975,7 +975,7 @@ class MarketCategory(BaseCategory):
         self,
         upload_response: str,
         **kwargs,
-    ) -> MarketPhotoIdResponse:
+    ):
         """market.saveProductPhoto method
 
 
@@ -1004,7 +1004,7 @@ class MarketCategory(BaseCategory):
         status: typing.Optional[typing.List[int]] = None,
         need_variants: typing.Optional[bool] = None,
         **kwargs,
-    ) -> MarketSearchExtendedResponse: ...
+    ): ...
 
     async def search(
         self,
@@ -1021,7 +1021,7 @@ class MarketCategory(BaseCategory):
         status: typing.Optional[typing.List[int]] = None,
         need_variants: typing.Optional[bool] = None,
         **kwargs,
-    ) -> MarketSearchResponse:
+    ):
         """market.search method
 
 
@@ -1062,7 +1062,7 @@ class MarketCategory(BaseCategory):
         country: typing.Optional[int] = None,
         city: typing.Optional[int] = None,
         **kwargs,
-    ) -> MarketSearchResponse:
+    ):
         """market.searchItems method
 
 
@@ -1098,7 +1098,7 @@ class MarketCategory(BaseCategory):
         city: typing.Optional[int] = None,
         only_my_groups: typing.Optional[bool] = None,
         **kwargs,
-    ) -> MarketSearchBasicResponse:
+    ):
         """market.searchItemsBasic method
 
 
@@ -1126,7 +1126,7 @@ class MarketCategory(BaseCategory):
         group_id: int,
         item_group_id: int,
         **kwargs,
-    ) -> BaseOkResponse:
+    ):
         """market.ungroupItems method
 
 

@@ -1,7 +1,7 @@
 import enum
 import typing
 
-from vkbottle_types.base_model import BaseModel, Field
+from vkbottle_types.base_model import BaseModel, RootModel, Field
 
 
 class UsersCareer(BaseModel):
@@ -5724,12 +5724,6 @@ class BaseSex(enum.IntEnum):
     MALE = 2
 
 
-class BaseSticker(BaseModel):
-    """
-    Schema: base_sticker
-    """
-
-
 class BaseStickerAnimationType(enum.Enum):
     LIGHT = "light"
     DARK = "dark"
@@ -6180,12 +6174,6 @@ class CallbackAppPayload(BaseModel):
     payload: str = Field()
 
 
-class CallbackAudioNew(BaseModel):
-    """
-    Schema: callback_audio_new
-    """
-
-
 class CallbackBase(BaseModel):
     """
     Schema: callback_base
@@ -6222,24 +6210,6 @@ class CallbackBoardPostDelete(BaseModel):
     deleter_id: typing.Optional[int] = Field(
         default=None,
     )
-
-
-class CallbackBoardPostEdit(BaseModel):
-    """
-    Schema: callback_board_post_edit
-    """
-
-
-class CallbackBoardPostNew(BaseModel):
-    """
-    Schema: callback_board_post_new
-    """
-
-
-class CallbackBoardPostRestore(BaseModel):
-    """
-    Schema: callback_board_post_restore
-    """
 
 
 class CallbackDonutMoneyWithdraw(BaseModel):
@@ -6766,12 +6736,6 @@ class CallbackPhotoCommentDelete(BaseModel):
     deleter_id: int = Field()
 
 
-class CallbackPhotoNew(BaseModel):
-    """
-    Schema: callback_photo_new
-    """
-
-
 class CallbackPollVoteNew(BaseModel):
     """
     Schema: callback_poll_vote_new
@@ -6929,12 +6893,6 @@ class CallbackVideoCommentDelete(BaseModel):
     video_id: int = Field()
 
 
-class CallbackVideoNew(BaseModel):
-    """
-    Schema: callback_video_new
-    """
-
-
 class CallbackVkpayTransaction(BaseModel):
     """
     Schema: callback_vkpay_transaction
@@ -6965,36 +6923,6 @@ class CallbackWallCommentDelete(BaseModel):
     user_id: int = Field()
 
     post_id: int = Field()
-
-
-class CallbackWallPostNew(BaseModel):
-    """
-    Schema: callback_wall_post_new
-    """
-
-
-class CallbackWallReplyEdit(BaseModel):
-    """
-    Schema: callback_wall_reply_edit
-    """
-
-
-class CallbackWallReplyNew(BaseModel):
-    """
-    Schema: callback_wall_reply_new
-    """
-
-
-class CallbackWallReplyRestore(BaseModel):
-    """
-    Schema: callback_wall_reply_restore
-    """
-
-
-class CallbackWallRepost(BaseModel):
-    """
-    Schema: callback_wall_repost
-    """
 
 
 class CallsCall(BaseModel):
@@ -7121,12 +7049,6 @@ class CommentThread(BaseModel):
     )
 
 
-class DatabaseCityById(BaseModel):
-    """
-    Schema: database_city_by_id
-    """
-
-
 class DatabaseFaculty(BaseModel):
     """
     Schema: database_faculty
@@ -7187,12 +7109,6 @@ class DatabaseSchool(BaseModel):
         default=None,
         description="School title",
     )
-
-
-class DatabaseSchoolClass(BaseModel):
-    """
-    Schema: database_school_class
-    """
 
 
 class DatabaseStation(BaseModel):
@@ -9452,12 +9368,6 @@ class GroupsRoleOptions(enum.Enum):
     CREATOR = "creator"
 
 
-class GroupsSectionsListItem(BaseModel):
-    """
-    Schema: groups_sections_list_item
-    """
-
-
 class GroupsSettingsTwitterStatus(enum.Enum):
     LOADING = "loading"
     SYNC = "sync"
@@ -9833,12 +9743,6 @@ class MarketMarketAlbum(BaseModel):
         default=None,
         description="Is album needed to be blurred (18+) or not",
     )
-
-
-class MarketMarketCategory(BaseModel):
-    """
-    Schema: market_market_category
-    """
 
 
 class MarketMarketCategoryNestedInnerType(enum.Enum):
@@ -10287,12 +10191,6 @@ class MarketServicesViewType(enum.IntEnum):
     CARDS = 1
 
     ROWS = 2
-
-
-class MessagesActionOneOf(BaseModel):
-    """
-    Schema: messages_action_one_of
-    """
 
 
 class MessagesAudioMessage(BaseModel):
@@ -12316,12 +12214,6 @@ class NotificationsNotification(BaseModel):
     )
 
 
-class NotificationsNotificationItem(BaseModel):
-    """
-    Schema: notifications_notification_item
-    """
-
-
 class NotificationsReply(BaseModel):
     """
     Schema: notifications_reply
@@ -13661,7 +13553,7 @@ class PollsPoll(BaseModel):
     )
 
 
-class PollsPollAnonymous(BaseModel):
+class PollsPollAnonymous(RootModel[bool]):
     """
     Schema: polls_poll_anonymous
     """
@@ -14092,13 +13984,13 @@ class StatsPeriod(BaseModel):
     )
 
 
-class StatsPeriodFromOneOf(BaseModel):
+class StatsPeriodFromOneOf(RootModel[int]):
     """
     Schema: stats_period_from_one_of
     """
 
 
-class StatsPeriodToOneOf(BaseModel):
+class StatsPeriodToOneOf(RootModel[int]):
     """
     Schema: stats_period_to_one_of
     """
@@ -14442,12 +14334,6 @@ class StoreProduct(BaseModel):
         default=None,
         description="Information whether the product is a sticker pack with popup stickers (for stickers product type)",
     )
-
-
-class StoreProductIcon(BaseModel):
-    """
-    Schema: store_product_icon
-    """
 
 
 class StoreStickersKeyword(BaseModel):
@@ -16447,12 +16333,6 @@ class WallWallCommentDonutPlaceholder(BaseModel):
     text: str = Field()
 
 
-class WallWallItem(BaseModel):
-    """
-    Schema: wall_wall_item
-    """
-
-
 class WallWallpostInnerType(enum.Enum):
     WALL_WALLPOST = "wall_wallpost"
 
@@ -16945,12 +16825,6 @@ class NewsfeedItemDigestHeader(BaseModel):
     button: typing.Optional["NewsfeedItemDigestButton"] = Field(
         default=None,
     )
-
-
-class NewsfeedItemDigestItem(BaseModel):
-    """
-    Schema: newsfeed_item_digest_item
-    """
 
 
 class NewsfeedItemFriendFriends(BaseModel):
@@ -18248,12 +18122,48 @@ class BaseLink(BaseLinkNoProduct):
     )
 
 
+class BaseSticker(BaseStickerNew):
+    """
+    Schema: base_sticker
+    """
+
+
+class CallbackAudioNew(AudioAudio):
+    """
+    Schema: callback_audio_new
+    """
+
+
+class CallbackBoardPostEdit(BoardTopicComment):
+    """
+    Schema: callback_board_post_edit
+    """
+
+
+class CallbackBoardPostNew(BoardTopicComment):
+    """
+    Schema: callback_board_post_new
+    """
+
+
+class CallbackBoardPostRestore(BoardTopicComment):
+    """
+    Schema: callback_board_post_restore
+    """
+
+
 class CallbackPhotoComment(WallWallComment):
     """
     Schema: callback_photo_comment
     """
 
     photo_owner_id: int = Field()
+
+
+class CallbackPhotoNew(PhotosPhoto):
+    """
+    Schema: callback_photo_new
+    """
 
 
 class CallbackVideoComment(WallWallComment):
@@ -18264,6 +18174,42 @@ class CallbackVideoComment(WallWallComment):
     video_owner_id: typing.Optional[int] = Field(
         default=None,
     )
+
+
+class CallbackVideoNew(AudioAudio):
+    """
+    Schema: callback_video_new
+    """
+
+
+class CallbackWallPostNew(WallWallpost):
+    """
+    Schema: callback_wall_post_new
+    """
+
+
+class CallbackWallReplyEdit(WallWallComment):
+    """
+    Schema: callback_wall_reply_edit
+    """
+
+
+class CallbackWallReplyNew(WallWallComment):
+    """
+    Schema: callback_wall_reply_new
+    """
+
+
+class CallbackWallReplyRestore(WallWallComment):
+    """
+    Schema: callback_wall_reply_restore
+    """
+
+
+class CallbackWallRepost(WallWallpost):
+    """
+    Schema: callback_wall_repost
+    """
 
 
 class CallbackConfirmation(CallbackBase):
@@ -18343,6 +18289,24 @@ class DatabaseCity(BaseObject):
         default=None,
         description="Information whether the city is included in important cities list",
     )
+
+
+class DatabaseCityById(BaseObject):
+    """
+    Schema: database_city_by_id
+    """
+
+
+class DatabaseSchoolClass(BaseObject):
+    """
+    Schema: database_school_class
+    """
+
+
+class GroupsSectionsListItem(BaseObject):
+    """
+    Schema: groups_sections_list_item
+    """
 
 
 class GroupsUserXtrRole(UsersUserFull):
@@ -18637,6 +18601,12 @@ class GroupsGroupFull(GroupsGroup, GroupsMarketProperties):
     )
 
 
+class MarketMarketCategory(MarketMarketCategoryNested):
+    """
+    Schema: market_market_category
+    """
+
+
 class MarketMarketItemBasicWithGroup(MarketMarketItemBasic):
     """
     Schema: market_market_item_basic_with_group
@@ -18785,6 +18755,12 @@ class MessagesUserXtrInvitedBy(UsersUserXtrType):
     )
 
 
+class MessagesActionOneOf(MessagesMessageAction):
+    """
+    Schema: messages_action_one_of
+    """
+
+
 class MessagesGetConversationByIdExtended(MessagesGetConversationById):
     """
     Schema: messages_getConversationById_extended
@@ -18799,6 +18775,12 @@ class MessagesGetConversationByIdExtended(MessagesGetConversationById):
     )
 
 
+class NotificationsNotificationItem(NotificationsNotification):
+    """
+    Schema: notifications_notification_item
+    """
+
+
 class PollsPollExtended(PollsPoll):
     """
     Schema: polls_poll_extended
@@ -18807,6 +18789,12 @@ class PollsPollExtended(PollsPoll):
     profiles: typing.Optional[typing.List["UsersUserFull"]] = Field(
         default=None,
     )
+
+
+class StoreProductIcon(StickersImageSet):
+    """
+    Schema: store_product_icon
+    """
 
 
 class FriendsRequestsXtrMutual(UsersUserFull):
@@ -19031,6 +19019,12 @@ class WallWallpostFull(WallCarouselBase, WallWallpost):
     )
 
 
+class WallWallItem(WallWallpostFull):
+    """
+    Schema: wall_wall_item
+    """
+
+
 class NewsfeedCommentsBase(BaseCommentsInfo):
     """
     Schema: newsfeed_comments_base
@@ -19221,6 +19215,12 @@ class NewsfeedItemDigestFullItem(NewsfeedItemBase):
         default=None,
         description="Optional red badge for posts in digest block",
     )
+
+
+class NewsfeedItemDigestItem(NewsfeedItemDigestFullItem):
+    """
+    Schema: newsfeed_item_digest_item
+    """
 
 
 class NewsfeedItemFriend(NewsfeedItemBase):
@@ -19523,7 +19523,6 @@ __all__ = (
     "BaseRepostsInfo",
     "BaseRequestParam",
     "BaseSex",
-    "BaseSticker",
     "BaseStickerAnimation",
     "BaseStickerAnimationType",
     "BaseStickerNew",
@@ -19535,12 +19534,8 @@ __all__ = (
     "BoardTopic",
     "BoardTopicComment",
     "CallbackAppPayload",
-    "CallbackAudioNew",
     "CallbackBase",
     "CallbackBoardPostDelete",
-    "CallbackBoardPostEdit",
-    "CallbackBoardPostNew",
-    "CallbackBoardPostRestore",
     "CallbackDonutMoneyWithdraw",
     "CallbackDonutMoneyWithdrawError",
     "CallbackDonutSubscriptionCancelled",
@@ -19568,31 +19563,22 @@ __all__ = (
     "CallbackMessageDeny",
     "CallbackMessageObject",
     "CallbackPhotoCommentDelete",
-    "CallbackPhotoNew",
     "CallbackPollVoteNew",
     "CallbackType",
     "CallbackUserBlock",
     "CallbackUserUnblock",
     "CallbackVideoCommentDelete",
-    "CallbackVideoNew",
     "CallbackVkpayTransaction",
     "CallbackWallCommentDelete",
-    "CallbackWallPostNew",
-    "CallbackWallReplyEdit",
-    "CallbackWallReplyNew",
-    "CallbackWallReplyRestore",
-    "CallbackWallRepost",
     "CallsCall",
     "CallsEndState",
     "CallsParticipants",
     "ClientInfoForBots",
     "CommentThread",
-    "DatabaseCityById",
     "DatabaseFaculty",
     "DatabaseLanguageFull",
     "DatabaseRegion",
     "DatabaseSchool",
-    "DatabaseSchoolClass",
     "DatabaseStation",
     "DatabaseUniversity",
     "DocsDoc",
@@ -19679,7 +19665,6 @@ __all__ = (
     "GroupsPhotoSize",
     "GroupsProfileItem",
     "GroupsRoleOptions",
-    "GroupsSectionsListItem",
     "GroupsSettingsTwitter",
     "GroupsSettingsTwitterStatus",
     "GroupsSubjectItem",
@@ -19699,7 +19684,6 @@ __all__ = (
     "MarketItemOwnerInfo",
     "MarketItemPromotionInfo",
     "MarketMarketAlbum",
-    "MarketMarketCategory",
     "MarketMarketCategoryNested",
     "MarketMarketCategoryNestedInnerType",
     "MarketMarketCategoryTree",
@@ -19716,7 +19700,6 @@ __all__ = (
     "MarketPropertyType",
     "MarketPropertyVariant",
     "MarketServicesViewType",
-    "MessagesActionOneOf",
     "MessagesAudioMessage",
     "MessagesChat",
     "MessagesChatFull",
@@ -19799,7 +19782,6 @@ __all__ = (
     "NotificationsFeedback",
     "NotificationsNotification",
     "NotificationsNotificationInnerType",
-    "NotificationsNotificationItem",
     "NotificationsReply",
     "NotificationsSendMessageError",
     "NotificationsSendMessageItem",
@@ -19869,7 +19851,6 @@ __all__ = (
     "StorageValue",
     "StoreProduct",
     "StoreProductType",
-    "StoreProductIcon",
     "StoreStickersKeyword",
     "StoreStickersKeywordSticker",
     "StoriesClickableArea",
@@ -19946,7 +19927,6 @@ __all__ = (
     "WallWallComment",
     "WallWallCommentDonut",
     "WallWallCommentDonutPlaceholder",
-    "WallWallItem",
     "WallWallpost",
     "WallWallpostInnerType",
     "WallWallpostAttachment",
@@ -19968,7 +19948,6 @@ __all__ = (
     "NewsfeedItemDigestFooterStyle",
     "NewsfeedItemDigestHeader",
     "NewsfeedItemDigestHeaderStyle",
-    "NewsfeedItemDigestItem",
     "NewsfeedItemFriendFriends",
     "NewsfeedItemHolidayRecommendationsBlockHeader",
     "NewsfeedItemPhotoPhotos",
@@ -20000,21 +19979,40 @@ __all__ = (
     "AdsTargSettings",
     "AppsApp",
     "BaseLink",
+    "BaseSticker",
+    "CallbackAudioNew",
+    "CallbackBoardPostEdit",
+    "CallbackBoardPostNew",
+    "CallbackBoardPostRestore",
     "CallbackPhotoComment",
+    "CallbackPhotoNew",
     "CallbackVideoComment",
+    "CallbackVideoNew",
+    "CallbackWallPostNew",
+    "CallbackWallReplyEdit",
+    "CallbackWallReplyNew",
+    "CallbackWallReplyRestore",
+    "CallbackWallRepost",
     "CallbackConfirmation",
     "CallbackMessageAllow",
     "CallbackMessageEdit",
     "CallbackMessageNew",
     "CallbackMessageReply",
     "DatabaseCity",
+    "DatabaseCityById",
+    "DatabaseSchoolClass",
+    "GroupsSectionsListItem",
     "GroupsUserXtrRole",
     "GroupsGroupFull",
+    "MarketMarketCategory",
     "MarketMarketItemBasicWithGroup",
     "MarketMarketItemFull",
     "MessagesUserXtrInvitedBy",
+    "MessagesActionOneOf",
     "MessagesGetConversationByIdExtended",
+    "NotificationsNotificationItem",
     "PollsPollExtended",
+    "StoreProductIcon",
     "FriendsRequestsXtrMutual",
     "FriendsFriendExtendedStatus",
     "FriendsRequestsXtrMessage",
@@ -20022,6 +20020,7 @@ __all__ = (
     "VideoVideoAlbumFull",
     "VideoVideoFull",
     "WallWallpostFull",
+    "WallWallItem",
     "NewsfeedCommentsBase",
     "NewsfeedCommentsItemTypeMarket",
     "NewsfeedCommentsItemTypeNotes",
@@ -20032,6 +20031,7 @@ __all__ = (
     "NewsfeedItemAudio",
     "NewsfeedItemDigest",
     "NewsfeedItemDigestFullItem",
+    "NewsfeedItemDigestItem",
     "NewsfeedItemFriend",
     "NewsfeedItemPhoto",
     "NewsfeedItemPhotoTag",

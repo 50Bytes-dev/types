@@ -17,7 +17,7 @@ class UsersCategory(BaseCategory):
         name_case: typing.Optional[str] = None,
         from_group_id: typing.Optional[int] = 0,
         **kwargs,
-    ) -> UsersGetResponse:
+    ):
         """users.get method
 
 
@@ -42,7 +42,7 @@ class UsersCategory(BaseCategory):
         count: typing.Optional[int] = 100,
         name_case: typing.Optional[str] = None,
         **kwargs,
-    ) -> UsersGetFollowersFieldsResponse: ...
+    ): ...
 
     async def get_followers(
         self,
@@ -52,7 +52,7 @@ class UsersCategory(BaseCategory):
         fields: typing.Optional[typing.List[UsersFields]] = None,
         name_case: typing.Optional[str] = None,
         **kwargs,
-    ) -> UsersGetFollowersResponse:
+    ):
         """users.getFollowers method
 
 
@@ -82,7 +82,7 @@ class UsersCategory(BaseCategory):
         count: typing.Optional[int] = 20,
         fields: typing.Optional[typing.List[UsersFields]] = None,
         **kwargs,
-    ) -> UsersGetSubscriptionsExtendedResponse: ...
+    ): ...
 
     async def get_subscriptions(
         self,
@@ -92,7 +92,7 @@ class UsersCategory(BaseCategory):
         count: typing.Optional[int] = 20,
         fields: typing.Optional[typing.List[UsersFields]] = None,
         **kwargs,
-    ) -> UsersGetSubscriptionsResponse:
+    ):
         """users.getSubscriptions method
 
 
@@ -119,7 +119,7 @@ class UsersCategory(BaseCategory):
         type: str,
         comment: typing.Optional[str] = None,
         **kwargs,
-    ) -> BaseOkResponse:
+    ):
         """users.report method
 
 
@@ -173,7 +173,7 @@ class UsersCategory(BaseCategory):
         screen_ref: typing.Optional[str] = None,
         from_group_id: typing.Optional[int] = 0,
         **kwargs,
-    ) -> UsersSearchResponse:
+    ):
         """users.search method
 
 

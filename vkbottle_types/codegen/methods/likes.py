@@ -18,7 +18,7 @@ class LikesCategory(BaseCategory):
         access_key: typing.Optional[str] = None,
         from_group: typing.Optional[bool] = None,
         **kwargs,
-    ) -> LikesAddResponse:
+    ):
         """likes.add method
 
 
@@ -43,7 +43,7 @@ class LikesCategory(BaseCategory):
         access_key: typing.Optional[str] = None,
         from_group: typing.Optional[bool] = None,
         **kwargs,
-    ) -> LikesDeleteResponse:
+    ):
         """likes.delete method
 
 
@@ -75,7 +75,7 @@ class LikesCategory(BaseCategory):
         skip_own: typing.Optional[bool] = None,
         fields: typing.Optional[typing.List[str]] = None,
         **kwargs,
-    ) -> LikesGetListExtendedResponse: ...
+    ): ...
 
     async def get_list(
         self,
@@ -91,7 +91,7 @@ class LikesCategory(BaseCategory):
         skip_own: typing.Optional[bool] = None,
         fields: typing.Optional[typing.List[str]] = None,
         **kwargs,
-    ) -> LikesGetListResponse:
+    ):
         """likes.getList method
 
 
@@ -125,7 +125,7 @@ class LikesCategory(BaseCategory):
         user_id: typing.Optional[int] = None,
         owner_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> LikesIsLikedResponse:
+    ):
         """likes.isLiked method
 
 

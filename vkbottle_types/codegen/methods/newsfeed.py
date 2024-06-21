@@ -15,7 +15,7 @@ class NewsfeedCategory(BaseCategory):
         user_ids: typing.Optional[typing.List[int]] = None,
         group_ids: typing.Optional[typing.List[int]] = None,
         **kwargs,
-    ) -> BaseBoolResponse:
+    ):
         """newsfeed.addBan method
 
 
@@ -34,7 +34,7 @@ class NewsfeedCategory(BaseCategory):
         user_ids: typing.Optional[typing.List[int]] = None,
         group_ids: typing.Optional[typing.List[int]] = None,
         **kwargs,
-    ) -> BaseOkResponse:
+    ):
         """newsfeed.deleteBan method
 
 
@@ -52,7 +52,7 @@ class NewsfeedCategory(BaseCategory):
         self,
         list_id: int,
         **kwargs,
-    ) -> BaseOkResponse:
+    ):
         """newsfeed.deleteList method
 
 
@@ -78,7 +78,7 @@ class NewsfeedCategory(BaseCategory):
         fields: typing.Optional[typing.List[BaseUserGroupFields]] = None,
         section: typing.Optional[str] = None,
         **kwargs,
-    ) -> NewsfeedGenericResponse:
+    ):
         """newsfeed.get method
 
 
@@ -107,7 +107,7 @@ class NewsfeedCategory(BaseCategory):
         fields: typing.Optional[typing.List[UsersFields]] = None,
         name_case: typing.Optional[str] = None,
         **kwargs,
-    ) -> NewsfeedGetBannedExtendedResponse: ...
+    ): ...
 
     async def get_banned(
         self,
@@ -115,7 +115,7 @@ class NewsfeedCategory(BaseCategory):
         fields: typing.Optional[typing.List[UsersFields]] = None,
         name_case: typing.Optional[str] = None,
         **kwargs,
-    ) -> NewsfeedGetBannedResponse:
+    ):
         """newsfeed.getBanned method
 
 
@@ -145,7 +145,7 @@ class NewsfeedCategory(BaseCategory):
         start_from: typing.Optional[str] = None,
         fields: typing.Optional[typing.List[BaseUserGroupFields]] = None,
         **kwargs,
-    ) -> NewsfeedGetCommentsResponse:
+    ):
         """newsfeed.getComments method
 
 
@@ -171,14 +171,14 @@ class NewsfeedCategory(BaseCategory):
         extended: typing.Literal[True] = True,
         list_ids: typing.Optional[typing.List[int]] = None,
         **kwargs,
-    ) -> NewsfeedGetListsExtendedResponse: ...
+    ): ...
 
     async def get_lists(
         self,
         list_ids: typing.Optional[typing.List[int]] = None,
         extended: typing.Optional[bool] = 0,
         **kwargs,
-    ) -> NewsfeedGetListsResponse:
+    ):
         """newsfeed.getLists method
 
 
@@ -204,7 +204,7 @@ class NewsfeedCategory(BaseCategory):
         offset: typing.Optional[int] = None,
         count: typing.Optional[int] = 20,
         **kwargs,
-    ) -> NewsfeedGetMentionsResponse:
+    ):
         """newsfeed.getMentions method
 
 
@@ -230,7 +230,7 @@ class NewsfeedCategory(BaseCategory):
         count: typing.Optional[int] = None,
         fields: typing.Optional[typing.List[BaseUserGroupFields]] = None,
         **kwargs,
-    ) -> NewsfeedGenericResponse:
+    ):
         """newsfeed.getRecommended method
 
 
@@ -255,7 +255,7 @@ class NewsfeedCategory(BaseCategory):
         shuffle: typing.Optional[bool] = None,
         fields: typing.Optional[typing.List[BaseUserGroupFields]] = None,
         **kwargs,
-    ) -> NewsfeedGetSuggestedSourcesResponse:
+    ):
         """newsfeed.getSuggestedSources method
 
 
@@ -277,7 +277,7 @@ class NewsfeedCategory(BaseCategory):
         owner_id: typing.Optional[int] = 0,
         item_id: typing.Optional[int] = 0,
         **kwargs,
-    ) -> NewsfeedIgnoreItemResponse:
+    ):
         """newsfeed.ignoreItem method
 
 
@@ -299,7 +299,7 @@ class NewsfeedCategory(BaseCategory):
         list_id: typing.Optional[int] = None,
         no_reposts: typing.Optional[bool] = None,
         **kwargs,
-    ) -> NewsfeedSaveListResponse:
+    ):
         """newsfeed.saveList method
 
 
@@ -328,7 +328,7 @@ class NewsfeedCategory(BaseCategory):
         start_from: typing.Optional[str] = None,
         fields: typing.Optional[typing.List[BaseUserGroupFields]] = None,
         **kwargs,
-    ) -> NewsfeedSearchStrictResponse: ...
+    ): ...
 
     @typing.overload
     async def search(
@@ -343,7 +343,7 @@ class NewsfeedCategory(BaseCategory):
         start_from: typing.Optional[str] = None,
         fields: typing.Optional[typing.List[BaseUserGroupFields]] = None,
         **kwargs,
-    ) -> NewsfeedSearchExtendedResponse: ...
+    ): ...
 
     @typing.overload
     async def search(
@@ -358,7 +358,7 @@ class NewsfeedCategory(BaseCategory):
         start_from: typing.Optional[str] = None,
         fields: typing.Optional[typing.List[BaseUserGroupFields]] = None,
         **kwargs,
-    ) -> NewsfeedSearchExtendedStrictResponse: ...
+    ): ...
 
     async def search(
         self,
@@ -372,7 +372,7 @@ class NewsfeedCategory(BaseCategory):
         start_from: typing.Optional[str] = None,
         fields: typing.Optional[typing.List[BaseUserGroupFields]] = None,
         **kwargs,
-    ) -> NewsfeedSearchResponse:
+    ):
         """newsfeed.search method
 
 
@@ -408,7 +408,7 @@ class NewsfeedCategory(BaseCategory):
         item_id: typing.Optional[int] = 0,
         track_code: typing.Optional[str] = None,
         **kwargs,
-    ) -> BaseOkResponse:
+    ):
         """newsfeed.unignoreItem method
 
 
@@ -430,7 +430,7 @@ class NewsfeedCategory(BaseCategory):
         item_id: int,
         owner_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> BaseOkResponse:
+    ):
         """newsfeed.unsubscribe method
 
 

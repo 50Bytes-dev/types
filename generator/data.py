@@ -194,6 +194,7 @@ class Definition:
     enumNames: list[str] | None = None
     items: typing.Any | None = None
     name: str | None = None
+    ref: str | None = None
 
     _bases: list[str] | None = None
     _default_base: str = "BaseModel"
@@ -243,6 +244,11 @@ class Definition:
                     pass
 
             self._bases = self._filter_refs(refs)
+            return self._bases
+
+        if self.type not in ("object", "enum", "array") and self.properties is None:
+            python_type = get_type(self.type, None)
+            self._bases = [f"RootModel[{python_type}]"]
             return self._bases
 
         self._bases = [self._default_base]

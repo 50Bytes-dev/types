@@ -24,6 +24,15 @@ class GetMembersFieldsFilterManagersResponseModel(BaseResponse):
     items: Optional[List["GroupsUserXtrRole"]] = None
 
 
+class GroupsGetByIdObject(BaseModel):
+    groups: List["GroupsGroupFull"]
+    profiles: List["UsersUserFull"]
+
+
+class GroupsGetByIdObjectResponse(BaseResponse):
+    response: GroupsGetByIdObject
+
+
 _locals = locals().copy()
 _locals_values = _locals.values()
 for item in _locals_values:

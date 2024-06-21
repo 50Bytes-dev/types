@@ -15,7 +15,7 @@ class AuthCategory(BaseCategory):
         phone: str,
         last_name: str,
         **kwargs,
-    ) -> AuthRestoreResponse:
+    ):
         """auth.restore method
 
 

@@ -16,7 +16,7 @@ class OrdersCategory(BaseCategory):
         subscription_id: int,
         pending_cancel: typing.Optional[bool] = 0,
         **kwargs,
-    ) -> BaseBoolResponse:
+    ):
         """orders.cancelSubscription method
 
 
@@ -38,7 +38,7 @@ class OrdersCategory(BaseCategory):
         app_order_id: typing.Optional[int] = None,
         test_mode: typing.Optional[bool] = None,
         **kwargs,
-    ) -> OrdersChangeStateResponse:
+    ):
         """orders.changeState method
 
 
@@ -60,7 +60,7 @@ class OrdersCategory(BaseCategory):
         count: typing.Optional[int] = 100,
         test_mode: typing.Optional[bool] = None,
         **kwargs,
-    ) -> OrdersGetResponse:
+    ):
         """orders.get method
 
 
@@ -80,7 +80,7 @@ class OrdersCategory(BaseCategory):
         user_id: int,
         votes: typing.List[str],
         **kwargs,
-    ) -> OrdersGetAmountResponse:
+    ):
         """orders.getAmount method
 
 
@@ -100,7 +100,7 @@ class OrdersCategory(BaseCategory):
         order_ids: typing.Optional[typing.List[int]] = None,
         test_mode: typing.Optional[bool] = None,
         **kwargs,
-    ) -> OrdersGetByIdResponse:
+    ):
         """orders.getById method
 
 
@@ -120,7 +120,7 @@ class OrdersCategory(BaseCategory):
         user_id: int,
         subscription_id: int,
         **kwargs,
-    ) -> OrdersGetUserSubscriptionByIdResponse:
+    ):
         """orders.getUserSubscriptionById method
 
 
@@ -138,7 +138,7 @@ class OrdersCategory(BaseCategory):
         self,
         user_id: int,
         **kwargs,
-    ) -> OrdersGetUserSubscriptionsResponse:
+    ):
         """orders.getUserSubscriptions method
 
 

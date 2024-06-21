@@ -14,7 +14,7 @@ class AccountCategory(BaseCategory):
         self,
         owner_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> BaseOkResponse:
+    ):
         """account.ban method
 
 
@@ -34,7 +34,7 @@ class AccountCategory(BaseCategory):
         change_password_hash: typing.Optional[str] = None,
         old_password: typing.Optional[str] = None,
         **kwargs,
-    ) -> AccountChangePasswordResponse:
+    ):
         """account.changePassword method
 
 
@@ -55,7 +55,7 @@ class AccountCategory(BaseCategory):
         offset: typing.Optional[int] = 0,
         count: typing.Optional[int] = 100,
         **kwargs,
-    ) -> AccountGetActiveOffersResponse:
+    ):
         """account.getActiveOffers method
 
 
@@ -73,7 +73,7 @@ class AccountCategory(BaseCategory):
         self,
         user_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> AccountGetAppPermissionsResponse:
+    ):
         """account.getAppPermissions method
 
 
@@ -92,7 +92,7 @@ class AccountCategory(BaseCategory):
         count: typing.Optional[int] = 20,
         fields: typing.Optional[typing.List[BaseUserGroupFields]] = None,
         **kwargs,
-    ) -> AccountGetBannedResponse:
+    ):
         """account.getBanned method
 
 
@@ -111,7 +111,7 @@ class AccountCategory(BaseCategory):
         self,
         filter: typing.Optional[typing.List[str]] = None,
         **kwargs,
-    ) -> AccountGetCountersResponse:
+    ):
         """account.getCounters method
 
 
@@ -128,7 +128,7 @@ class AccountCategory(BaseCategory):
         self,
         fields: typing.Optional[typing.List[str]] = None,
         **kwargs,
-    ) -> AccountGetInfoResponse:
+    ):
         """account.getInfo method
 
 
@@ -144,7 +144,7 @@ class AccountCategory(BaseCategory):
     async def get_profile_info(
         self,
         **kwargs,
-    ) -> AccountGetProfileInfoResponse:
+    ):
         """account.getProfileInfo method"""
         params = self.get_set_params(locals())
         response = await self.api.request("account.getProfileInfo", params)
@@ -157,7 +157,7 @@ class AccountCategory(BaseCategory):
         self,
         device_id: typing.Optional[str] = None,
         **kwargs,
-    ) -> AccountGetPushSettingsResponse:
+    ):
         """account.getPushSettings method
 
 
@@ -180,7 +180,7 @@ class AccountCategory(BaseCategory):
         settings: typing.Optional[str] = None,
         sandbox: typing.Optional[bool] = 0,
         **kwargs,
-    ) -> BaseOkResponse:
+    ):
         """account.registerDevice method
 
 
@@ -216,7 +216,7 @@ class AccountCategory(BaseCategory):
         city_id: typing.Optional[int] = None,
         status: typing.Optional[str] = None,
         **kwargs,
-    ) -> AccountSaveProfileInfoResponse:
+    ):
         """account.saveProfileInfo method
 
 
@@ -247,7 +247,7 @@ class AccountCategory(BaseCategory):
         name: typing.Optional[str] = None,
         value: typing.Optional[str] = None,
         **kwargs,
-    ) -> BaseOkResponse:
+    ):
         """account.setInfo method
 
 
@@ -264,7 +264,7 @@ class AccountCategory(BaseCategory):
     async def set_offline(
         self,
         **kwargs,
-    ) -> BaseOkResponse:
+    ):
         """account.setOffline method"""
         params = self.get_set_params(locals())
         response = await self.api.request("account.setOffline", params)
@@ -277,7 +277,7 @@ class AccountCategory(BaseCategory):
         self,
         voip: typing.Optional[bool] = None,
         **kwargs,
-    ) -> BaseOkResponse:
+    ):
         """account.setOnline method
 
 
@@ -297,7 +297,7 @@ class AccountCategory(BaseCategory):
         key: typing.Optional[str] = None,
         value: typing.Optional[typing.List[str]] = None,
         **kwargs,
-    ) -> BaseOkResponse:
+    ):
         """account.setPushSettings method
 
 
@@ -320,7 +320,7 @@ class AccountCategory(BaseCategory):
         peer_id: typing.Optional[int] = None,
         sound: typing.Optional[int] = None,
         **kwargs,
-    ) -> BaseOkResponse:
+    ):
         """account.setSilenceMode method
 
 
@@ -340,7 +340,7 @@ class AccountCategory(BaseCategory):
         self,
         owner_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> BaseOkResponse:
+    ):
         """account.unban method
 
 
@@ -358,7 +358,7 @@ class AccountCategory(BaseCategory):
         device_id: typing.Optional[str] = None,
         sandbox: typing.Optional[bool] = 0,
         **kwargs,
-    ) -> BaseOkResponse:
+    ):
         """account.unregisterDevice method
 
 

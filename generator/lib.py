@@ -1,6 +1,9 @@
+from typing import Tuple
 import requests
 from tqdm import tqdm
 import json
+
+from vkbottle_types import API_VERSION
 from .data import Category, factory
 from .generator_types import get_complex_type
 from .utility import camelcase, snake_case, makesafe, instring
@@ -8,9 +11,6 @@ from .data import Definition, Objects
 from . import generator_types
 import pathlib
 import jinja2
-
-# https://github.com/VKCOM/vk-api-schema
-API_VERSION = "v5.199.63"
 
 CATEGORIES = (
     "users",
@@ -72,7 +72,7 @@ CATEGORIES = (
 )
 
 
-URL = "https://raw.githubusercontent.com/VKCOM/vk-api-schema/{}/{}/{}.json"
+URL = "https://raw.githubusercontent.com/VKCOM/vk-api-schema/v{}/{}/{}.json"
 env = jinja2.Environment(loader=jinja2.FileSystemLoader("generator/templates"))
 env.globals.update(
     {
@@ -93,6 +93,12 @@ def process_downloaded_category(dct: dict) -> Category:
             method["name"] = method["name"].split(".")[1]
         dct["methods"] = methods
     if objects:
+        if "definitions" in objects:
+            definations = objects["definitions"]
+            for key, value in definations.items():
+                if "$ref" in value:
+                    value["allOf"] = [{"$ref": value["$ref"]}]
+                    del value["$ref"]
         dct["objects"] = objects
     if responses:
         dct["responses"] = responses
@@ -235,17 +241,6 @@ def generate_responses(category: Category, path: str):
     ) as fs:
         template = env.get_template("responses.jinja2")
         generated = template.render(definitions=definitions)
-        generated = generated.replace(
-            "### IMPORTS",
-            (
-                (
-                    "from vkbottle_types.objects import "
-                    + ", ".join(generator_types.IMPORTS_CACHE)
-                )
-                if generator_types.IMPORTS_CACHE
-                else ""
-            ),
-        )
         fs.write(generated)
 
 
@@ -253,20 +248,37 @@ def reorder_definitions(
     definitions: list[tuple[str, Definition, Category]]
 ) -> list[tuple[str, Definition]]:
     l_bases_f = lambda d: len(d[1].allOf)
-    s = sorted(definitions, key=l_bases_f)
-    s = sorted(
+    sorted_definations = sorted(definitions, key=l_bases_f)
+
+    def sort_by_category(d: Tuple[str, Definition, Category]):
+        if not l_bases_f(d):
+            return 0
+        return (
+            1
+            + CATEGORIES.index(d[2].name)
+            + any(b.lower().startswith(d[2].name.lower()) for b in d[1].get_bases())
+        )
+
+    sorted_definations = sorted(
         definitions,
-        key=lambda d: (
-            0
-            if not l_bases_f(d)
-            else (
-                1
-                + CATEGORIES.index(d[2].name)
-                + any(b.lower().startswith(d[2].name.lower()) for b in d[1].get_bases())
-            )
-        ),
+        key=sort_by_category,
     )
-    return s
+
+    indexes_by_name = {d[0]: i for i, d in enumerate(sorted_definations)}
+
+    for index, d in enumerate([*sorted_definations]):
+        if not l_bases_f(d):
+            continue
+
+        bases = [snake_case(base) for base in d[1].get_bases()]
+        bases_indexes = [indexes_by_name.get(base, 0) for base in bases]
+        max_base_index = max(bases_indexes)
+
+        if max_base_index > index:
+            depended = sorted_definations.pop(index)
+            sorted_definations.insert(max_base_index, depended)
+
+    return sorted_definations
 
 
 def generate_objects(definitions: list[tuple[str, Definition, Category]], path: str):

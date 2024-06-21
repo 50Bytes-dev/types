@@ -14,7 +14,7 @@ class CallsCategory(BaseCategory):
         self,
         call_id: str,
         **kwargs,
-    ) -> BaseOkResponse:
+    ):
         """calls.forceFinish method
 
 
@@ -31,7 +31,7 @@ class CallsCategory(BaseCategory):
         self,
         group_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> CallsStartResponse:
+    ):
         """calls.start method
 
 

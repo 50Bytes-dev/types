@@ -16,7 +16,7 @@ class DatabaseCategory(BaseCategory):
         offset: typing.Optional[int] = None,
         count: typing.Optional[int] = 100,
         **kwargs,
-    ) -> DatabaseGetChairsResponse:
+    ):
         """database.getChairs method
 
 
@@ -39,7 +39,7 @@ class DatabaseCategory(BaseCategory):
         offset: typing.Optional[int] = None,
         count: typing.Optional[int] = 100,
         **kwargs,
-    ) -> DatabaseGetCitiesResponse:
+    ):
         """database.getCities method
 
 
@@ -60,7 +60,7 @@ class DatabaseCategory(BaseCategory):
         self,
         city_ids: typing.Optional[typing.List[int]] = None,
         **kwargs,
-    ) -> DatabaseGetCitiesByIdResponse:
+    ):
         """database.getCitiesById method
 
 
@@ -80,7 +80,7 @@ class DatabaseCategory(BaseCategory):
         offset: typing.Optional[int] = None,
         count: typing.Optional[int] = 100,
         **kwargs,
-    ) -> DatabaseGetCountriesResponse:
+    ):
         """database.getCountries method
 
 
@@ -100,7 +100,7 @@ class DatabaseCategory(BaseCategory):
         self,
         country_ids: typing.Optional[typing.List[int]] = None,
         **kwargs,
-    ) -> DatabaseGetCountriesByIdResponse:
+    ):
         """database.getCountriesById method
 
 
@@ -119,7 +119,7 @@ class DatabaseCategory(BaseCategory):
         offset: typing.Optional[int] = None,
         count: typing.Optional[int] = 100,
         **kwargs,
-    ) -> DatabaseGetFacultiesResponse:
+    ):
         """database.getFaculties method
 
 
@@ -141,7 +141,7 @@ class DatabaseCategory(BaseCategory):
         count: typing.Optional[int] = 100,
         extended: typing.Optional[bool] = 0,
         **kwargs,
-    ) -> DatabaseGetMetroStationsResponse:
+    ):
         """database.getMetroStations method
 
 
@@ -161,7 +161,7 @@ class DatabaseCategory(BaseCategory):
         self,
         station_ids: typing.Optional[typing.List[int]] = None,
         **kwargs,
-    ) -> DatabaseGetMetroStationsByIdResponse:
+    ):
         """database.getMetroStationsById method
 
 
@@ -180,7 +180,7 @@ class DatabaseCategory(BaseCategory):
         offset: typing.Optional[int] = None,
         count: typing.Optional[int] = 100,
         **kwargs,
-    ) -> DatabaseGetRegionsResponse:
+    ):
         """database.getRegions method
 
 
@@ -199,7 +199,7 @@ class DatabaseCategory(BaseCategory):
         self,
         country_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> DatabaseGetSchoolClassesNewResponse:
+    ):
         """database.getSchoolClasses method
 
 
@@ -219,7 +219,7 @@ class DatabaseCategory(BaseCategory):
         offset: typing.Optional[int] = None,
         count: typing.Optional[int] = 100,
         **kwargs,
-    ) -> DatabaseGetSchoolsResponse:
+    ):
         """database.getSchools method
 
 
@@ -242,7 +242,7 @@ class DatabaseCategory(BaseCategory):
         offset: typing.Optional[int] = None,
         count: typing.Optional[int] = 100,
         **kwargs,
-    ) -> DatabaseGetUniversitiesResponse:
+    ):
         """database.getUniversities method
 
 

@@ -14,7 +14,7 @@ class PagesCategory(BaseCategory):
         self,
         url: str,
         **kwargs,
-    ) -> BaseOkResponse:
+    ):
         """pages.clearCache method
 
 
@@ -37,7 +37,7 @@ class PagesCategory(BaseCategory):
         need_source: typing.Optional[bool] = None,
         need_html: typing.Optional[bool] = None,
         **kwargs,
-    ) -> PagesGetResponse:
+    ):
         """pages.get method
 
 
@@ -62,7 +62,7 @@ class PagesCategory(BaseCategory):
         group_id: typing.Optional[int] = None,
         user_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> PagesGetHistoryResponse:
+    ):
         """pages.getHistory method
 
 
@@ -81,7 +81,7 @@ class PagesCategory(BaseCategory):
         self,
         group_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> PagesGetTitlesResponse:
+    ):
         """pages.getTitles method
 
 
@@ -101,7 +101,7 @@ class PagesCategory(BaseCategory):
         user_id: typing.Optional[int] = None,
         need_html: typing.Optional[bool] = None,
         **kwargs,
-    ) -> PagesGetVersionResponse:
+    ):
         """pages.getVersion method
 
 
@@ -122,7 +122,7 @@ class PagesCategory(BaseCategory):
         text: str,
         group_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> PagesParseWikiResponse:
+    ):
         """pages.parseWiki method
 
 
@@ -144,7 +144,7 @@ class PagesCategory(BaseCategory):
         user_id: typing.Optional[int] = None,
         title: typing.Optional[str] = None,
         **kwargs,
-    ) -> PagesSaveResponse:
+    ):
         """pages.save method
 
 
@@ -169,7 +169,7 @@ class PagesCategory(BaseCategory):
         view: typing.Optional[int] = None,
         edit: typing.Optional[int] = None,
         **kwargs,
-    ) -> PagesSaveAccessResponse:
+    ):
         """pages.saveAccess method
 
 

@@ -16,7 +16,7 @@ class DonutCategory(BaseCategory):
         count: typing.Optional[int] = 10,
         fields: typing.Optional[typing.List[str]] = None,
         **kwargs,
-    ) -> GroupsGetMembersFieldsResponse:
+    ):
         """donut.getFriends method
 
 
@@ -36,7 +36,7 @@ class DonutCategory(BaseCategory):
         self,
         owner_id: int,
         **kwargs,
-    ) -> DonutGetSubscriptionResponse:
+    ):
         """donut.getSubscription method
 
 
@@ -55,7 +55,7 @@ class DonutCategory(BaseCategory):
         offset: typing.Optional[int] = 0,
         count: typing.Optional[int] = 10,
         **kwargs,
-    ) -> DonutGetSubscriptionsResponse:
+    ):
         """donut.getSubscriptions method
 
 
@@ -74,7 +74,7 @@ class DonutCategory(BaseCategory):
         self,
         owner_id: int,
         **kwargs,
-    ) -> BaseBoolResponse:
+    ):
         """donut.isDon method
 
 

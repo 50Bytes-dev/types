@@ -4,6 +4,11 @@ from vkbottle_types.codegen.responses.utils import *  # noqa: F403,F401
 
 from .base_response import BaseResponse
 
+
+class UtilsResolveScreenNameResponse(BaseResponse):
+    response: typing.Union["UtilsDomainResolved", List] = Field()
+
+
 _locals = locals().copy()
 _locals_values = _locals.values()
 for item in _locals_values:

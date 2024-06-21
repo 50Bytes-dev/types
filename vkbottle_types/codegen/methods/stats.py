@@ -22,7 +22,7 @@ class StatsCategory(BaseCategory):
         stats_groups: typing.Optional[typing.List[str]] = None,
         extended: typing.Optional[bool] = 1,
         **kwargs,
-    ) -> StatsGetResponse:
+    ):
         """stats.get method
 
 
@@ -48,7 +48,7 @@ class StatsCategory(BaseCategory):
         owner_id: int,
         post_ids: typing.List[int],
         **kwargs,
-    ) -> StatsGetPostReachResponse:
+    ):
         """stats.getPostReach method
 
 
@@ -66,7 +66,7 @@ class StatsCategory(BaseCategory):
         self,
         type: typing.Optional[str] = "open",
         **kwargs,
-    ) -> BaseOkResponse:
+    ):
         """stats.trackVisitor method
 
 

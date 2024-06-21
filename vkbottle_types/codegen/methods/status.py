@@ -15,7 +15,7 @@ class StatusCategory(BaseCategory):
         user_id: typing.Optional[int] = None,
         group_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> StatusGetResponse:
+    ):
         """status.get method
 
 
@@ -34,7 +34,7 @@ class StatusCategory(BaseCategory):
         text: typing.Optional[str] = None,
         group_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> BaseOkResponse:
+    ):
         """status.set method
 
 

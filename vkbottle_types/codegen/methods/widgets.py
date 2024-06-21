@@ -20,7 +20,7 @@ class WidgetsCategory(BaseCategory):
         offset: typing.Optional[int] = 0,
         count: typing.Optional[int] = 10,
         **kwargs,
-    ) -> WidgetsGetCommentsResponse:
+    ):
         """widgets.getComments method
 
 
@@ -47,7 +47,7 @@ class WidgetsCategory(BaseCategory):
         offset: typing.Optional[int] = 0,
         count: typing.Optional[int] = 10,
         **kwargs,
-    ) -> WidgetsGetPagesResponse:
+    ):
         """widgets.getPages method
 
 

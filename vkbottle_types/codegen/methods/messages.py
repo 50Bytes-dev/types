@@ -16,7 +16,7 @@ class MessagesCategory(BaseCategory):
         user_id: typing.Optional[int] = None,
         visible_messages_count: typing.Optional[int] = None,
         **kwargs,
-    ) -> BaseOkResponse:
+    ):
         """messages.addChatUser method
 
 
@@ -36,7 +36,7 @@ class MessagesCategory(BaseCategory):
         chat_id: typing.Optional[int] = None,
         visible_messages_count: typing.Optional[int] = None,
         **kwargs,
-    ) -> MessagesAddChatUsersResponse:
+    ):
         """messages.addChatUsers method
 
 
@@ -55,7 +55,7 @@ class MessagesCategory(BaseCategory):
         group_id: int,
         key: typing.Optional[str] = None,
         **kwargs,
-    ) -> BaseOkResponse:
+    ):
         """messages.allowMessagesFromGroup method
 
 
@@ -75,7 +75,7 @@ class MessagesCategory(BaseCategory):
         title: typing.Optional[str] = None,
         group_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> MessagesCreateChatWithPeerIdsResponse:
+    ):
         """messages.createChat method
 
 
@@ -100,7 +100,7 @@ class MessagesCategory(BaseCategory):
         peer_id: typing.Optional[int] = None,
         cmids: typing.Optional[typing.List[int]] = None,
         **kwargs,
-    ) -> MessagesDeleteFullResponse:
+    ):
         """messages.delete method
 
 
@@ -124,7 +124,7 @@ class MessagesCategory(BaseCategory):
         chat_id: int,
         group_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> MessagesDeleteChatPhotoResponse:
+    ):
         """messages.deleteChatPhoto method
 
 
@@ -144,7 +144,7 @@ class MessagesCategory(BaseCategory):
         peer_id: typing.Optional[int] = None,
         group_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> MessagesDeleteConversationResponse:
+    ):
         """messages.deleteConversation method
 
 
@@ -164,7 +164,7 @@ class MessagesCategory(BaseCategory):
         peer_id: int,
         cmid: int,
         **kwargs,
-    ) -> BaseBoolResponse:
+    ):
         """messages.deleteReaction method
 
 
@@ -182,7 +182,7 @@ class MessagesCategory(BaseCategory):
         self,
         group_id: int,
         **kwargs,
-    ) -> BaseOkResponse:
+    ):
         """messages.denyMessagesFromGroup method
 
 
@@ -212,7 +212,7 @@ class MessagesCategory(BaseCategory):
         template: typing.Optional[str] = None,
         keyboard: typing.Optional[str] = None,
         **kwargs,
-    ) -> BaseBoolResponse:
+    ):
         """messages.edit method
 
 
@@ -243,7 +243,7 @@ class MessagesCategory(BaseCategory):
         chat_id: int,
         title: typing.Optional[str] = None,
         **kwargs,
-    ) -> BaseOkResponse:
+    ):
         """messages.editChat method
 
 
@@ -266,7 +266,7 @@ class MessagesCategory(BaseCategory):
         fields: typing.Optional[typing.List[UsersFields]] = None,
         group_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> MessagesGetByConversationMessageIdExtendedResponse: ...
+    ): ...
 
     async def get_by_conversation_message_id(
         self,
@@ -276,7 +276,7 @@ class MessagesCategory(BaseCategory):
         fields: typing.Optional[typing.List[UsersFields]] = None,
         group_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> MessagesGetByConversationMessageIdResponse:
+    ):
         """messages.getByConversationMessageId method
 
 
@@ -308,7 +308,7 @@ class MessagesCategory(BaseCategory):
         cmids: typing.Optional[typing.List[int]] = None,
         peer_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> MessagesGetByIdExtendedResponse: ...
+    ): ...
 
     async def get_by_id(
         self,
@@ -320,7 +320,7 @@ class MessagesCategory(BaseCategory):
         cmids: typing.Optional[typing.List[int]] = None,
         peer_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> MessagesGetByIdResponse:
+    ):
         """messages.getById method
 
 
@@ -351,7 +351,7 @@ class MessagesCategory(BaseCategory):
         chat_ids: typing.Optional[typing.List[int]] = None,
         name_case: typing.Optional[str] = None,
         **kwargs,
-    ) -> MessagesGetChatFieldsResponse: ...
+    ): ...
 
     @typing.overload
     async def get_chat(
@@ -361,7 +361,7 @@ class MessagesCategory(BaseCategory):
         fields: typing.Optional[typing.List[UsersFields]] = None,
         name_case: typing.Optional[str] = None,
         **kwargs,
-    ) -> MessagesGetChatChatIdsResponse: ...
+    ): ...
 
     @typing.overload
     async def get_chat(
@@ -371,7 +371,7 @@ class MessagesCategory(BaseCategory):
         chat_id: typing.Optional[int] = None,
         name_case: typing.Optional[str] = None,
         **kwargs,
-    ) -> MessagesGetChatChatIdsFieldsResponse: ...
+    ): ...
 
     async def get_chat(
         self,
@@ -380,7 +380,7 @@ class MessagesCategory(BaseCategory):
         fields: typing.Optional[typing.List[UsersFields]] = None,
         name_case: typing.Optional[str] = None,
         **kwargs,
-    ) -> MessagesGetChatResponse:
+    ):
         """messages.getChat method
 
 
@@ -416,7 +416,7 @@ class MessagesCategory(BaseCategory):
         link: typing.Optional[str] = None,
         fields: typing.Optional[typing.List[UsersFields]] = None,
         **kwargs,
-    ) -> MessagesGetChatPreviewResponse:
+    ):
         """messages.getChatPreview method
 
 
@@ -441,7 +441,7 @@ class MessagesCategory(BaseCategory):
         group_id: typing.Optional[int] = None,
         member_ids: typing.Optional[typing.List[int]] = None,
         **kwargs,
-    ) -> MessagesGetConversationMembersResponse:
+    ):
         """messages.getConversationMembers method
 
 
@@ -470,7 +470,7 @@ class MessagesCategory(BaseCategory):
         fields: typing.Optional[typing.List[BaseUserGroupFields]] = None,
         group_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> MessagesGetConversationsResponse:
+    ):
         """messages.getConversations method
 
 
@@ -497,7 +497,7 @@ class MessagesCategory(BaseCategory):
         fields: typing.Optional[typing.List[BaseUserGroupFields]] = None,
         group_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> MessagesGetConversationsByIdExtendedResponse: ...
+    ): ...
 
     async def get_conversations_by_id(
         self,
@@ -506,7 +506,7 @@ class MessagesCategory(BaseCategory):
         fields: typing.Optional[typing.List[BaseUserGroupFields]] = None,
         group_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> MessagesGetConversationsByIdResponse:
+    ):
         """messages.getConversationsById method
 
 
@@ -539,7 +539,7 @@ class MessagesCategory(BaseCategory):
         fields: typing.Optional[typing.List[UsersFields]] = None,
         group_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> MessagesGetHistoryExtendedResponse: ...
+    ): ...
 
     async def get_history(
         self,
@@ -553,7 +553,7 @@ class MessagesCategory(BaseCategory):
         fields: typing.Optional[typing.List[UsersFields]] = None,
         group_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> MessagesGetHistoryResponse:
+    ):
         """messages.getHistory method
 
 
@@ -596,7 +596,7 @@ class MessagesCategory(BaseCategory):
         preserve_order: typing.Optional[bool] = None,
         photo_sizes: typing.Optional[bool] = None,
         **kwargs,
-    ) -> MessagesGetHistoryAttachmentsResponse:
+    ):
         """messages.getHistoryAttachments method
 
 
@@ -634,7 +634,7 @@ class MessagesCategory(BaseCategory):
         fields: typing.Optional[typing.List[BaseUserGroupFields]] = None,
         group_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> MessagesGetImportantMessagesExtendedResponse: ...
+    ): ...
 
     async def get_important_messages(
         self,
@@ -646,7 +646,7 @@ class MessagesCategory(BaseCategory):
         extended: typing.Optional[bool] = None,
         group_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> MessagesGetImportantMessagesResponse:
+    ):
         """messages.getImportantMessages method
 
 
@@ -679,7 +679,7 @@ class MessagesCategory(BaseCategory):
         name_case: typing.Optional[str] = None,
         fields: typing.Optional[typing.List[str]] = None,
         **kwargs,
-    ) -> MessagesGetIntentUsersResponse:
+    ):
         """messages.getIntentUsers method
 
 
@@ -705,7 +705,7 @@ class MessagesCategory(BaseCategory):
         reset: typing.Optional[bool] = 0,
         group_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> MessagesGetInviteLinkByOwnerResponse: ...
+    ): ...
 
     async def get_invite_link(
         self,
@@ -713,7 +713,7 @@ class MessagesCategory(BaseCategory):
         reset: typing.Optional[bool] = 0,
         group_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> MessagesGetInviteLinkResponse:
+    ):
         """messages.getInviteLink method
 
 
@@ -736,7 +736,7 @@ class MessagesCategory(BaseCategory):
         self,
         user_id: int,
         **kwargs,
-    ) -> MessagesGetLastActivityResponse:
+    ):
         """messages.getLastActivity method
 
 
@@ -767,7 +767,7 @@ class MessagesCategory(BaseCategory):
         credentials: typing.Optional[bool] = None,
         extended: typing.Optional[bool] = 0,
         **kwargs,
-    ) -> MessagesGetLongPollHistoryResponse:
+    ):
         """messages.getLongPollHistory method
 
 
@@ -798,7 +798,7 @@ class MessagesCategory(BaseCategory):
         group_id: typing.Optional[int] = None,
         lp_version: typing.Optional[int] = 0,
         **kwargs,
-    ) -> MessagesGetLongPollServerResponse:
+    ):
         """messages.getLongPollServer method
 
 
@@ -818,7 +818,7 @@ class MessagesCategory(BaseCategory):
         peer_id: int,
         cmids: typing.List[int],
         **kwargs,
-    ) -> MessagesGetMessagesReactionsResponse:
+    ):
         """messages.getMessagesReactions method
 
 
@@ -838,7 +838,7 @@ class MessagesCategory(BaseCategory):
         cmid: int,
         reaction_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> MessagesGetReactedPeersResponse:
+    ):
         """messages.getReactedPeers method
 
 
@@ -857,7 +857,7 @@ class MessagesCategory(BaseCategory):
         self,
         client_version: typing.Optional[int] = None,
         **kwargs,
-    ) -> MessagesGetReactionsAssetsResponse:
+    ):
         """messages.getReactionsAssets method
 
 
@@ -875,7 +875,7 @@ class MessagesCategory(BaseCategory):
         group_id: int,
         user_id: int,
         **kwargs,
-    ) -> MessagesIsMessagesFromGroupAllowedResponse:
+    ):
         """messages.isMessagesFromGroupAllowed method
 
 
@@ -893,7 +893,7 @@ class MessagesCategory(BaseCategory):
         self,
         link: str,
         **kwargs,
-    ) -> MessagesJoinChatByInviteLinkResponse:
+    ):
         """messages.joinChatByInviteLink method
 
 
@@ -912,7 +912,7 @@ class MessagesCategory(BaseCategory):
         answered: typing.Optional[bool] = 1,
         group_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> BaseOkResponse:
+    ):
         """messages.markAsAnsweredConversation method
 
 
@@ -932,7 +932,7 @@ class MessagesCategory(BaseCategory):
         message_ids: typing.Optional[typing.List[int]] = None,
         important: typing.Optional[int] = None,
         **kwargs,
-    ) -> MessagesMarkAsImportantDeprecatedResponse:
+    ):
         """messages.markAsImportant method
 
 
@@ -952,7 +952,7 @@ class MessagesCategory(BaseCategory):
         important: typing.Optional[bool] = 1,
         group_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> BaseOkResponse:
+    ):
         """messages.markAsImportantConversation method
 
 
@@ -978,7 +978,7 @@ class MessagesCategory(BaseCategory):
         mark_conversation_as_read: typing.Optional[bool] = None,
         up_to_cmid: typing.Optional[int] = None,
         **kwargs,
-    ) -> BaseOkResponse:
+    ):
         """messages.markAsRead method
 
 
@@ -1001,7 +1001,7 @@ class MessagesCategory(BaseCategory):
         peer_id: int,
         cmids: typing.Optional[typing.List[int]] = None,
         **kwargs,
-    ) -> BaseBoolResponse:
+    ):
         """messages.markReactionsAsRead method
 
 
@@ -1021,7 +1021,7 @@ class MessagesCategory(BaseCategory):
         message_id: typing.Optional[int] = None,
         cmid: typing.Optional[int] = None,
         **kwargs,
-    ) -> MessagesPinResponse:
+    ):
         """messages.pin method
 
 
@@ -1042,7 +1042,7 @@ class MessagesCategory(BaseCategory):
         user_id: typing.Optional[int] = None,
         member_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> BaseOkResponse:
+    ):
         """messages.removeChatUser method
 
 
@@ -1064,7 +1064,7 @@ class MessagesCategory(BaseCategory):
         cmid: typing.Optional[int] = None,
         peer_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> BaseOkResponse:
+    ):
         """messages.restore method
 
 
@@ -1093,7 +1093,7 @@ class MessagesCategory(BaseCategory):
         fields: typing.Optional[typing.List[str]] = None,
         group_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> MessagesSearchExtendedResponse: ...
+    ): ...
 
     async def search(
         self,
@@ -1107,7 +1107,7 @@ class MessagesCategory(BaseCategory):
         fields: typing.Optional[typing.List[str]] = None,
         group_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> MessagesSearchResponse:
+    ):
         """messages.search method
 
 
@@ -1141,7 +1141,7 @@ class MessagesCategory(BaseCategory):
         fields: typing.Optional[typing.List[UsersFields]] = None,
         group_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> MessagesSearchConversationsExtendedResponse: ...
+    ): ...
 
     async def search_conversations(
         self,
@@ -1151,7 +1151,7 @@ class MessagesCategory(BaseCategory):
         fields: typing.Optional[typing.List[UsersFields]] = None,
         group_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> MessagesSearchConversationsResponse:
+    ):
         """messages.searchConversations method
 
 
@@ -1199,7 +1199,7 @@ class MessagesCategory(BaseCategory):
         intent: typing.Optional[str] = "default",
         subscribe_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> MessagesSendDeprecatedResponse: ...
+    ): ...
 
     @typing.overload
     async def send(
@@ -1228,7 +1228,7 @@ class MessagesCategory(BaseCategory):
         intent: typing.Optional[str] = "default",
         subscribe_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> MessagesSendUserIdsResponse: ...
+    ): ...
 
     async def send(
         self,
@@ -1256,7 +1256,7 @@ class MessagesCategory(BaseCategory):
         intent: typing.Optional[str] = "default",
         subscribe_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> MessagesSendDeprecatedResponse:
+    ):
         """messages.send method
 
 
@@ -1305,7 +1305,7 @@ class MessagesCategory(BaseCategory):
         peer_id: int,
         event_data: typing.Optional[str] = None,
         **kwargs,
-    ) -> BaseOkResponse:
+    ):
         """messages.sendMessageEventAnswer method
 
 
@@ -1327,7 +1327,7 @@ class MessagesCategory(BaseCategory):
         cmid: int,
         reaction_id: int,
         **kwargs,
-    ) -> BaseBoolResponse:
+    ):
         """messages.sendReaction method
 
 
@@ -1349,7 +1349,7 @@ class MessagesCategory(BaseCategory):
         peer_id: typing.Optional[int] = None,
         group_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> BaseOkResponse:
+    ):
         """messages.setActivity method
 
 
@@ -1369,7 +1369,7 @@ class MessagesCategory(BaseCategory):
         self,
         file: str,
         **kwargs,
-    ) -> MessagesSetChatPhotoResponse:
+    ):
         """messages.setChatPhoto method
 
 
@@ -1387,7 +1387,7 @@ class MessagesCategory(BaseCategory):
         peer_id: int,
         group_id: typing.Optional[int] = None,
         **kwargs,
-    ) -> BaseOkResponse:
+    ):
         """messages.unpin method
 
 

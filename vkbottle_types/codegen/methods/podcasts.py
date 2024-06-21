@@ -16,7 +16,7 @@ class PodcastsCategory(BaseCategory):
         offset: typing.Optional[int] = 0,
         count: typing.Optional[int] = 20,
         **kwargs,
-    ) -> PodcastsSearchPodcastResponse:
+    ):
         """podcasts.searchPodcast method
 
 

@@ -19,7 +19,7 @@ class SearchCategory(BaseCategory):
         fields: typing.Optional[typing.List[str]] = None,
         search_global: typing.Optional[bool] = 1,
         **kwargs,
-    ) -> SearchGetHintsResponse:
+    ):
         """search.getHints method
 
 
