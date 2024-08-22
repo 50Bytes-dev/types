@@ -16599,6 +16599,8 @@ class WallWallpostAttachmentType(enum.Enum):
 
     PODCAST = "podcast"
 
+    ONLINE_BOOKING = "online_booking"
+
 
 class WallWallpostCommentsDonut(BaseModel):
     """
