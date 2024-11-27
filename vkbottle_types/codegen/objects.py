@@ -15511,6 +15511,7 @@ class VideoVideoType(enum.Enum):
     MOVIE = "movie"
     LIVE = "live"
     SHORT_VIDEO = "short_video"
+    STORY = "story"
 
 
 class VideoVideo(BaseModel):
