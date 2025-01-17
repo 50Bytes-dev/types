@@ -70,7 +70,6 @@ class UsersExports(BaseModel):
 
 
 class UsersFields(enum.Enum):
-
     FIRST_NAME_NOM = "first_name_nom"
 
     FIRST_NAME_GEN = "first_name_gen"
@@ -875,7 +874,6 @@ class UsersUserMin(BaseModel):
 
 
 class UsersUserRelation(enum.IntEnum):
-
     NOT_SPECIFIED = 0
 
     SINGLE = 1
@@ -996,7 +994,6 @@ class UsersUserSettingsXtr(BaseModel):
 
 
 class UsersUserType(enum.Enum):
-
     PROFILE = "profile"
 
 
@@ -1079,7 +1076,6 @@ class AccountAccountCounters(BaseModel):
 
 
 class AccountCountersFilter(enum.Enum):
-
     APP_REQUESTS = "app_requests"
 
     EVENTS = "events"
@@ -1185,7 +1181,6 @@ class AccountNameRequest(BaseModel):
 
 
 class AccountNameRequestStatus(enum.Enum):
-
     SUCCESS = "success"
 
     PROCESSING = "processing"
@@ -1401,7 +1396,6 @@ class AccountPushParams(BaseModel):
 
 
 class AccountPushParamsMode(enum.Enum):
-
     ON = "on"
 
     OFF = "off"
@@ -1412,14 +1406,12 @@ class AccountPushParamsMode(enum.Enum):
 
 
 class AccountPushParamsOnoff(enum.Enum):
-
     ON = "on"
 
     OFF = "off"
 
 
 class AccountPushParamsSettings(enum.Enum):
-
     ON = "on"
 
     OFF = "off"
@@ -1504,7 +1496,6 @@ class AccountUserSettingsInterests(BaseModel):
 
 
 class AddressFields(enum.Enum):
-
     ID = "id"
 
     TITLE = "title"
@@ -1539,7 +1530,6 @@ class AddressFields(enum.Enum):
 
 
 class AddressesFields(enum.Enum):
-
     ID = "id"
 
     TITLE = "title"
@@ -1570,7 +1560,6 @@ class AddressesFields(enum.Enum):
 
 
 class AdsAccessRole(enum.Enum):
-
     ADMIN = "admin"
 
     MANAGER = "manager"
@@ -1579,7 +1568,6 @@ class AdsAccessRole(enum.Enum):
 
 
 class AdsAccessRolePublic(enum.Enum):
-
     MANAGER = "manager"
 
     REPORTS = "reports"
@@ -1627,7 +1615,6 @@ class AdsAccount(BaseModel):
 
 
 class AdsAccountType(enum.Enum):
-
     GENERAL = "general"
 
     AGENCY = "agency"
@@ -1882,7 +1869,6 @@ class AdsAd(BaseModel):
 
 
 class AdsAdApproved(enum.IntEnum):
-
     NOT_MODERATED = 0
 
     PENDING_MODERATION = 1
@@ -1893,7 +1879,6 @@ class AdsAdApproved(enum.IntEnum):
 
 
 class AdsAdCostType(enum.IntEnum):
-
     PER_CLICKS = 0
 
     PER_IMPRESSIONS = 1
@@ -2071,7 +2056,6 @@ class AdsAdLayout(BaseModel):
 
 
 class AdsAdStatus(enum.IntEnum):
-
     STOPPED = 0
 
     STARTED = 1
@@ -2149,7 +2133,6 @@ class AdsCampaign(BaseModel):
 
 
 class AdsCampaignStatus(enum.IntEnum):
-
     STOPPED = 0
 
     STARTED = 1
@@ -2158,7 +2141,6 @@ class AdsCampaignStatus(enum.IntEnum):
 
 
 class AdsCampaignType(enum.Enum):
-
     NORMAL = "normal"
 
     VK_APPS_MANAGED = "vk_apps_managed"
@@ -2609,7 +2591,6 @@ class AdsCriteria(BaseModel):
 
 
 class AdsCriteriaSex(enum.Enum):
-
     value_0 = "0"
 
     value_1 = "1"
@@ -2883,7 +2864,6 @@ class AdsMusician(BaseModel):
 
 
 class AdsObjectType(enum.Enum):
-
     AD = "ad"
 
     CAMPAIGN = "campaign"
@@ -2894,7 +2874,6 @@ class AdsObjectType(enum.Enum):
 
 
 class AdsOrdClientType(enum.Enum):
-
     PERSON = "person"
 
     INDIVIDUAL = "individual"
@@ -3580,7 +3559,6 @@ class AdsStatsFormat(BaseModel):
 
 
 class AdsStatsSexValue(enum.Enum):
-
     F = "f"
 
     M = "m"
@@ -4076,7 +4054,6 @@ class AdsTargSuggestionsSchools(BaseModel):
 
 
 class AdsTargSuggestionsSchoolsType(enum.Enum):
-
     SCHOOL = "school"
 
     UNIVERSITY = "university"
@@ -4453,7 +4430,6 @@ class AppWidgetsPhotos(BaseModel):
 
 
 class AppsAppFields(enum.Enum):
-
     AUTHOR_GROUP = "author_group"
 
     AUTHOR_ID = "author_id"
@@ -4552,7 +4528,6 @@ class AppsAppFields(enum.Enum):
 
 
 class AppsAppLeaderboardType(enum.IntEnum):
-
     NOT_SUPPORTED = 0
 
     LEVELS = 1
@@ -4627,7 +4602,6 @@ class AppsAppMin(BaseModel):
 
 
 class AppsAppType(enum.Enum):
-
     APP = "app"
 
     GAME = "game"
@@ -4870,7 +4844,6 @@ class AudioAudio(BaseModel):
 
 
 class BaseBoolInt(enum.IntEnum):
-
     NO = 0
 
     YES = 1
@@ -5117,7 +5090,6 @@ class BaseImage(BaseModel):
 
 
 class BaseLang(enum.Enum):
-
     RU = "ru"
 
     UA = "ua"
@@ -5311,7 +5283,6 @@ class BaseLinkButtonAction(BaseModel):
 
 
 class BaseLinkButtonActionType(enum.Enum):
-
     OPEN_URL = "open_url"
 
     MARKET_CLEAR_RECENT_QUERIES = "market_clear_recent_queries"
@@ -5330,7 +5301,6 @@ class BaseLinkButtonActionType(enum.Enum):
 
 
 class BaseLinkButtonStyle(enum.Enum):
-
     PRIMARY = "primary"
 
     SECONDARY = "secondary"
@@ -5461,7 +5431,6 @@ class BaseLinkProductCategory(BaseModel):
 
 
 class BaseLinkProductStatus(enum.Enum):
-
     ACTIVE = "active"
 
     BLOCKED = "blocked"
@@ -5514,7 +5483,6 @@ class BaseMessageError(BaseModel):
 
 
 class BaseNameCase(enum.Enum):
-
     NOM = "Nom"
 
     GEN = "Gen"
@@ -5672,7 +5640,6 @@ class BasePlace(BaseModel):
 
 
 class BasePropertyExists(enum.IntEnum):
-
     PROPERTY_EXISTS = 1
 
 
@@ -5716,7 +5683,6 @@ class BaseRequestParam(BaseModel):
 
 
 class BaseSex(enum.IntEnum):
-
     UNKNOWN = 0
 
     FEMALE = 1
@@ -5801,7 +5767,6 @@ class BaseUploadServer(BaseModel):
 
 
 class BaseUserGroupFields(enum.Enum):
-
     ABOUT = "about"
 
     ACTION_BUTTON = "action_button"
@@ -6051,7 +6016,6 @@ class BaseUserId(BaseModel):
 
 
 class BoardDefaultOrder(enum.IntEnum):
-
     DESC_UPDATED = 1
 
     DESC_CREATED = 2
@@ -6333,7 +6297,6 @@ class CallbackGroupJoin(BaseModel):
 
 
 class CallbackGroupJoinType(enum.Enum):
-
     JOIN = "join"
 
     UNSURE = "unsure"
@@ -6360,14 +6323,12 @@ class CallbackGroupLeave(BaseModel):
 
 
 class CallbackGroupMarket(enum.IntEnum):
-
     DISABLED = 0
 
     OPEN = 1
 
 
 class CallbackGroupOfficerRole(enum.IntEnum):
-
     NONE = 0
 
     MODERATOR = 1
@@ -6590,10 +6551,10 @@ class CallbackInfoForBots(BaseModel):
     Schema: callback_info_for_bots
     """
 
-    button_actions: typing.Optional[typing.List["MessagesTemplateActionTypeNames"]] = (
-        Field(
-            default=None,
-        )
+    button_actions: typing.Optional[
+        typing.List[typing.Union["str" | "MessagesTemplateActionTypeNames"]]
+    ] = Field(
+        default=None,
     )
 
     keyboard: typing.Optional[bool] = Field(
@@ -6751,7 +6712,6 @@ class CallbackPollVoteNew(BaseModel):
 
 
 class CallbackType(enum.Enum):
-
     AUDIO_NEW = "audio_new"
 
     BOARD_POST_NEW = "board_post_new"
@@ -6960,7 +6920,6 @@ class CallsCall(BaseModel):
 
 
 class CallsEndState(enum.Enum):
-
     CANCELED_BY_INITIATOR = "canceled_by_initiator"
 
     CANCELED_BY_RECEIVER = "canceled_by_receiver"
@@ -6988,10 +6947,10 @@ class ClientInfoForBots(BaseModel):
     Schema: client_info_for_bots
     """
 
-    button_actions: typing.Optional[typing.List["MessagesTemplateActionTypeNames"]] = (
-        Field(
-            default=None,
-        )
+    button_actions: typing.Optional[
+        typing.List[typing.Union["str" | "MessagesTemplateActionTypeNames"]]
+    ] = Field(
+        default=None,
     )
 
     keyboard: typing.Optional[bool] = Field(
@@ -7209,7 +7168,6 @@ class DocsDoc(BaseModel):
 
 
 class DocsDocAttachmentType(enum.Enum):
-
     DOC = "doc"
 
     GRAFFITI = "graffiti"
@@ -7444,7 +7402,6 @@ class FaveBookmark(BaseModel):
 
 
 class FaveBookmarkType(enum.Enum):
-
     POST = "post"
 
     VIDEO = "video"
@@ -7488,7 +7445,6 @@ class FavePage(BaseModel):
 
 
 class FavePageType(enum.Enum):
-
     USER = "user"
 
     GROUP = "group"
@@ -7552,7 +7508,6 @@ class GiftsGift(BaseModel):
 
 
 class GiftsGiftPrivacy(enum.IntEnum):
-
     NAME_AND_MESSAGE_FOR_ALL = 0
 
     NAME_FOR_ALL = 1
@@ -7766,7 +7721,6 @@ class GroupsAddressTimetableDay(BaseModel):
 
 
 class GroupsAddressWorkInfoStatus(enum.Enum):
-
     NO_INFORMATION = "no_information"
 
     TEMPORARILY_CLOSED = "temporarily_closed"
@@ -7843,7 +7797,6 @@ class GroupsBanInfo(BaseModel):
 
 
 class GroupsBanInfoReason(enum.IntEnum):
-
     OTHER = 0
 
     SPAM = 1
@@ -8023,7 +7976,6 @@ class GroupsCountersGroup(BaseModel):
 
 
 class GroupsFields(enum.Enum):
-
     ID = "id"
 
     NAME = "name"
@@ -8194,7 +8146,6 @@ class GroupsFields(enum.Enum):
 
 
 class GroupsFilter(enum.Enum):
-
     ADMIN = "admin"
 
     EDITOR = "editor"
@@ -8342,7 +8293,6 @@ class GroupsGroup(BaseModel):
 
 
 class GroupsGroupAccess(enum.IntEnum):
-
     OPEN = 0
 
     CLOSED = 1
@@ -8351,7 +8301,6 @@ class GroupsGroupAccess(enum.IntEnum):
 
 
 class GroupsGroupAdminLevel(enum.IntEnum):
-
     MODERATOR = 1
 
     EDITOR = 2
@@ -8360,7 +8309,6 @@ class GroupsGroupAdminLevel(enum.IntEnum):
 
 
 class GroupsGroupAgeLimits(enum.IntEnum):
-
     UNLIMITED = 1
 
     VALUE_16_PLUS = 2
@@ -8395,7 +8343,6 @@ class GroupsGroupAttach(BaseModel):
 
 
 class GroupsGroupAudio(enum.IntEnum):
-
     DISABLED = 0
 
     OPEN = 1
@@ -8476,7 +8423,6 @@ class GroupsGroupCategoryType(BaseModel):
 
 
 class GroupsGroupDocs(enum.IntEnum):
-
     DISABLED = 0
 
     OPEN = 1
@@ -8485,7 +8431,6 @@ class GroupsGroupDocs(enum.IntEnum):
 
 
 class GroupsGroupFullAgeLimits(enum.IntEnum):
-
     NO = 1
 
     OVER_16 = 2
@@ -8494,7 +8439,6 @@ class GroupsGroupFullAgeLimits(enum.IntEnum):
 
 
 class GroupsGroupFullMemberStatus(enum.IntEnum):
-
     NOT_A_MEMBER = 0
 
     MEMBER = 1
@@ -8509,7 +8453,6 @@ class GroupsGroupFullMemberStatus(enum.IntEnum):
 
 
 class GroupsGroupFullSection(enum.IntEnum):
-
     NONE = 0
 
     PHOTOS = 1
@@ -8610,7 +8553,6 @@ class GroupsGroupFullSection(enum.IntEnum):
 
 
 class GroupsGroupIsClosed(enum.IntEnum):
-
     OPEN = 0
 
     CLOSED = 1
@@ -8619,7 +8561,6 @@ class GroupsGroupIsClosed(enum.IntEnum):
 
 
 class GroupsGroupMarketCurrency(enum.IntEnum):
-
     RUSSIAN_RUBLES = 643
 
     UKRAINIAN_HRYVNIA = 980
@@ -8632,7 +8573,6 @@ class GroupsGroupMarketCurrency(enum.IntEnum):
 
 
 class GroupsGroupPhotos(enum.IntEnum):
-
     DISABLED = 0
 
     OPEN = 1
@@ -8659,7 +8599,6 @@ class GroupsGroupPublicCategoryList(BaseModel):
 
 
 class GroupsGroupRole(enum.Enum):
-
     MODERATOR = "moderator"
 
     EDITOR = "editor"
@@ -8688,7 +8627,6 @@ class GroupsGroupSubcategory(BaseModel):
 
 
 class GroupsGroupSubject(enum.IntEnum):
-
     AUTO = 1
 
     ACTIVITY_HOLIDAYS = 2
@@ -8775,7 +8713,6 @@ class GroupsGroupSubject(enum.IntEnum):
 
 
 class GroupsGroupSuggestedPrivacy(enum.IntEnum):
-
     NONE = 0
 
     ALL = 1
@@ -8823,7 +8760,6 @@ class GroupsGroupTag(BaseModel):
 
 
 class GroupsGroupTopics(enum.IntEnum):
-
     DISABLED = 0
 
     OPEN = 1
@@ -8832,7 +8768,6 @@ class GroupsGroupTopics(enum.IntEnum):
 
 
 class GroupsGroupType(enum.Enum):
-
     GROUP = "group"
 
     PAGE = "page"
@@ -8841,7 +8776,6 @@ class GroupsGroupType(enum.Enum):
 
 
 class GroupsGroupVideo(enum.IntEnum):
-
     DISABLED = 0
 
     OPEN = 1
@@ -8850,7 +8784,6 @@ class GroupsGroupVideo(enum.IntEnum):
 
 
 class GroupsGroupWall(enum.IntEnum):
-
     DISABLED = 0
 
     OPEN = 1
@@ -8861,7 +8794,6 @@ class GroupsGroupWall(enum.IntEnum):
 
 
 class GroupsGroupWiki(enum.IntEnum):
-
     DISABLED = 0
 
     OPEN = 1
@@ -9173,7 +9105,6 @@ class GroupsMarketProperties(BaseModel):
 
 
 class GroupsMarketState(enum.Enum):
-
     NONE = "none"
 
     BASIC = "basic"
@@ -9205,12 +9136,10 @@ class GroupsMemberRole(BaseModel):
 
 
 class GroupsMemberRolePermission(enum.Enum):
-
     ADS = "ads"
 
 
 class GroupsMemberRoleStatus(enum.Enum):
-
     MODERATOR = "moderator"
 
     EDITOR = "editor"
@@ -9284,7 +9213,6 @@ class GroupsOnlineStatus(BaseModel):
 
 
 class GroupsOnlineStatusType(enum.Enum):
-
     NONE = "none"
 
     ONLINE = "online"
@@ -9358,7 +9286,6 @@ class GroupsProfileItem(BaseModel):
 
 
 class GroupsRoleOptions(enum.Enum):
-
     MODERATOR = "moderator"
 
     EDITOR = "editor"
@@ -9561,7 +9488,6 @@ class LeadFormsQuestionItemOption(BaseModel):
 
 
 class LikesType(enum.Enum):
-
     POST = "post"
 
     COMMENT = "comment"
@@ -9944,7 +9870,6 @@ class MarketMarketItem(BaseModel):
 
 
 class MarketMarketItemAvailability(enum.IntEnum):
-
     AVAILABLE = 0
 
     REMOVED = 1
@@ -10095,7 +10020,6 @@ class MarketOrderItem(BaseModel):
 
 
 class MarketOwnerType(enum.Enum):
-
     BASE = "base"
 
     PRO = "pro"
@@ -10187,7 +10111,6 @@ class MarketPropertyVariant(BaseModel):
 
 
 class MarketServicesViewType(enum.IntEnum):
-
     CARDS = 1
 
     ROWS = 2
@@ -10707,7 +10630,6 @@ class MessagesChatSettingsPhoto(BaseModel):
 
 
 class MessagesChatSettingsState(enum.Enum):
-
     IN = "in"
 
     KICKED = "kicked"
@@ -10878,7 +10800,6 @@ class MessagesConversationPeer(BaseModel):
 
 
 class MessagesConversationPeerType(enum.Enum):
-
     CHAT = "chat"
 
     EMAIL = "email"
@@ -11201,7 +11122,6 @@ class MessagesHistoryMessageAttachment(BaseModel):
 
 
 class MessagesHistoryMessageAttachmentType(enum.Enum):
-
     APP_ACTION = "app_action"
 
     AUDIO = "audio"
@@ -11682,7 +11602,6 @@ class MessagesMessageActionPhoto(BaseModel):
 
 
 class MessagesMessageActionStatus(enum.Enum):
-
     CHAT_PHOTO_UPDATE = "chat_photo_update"
 
     CHAT_PHOTO_REMOVE = "chat_photo_remove"
@@ -11767,7 +11686,6 @@ class MessagesMessageAttachment(BaseModel):
 
 
 class MessagesMessageAttachmentType(enum.Enum):
-
     PHOTO = "photo"
 
     AUDIO = "audio"
@@ -12019,7 +11937,6 @@ class MessagesSendUserIdsResponseItem(BaseModel):
 
 
 class MessagesTemplateActionTypeNames(enum.Enum):
-
     TEXT = "text"
 
     START = "start"
@@ -12044,7 +11961,6 @@ class MessagesTemplateActionTypeNames(enum.Enum):
 
 
 class MessagesUserTypeForXtrInvitedBy(enum.Enum):
-
     PROFILE = "profile"
 
     GROUP = "group"
@@ -12492,7 +12408,6 @@ class OwnerState(BaseModel):
 
 
 class PagesPrivacySettings(enum.IntEnum):
-
     COMMUNITY_MANAGERS_ONLY = 0
 
     COMMUNITY_MEMBERS_ONLY = 1
@@ -12694,7 +12609,6 @@ class PhotosImage(BaseModel):
 
 
 class PhotosImageType(enum.Enum):
-
     S = "s"
 
     M = "m"
@@ -13006,7 +12920,6 @@ class PhotosPhotoSizes(BaseModel):
 
 
 class PhotosPhotoSizesType(enum.Enum):
-
     T = "t"
 
     S = "s"
@@ -13712,7 +13625,6 @@ class SearchHint(BaseModel):
 
 
 class SearchHintSection(enum.Enum):
-
     GROUPS = "groups"
 
     EVENTS = "events"
@@ -13731,7 +13643,6 @@ class SearchHintSection(enum.Enum):
 
 
 class SearchHintType(enum.Enum):
-
     GROUP = "group"
 
     PROFILE = "profile"
@@ -14899,7 +14810,6 @@ class StoriesStoryStatsStat(BaseModel):
 
 
 class StoriesStoryStatsState(enum.Enum):
-
     ON = "on"
 
     OFF = "off"
@@ -14908,7 +14818,6 @@ class StoriesStoryStatsState(enum.Enum):
 
 
 class StoriesStoryType(enum.Enum):
-
     PHOTO = "photo"
 
     VIDEO = "video"
@@ -14919,7 +14828,6 @@ class StoriesStoryType(enum.Enum):
 
 
 class StoriesUploadLinkText(enum.Enum):
-
     TO_STORE = "to_store"
 
     VOTE = "vote"
@@ -15039,7 +14947,6 @@ class FriendsFriendStatus(BaseModel):
 
 
 class FriendsFriendStatusStatus(enum.IntEnum):
-
     NOT_A_FRIEND = 0
 
     OUTCOMING_REQUEST = 1
@@ -15147,7 +15054,6 @@ class UtilsDomainResolved(BaseModel):
 
 
 class UtilsDomainResolvedType(enum.Enum):
-
     USER = "user"
 
     GROUP = "group"
@@ -15213,7 +15119,6 @@ class UtilsLinkChecked(BaseModel):
 
 
 class UtilsLinkCheckedStatus(enum.Enum):
-
     NOT_BANNED = "not_banned"
 
     BANNED = "banned"
@@ -15987,7 +15892,6 @@ class WallCommentAttachment(BaseModel):
 
 
 class WallCommentAttachmentType(enum.Enum):
-
     PHOTO = "photo"
 
     AUDIO = "audio"
@@ -16040,7 +15944,6 @@ class WallGeo(BaseModel):
 
 
 class WallGetFilter(enum.Enum):
-
     OWNER = "owner"
 
     OTHERS = "others"
@@ -16148,7 +16051,6 @@ class WallPostSource(BaseModel):
 
 
 class WallPostSourceType(enum.Enum):
-
     VK = "vk"
 
     WIDGET = "widget"
@@ -16163,7 +16065,6 @@ class WallPostSourceType(enum.Enum):
 
 
 class WallPostType(enum.Enum):
-
     POST = "post"
 
     COPY = "copy"
@@ -16543,7 +16444,6 @@ class WallWallpostAttachment(BaseModel):
 
 
 class WallWallpostAttachmentType(enum.Enum):
-
     PHOTO = "photo"
 
     PHOTOS_LIST = "photos_list"
@@ -16667,7 +16567,6 @@ class WallWallpostDonutPlaceholder(BaseModel):
 
 
 class NewsfeedCommentsFilters(enum.Enum):
-
     POST = "post"
 
     PHOTO = "photo"
@@ -16706,7 +16605,6 @@ class NewsfeedCommentsItemBase(BaseModel):
 
 
 class NewsfeedIgnoreItemType(enum.Enum):
-
     WALL = "wall"
 
     TAG = "tag"
@@ -16993,7 +16891,6 @@ class NewsfeedItemWallpostFeedbackAnswer(BaseModel):
 
 
 class NewsfeedItemWallpostFeedbackType(enum.Enum):
-
     BUTTONS = "buttons"
 
     STARS = "stars"
@@ -17020,7 +16917,6 @@ class NewsfeedNewsfeedItem(BaseModel):
 
 
 class NewsfeedNewsfeedItemType(enum.Enum):
-
     POST = "post"
 
     PHOTO = "photo"
@@ -17076,7 +16972,6 @@ class WidgetsCommentMedia(BaseModel):
 
 
 class WidgetsCommentMediaType(enum.Enum):
-
     AUDIO = "audio"
 
     PHOTO = "photo"
