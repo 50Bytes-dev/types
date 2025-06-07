@@ -11,8 +11,8 @@ if TYPE_CHECKING:
     from vkbottle import ABCAPI, API  # type: ignore
 
 
-PYDANTIC_V2 = pydantic.VERSION.startswith("2.")
-PYDANTIC_V1 = pydantic.VERSION.startswith("1.")
+IS_PYDANTIC_V2 = pydantic.VERSION.startswith("2.") = pydantic.VERSION.startswith("2.")
+IS_PYDANTIC_V1 = pydantic.VERSION.startswith("2.") = pydantic.VERSION.startswith("1.")
 
 
 class BaseGroupEvent(BaseModel):
@@ -23,10 +23,10 @@ class BaseGroupEvent(BaseModel):
     group_id: Optional[int] = None
     unprepared_ctx_api: Optional[Any] = None
 
-    if PYDANTIC_V2:
+    if IS_PYDANTIC_V2:
         model_config = pydantic.ConfigDict(frozen=False)
 
-    elif PYDANTIC_V1:
+    elif IS_PYDANTIC_V1:
 
         class Config:
             frozen = False
@@ -266,7 +266,8 @@ for item in locals().copy().values():
     if not (isinstance(item, type) and issubclass(item, BaseGroupEvent)):
         continue
 
-    item.model_rebuild()
+    if hasattr(item, "model_rebuild") and IS_PYDANTIC_V2:
+        item.model_rebuild()
 
 
 __all__ = (

@@ -1,3 +1,4 @@
+import pydantic
 from pydantic import BaseModel as BasePydanticModel
 from .account import *
 from .ads import *
@@ -45,7 +46,7 @@ from .video import *
 from .wall import *
 from .widgets import *
 
-IS_PYDANTIC_V2 = hasattr(BasePydanticModel, "model_fields")
+IS_PYDANTIC_V2 = pydantic.VERSION.startswith("2.")
 
 localns = locals().copy()
 for item in localns.values():

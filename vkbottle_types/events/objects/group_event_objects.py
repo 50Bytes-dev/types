@@ -6,15 +6,15 @@ from vkbottle_types.base_model import BaseModel
 from vkbottle_types.objects import *
 
 
-PYDANTIC_V2 = pydantic.VERSION.startswith("2.")
-PYDANTIC_V1 = pydantic.VERSION.startswith("1.")
+IS_PYDANTIC_V2 = pydantic.VERSION.startswith("2.")
+IS_PYDANTIC_V1 = pydantic.VERSION.startswith("1.")
 
 
 class BaseEventObject(BaseModel):
-    if PYDANTIC_V2:
+    if IS_PYDANTIC_V2:
         model_config = pydantic.ConfigDict(frozen=False)
 
-    elif PYDANTIC_V1:
+    elif IS_PYDANTIC_V1:
 
         class Config:
             frozen = False
@@ -350,7 +350,8 @@ for item in locals().copy().values():
     if not (isinstance(item, type) and issubclass(item, BaseEventObject)):
         continue
 
-    item.model_rebuild()
+    if hasattr(item, "model_rebuild") and IS_PYDANTIC_V2:
+        item.model_rebuild()
 
 
 __all__ = (

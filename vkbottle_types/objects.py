@@ -1,5 +1,6 @@
 from enum import Enum
 
+import pydantic
 from pydantic import BaseModel as BasePydanticModel
 from typing_extensions import List, Optional, TypeAlias, Union
 
@@ -334,7 +335,7 @@ class ClientInfoForBots(BaseModel):
 UsersSubscriptionsItem: TypeAlias = Union[GroupsGroupFull, UsersUserFull]
 
 
-IS_PYDANTIC_V2 = hasattr(BasePydanticModel, "model_fields")
+IS_PYDANTIC_V2 = pydantic.VERSION.startswith("2.")
 
 localns = locals().copy()
 

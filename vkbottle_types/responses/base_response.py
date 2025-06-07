@@ -1,4 +1,5 @@
 import json
+import pydantic
 from typing import Any, Dict, Optional
 
 from vkbottle_types.base_model import BaseModel, Field
@@ -30,8 +31,11 @@ class DictResponse(BaseResponse):
         return json.dumps(self.response)
 
 
-BaseResponse.model_rebuild()
-DictResponse.model_rebuild()
+IS_PYDANTIC_V2 = pydantic.VERSION.startswith("2.")
+
+if IS_PYDANTIC_V2:
+    BaseResponse.model_rebuild()
+    DictResponse.model_rebuild()
 
 
 __all__ = ("BaseResponse", "DictResponse")
