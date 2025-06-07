@@ -46,7 +46,9 @@ from .video import *
 from .wall import *
 from .widgets import *
 
+
 IS_PYDANTIC_V2 = pydantic.VERSION.startswith("2.")
+
 
 localns = locals().copy()
 for item in localns.values():
