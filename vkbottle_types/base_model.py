@@ -1,83 +1,66 @@
 import enum
-
+import typing
 import pydantic
-import typing_extensions as typing
-from pydantic_core import CoreSchema, core_schema
+import sys
 
-if typing.TYPE_CHECKING:
+from typing import Any, Dict, Type, TypeVar
 
-    @typing.dataclass_transform(
-        kw_only_default=True,
-        field_specifiers=(pydantic.Field, pydantic.PrivateAttr),
-    )
-    class BaseModel(pydantic.BaseModel):
-        @classmethod
-        def from_raw(cls, data: bytes, /, *, strict: bool = False) -> typing.Self: ...
+T = TypeVar("T", bound="BaseModel")
 
-        @classmethod
-        def from_dict(cls, data: typing.Dict[str, typing.Any], /) -> typing.Self: ...
+# Определяем версию pydantic
+PYDANTIC_V2 = pydantic.VERSION.startswith("2.")
+PYDANTIC_V1 = pydantic.VERSION.startswith("1.")
 
-        def to_dict(self) -> typing.Dict[str, typing.Any]: ...
+# Унифицированный Field
+Field = pydantic.Field
 
-else:
+# ---- BaseModel ----
+
+if PYDANTIC_V2:
 
     class BaseModel(pydantic.BaseModel):
-        model_config = pydantic.ConfigDict(frozen=True)
+        model_config = pydantic.ConfigDict(frozen=True, arbitrary_types_allowed=True)
 
         @classmethod
-        def from_raw(cls, data, /, *, strict=False):
+        def from_raw(cls: Type[T], data: bytes, /, *, strict: bool = False) -> T:
             return cls.model_validate_json(data, strict=strict)
 
         @classmethod
-        def from_dict(cls, data, /):
-            return cls(**data)
+        def from_dict(cls: Type[T], data: Dict[str, Any], /) -> T:
+            return cls.model_validate(data)
 
-        def to_dict(self):
-            return cls.model_dump()
+        def to_dict(self) -> Dict[str, Any]:
+            return self.model_dump()
 
+elif PYDANTIC_V1:
 
-class BaseEnumMeta(enum.EnumMeta, type):
-    @staticmethod
-    def __get_pydantic_core_schema__(
-        _cls: typing.Any, _source_type: typing.Any, _handler: pydantic.GetCoreSchemaHandler
-    ) -> CoreSchema:
-        return core_schema.no_info_after_validator_function(
-            lambda x: _cls(x),  # type: ignore
-            core_schema.str_schema(),
-        )
+    class BaseModel(pydantic.BaseModel):
+        class Config:
+            frozen = True
+            arbitrary_types_allowed = True
 
-    if typing.TYPE_CHECKING:
+        @classmethod
+        def from_raw(cls: Type[T], data: bytes, /, *, strict: bool = False) -> T:
+            return cls.parse_raw(data)
 
-        class BaseEnumMeta(enum.Enum):  # noqa
-            NOT_SUPPORTED_MEMBER = enum.auto()
+        @classmethod
+        def from_dict(cls: Type[T], data: Dict[str, Any], /) -> T:
+            return cls.parse_obj(data)
 
-        NOT_SUPPORTED_MEMBER: typing.Literal[BaseEnumMeta.NOT_SUPPORTED_MEMBER]
-
-    else:
-
-        def __new__(
-            metacls,
-            cls,
-            bases,
-            classdict,
-            *,
-            boundary=None,
-            _simple=False,
-            **kwds,
-        ):
-            enum_bases = (str, enum.StrEnum) if hasattr(enum, "StrEnum") else (str,)
-            classdict["NOT_SUPPORTED_MEMBER"] = (
-                "NOT_SUPPORTED" if any(x in bases for x in enum_bases) else -1234567890
-            )
-            classdict["_missing_"] = classmethod(lambda cls, _: cls._member_map_["NOT_SUPPORTED_MEMBER"])
-            classdict["__get_pydantic_core_schema__"] = classmethod(
-                BaseEnumMeta.__get_pydantic_core_schema__
-            )
-            # Удаляем unsupported аргументы перед вызовом EnumMeta
-            return super().__new__(metacls, cls, bases, classdict, **kwds)
+        def to_dict(self) -> Dict[str, Any]:
+            return self.dict()
+else:
+    raise ImportError(f"Unsupported Pydantic version: {pydantic.VERSION}")
 
 
-Field = pydantic.Field
+# ---- BaseEnumMeta ----
+
+
+class BaseEnumMeta(enum.EnumMeta):
+    def __new__(metacls, cls, bases, classdict, **kwds):
+        classdict["NOT_SUPPORTED_MEMBER"] = "NOT_SUPPORTED"
+        classdict["_missing_"] = classmethod(lambda cls, _: cls._member_map_["NOT_SUPPORTED_MEMBER"])
+        return super().__new__(metacls, cls, bases, classdict, **kwds)
 
 
 __all__ = ("BaseModel", "BaseEnumMeta", "Field")
