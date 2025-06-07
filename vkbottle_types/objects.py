@@ -339,12 +339,12 @@ for item in localns.values():
         continue
 
     fields = []
-    if hasattr(item, "__pydantic_fields__"):
-        fields = item.__pydantic_fields__.copy().values()
-    elif hasattr(item, "__fields__"):
+    if hasattr(item, "__fields__"):
         fields = item.__fields__.copy().values()
     elif hasattr(item, "model_fields"):
         fields = item.model_fields.copy().values()
+    elif hasattr(item, "__pydantic_fields__"):
+        fields = item.__pydantic_fields__.copy().values()
 
     for field in item.__pydantic_fields__.copy().values():
         if (
