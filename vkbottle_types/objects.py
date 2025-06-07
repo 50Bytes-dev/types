@@ -363,5 +363,10 @@ for item in localns.values():
 
     for parent in item.__bases__:
         if parent.__name__ == item.__name__ and issubclass(parent, BaseModel):
-            parent.__pydantic_fields__.update(item.__pydantic_fields__)
+            if hasattr(parent, "__fields__"):
+                parent.__fields__.update(item.__fields__)
+            elif hasattr(parent, "model_fields"):
+                parent.model_fields.update(item.model_fields)
+            elif hasattr(parent, "__pydantic_fields__"):
+                parent.__pydantic_fields__.update(item.__pydantic_fields__)
             parent.model_rebuild(_types_namespace=localns)
