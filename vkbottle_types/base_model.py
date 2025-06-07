@@ -58,7 +58,15 @@ else:
 
 class BaseEnumMeta(enum.EnumMeta):
     def __new__(metacls, cls, bases, classdict, **kwds):
-        classdict["NOT_SUPPORTED_MEMBER"] = "NOT_SUPPORTED"
+        # Определяем тип значения NOT_SUPPORTED_MEMBER в зависимости от базового класса
+        if int in bases or any(issubclass(base, int) for base in bases):
+            default_value = -1234567890
+        elif str in bases or any(issubclass(base, str) for base in bases):
+            default_value = "NOT_SUPPORTED"
+        else:
+            default_value = object()
+
+        classdict["NOT_SUPPORTED_MEMBER"] = default_value
         classdict["_missing_"] = classmethod(lambda cls, _: cls._member_map_["NOT_SUPPORTED_MEMBER"])
         return super().__new__(metacls, cls, bases, classdict, **kwds)
 
