@@ -11,8 +11,8 @@ if TYPE_CHECKING:
     from vkbottle import ABCAPI, API  # type: ignore
 
 
-IS_PYDANTIC_V2 = pydantic.VERSION.startswith("2.") = pydantic.VERSION.startswith("2.")
-IS_PYDANTIC_V1 = pydantic.VERSION.startswith("2.") = pydantic.VERSION.startswith("1.")
+IS_PYDANTIC_V2 = pydantic.VERSION.startswith("2.")
+IS_PYDANTIC_V1 = pydantic.VERSION.startswith("2.")
 
 
 class BaseGroupEvent(BaseModel):
