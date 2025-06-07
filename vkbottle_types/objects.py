@@ -333,29 +333,42 @@ class ClientInfoForBots(BaseModel):
 UsersSubscriptionsItem: TypeAlias = Union[GroupsGroupFull, UsersUserFull]
 
 
+IS_PYDANTIC_V2 = hasattr(BasePydanticModel, "model_fields")
+
 localns = locals().copy()
+
 for item in localns.values():
-    if not (isinstance(item, type) and item is not BaseModel and issubclass(item, BaseModel)):
+    if not (
+        isinstance(item, type) and item is not BasePydanticModel and issubclass(item, BasePydanticModel)
+    ):
         continue
 
-    fields = item.model_fields.copy().values()
+    # --- Pydantic v2 ---
+    if IS_PYDANTIC_V2:
+        fields = item.model_fields.copy().values()
 
-    if fields is None:
-        raise TypeError(
-            f"Type {item.__name__} is not a valid BaseModel subclass, "
-            "it should have __fields__, model_fields or __pydantic_fields__ attribute."
-        )
+        for field in fields:
+            if (
+                isinstance(field.annotation, type)
+                and localns.get(field.annotation.__name__, field.annotation) is not field.annotation
+            ):
+                field.annotation = localns[field.annotation.__name__]
 
-    for field in fields:
-        if (
-            isinstance(field.annotation, type)
-            and localns.get(field.annotation.__name__, field.annotation) is not field.annotation
-        ):
-            field.annotation = localns[field.annotation.__name__]
+        item.model_rebuild(force=True, _types_namespace=localns)
 
-    item.model_rebuild(force=True, _types_namespace=localns)
+        for parent in item.__bases__:
+            if parent.__name__ == item.__name__ and issubclass(parent, BasePydanticModel):
+                parent.model_fields.update(item.model_fields)
+                parent.model_rebuild(_types_namespace=localns)
 
-    for parent in item.__bases__:
-        if parent.__name__ == item.__name__ and issubclass(parent, BaseModel):
-            parent.model_fields.update(item.model_fields)
-            parent.model_rebuild(_types_namespace=localns)
+    # --- Pydantic v1 ---
+    else:
+        fields = item.__fields__.copy().values()
+
+        for field in fields:
+            annotation = field.type_
+            if (
+                isinstance(annotation, type)
+                and localns.get(annotation.__name__, annotation) is not annotation
+            ):
+                field.type_ = localns[annotation.__name__]
