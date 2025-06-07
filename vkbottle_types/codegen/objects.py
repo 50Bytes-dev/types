@@ -5460,7 +5460,7 @@ class AppsCustomSnippet(BaseModel):
     Model: `AppsCustomSnippet`
     """
 
-    vk_ref: typing.Optional[typing.List[typing.Literal["snippet_im", "snippet_post"]]] = Field(
+    vk_ref: typing.Optional[typing.List[str]] = Field(
         default=None,
     )
     """Property `AppsCustomSnippet.vk_ref`."""
@@ -5602,7 +5602,7 @@ class AppsTestingGroup(BaseModel):
     )
     """Property `AppsTestingGroup.webview`."""
 
-    platforms: typing.Optional[typing.List[typing.Literal["mobile", "web", "mvk"]]] = Field(
+    platforms: typing.Optional[typing.List[str]] = Field(
         default=None,
     )
     """Property `AppsTestingGroup.platforms`."""
