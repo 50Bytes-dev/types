@@ -5,6 +5,9 @@ from typing import Any, Dict, Optional
 from vkbottle_types.base_model import BaseModel, Field
 
 
+IS_PYDANTIC_V2 = pydantic.VERSION.startswith("2.")
+
+
 class BaseResponse(BaseModel):
     response: Any
     raw_json: Optional[str] = Field(default=None)
@@ -30,8 +33,6 @@ class DictResponse(BaseResponse):
             return None
         return json.dumps(self.response)
 
-
-IS_PYDANTIC_V2 = pydantic.VERSION.startswith("2.")
 
 if IS_PYDANTIC_V2:
     BaseResponse.model_rebuild()
