@@ -338,13 +338,7 @@ for item in localns.values():
     if not (isinstance(item, type) and item is not BaseModel and issubclass(item, BaseModel)):
         continue
 
-    fields = None
-    if hasattr(item, "__fields__"):
-        fields = item.__fields__.copy().values()
-    elif hasattr(item, "model_fields"):
-        fields = item.model_fields.copy().values()
-    elif hasattr(item, "__pydantic_fields__"):
-        fields = item.__pydantic_fields__.copy().values()
+    fields = item.model_fields.copy().values()
 
     if fields is None:
         raise TypeError(
@@ -363,10 +357,5 @@ for item in localns.values():
 
     for parent in item.__bases__:
         if parent.__name__ == item.__name__ and issubclass(parent, BaseModel):
-            if hasattr(parent, "__fields__"):
-                parent.__fields__.update(item.__fields__)
-            elif hasattr(parent, "model_fields"):
-                parent.model_fields.update(item.model_fields)
-            elif hasattr(parent, "__pydantic_fields__"):
-                parent.__pydantic_fields__.update(item.__pydantic_fields__)
+            parent.model_fields.update(item.model_fields)
             parent.model_rebuild(_types_namespace=localns)

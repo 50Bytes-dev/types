@@ -53,5 +53,5 @@ for item in localns.values():
 
     for parent in item.__bases__:
         if parent.__name__ == item.__name__ and issubclass(parent, BaseModel):
-            parent.__pydantic_fields__.update(item.__pydantic_fields__)
+            parent.model_fields.update(item.model_fields)
             parent.model_rebuild(_types_namespace=localns)
