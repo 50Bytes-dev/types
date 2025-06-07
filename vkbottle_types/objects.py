@@ -338,7 +338,7 @@ for item in localns.values():
     if not (isinstance(item, type) and item is not BaseModel and issubclass(item, BaseModel)):
         continue
 
-    fields = []
+    fields = None
     if hasattr(item, "__fields__"):
         fields = item.__fields__.copy().values()
     elif hasattr(item, "model_fields"):
@@ -346,7 +346,13 @@ for item in localns.values():
     elif hasattr(item, "__pydantic_fields__"):
         fields = item.__pydantic_fields__.copy().values()
 
-    for field in item.__pydantic_fields__.copy().values():
+    if fields is None:
+        raise TypeError(
+            f"Type {item.__name__} is not a valid BaseModel subclass, "
+            "it should have __fields__, model_fields or __pydantic_fields__ attribute."
+        )
+
+    for field in fields:
         if (
             isinstance(field.annotation, type)
             and localns.get(field.annotation.__name__, field.annotation) is not field.annotation
