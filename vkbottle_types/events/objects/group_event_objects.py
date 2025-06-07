@@ -6,8 +6,19 @@ from vkbottle_types.base_model import BaseModel
 from vkbottle_types.objects import *
 
 
+PYDANTIC_V2 = pydantic.VERSION.startswith("2.")
+PYDANTIC_V1 = pydantic.VERSION.startswith("1.")
+
+
 class BaseEventObject(BaseModel):
-    model_config = pydantic.ConfigDict(frozen=False)
+    if PYDANTIC_V2:
+        model_config = pydantic.ConfigDict(frozen=False)
+
+    elif PYDANTIC_V1:
+
+        class Config:
+            frozen = False
+            arbitrary_types_allowed = True
 
 
 class MessageNewObject(BaseEventObject):

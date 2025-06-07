@@ -11,6 +11,10 @@ if TYPE_CHECKING:
     from vkbottle import ABCAPI, API  # type: ignore
 
 
+PYDANTIC_V2 = pydantic.VERSION.startswith("2.")
+PYDANTIC_V1 = pydantic.VERSION.startswith("1.")
+
+
 class BaseGroupEvent(BaseModel):
     object: Optional[group_event_objects.BaseEventObject]
     type: Optional[GroupEventType] = None
@@ -19,7 +23,14 @@ class BaseGroupEvent(BaseModel):
     group_id: Optional[int] = None
     unprepared_ctx_api: Optional[Any] = None
 
-    model_config = pydantic.ConfigDict(frozen=False)
+    if PYDANTIC_V2:
+        model_config = pydantic.ConfigDict(frozen=False)
+
+    elif PYDANTIC_V1:
+
+        class Config:
+            frozen = False
+            arbitrary_types_allowed = True
 
     @property
     def ctx_api(self) -> Union["ABCAPI", "API"]:
