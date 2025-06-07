@@ -1,5 +1,6 @@
 from enum import Enum
 
+from pydantic import BaseModel as BasePydanticModel
 from typing_extensions import List, Optional, TypeAlias, Union
 
 from vkbottle_types.base_model import BaseEnumMeta, BaseModel, Field

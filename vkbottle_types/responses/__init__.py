@@ -1,3 +1,4 @@
+from pydantic import BaseModel as BasePydanticModel
 from .account import *
 from .ads import *
 from .app_widgets import *
@@ -44,14 +45,22 @@ from .video import *
 from .wall import *
 from .widgets import *
 
+IS_PYDANTIC_V2 = hasattr(BasePydanticModel, "model_fields")
+
 localns = locals().copy()
 for item in localns.values():
-    if not (isinstance(item, type) and item is not BaseModel and issubclass(item, BaseModel)):
+    if not (
+        isinstance(item, type) and item is not BasePydanticModel and issubclass(item, BasePydanticModel)
+    ):
         continue
 
-    item.model_rebuild(force=True, _types_namespace=localns)
+    if IS_PYDANTIC_V2:
+        item.model_rebuild(force=True, _types_namespace=localns)
 
-    for parent in item.__bases__:
-        if parent.__name__ == item.__name__ and issubclass(parent, BaseModel):
-            parent.model_fields.update(item.model_fields)
-            parent.model_rebuild(_types_namespace=localns)
+        for parent in item.__bases__:
+            if parent.__name__ == item.__name__ and issubclass(parent, BasePydanticModel):
+                parent.model_fields.update(item.model_fields)
+                parent.model_rebuild(_types_namespace=localns)
+    else:
+        # В Pydantic v1 ничего не нужно делать
+        continue
