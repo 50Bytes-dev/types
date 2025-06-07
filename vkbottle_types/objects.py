@@ -338,6 +338,14 @@ for item in localns.values():
     if not (isinstance(item, type) and item is not BaseModel and issubclass(item, BaseModel)):
         continue
 
+    fields = []
+    if hasattr(item, "__pydantic_fields__"):
+        fields = item.__pydantic_fields__.copy().values()
+    elif hasattr(item, "__fields__"):
+        fields = item.__fields__.copy().values()
+    elif hasattr(item, "model_fields"):
+        fields = item.model_fields.copy().values()
+
     for field in item.__pydantic_fields__.copy().values():
         if (
             isinstance(field.annotation, type)
