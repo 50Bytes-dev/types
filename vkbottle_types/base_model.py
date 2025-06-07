@@ -39,9 +39,7 @@ else:
 class BaseEnumMeta(enum.EnumMeta, type):
     @staticmethod
     def __get_pydantic_core_schema__(
-        _cls: typing.Any,
-        _source_type: typing.Any,
-        _handler: pydantic.GetCoreSchemaHandler
+        _cls: typing.Any, _source_type: typing.Any, _handler: pydantic.GetCoreSchemaHandler
     ) -> CoreSchema:
         return core_schema.no_info_after_validator_function(
             lambda x: _cls(x),  # type: ignore
@@ -68,10 +66,15 @@ class BaseEnumMeta(enum.EnumMeta, type):
             **kwds,
         ):
             enum_bases = (str, enum.StrEnum) if hasattr(enum, "StrEnum") else (str,)
-            classdict["NOT_SUPPORTED_MEMBER"] = "NOT_SUPPORTED" if any(x in bases for x in enum_bases) else -1234567890
+            classdict["NOT_SUPPORTED_MEMBER"] = (
+                "NOT_SUPPORTED" if any(x in bases for x in enum_bases) else -1234567890
+            )
             classdict["_missing_"] = classmethod(lambda cls, _: cls._member_map_["NOT_SUPPORTED_MEMBER"])
-            classdict["__get_pydantic_core_schema__"] = classmethod(BaseEnumMeta.__get_pydantic_core_schema__)
-            return super().__new__(metacls, cls, bases, classdict, boundary=boundary, _simple=_simple, **kwds)
+            classdict["__get_pydantic_core_schema__"] = classmethod(
+                BaseEnumMeta.__get_pydantic_core_schema__
+            )
+            # Удаляем unsupported аргументы перед вызовом EnumMeta
+            return super().__new__(metacls, cls, bases, classdict, **kwds)
 
 
 Field = pydantic.Field
